@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AdministratorLogin">
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="222dp"
+        android:layout_height="192dp"
+        android:layout_marginTop="68dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/joanneum" />
+
+    <Button
+        android:id="@+id/btnAdminSignUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sign Up"
+        app:layout_constraintEnd_toEndOf="@+id/btnAdminLogin"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="@+id/edtLoginPassword"
+        app:layout_constraintTop_toBottomOf="@+id/btnAdminLogin" />
+
+    <Button
+        android:id="@+id/btnAdminLogin"
+        android:layout_width="94dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:text="Log In"
+        app:layout_constraintEnd_toEndOf="@+id/edtAdminPassword"
+        app:layout_constraintHorizontal_bias="0.474"
+        app:layout_constraintStart_toStartOf="@+id/edtAdminPassword"
+        app:layout_constraintTop_toBottomOf="@+id/edtAdminPassword" />
+
+    <EditText
+        android:id="@+id/edtAdminPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Please enter a Password"
+        android:inputType="textPassword"
+        android:minHeight="48dp"
+        app:layout_constraintEnd_toEndOf="@+id/edtAdminEmail"
+        app:layout_constraintStart_toStartOf="@+id/edtAdminEmail"
+        app:layout_constraintTop_toBottomOf="@+id/edtAdminEmail" />
+
+    <EditText
+        android:id="@+id/edtAdminEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:ems="10"
+        android:hint="Please enter an Email"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        app:layout_constraintEnd_toEndOf="@+id/imageView8"
+        app:layout_constraintHorizontal_bias="0.583"
+        app:layout_constraintStart_toStartOf="@+id/imageView8"
+        app:layout_constraintTop_toBottomOf="@+id/imageView8" />
+
+    <Button
+        android:id="@+id/btnAdmin_toInterface"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
+        android:text="Interface Login"
+        app:layout_constraintEnd_toEndOf="@+id/btnAdminSignUp"
+        app:layout_constraintHorizontal_bias="0.472"
+        app:layout_constraintStart_toStartOf="@+id/btnAdminSignUp"
+        app:layout_constraintTop_toBottomOf="@+id/btnAdminSignUp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Studios Programme/Uebung 2/app/src/main/res/drawable/ic_launcher_background.xml" value="0.196" />
+        <entry key="..\:/Studios Programme/Uebung 2/app/src/main/res/drawable/ic_menu_camera.xml" value="0.196" />
+        <entry key="..\:/Studios Programme/Uebung 2/app/src/main/res/drawable/ic_menu_gallery.xml" value="0.196" />
+        <entry key="..\:/Studios Programme/Uebung 2/app/src/main/res/drawable/ic_menu_slideshow.xml" value="0.196" />
+        <entry key="..\:/Studios Programme/Uebung 2/app/src/main/res/drawable/side_nav_bar.xml" value="0.196" />
+        <entry key="..\:/Studios Programme/Uebung 2/app/src/main/res/layout/activity_administrator_interface_long.xml" value="0.18802083333333333" />
+        <entry key="..\:/Studios Programme/Uebung 2/app/src/main/res/layout/activity_administrator_login.xml" value="0.36666666666666664" />
+        <entry key="..\:/Studios Programme/Uebung 2/app/src/main/res/layout/activity_assistent_interface.xml" value="0.33" />
+        <entry key="..\:/Studios Programme/Uebung 2/app/src/main/res/layout/activity_interface_administrator.xml" value="0.36666666666666664" />
+        <entry key="..\:/Studios Programme/Uebung 2/app/src/main/res/layout/activity_interface_student.xml" value="0.22" />
+        <entry key="..\:/Studios Programme/Uebung 2/app/src/main/res/layout/activity_login.xml" value="0.22" />
+        <entry key="..\:/Studios Programme/Uebung 2/app/src/main/res/layout/activity_login_interface.xml" value="0.18802083333333333" />
+        <entry key="..\:/Studios Programme/Uebung 2/app/src/main/res/layout/activity_main.xml" value="0.18802083333333333" />
+        <entry key="..\:/Studios Programme/Uebung 2/app/src/main/res/layout/activity_professor_login.xml" value="0.25" />
+        <entry key="..\:/Studios Programme/Uebung 2/app/src/main/res/layout/activity_student_interface.xml" value="0.36666666666666664" />
+        <entry key="..\:/Studios Programme/Uebung 2/app/src/main/res/layout/app_bar_administrator_interface_long.xml" value="0.18802083333333333" />
+        <entry key="..\:/Studios Programme/Uebung 2/app/src/main/res/layout/app_bar_assistent_interface.xml" value="0.33" />
+        <entry key="..\:/Studios Programme/Uebung 2/app/src/main/res/layout/content_administrator_interface.xml" value="0.18802083333333333" />
+        <entry key="..\:/Studios Programme/Uebung 2/app/src/main/res/layout/content_administrator_interface_long.xml" value="0.17395833333333333" />
+        <entry key="..\:/Studios Programme/Uebung 2/app/src/main/res/layout/content_assistent_interface.xml" value="0.18802083333333333" />
+        <entry key="..\:/Studios Programme/Uebung 2/app/src/main/res/layout/content_interface_administrator.xml" value="0.36666666666666664" />
+        <entry key="..\:/Studios Programme/Uebung 2/app/src/main/res/layout/fragment_gallery.xml" value="0.18802083333333333" />
+        <entry key="..\:/Studios Programme/Uebung 2/app/src/main/res/layout/fragment_home.xml" value="0.5" />
+        <entry key="..\:/Studios Programme/Uebung 2/app/src/main/res/layout/fragment_profile__tab.xml" value="0.36666666666666664" />
+        <entry key="..\:/Studios Programme/Uebung 2/app/src/main/res/layout/fragment_slideshow.xml" value="0.18802083333333333" />
+        <entry key="..\:/Studios Programme/Uebung 2/app/src/main/res/layout/nav_header_assistent_interface.xml" value="0.33" />
+        <entry key="..\:/Studios Programme/Uebung 2/app/src/main/res/menu/a_d_m_i_n_i_s_t_r_a_t_o_r__i_n_t_e_r_f_a_c_e__l_o_n_g.xml" value="0.18802083333333333" />
+        <entry key="..\:/Studios Programme/Uebung 2/app/src/main/res/menu/a_s_s_i_s_t_e_n_t__i_n_t_e_r_f_a_c_e.xml" value="0.18802083333333333" />
+        <entry key="..\:/Studios Programme/Uebung 2/app/src/main/res/menu/activity_administrator_interface_drawer.xml" value="0.18802083333333333" />
+        <entry key="..\:/Studios Programme/Uebung 2/app/src/main/res/menu/activity_main_drawer.xml" value="0.75" />
+        <entry key="..\:/Studios Programme/Uebung 2/app/src/main/res/menu/i_n_t_e_r_f_a_c_e__a_d_m_i_n_i_s_t_r_a_t_o_r.xml" value="0.36666666666666664" />
+        <entry key="..\:/Studios Programme/Uebung 2/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.196" />
+      </map>
+    </option>
+  </component>
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK" />
+</project>
