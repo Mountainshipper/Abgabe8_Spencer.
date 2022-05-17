@@ -8,9 +8,15 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+
+import com.parse.GetCallback;
 import com.parse.LogInCallback;
 import com.parse.ParseException;
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
 import com.parse.ParseUser;
+import com.parse.SaveCallback;
+import com.parse.SignUpCallback;
 import com.shashank.sony.fancytoastlib.FancyToast;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener{
@@ -77,12 +83,45 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                                 if (studentID.equals("Student")){
                                 FancyToast.makeText(LoginActivity.this, User.getUsername() + " is logged in successfully!", FancyToast.LENGTH_LONG, FancyToast.SUCCESS, true).show();
         //SWITCH TO INTERFACE
+
+
+                                    //Temporary User New Database
+
+
+                                    ParseQuery<ParseObject> query = ParseQuery.getQuery("temprary_User_Pikka");
+// Retrieve the object by id
+                                    query.getInBackground("gH548pGCmO", new GetCallback<ParseObject>() {
+                                        public void done(ParseObject appUser2, ParseException e) {
+                                            if (e == null) {
+                                                String username = User.getString("username");
+                                                appUser2.put("username", username);
+
+                                                String email = User.getString("email");
+                                                appUser2.put("email", email);
+                                                appUser2.put("ID", "Student");
+
+                                                String project = User.getString("Projekt");
+                                                appUser2.put("Projekt", project);
+
+                                                String bachelore = User.getString("Bachelore");
+                                                appUser2.put("Bachelore",bachelore);
+
+                                                String master = User.getString("Master");
+                                                appUser2.put("Bachelore",master);
+                                                appUser2.saveInBackground();
+
+                                            } else {
+                                                FancyToast.makeText(LoginActivity.this, "temporary Login could not be generated", FancyToast.LENGTH_LONG, FancyToast.SUCCESS, true).show();
+                                                // Failed
+                                            }
+                                        }
+                                    });
+//temporary Database end
                                     Intent INTERFACE_STUDENT = new Intent(LoginActivity.this, INTERFACE_STUDENT.class);
                                     FancyToast.makeText(LoginActivity.this,"Switching to STUDENT INTERFACE",FancyToast.LENGTH_SHORT,FancyToast.INFO,true).show();
                                     startActivity(INTERFACE_STUDENT);
-                                    System.exit(-1);
 
-         //
+
                             } else {
                                     FancyToast.makeText(LoginActivity.this, User.getUsername() + "You are not registered as a Student", FancyToast.LENGTH_LONG, FancyToast.ERROR, true).show();
                                 }

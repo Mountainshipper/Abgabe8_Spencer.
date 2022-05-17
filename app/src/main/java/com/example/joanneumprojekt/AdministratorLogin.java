@@ -8,9 +8,14 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+
+import com.parse.GetCallback;
 import com.parse.LogInCallback;
 import com.parse.ParseException;
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
 import com.parse.ParseUser;
+import com.parse.SaveCallback;
 import com.shashank.sony.fancytoastlib.FancyToast;
 
 
@@ -83,9 +88,35 @@ public class AdministratorLogin extends AppCompatActivity implements View.OnClic
                                 if (studentID.equals("Admin")){
                                     FancyToast.makeText(AdministratorLogin.this, AdminUser.getUsername() + " is logged in successfully!", FancyToast.LENGTH_LONG, FancyToast.SUCCESS, true).show();
 
-                                    Intent intent = new Intent(AdministratorLogin.this, INTERFACE_ADMINISTRATOR.class);
-                                    FancyToast.makeText(AdministratorLogin.this,"Switching to Log In Interface",FancyToast.LENGTH_SHORT,FancyToast.INFO,true).show();
-                                    startActivity(intent);
+
+        //Temporary User New Database
+                                    ParseQuery<ParseObject> query = ParseQuery.getQuery("temprary_User_Pikka");
+// Retrieve the object by id and overwrite it
+                                    query.getInBackground("gH548pGCmO", new GetCallback<ParseObject>() {
+                                        public void done(ParseObject appUser2, ParseException e) {
+                                            if (e == null) {
+                                                String username = AdminUser.getString("username");
+                                                appUser2.put("username", username);
+
+                                                String email = AdminUser.getString("email");
+                                                appUser2.put("email", email);
+                                                appUser2.put("ID", "Admin");
+                                                appUser2.put("Projekt", "");
+                                                appUser2.put("Bachelore","");
+                                                appUser2.put("Master","");
+
+                                                appUser2.saveInBackground();
+
+                                            } else {
+                                                FancyToast.makeText(AdministratorLogin.this, "temporary Login could not be generated", FancyToast.LENGTH_LONG, FancyToast.SUCCESS, true).show();
+                                                // Failed
+                                            }
+                                        }
+                                    });
+//temporary Database end Switch to Interface
+                                    Intent INTERFACE_STUDENT = new Intent(AdministratorLogin.this, INTERFACE_ADMINISTRATOR.class);
+                                    FancyToast.makeText(AdministratorLogin.this,"Switching to STUDENT INTERFACE",FancyToast.LENGTH_SHORT,FancyToast.INFO,true).show();
+                                    startActivity(INTERFACE_STUDENT);
 
                                 } else {
                                     FancyToast.makeText(AdministratorLogin.this, AdminUser.getUsername() + "You are not registered as a Administrator", FancyToast.LENGTH_LONG, FancyToast.ERROR, true).show();

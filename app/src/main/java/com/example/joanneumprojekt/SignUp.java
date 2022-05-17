@@ -78,6 +78,7 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
                     appUser2.put("Bachelore", "");
                     appUser2.put("Master", "");
 
+
                     final ProgressDialog progressDialog = new ProgressDialog(this);
                     progressDialog.setMessage("Signing up " + edtUsername.getText().toString());
                     progressDialog.show();
@@ -89,6 +90,8 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
                             if (e == null) {
                                 FancyToast.makeText(SignUp.this, appUser2.getUsername() + ": is signed up",
                                         FancyToast.LENGTH_LONG, FancyToast.SUCCESS, true).show();
+
+
                             } else {
 
                                 FancyToast.makeText(SignUp.this, "Error",
