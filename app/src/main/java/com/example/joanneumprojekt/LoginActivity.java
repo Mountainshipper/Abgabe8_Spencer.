@@ -9,6 +9,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.example.joanneumprojekt.ui.home.HomeFragment;
 import com.parse.GetCallback;
 import com.parse.LogInCallback;
 import com.parse.ParseException;
@@ -21,6 +22,8 @@ import com.shashank.sony.fancytoastlib.FancyToast;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener{
 
+
+    public String Miau;
     private EditText edtLoginEmail, edtLoginPassword;
     private Button btnLoginActivity, btnSignUpLoginActivity, btnReturnInterface;
 
@@ -64,6 +67,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
+
             case R.id.btnLoginActivity:
 
                 // Checks if values are empty
@@ -109,6 +113,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                                                 String master = User.getString("Master");
                                                 appUser2.put("Bachelore",master);
                                                 appUser2.saveInBackground();
+
+
 
                                             } else {
                                                 FancyToast.makeText(LoginActivity.this, "temporary Login could not be generated", FancyToast.LENGTH_LONG, FancyToast.SUCCESS, true).show();
