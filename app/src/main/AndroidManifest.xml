@@ -11,23 +11,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.JoanneumProjekt">
         <activity
-            android:name=".ASSISTENT_INTERFACE"
-            android:exported="false"
-            android:label="@string/title_activity_assistent_interface"
-            android:theme="@style/Theme.JoanneumProjekt.NoActionBar" />
-        <activity
-            android:name=".INTERFACE_STUDENT"
-            android:exported="false" />
-        <activity
-            android:name=".ProfessorLogin"
-            android:exported="false" />
-        <activity
-            android:name=".AdministratorLogin"
-            android:exported="false" />
-        <activity
-            android:name=".Login_Interface"
-            android:exported="false" />
-        <activity
             android:name=".LoginActivity"
             android:exported="false" />
         <activity
