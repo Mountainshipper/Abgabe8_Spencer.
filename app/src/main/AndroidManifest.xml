@@ -11,10 +11,24 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.JoanneumProjekt">
         <activity
-            android:name=".LoginActivity"
+            android:name=".Assistent.ProfessorLogin"
             android:exported="false" />
         <activity
-            android:name=".SignUp"
+            android:name=".SignUP.Login_Interface"
+            android:exported="false" />
+        <activity
+            android:name=".Admin.AdministratorLogin"
+            android:exported="false" />
+
+        <activity
+            android:name=".ui.Student.LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.Student.INTERFACE_STUDENT"
+            android:exported="false" />
+
+        <activity
+            android:name=".SignUP.SignUp"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

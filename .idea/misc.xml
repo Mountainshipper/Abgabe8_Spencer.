@@ -35,9 +35,26 @@
         <entry key="..\:/Studios Programme/Uebung 2/app/src/main/res/menu/activity_main_drawer.xml" value="0.75" />
         <entry key="..\:/Studios Programme/Uebung 2/app/src/main/res/menu/i_n_t_e_r_f_a_c_e__a_d_m_i_n_i_s_t_r_a_t_o_r.xml" value="0.36666666666666664" />
         <entry key="..\:/Studios Programme/Uebung 2/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.196" />
+        <entry key="..\:/Users/austr/OneDrive/Dokumente/GitHub/Projekt/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.122" />
+        <entry key="..\:/Users/austr/OneDrive/Dokumente/GitHub/Projekt/app/src/main/res/drawable/ic_launcher_background.xml" value="0.224" />
+        <entry key="..\:/Users/austr/OneDrive/Dokumente/GitHub/Projekt/app/src/main/res/layout/activity_administrator_login.xml" value="0.25052083333333336" />
+        <entry key="..\:/Users/austr/OneDrive/Dokumente/GitHub/Projekt/app/src/main/res/layout/activity_bachelore_student.xml" value="0.25052083333333336" />
+        <entry key="..\:/Users/austr/OneDrive/Dokumente/GitHub/Projekt/app/src/main/res/layout/activity_interface_administrator.xml" value="0.25104166666666666" />
         <entry key="..\:/Users/austr/OneDrive/Dokumente/GitHub/Projekt/app/src/main/res/layout/activity_interface_student.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/austr/OneDrive/Dokumente/GitHub/Projekt/app/src/main/res/layout/activity_login.xml" value="0.25052083333333336" />
+        <entry key="..\:/Users/austr/OneDrive/Dokumente/GitHub/Projekt/app/src/main/res/layout/activity_login2.xml" value="0.25104166666666666" />
+        <entry key="..\:/Users/austr/OneDrive/Dokumente/GitHub/Projekt/app/src/main/res/layout/activity_login_interface.xml" value="0.25052083333333336" />
+        <entry key="..\:/Users/austr/OneDrive/Dokumente/GitHub/Projekt/app/src/main/res/layout/activity_main.xml" value="0.25052083333333336" />
+        <entry key="..\:/Users/austr/OneDrive/Dokumente/GitHub/Projekt/app/src/main/res/layout/activity_professor_login.xml" value="0.25052083333333336" />
+        <entry key="..\:/Users/austr/OneDrive/Dokumente/GitHub/Projekt/app/src/main/res/layout/activity_sign_up.xml" value="0.25104166666666666" />
+        <entry key="..\:/Users/austr/OneDrive/Dokumente/GitHub/Projekt/app/src/main/res/layout/activity_student_bachelor.xml" value="0.11041666666666666" />
+        <entry key="..\:/Users/austr/OneDrive/Dokumente/GitHub/Projekt/app/src/main/res/layout/app_bar_interface_administrator.xml" value="0.25104166666666666" />
+        <entry key="..\:/Users/austr/OneDrive/Dokumente/GitHub/Projekt/app/src/main/res/layout/content_interface_administrator.xml" value="0.25104166666666666" />
+        <entry key="..\:/Users/austr/OneDrive/Dokumente/GitHub/Projekt/app/src/main/res/layout/content_main.xml" value="0.25104166666666666" />
         <entry key="..\:/Users/austr/OneDrive/Dokumente/GitHub/Projekt/app/src/main/res/layout/fragment_home.xml" value="0.2546875" />
+        <entry key="..\:/Users/austr/OneDrive/Dokumente/GitHub/Projekt/app/src/main/res/layout/fragment_slideshow.xml" value="0.25104166666666666" />
         <entry key="..\:/Users/austr/OneDrive/Dokumente/GitHub/Projekt/app/src/main/res/menu/activity_main_drawer.xml" value="0.2546875" />
+        <entry key="..\:/Users/austr/OneDrive/Dokumente/GitHub/Projekt/app/src/main/res/menu/i_n_t_e_r_f_a_c_e__a_d_m_i_n_i_s_t_r_a_t_o_r.xml" value="0.25104166666666666" />
       </map>
     </option>
   </component>
