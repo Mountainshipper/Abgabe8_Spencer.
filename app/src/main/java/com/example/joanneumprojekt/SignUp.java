@@ -40,6 +40,7 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
                     onClick(btnSignUp);
                 }
                 return false;
+                
             }
         });
 
