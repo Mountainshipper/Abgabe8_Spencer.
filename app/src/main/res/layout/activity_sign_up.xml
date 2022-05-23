@@ -19,7 +19,8 @@
         app:layout_constraintEnd_toEndOf="@+id/edtEnterEmail"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/edtEnterEmail"
-        app:layout_constraintTop_toBottomOf="@+id/edtEnterEmail" />
+        app:layout_constraintTop_toBottomOf="@+id/edtEnterEmail"
+        android:autofillHints="" />
 
     <EditText
         android:id="@+id/edtEnterPassword"
@@ -33,7 +34,8 @@
         app:layout_constraintEnd_toEndOf="@+id/edtUsername"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/edtUsername"
-        app:layout_constraintTop_toBottomOf="@+id/edtUsername" />
+        app:layout_constraintTop_toBottomOf="@+id/edtUsername"
+        android:autofillHints="" />
 
     <EditText
         android:id="@+id/edtEnterEmail"
@@ -45,7 +47,7 @@
         android:inputType="textPersonName"
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="@+id/imageView2"
-        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="@+id/imageView2"
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
@@ -72,13 +74,12 @@
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="312dp"
-        android:layout_height="360dp"
-        android:layout_marginTop="24dp"
+        android:layout_width="351dp"
+        android:layout_height="383dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@drawable/sign_up_all" />
+        app:srcCompat="@drawable/sign_up_all" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -35,7 +35,7 @@ public class AdministratorLogin extends AppCompatActivity implements View.OnClic
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_administrator_login);
 
-        setTitle("Administrator Login");
+
 
         edtLoginEmail = findViewById(R.id.edtAdminEmail);
         edtLoginPassword = findViewById(R.id.edtAdminPassword);
@@ -136,7 +136,6 @@ public class AdministratorLogin extends AppCompatActivity implements View.OnClic
                 Intent intent = new Intent(AdministratorLogin.this, SignUp.class);
                 FancyToast.makeText(AdministratorLogin.this,"Switching to sign-up",FancyToast.LENGTH_SHORT,FancyToast.INFO,true).show();
                 startActivity(intent);
-
                 break;
 
             case R.id.btnAdmin_toInterface:

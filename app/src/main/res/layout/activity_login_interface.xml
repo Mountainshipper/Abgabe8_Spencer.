@@ -10,11 +10,11 @@
         android:id="@+id/btnStudentInt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="452dp"
+        android:layout_marginTop="36dp"
         android:text="Student Login"
         app:layout_constraintEnd_toEndOf="@+id/imageView"
         app:layout_constraintStart_toStartOf="@+id/imageView"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <Button
         android:id="@+id/btnAdministratorInt"
@@ -40,13 +40,13 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="251dp"
-        android:layout_height="366dp"
-        android:layout_marginTop="36dp"
+        android:layout_width="385dp"
+        android:layout_height="424dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintHorizontal_bias="0.39"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@drawable/login_interface" />
+        app:srcCompat="@drawable/login_interface" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

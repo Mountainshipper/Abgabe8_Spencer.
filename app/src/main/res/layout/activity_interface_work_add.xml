@@ -28,7 +28,7 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.125" />
+        app:layout_constraintVertical_bias="0.09" />
 
     <CheckBox
         android:id="@+id/check_Master"
@@ -41,7 +41,7 @@
         app:layout_constraintTop_toTopOf="@+id/check_Bachelor" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName4"
+        android:id="@+id/txt_Titel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -53,10 +53,10 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.284" />
+        app:layout_constraintVertical_bias="0.234" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName5"
+        android:id="@+id/txt_deadline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
@@ -64,33 +64,45 @@
         android:hint="Deadline"
         android:inputType="textPersonName"
         android:minHeight="48dp"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName4"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName4"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName4" />
+        app:layout_constraintEnd_toEndOf="@+id/txt_Titel"
+        app:layout_constraintStart_toStartOf="@+id/txt_Titel"
+        app:layout_constraintTop_toBottomOf="@+id/txt_Titel" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName6"
+        android:id="@+id/txtExamDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:ems="10"
-        android:hint="Email. (optional)"
+        android:hint="Exam Date. (Master)"
         android:inputType="textPersonName"
         android:minHeight="48dp"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName5"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName5"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName5" />
+        app:layout_constraintEnd_toEndOf="@+id/txt_deadline"
+        app:layout_constraintStart_toStartOf="@+id/txt_deadline"
+        app:layout_constraintTop_toBottomOf="@+id/txt_deadline" />
 
     <ImageView
         android:id="@+id/imageView12"
-        android:layout_width="380dp"
-        android:layout_height="256dp"
+        android:layout_width="342dp"
+        android:layout_height="204dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName6"
-        app:layout_constraintHorizontal_bias="0.494"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName6"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName6"
-        app:layout_constraintVertical_bias="0.612"
+        app:layout_constraintEnd_toEndOf="@+id/txtExamDate"
+        app:layout_constraintStart_toStartOf="@+id/txtExamDate"
+        app:layout_constraintTop_toBottomOf="@+id/txtExamDate"
+        app:layout_constraintVertical_bias="0.899"
         app:srcCompat="@drawable/admin_work" />
+
+    <Button
+        android:id="@+id/btn_setWork"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:text="Upload"
+        app:layout_constraintBottom_toTopOf="@+id/imageView12"
+        app:layout_constraintEnd_toEndOf="@+id/txtExamDate"
+        app:layout_constraintHorizontal_bias="0.47"
+        app:layout_constraintStart_toStartOf="@+id/txtExamDate"
+        app:layout_constraintTop_toBottomOf="@+id/txtExamDate"
+        app:layout_constraintVertical_bias="0.777" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
