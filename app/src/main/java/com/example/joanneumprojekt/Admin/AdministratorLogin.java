@@ -134,7 +134,7 @@ public class AdministratorLogin extends AppCompatActivity implements View.OnClic
 
             case R.id.btnAdminSignUp:
                 Intent intent = new Intent(AdministratorLogin.this, SignUp.class);
-                FancyToast.makeText(AdministratorLogin.this,"Switching to SIGN UP",FancyToast.LENGTH_SHORT,FancyToast.INFO,true).show();
+                FancyToast.makeText(AdministratorLogin.this,"Wrong",FancyToast.LENGTH_SHORT,FancyToast.INFO,true).show();
                 startActivity(intent);
 
                 break;

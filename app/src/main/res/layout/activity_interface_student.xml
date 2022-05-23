@@ -4,17 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".INTERFACE_STUDENT">
+    tools:context=".ui.Student.INTERFACE_STUDENT">
 
   <Button
       android:id="@+id/btnProject"
       android:layout_width="130dp"
       android:layout_height="60dp"
-      android:layout_marginTop="68dp"
+      android:layout_marginTop="84dp"
       android:text="Projekt"
-      app:layout_constraintEnd_toEndOf="@+id/imageView12"
-      app:layout_constraintStart_toStartOf="@+id/imageView12"
-      app:layout_constraintTop_toBottomOf="@+id/imageView12" />
+      app:layout_constraintEnd_toEndOf="@+id/imageView7"
+      app:layout_constraintStart_toStartOf="@+id/imageView7"
+      app:layout_constraintTop_toBottomOf="@+id/imageView7" />
 
   <Button
       android:id="@+id/btnBachelor"
@@ -38,14 +38,14 @@
       app:layout_constraintTop_toBottomOf="@+id/btnBachelor" />
 
   <ImageView
-      android:id="@+id/imageView12"
-      android:layout_width="330dp"
-      android:layout_height="220dp"
-      android:layout_marginTop="40dp"
+      android:id="@+id/imageView7"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="120dp"
       app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintHorizontal_bias="0.493"
+      app:layout_constraintHorizontal_bias="0.498"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent"
-      app:srcCompat="@drawable/student_int"
-      tools:srcCompat="@tools:sample/avatars" />
+      tools:src="@tools:sample/avatars" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
