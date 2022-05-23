@@ -70,7 +70,9 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
 
                     FancyToast.makeText(SignUp.this,"EMAIL, USERNAME, PASSWORD is required!",
                             FancyToast.LENGTH_LONG,FancyToast.INFO,true).show();
-                } else {
+
+                } else if (edtPassword.getText().toString().length() > 6 && edtEmail.getText().toString().contains(".com")) {
+
 
                     final ParseUser appUser2 = new ParseUser();
                     appUser2.setEmail(edtEmail.getText().toString());
@@ -103,14 +105,13 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
                             progressDialog.dismiss();
                         }
                     });
-                }
+                }else { FancyToast.makeText(SignUp.this, "Password / Email Error",
+                        FancyToast.LENGTH_LONG, FancyToast.ERROR, true).show();}
                 break;
 
             case R.id.btnLogIn:
 
-//                Intent intent = new Intent(SignUp.this, INTERFACE_ADMINISTRATOR.class);
-//                FancyToast.makeText(SignUp.this,"Switching to Log In Interface",FancyToast.LENGTH_SHORT,FancyToast.INFO,true).show();
-//                startActivity(intent);
+//
 
                 Intent intent = new Intent(SignUp.this, Login_Interface.class);
                 FancyToast.makeText(SignUp.this,"Switching to Log In Interface",FancyToast.LENGTH_SHORT,FancyToast.INFO,true).show();

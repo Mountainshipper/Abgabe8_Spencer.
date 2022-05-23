@@ -117,8 +117,8 @@ public class AdministratorLogin extends AppCompatActivity implements View.OnClic
                                         }
                                     });
 //temporary Database end Switch to Interface
-                                    Intent INTERFACE_STUDENT = new Intent(AdministratorLogin.this, SignUp.class);
-                                    FancyToast.makeText(AdministratorLogin.this,"Wrong Interface",FancyToast.LENGTH_SHORT,FancyToast.INFO,true).show();
+                                    Intent INTERFACE_STUDENT = new Intent(AdministratorLogin.this, ADMIN_INTERFACE.class);
+                                    FancyToast.makeText(AdministratorLogin.this,"Logging in to Admin-Interface",FancyToast.LENGTH_SHORT,FancyToast.INFO,true).show();
                                     startActivity(INTERFACE_STUDENT);
 
                                 } else {
@@ -134,7 +134,7 @@ public class AdministratorLogin extends AppCompatActivity implements View.OnClic
 
             case R.id.btnAdminSignUp:
                 Intent intent = new Intent(AdministratorLogin.this, SignUp.class);
-                FancyToast.makeText(AdministratorLogin.this,"Wrong",FancyToast.LENGTH_SHORT,FancyToast.INFO,true).show();
+                FancyToast.makeText(AdministratorLogin.this,"Switching to sign-up",FancyToast.LENGTH_SHORT,FancyToast.INFO,true).show();
                 startActivity(intent);
 
                 break;

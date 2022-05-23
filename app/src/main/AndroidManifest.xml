@@ -11,6 +11,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.JoanneumProjekt">
         <activity
+            android:name=".Admin.Interface_Work_ADD"
+            android:exported="false" />
+        <activity
+            android:name=".Admin.Interface_ADD"
+            android:exported="false" />
+        <activity
             android:name=".Admin.ADMIN_INTERFACE"
             android:exported="false" />
         <activity

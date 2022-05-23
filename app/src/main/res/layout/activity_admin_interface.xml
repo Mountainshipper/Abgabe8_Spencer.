@@ -7,32 +7,46 @@
     tools:context=".Admin.ADMIN_INTERFACE">
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/interface_Add_Student"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
-        tools:layout_editor_absoluteX="158dp"
-        tools:layout_editor_absoluteY="319dp" />
+        android:layout_height="48dp"
+        android:layout_marginTop="92dp"
+        android:text="Add User"
+        app:layout_constraintEnd_toEndOf="@+id/imageView8"
+        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintStart_toStartOf="@+id/imageView8"
+        app:layout_constraintTop_toBottomOf="@+id/imageView8" />
 
     <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
+        android:id="@+id/interface_work"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
-        android:text="Button"
-        app:layout_constraintEnd_toEndOf="@+id/button"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/button"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
-
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
-        android:text="Button"
-        app:layout_constraintEnd_toEndOf="@+id/button2"
+        android:layout_marginTop="52dp"
+        android:text="ADD Work"
+        app:layout_constraintEnd_toEndOf="@+id/interface_Add_Student"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/button2"
-        app:layout_constraintTop_toBottomOf="@+id/button2" />
+        app:layout_constraintStart_toStartOf="@+id/interface_Add_Student"
+        app:layout_constraintTop_toBottomOf="@+id/interface_Add_Student" />
+
+    <Button
+        android:id="@+id/interface_admin_Master"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="52dp"
+        android:text="Master"
+        app:layout_constraintEnd_toEndOf="@+id/interface_work"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/interface_work"
+        app:layout_constraintTop_toBottomOf="@+id/interface_work" />
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="298dp"
+        android:layout_height="211dp"
+        android:layout_marginTop="92dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/admin_interface" />
 </androidx.constraintlayout.widget.ConstraintLayout>
