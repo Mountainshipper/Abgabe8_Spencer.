@@ -7,7 +7,7 @@
     tools:context=".INTERFACE_STUDENT">
 
     <Button
-        android:id="@+id/btnProject"
+        android:id="@+id/button"
         android:layout_width="130dp"
         android:layout_height="60dp"
         android:layout_marginTop="68dp"
@@ -17,25 +17,25 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView12" />
 
     <Button
-        android:id="@+id/btnBachelor"
+        android:id="@+id/button2"
         android:layout_width="130dp"
         android:layout_height="60dp"
         android:layout_marginTop="64dp"
         android:text="Bachelor"
-        app:layout_constraintEnd_toEndOf="@+id/btnProject"
+        app:layout_constraintEnd_toEndOf="@+id/button"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/btnProject"
-        app:layout_constraintTop_toBottomOf="@+id/btnProject" />
+        app:layout_constraintStart_toStartOf="@+id/button"
+        app:layout_constraintTop_toBottomOf="@+id/button" />
 
     <Button
-        android:id="@+id/btnMaster"
+        android:id="@+id/button3"
         android:layout_width="0dp"
         android:layout_height="60dp"
         android:layout_marginTop="68dp"
         android:text="Master"
-        app:layout_constraintEnd_toEndOf="@+id/btnBachelor"
-        app:layout_constraintStart_toStartOf="@+id/btnBachelor"
-        app:layout_constraintTop_toBottomOf="@+id/btnBachelor" />
+        app:layout_constraintEnd_toEndOf="@+id/button2"
+        app:layout_constraintStart_toStartOf="@+id/button2"
+        app:layout_constraintTop_toBottomOf="@+id/button2" />
 
     <ImageView
         android:id="@+id/imageView12"

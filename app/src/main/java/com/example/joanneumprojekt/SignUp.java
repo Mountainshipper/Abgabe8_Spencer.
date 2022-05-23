@@ -74,10 +74,6 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
                     appUser2.setUsername(edtUsername.getText().toString());
                     appUser2.setPassword(edtPassword.getText().toString());
                     appUser2.put("ID", "Student");
-                    appUser2.put("Projekt", "");
-                    appUser2.put("Bachelore", "");
-                    appUser2.put("Master", "");
-
 
                     final ProgressDialog progressDialog = new ProgressDialog(this);
                     progressDialog.setMessage("Signing up " + edtUsername.getText().toString());
@@ -90,8 +86,6 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
                             if (e == null) {
                                 FancyToast.makeText(SignUp.this, appUser2.getUsername() + ": is signed up",
                                         FancyToast.LENGTH_LONG, FancyToast.SUCCESS, true).show();
-
-
                             } else {
 
                                 FancyToast.makeText(SignUp.this, "Error",
@@ -104,11 +98,6 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
                 break;
 
             case R.id.btnLogIn:
-
-//                Intent intent = new Intent(SignUp.this, INTERFACE_ADMINISTRATOR.class);
-//                FancyToast.makeText(SignUp.this,"Switching to Log In Interface",FancyToast.LENGTH_SHORT,FancyToast.INFO,true).show();
-//                startActivity(intent);
-
                 Intent intent = new Intent(SignUp.this, Login_Interface.class);
                 FancyToast.makeText(SignUp.this,"Switching to Log In Interface",FancyToast.LENGTH_SHORT,FancyToast.INFO,true).show();
                 startActivity(intent);

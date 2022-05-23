@@ -11,9 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.JoanneumProjekt">
         <activity
-            android:name=".INTERFACE_ADMINISTRATOR"
+            android:name=".ASSISTENT_INTERFACE"
             android:exported="false"
-            android:label="@string/title_activity_interface_administrator"
+            android:label="@string/title_activity_assistent_interface"
             android:theme="@style/Theme.JoanneumProjekt.NoActionBar" />
         <activity
             android:name=".INTERFACE_STUDENT"

@@ -10,11 +10,8 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.parse.GetCallback;
 import com.parse.LogInCallback;
 import com.parse.ParseException;
-import com.parse.ParseObject;
-import com.parse.ParseQuery;
 import com.parse.ParseUser;
 import com.shashank.sony.fancytoastlib.FancyToast;
 
@@ -85,37 +82,8 @@ public class ProfessorLogin extends AppCompatActivity implements View.OnClickLis
                                 String studentID = PrUser.getString("ID");
                                 if (studentID.equals("Prof")){
                                     FancyToast.makeText(ProfessorLogin.this, PrUser.getUsername() + " is logged in successfully!", FancyToast.LENGTH_LONG, FancyToast.SUCCESS, true).show();
-
-
-      //Temporary User New Database
-                                    ParseQuery<ParseObject> query = ParseQuery.getQuery("temprary_User_Pikka");
-// Retrieve the object by id and overwrite it
-                                    query.getInBackground("gH548pGCmO", new GetCallback<ParseObject>() {
-                                        public void done(ParseObject appUser2, ParseException e) {
-                                            if (e == null) {
-                                                String username = PrUser.getString("username");
-                                                appUser2.put("username", username);
-
-                                                String email = PrUser.getString("email");
-                                                appUser2.put("email", email);
-                                                appUser2.put("ID", "Prof");
-                                                appUser2.put("Projekt", "");
-                                                appUser2.put("Bachelore","");
-                                                appUser2.put("Master", "");
-
-                                                appUser2.saveInBackground();
-
-                                            } else {
-                                                FancyToast.makeText(ProfessorLogin.this, "temporary Login could not be generated", FancyToast.LENGTH_LONG, FancyToast.SUCCESS, true).show();
-
-                                                // Failed
-                                            }
-                                        }
-                                    });
-//temporary Database end
-
                                 } else {
-                                    FancyToast.makeText(ProfessorLogin.this, PrUser.getUsername() + "Youre 'ACCOUNT' id linked with an other 'CATEGORY'.", FancyToast.LENGTH_LONG, FancyToast.ERROR, true).show();
+                                    FancyToast.makeText(ProfessorLogin.this, "ACCOUNT " + PrUser.getUsername() + " is registered in an other 'CATEGORY'.", FancyToast.LENGTH_LONG, FancyToast.ERROR, true).show();
                                 }
                             }else {
                                 FancyToast.makeText(ProfessorLogin.this, "Email or Password is wrong", FancyToast.LENGTH_LONG, FancyToast.ERROR, true).show();
@@ -136,6 +104,12 @@ public class ProfessorLogin extends AppCompatActivity implements View.OnClickLis
                 Intent intentInterface = new Intent(ProfessorLogin.this, Login_Interface.class);
                 FancyToast.makeText(ProfessorLogin.this,"Switching to LOGIN INTERFACE",FancyToast.LENGTH_SHORT,FancyToast.INFO,true).show();
                 startActivity(intentInterface);
+
+
+
+
+
+
 
 
         }
