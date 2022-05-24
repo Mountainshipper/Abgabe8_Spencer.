@@ -1,6 +1,8 @@
 package com.example.joanneumprojekt.ui.Student;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.KeyEvent;
@@ -81,6 +83,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                             FancyToast.LENGTH_LONG,FancyToast.INFO,true).show();
                 } else {
 
+                    final ProgressDialog progressDialog = new ProgressDialog(this);
+                    progressDialog.setMessage("logging in ");
+                    progressDialog.show();
+
 
                     ParseUser.logInInBackground(edtLoginEmail.getText().toString(), edtLoginPassword.getText().toString(), new LogInCallback() {
                         @Override
@@ -122,7 +128,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                                             } else {
                                                 FancyToast.makeText(LoginActivity.this, "temporary Login could not be generated", FancyToast.LENGTH_LONG, FancyToast.SUCCESS, true).show();
                                                 // Failed
+
                                             }
+
                                         }
                                     });
 //temporary Database end
@@ -132,15 +140,20 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
 
                                 } else {
+
                                     FancyToast.makeText(LoginActivity.this, User.getUsername() + "You are not registered as a Student", FancyToast.LENGTH_LONG, FancyToast.ERROR, true).show();
                                 }
                             }else {
+
                                 FancyToast.makeText(LoginActivity.this, "Email or Password is wrong", FancyToast.LENGTH_LONG, FancyToast.ERROR, true).show();
                             }
+                            progressDialog.dismiss();
                         }
+
                     });
                 }
                 break;
+
 
             case R.id.btnSignUpLoginActivity:
                 Intent intent = new Intent(LoginActivity.this, SignUp.class);

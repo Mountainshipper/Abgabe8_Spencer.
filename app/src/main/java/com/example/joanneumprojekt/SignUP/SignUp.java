@@ -71,41 +71,44 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
                     FancyToast.makeText(SignUp.this,"EMAIL, USERNAME, PASSWORD is required!",
                             FancyToast.LENGTH_LONG,FancyToast.INFO,true).show();
 
-                } else if (edtPassword.getText().toString().length() > 6 && edtEmail.getText().toString().contains(".com")) {
+                } else if (edtEmail.getText().toString().length() > 5 && edtEmail.getText().toString().contains(".com") && edtEmail.getText().toString().contains("@") ) {
+                    if(edtPassword.getText().toString().length() > 4)  {
 
 
-                    final ParseUser appUser2 = new ParseUser();
-                    appUser2.setEmail(edtEmail.getText().toString());
-                    appUser2.setUsername(edtUsername.getText().toString());
-                    appUser2.setPassword(edtPassword.getText().toString());
-                    appUser2.put("ID", "Student");
-                    appUser2.put("Work", "");
+                        final ParseUser appUser2 = new ParseUser();
+                        appUser2.setEmail(edtEmail.getText().toString());
+                        appUser2.setUsername(edtUsername.getText().toString());
+                        appUser2.setPassword(edtPassword.getText().toString());
+                        appUser2.put("ID", "Student");
+                        appUser2.put("Work", "");
 
 
-
-                    final ProgressDialog progressDialog = new ProgressDialog(this);
-                    progressDialog.setMessage("Signing up " + edtUsername.getText().toString());
-                    progressDialog.show();
-
-
-                    appUser2.signUpInBackground(new SignUpCallback() {
-                        @Override
-                        public void done(ParseException e) {
-                            if (e == null) {
-                                FancyToast.makeText(SignUp.this, appUser2.getUsername() + ": is signed up",
-                                        FancyToast.LENGTH_LONG, FancyToast.SUCCESS, true).show();
+                        final ProgressDialog progressDialog = new ProgressDialog(this);
+                        progressDialog.setMessage("Signing up " + edtUsername.getText().toString());
+                        progressDialog.show();
 
 
-                            } else {
+                        appUser2.signUpInBackground(new SignUpCallback() {
+                            @Override
+                            public void done(ParseException e) {
+                                if (e == null) {
+                                    FancyToast.makeText(SignUp.this, appUser2.getUsername() + ": is signed up",
+                                            FancyToast.LENGTH_LONG, FancyToast.SUCCESS, true).show();
 
-                                FancyToast.makeText(SignUp.this, "Error",
-                                        FancyToast.LENGTH_LONG, FancyToast.ERROR, true).show();
+
+                                } else {
+                                    FancyToast.makeText(SignUp.this, "Error",
+                                            FancyToast.LENGTH_LONG, FancyToast.ERROR, true).show();
+
+                                }
+                                progressDialog.dismiss();
                             }
-                            progressDialog.dismiss();
-                        }
-                    });
+
+                        });
+                    }
                 }else { FancyToast.makeText(SignUp.this, "Password / Email Error",
-                        FancyToast.LENGTH_LONG, FancyToast.ERROR, true).show();}
+                        FancyToast.LENGTH_LONG, FancyToast.ERROR, true).show();
+                }
                 break;
 
             case R.id.btnLogIn:

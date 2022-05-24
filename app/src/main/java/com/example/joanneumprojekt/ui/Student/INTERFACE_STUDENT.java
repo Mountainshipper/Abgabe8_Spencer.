@@ -48,7 +48,7 @@ public class INTERFACE_STUDENT extends AppCompatActivity implements View.OnClick
                 break;
 
             case R.id.btnBachelor:
-                Intent intentAdmin = new Intent(INTERFACE_STUDENT.this, AdministratorLogin.class);
+                Intent intentAdmin = new Intent(INTERFACE_STUDENT.this, Bachelor.class);
                 FancyToast.makeText(INTERFACE_STUDENT.this, "Switching to Bachelor", FancyToast.LENGTH_SHORT, FancyToast.INFO, true).show();
                 startActivity(intentAdmin);
                 break;

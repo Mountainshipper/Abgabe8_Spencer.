@@ -2,6 +2,7 @@ package com.example.joanneumprojekt.Assistent;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.KeyEvent;
@@ -81,6 +82,10 @@ public class ProfessorLogin extends AppCompatActivity implements View.OnClickLis
                             FancyToast.LENGTH_LONG,FancyToast.INFO,true).show();
                 } else {
 
+                    final ProgressDialog progressDialog = new ProgressDialog(this);
+                    progressDialog.setMessage("Signing up ");
+                    progressDialog.show();
+
                     ParseUser.logInInBackground(edtLoginEmail.getText().toString(), edtLoginPassword.getText().toString(), new LogInCallback() {
                         @Override
                         public void done(ParseUser PrUser, ParseException e) {
@@ -111,18 +116,20 @@ public class ProfessorLogin extends AppCompatActivity implements View.OnClickLis
                                             } else {
                                                 FancyToast.makeText(ProfessorLogin.this, "temporary Login could not be generated", FancyToast.LENGTH_LONG, FancyToast.SUCCESS, true).show();
 
-                                                // Failed
                                             }
                                         }
                                     });
-//temporary Database end
-
+//temporary Database en
                                 } else {
+
                                     FancyToast.makeText(ProfessorLogin.this, PrUser.getUsername() + "Youre 'ACCOUNT' id linked with an other 'CATEGORY'.", FancyToast.LENGTH_LONG, FancyToast.ERROR, true).show();
                                 }
                             }else {
+
                                 FancyToast.makeText(ProfessorLogin.this, "Email or Password is wrong", FancyToast.LENGTH_LONG, FancyToast.ERROR, true).show();
                             }
+                            progressDialog.dismiss();
+
                         }
                     });
                 }

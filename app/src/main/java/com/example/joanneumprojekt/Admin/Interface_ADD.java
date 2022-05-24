@@ -14,10 +14,13 @@ import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.TextView;
 
+import com.example.joanneumprojekt.Assistent.ProfessorLogin;
 import com.example.joanneumprojekt.R;
 import com.example.joanneumprojekt.SignUP.SignUp;
+import com.parse.GetCallback;
 import com.parse.ParseException;
 import com.parse.ParseObject;
+import com.parse.ParseQuery;
 import com.parse.ParseUser;
 import com.parse.SaveCallback;
 import com.parse.SignUpCallback;
@@ -25,7 +28,7 @@ import com.shashank.sony.fancytoastlib.FancyToast;
 
 import java.util.Calendar;
 
-public class Interface_ADD extends AppCompatActivity implements View.OnClickListener{
+public class Interface_ADD extends AppCompatActivity implements View.OnClickListener {
     //Date
 
     private TextView email, username, password;
@@ -53,13 +56,10 @@ public class Interface_ADD extends AppCompatActivity implements View.OnClickList
         //end
 
 
-
-
         studentBox.setOnClickListener(this);
         adminBox.setOnClickListener(this);
         assistentBox.setOnClickListener(this);
         setUpload.setOnClickListener(this);
-
 
 
     }
@@ -70,67 +70,99 @@ public class Interface_ADD extends AppCompatActivity implements View.OnClickList
         switch (view.getId()) {
 
 
-
             case R.id.addUser:
 
 
                 final ParseUser appUser2 = new ParseUser();
+                int for2Database = 0;
+
                 appUser2.setEmail(email.getText().toString());
                 appUser2.setUsername(username.getText().toString());
                 appUser2.setPassword(password.getText().toString());
 
 
-
-
-                int count=0;
+                int count = 0;
                 if (assistentBox.isChecked()) {
-                    count=count+1;
-                }if (adminBox.isChecked()) {
-                count=count+1;
-            }if (studentBox.isChecked()) {
-                count=count+1;}
+                    count = count + 1;
+                }
+                if (adminBox.isChecked()) {
+                    count = count + 1;
+                }
+                if (studentBox.isChecked()) {
+                    count = count + 1;
+                }
 
                 if (count == 1) {
 
 
-                    if (studentBox.isChecked()){
+                    if (studentBox.isChecked()) {
                         appUser2.put("ID", "Student");
 
-                    }else if (assistentBox.isChecked()){
+                    } else if (assistentBox.isChecked()) {
                         appUser2.put("ID", "Assistent");
+                        for2Database++;
 
-                    }else if (adminBox.isChecked()) {
+                    } else if (adminBox.isChecked()) {
                         appUser2.put("ID", "Admin");
+
+                    }
+                    appUser2.put("Bachelor", "No");
+                    appUser2.put("Projekt", "No");
+                    appUser2.put("Master", "No");
+
+
+                    if (for2Database == 1) {
+                        ParseObject assistent = new ParseObject("Assistent");
+
+                        assistent.put("username", username.getText().toString());
+                        assistent.put("email", email.getText().toString());
+                        assistent.put("ID", "Assistent");
+                        assistent.put("Projekt", "Nein");
+                        assistent.put("Bachelore", "Nein");
+                        assistent.put("Master", "Nein");
+                        assistent.put("Slots", "3");
+
+                        assistent.saveInBackground(new SaveCallback() {
+                            @Override
+                            public void done(ParseException e) {
+                                if (e == null) {
+                                    // Success
+                                } else {
+                                    FancyToast.makeText(Interface_ADD.this, "temporary Login could not be generated", FancyToast.LENGTH_LONG, FancyToast.ERROR, true).show();
+
+                                }
+                            }
+                        });
                     }
 
 
+                        final ProgressDialog progressDialog = new ProgressDialog(this);
+                        progressDialog.setMessage("logging in" + username.getText().toString());
+                        progressDialog.show();
 
 
-                    final ProgressDialog progressDialog = new ProgressDialog(this);
-                    progressDialog.setMessage("Signing up " + username.getText().toString());
-                    progressDialog.show();
+                        appUser2.signUpInBackground(new SignUpCallback() {
+                            @Override
+                            public void done(ParseException e) {
+                                if (e == null) {
+                                    FancyToast.makeText(Interface_ADD.this, appUser2.getUsername() + ": is signed up",
+                                            FancyToast.LENGTH_LONG, FancyToast.SUCCESS, true).show();
 
 
-                    appUser2.signUpInBackground(new SignUpCallback() {
-                        @Override
-                        public void done(ParseException e) {
-                            if (e == null) {
-                                FancyToast.makeText(Interface_ADD.this, appUser2.getUsername() + ": is signed up",
-                                        FancyToast.LENGTH_LONG, FancyToast.SUCCESS, true).show();
+                                } else {
 
-
-                            } else {
-
-                                FancyToast.makeText(Interface_ADD.this, "Error",
-                                        FancyToast.LENGTH_LONG, FancyToast.ERROR, true).show();
+                                    FancyToast.makeText(Interface_ADD.this, "Error",
+                                            FancyToast.LENGTH_LONG, FancyToast.ERROR, true).show();
+                                }
+                                progressDialog.dismiss();
                             }
-                            progressDialog.dismiss();
-                        }
-                    });
-                }else { FancyToast.makeText(Interface_ADD.this, "Password / Email Error",
-                        FancyToast.LENGTH_LONG, FancyToast.ERROR, true).show();}
-                break;
+                        });
+                    } else {
+                        FancyToast.makeText(Interface_ADD.this, "Password / Email Error",
+                                FancyToast.LENGTH_LONG, FancyToast.ERROR, true).show();
+                    }
+                    break;
 
+                }
         }
     }
-}

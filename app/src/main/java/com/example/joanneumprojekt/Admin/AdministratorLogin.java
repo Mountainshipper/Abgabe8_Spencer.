@@ -1,6 +1,8 @@
 package com.example.joanneumprojekt.Admin;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.KeyEvent;
@@ -83,6 +85,12 @@ public class AdministratorLogin extends AppCompatActivity implements View.OnClic
                             FancyToast.LENGTH_LONG,FancyToast.INFO,true).show();
                 } else {
 
+
+                    final ProgressDialog progressDialog = new ProgressDialog(this);
+                    progressDialog.setMessage("Logging in ");
+                    progressDialog.show();
+
+
                     ParseUser.logInInBackground(edtLoginEmail.getText().toString(), edtLoginPassword.getText().toString(), new LogInCallback() {
                         @Override
                         public void done(ParseUser AdminUser, ParseException e) {
@@ -113,7 +121,9 @@ public class AdministratorLogin extends AppCompatActivity implements View.OnClic
                                             } else {
                                                 FancyToast.makeText(AdministratorLogin.this, "temporary Login could not be generated", FancyToast.LENGTH_LONG, FancyToast.SUCCESS, true).show();
                                                 // Failed
+                                                progressDialog.dismiss();
                                             }
+                                            progressDialog.dismiss();
                                         }
                                     });
 //temporary Database end Switch to Interface
