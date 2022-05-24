@@ -42,7 +42,7 @@ public class INTERFACE_STUDENT extends AppCompatActivity implements View.OnClick
         switch (view.getId()) {
             case R.id.btnProject:
 
-                Intent intent = new Intent(INTERFACE_STUDENT.this, LoginActivity.class);
+                Intent intent = new Intent(INTERFACE_STUDENT.this, Project.class);
                 FancyToast.makeText(INTERFACE_STUDENT.this, "Switching to projekt", FancyToast.LENGTH_SHORT, FancyToast.INFO, true).show();
                 startActivity(intent);
                 break;

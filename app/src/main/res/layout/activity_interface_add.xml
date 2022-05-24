@@ -7,7 +7,7 @@
     tools:context=".Admin.Interface_ADD">
 
     <EditText
-        android:id="@+id/editTextTextPersonName3"
+        android:id="@+id/txt_PASSWORD_ADD"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
@@ -15,23 +15,23 @@
         android:hint="Password"
         android:inputType="textPersonName"
         android:minHeight="48dp"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName2"
+        app:layout_constraintEnd_toEndOf="@+id/txt_USERNAMR_ADD"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName2"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2" />
+        app:layout_constraintStart_toStartOf="@+id/txt_USERNAMR_ADD"
+        app:layout_constraintTop_toBottomOf="@+id/txt_USERNAMR_ADD" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName2"
+        android:id="@+id/txt_USERNAMR_ADD"
         android:layout_width="153dp"
         android:layout_height="48dp"
         android:layout_marginTop="28dp"
         android:ems="10"
         android:hint="Username"
         android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName"
+        app:layout_constraintEnd_toEndOf="@+id/txt_EMAIL_ADD"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+        app:layout_constraintStart_toStartOf="@+id/txt_EMAIL_ADD"
+        app:layout_constraintTop_toBottomOf="@+id/txt_EMAIL_ADD" />
 
     <CheckBox
         android:id="@+id/check_Student"
@@ -40,10 +40,10 @@
         android:layout_marginStart="16dp"
         android:text="Student"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/chack_Assistent" />
+        app:layout_constraintTop_toTopOf="@+id/check_Assistent" />
 
     <CheckBox
-        android:id="@+id/chack_Assistent"
+        android:id="@+id/check_Assistent"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="432dp"
@@ -60,19 +60,19 @@
         android:layout_marginEnd="24dp"
         android:text="Admin"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/chack_Assistent" />
+        app:layout_constraintTop_toTopOf="@+id/check_Assistent" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/addUser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="104dp"
         android:text="ADD USER"
         android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="@+id/chack_Assistent"
+        app:layout_constraintEnd_toEndOf="@+id/check_Assistent"
         app:layout_constraintHorizontal_bias="0.483"
-        app:layout_constraintStart_toStartOf="@+id/chack_Assistent"
-        app:layout_constraintTop_toBottomOf="@+id/chack_Assistent" />
+        app:layout_constraintStart_toStartOf="@+id/check_Assistent"
+        app:layout_constraintTop_toBottomOf="@+id/check_Assistent" />
 
     <ImageView
         android:id="@+id/imageView9"
@@ -87,7 +87,7 @@
         app:srcCompat="@drawable/flower" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/txt_EMAIL_ADD"
         android:layout_width="151dp"
         android:layout_height="48dp"
         android:layout_marginTop="80dp"

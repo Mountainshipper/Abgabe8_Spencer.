@@ -79,9 +79,8 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
                     appUser2.setUsername(edtUsername.getText().toString());
                     appUser2.setPassword(edtPassword.getText().toString());
                     appUser2.put("ID", "Student");
-                    appUser2.put("Projekt", "");
-                    appUser2.put("Bachelore", "");
-                    appUser2.put("Master", "");
+                    appUser2.put("Work", "");
+
 
 
                     final ProgressDialog progressDialog = new ProgressDialog(this);

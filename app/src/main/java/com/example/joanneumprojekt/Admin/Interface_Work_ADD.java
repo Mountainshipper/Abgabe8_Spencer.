@@ -29,9 +29,9 @@ public class Interface_Work_ADD extends AppCompatActivity implements View.OnClic
     //Date
     private static final String Tag = "MainActivity";
     private TextView displayDeadline, displayExamDate, title;
-    DatePickerDialog.OnDateSetListener dateListener;
+    private DatePickerDialog.OnDateSetListener dateListener,Listenerdate;
     //Date end; Checkbox star
-    CheckBox projectBox, bachelorBox, masterBox;
+    private CheckBox projectBox, bachelorBox, masterBox;
     private Button setUpload;
     // end
 
@@ -78,18 +78,18 @@ public class Interface_Work_ADD extends AppCompatActivity implements View.OnClic
 
                 DatePickerDialog newDialog = new DatePickerDialog(
                         Interface_Work_ADD.this,
-                        android.R.style.Theme_Holo_Light_Dialog_MinWidth,
+                        android.R.style.Theme_Black,
                         dateListener,
                         year, month, day);
                 newDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
                 newDialog.show();
 
 
+
                 dateListener = new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker datenew, int year, int month, int day) {
                         month = month + 1;
-                        Log.d(Tag, "onDateSet: mm/dd/yyy: " + month + "/" + day + "/" + year);
 
                         String date = month + "/" + day + "/" + year;
                         displayDeadline.setText(date);
@@ -105,19 +105,18 @@ public class Interface_Work_ADD extends AppCompatActivity implements View.OnClic
 
                 DatePickerDialog datedialog = new DatePickerDialog(
                         Interface_Work_ADD.this,
-                        android.R.style.Theme_Holo_Light_Dialog_MinWidth,
-                        dateListener,
+                        android.R.style.Theme_Black, Listenerdate,
                         year1, month1, day1);
                 datedialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
                 datedialog.show();
 
-                dateListener = new DatePickerDialog.OnDateSetListener() {
+                Listenerdate = new DatePickerDialog.OnDateSetListener() {
                     @Override
-                    public void onDateSet(DatePicker datePick, int year1, int month1, int day1) {
-                        month1 = month1 + 1;
-                        Log.d(Tag, "onDateSet: mm/dd/yyy: " + month1 + "/" + day1 + "/" + year1);
+                    public void onDateSet(DatePicker datePick, int year, int month, int day) {
+                        month = month + 1;  //starts at 0
 
-                        String dateM = month1 + "/" + day1 + "/" + year1;
+
+                        String dateM = month + "/" + day + "/" + year;
                         displayExamDate.setText(dateM);
                     }
 
@@ -129,9 +128,7 @@ public class Interface_Work_ADD extends AppCompatActivity implements View.OnClic
                 ParseObject work = new ParseObject("All_Works");
                 work.put("Deadline", displayDeadline.getText().toString());
                 work.put("Title", title.getText().toString());
-                if (displayExamDate.getText().toString().length() > 5) {
-                    work.put("Exam date", displayExamDate.getText().toString());
-                }
+
 
 
                 int count=0;
@@ -153,8 +150,9 @@ public class Interface_Work_ADD extends AppCompatActivity implements View.OnClic
 
                     }else if (masterBox.isChecked()) {
                         work.put("Function", "Master");
-
-
+                    }
+                    if (masterBox.isChecked()) {
+                        work.put("Exam_Date", displayExamDate.getText().toString());
                     }
 
 

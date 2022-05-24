@@ -86,7 +86,7 @@ public class ProfessorLogin extends AppCompatActivity implements View.OnClickLis
                         public void done(ParseUser PrUser, ParseException e) {
                             if (PrUser != null && e == null) {
                                 String studentID = PrUser.getString("ID");
-                                if (studentID.equals("Prof")){
+                                if (studentID.equals("Assistent")){
                                     FancyToast.makeText(ProfessorLogin.this, PrUser.getUsername() + " is logged in successfully!", FancyToast.LENGTH_LONG, FancyToast.SUCCESS, true).show();
 
 
@@ -101,7 +101,7 @@ public class ProfessorLogin extends AppCompatActivity implements View.OnClickLis
 
                                                 String email = PrUser.getString("email");
                                                 appUser2.put("email", email);
-                                                appUser2.put("ID", "Prof");
+                                                appUser2.put("ID", "Assistent");
                                                 appUser2.put("Projekt", "");
                                                 appUser2.put("Bachelore","");
                                                 appUser2.put("Master", "");
