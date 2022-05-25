@@ -131,6 +131,7 @@ public class Interface_ADD extends AppCompatActivity implements View.OnClickList
                             new_User.put("Bachelor", "Nein");
                             new_User.put("Projekt", "Nein");
                             new_User.put("Master", "Nein");
+                            new_User.put("User", "open");
 
                             new_User.saveInBackground(new SaveCallback() {
 

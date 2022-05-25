@@ -25,6 +25,7 @@ public class Project extends AppCompatActivity implements View.OnClickListener {
     private TextView txtTitle, txtProfessor, txtChooseWork, txtChooseProfessor;
     String txt_Work = "";
     String txt_Professor = "";
+    String User ="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,7 +85,6 @@ int n = 0;
 
                                     if (parseObject.get("ID").equals("Assistent")) {
                                         if (parseObject.get("Slots").equals("0")) {
-                                            FancyToast.makeText(Project.this, "    " +parseObject.get("ID") ,FancyToast.LENGTH_SHORT,FancyToast.ERROR,true).show();
 
 //                                             if no spots left
                                         }else{
@@ -94,7 +94,6 @@ int n = 0;
                                         }
 
                                     }else{
-                                        FancyToast.makeText(Project.this,parseObject.get("Slots")+ "  !!  " +parseObject.get("ID") ,FancyToast.LENGTH_SHORT,FancyToast.ERROR,true).show();
 
                                     }
                                 }
@@ -129,10 +128,10 @@ int n = 0;
                         }
                     });
 
-   //Assistent
+   //User
 
-                    ParseQuery<ParseObject> query2 = ParseQuery.getQuery("Assistent");
-                    query2.whereEqualTo("username", txtChooseProfessor.getText().toString());
+                    ParseQuery<ParseObject> query2 = ParseQuery.getQuery("New_User");
+                    query2.whereEqualTo("Username", txtChooseProfessor.getText().toString());
 
 
                     query2.getFirstInBackground(new GetCallback<ParseObject>() {
@@ -153,9 +152,29 @@ int n = 0;
                                     object.put("Slots", h);
 
 
-                                    String user_temp = object.getString("users");
-                                    user_temp = user_temp + txtChooseProfessor.toString() + "; ";
+
+
+                                    ParseQuery<ParseObject> query = ParseQuery.getQuery("temprary_User_Pikka");
+                                    query.whereEqualTo("objectId", "gH548pGCmO");
+                                    query.getFirstInBackground(new GetCallback<ParseObject>() {
+                                        public void done(ParseObject player, ParseException e) {
+                                            if (e == null) {
+                                                User = player.getString("email");
+
+                                            } else {
+                                                // Something is wrong
+                                            }
+                                        }
+                                    });
+
+
+
+
+
+                                    String user_temp = object.getString("Work");
+                                    user_temp= user_temp.concat(User + "; ");
                                     object.put("user", "taken");
+                                    object.put("Work", user_temp);
 
                                     FancyToast.makeText(Project.this, "All Good", FancyToast.LENGTH_SHORT, FancyToast.SUCCESS, true).show();
                                     object.saveInBackground();
