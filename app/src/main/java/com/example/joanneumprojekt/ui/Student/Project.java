@@ -25,7 +25,9 @@ public class Project extends AppCompatActivity implements View.OnClickListener {
     private TextView txtTitle, txtProfessor, txtChooseWork, txtChooseProfessor;
     String txt_Work = "";
     String txt_Professor = "";
-    String User ="";
+    String User = "";
+    String user_temp = "";
+    String trueFalse = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +47,9 @@ public class Project extends AppCompatActivity implements View.OnClickListener {
         getbtnProfessor.setOnClickListener(this);
         getbtnTitle.setOnClickListener(this);
     }
-int n = 0;
+
+    int n = 0;
+
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
@@ -56,7 +60,7 @@ int n = 0;
                     public void done(List<ParseObject> objects, ParseException e) {
 
                         if (e == null) {
-                            if (objects.size() > 0 ) {
+                            if (objects.size() > 0) {
                                 for (ParseObject parseObject : objects) {
                                     if (parseObject.get("Function").equals("Project") && (parseObject.get("User").equals("open"))) {
                                         n++;
@@ -64,8 +68,9 @@ int n = 0;
                                         txtTitle.setText(txt_Work);
                                     }
                                 }
-                            } if (n == 0){
-                                FancyToast.makeText(Project.this,"There are no available projects",FancyToast.LENGTH_SHORT,FancyToast.ERROR,true).show();
+                            }
+                            if (n == 0) {
+                                FancyToast.makeText(Project.this, "There are no available projects", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
 
                             }
                         }
@@ -74,26 +79,43 @@ int n = 0;
                 break;
 
             case R.id.btn_GetProfessor:
+
+// Save User Seperate
+                ParseQuery<ParseObject> querynew = ParseQuery.getQuery("temprary_User_Pikka");
+                querynew.whereEqualTo("objectId", "gH548pGCmO");
+                querynew.getFirstInBackground(new GetCallback<ParseObject>() {
+                    public void done(ParseObject player, ParseException e) {
+                        if (e == null) {
+                            User = player.getString("email");
+                            trueFalse = player.getString("Projekt");
+                        } else {
+                            // Something is wrong
+                        }
+                    }
+                });
+                //end
+
+
                 ParseQuery<ParseObject> queryAllProfessor = ParseQuery.getQuery("New_User");
                 queryAllProfessor.findInBackground(new FindCallback<ParseObject>() {
                     @Override
                     public void done(List<ParseObject> objects, ParseException e) {
 
                         if (e == null) {
-                            if (objects.size() > 0 ) {
+                            if (objects.size() > 0) {
                                 for (ParseObject parseObject : objects) {
 
                                     if (parseObject.get("ID").equals("Assistent")) {
                                         if (parseObject.get("Slots").equals("0")) {
 
 //                                             if no spots left
-                                        }else{
+                                        } else {
 
-                                            txt_Professor = txt_Professor + parseObject.get("Username") + ".        Available slots" + parseObject.get("Slots") +"\n";
-                                        txtProfessor.setText(txt_Professor);
+                                            txt_Professor = txt_Professor + parseObject.get("Username") + ".        Available slots" + parseObject.get("Slots") + "\n";
+                                            txtProfessor.setText(txt_Professor);
                                         }
 
-                                    }else{
+                                    } else {
 
                                     }
                                 }
@@ -105,89 +127,85 @@ int n = 0;
                 break;
 
             case R.id.btn_Upload_ALL:
+
                 final ProgressDialog progressDialog = new ProgressDialog(this);
                 progressDialog.setMessage("Saving");
                 progressDialog.show();
-//Works
+
 
                 if (txtChooseWork.getText().toString().length() > 3 && txtChooseProfessor.toString().length() > 3) {
-                    ParseQuery<ParseObject> query = ParseQuery.getQuery("All_Works");
-                    query.whereEqualTo("Title", txtChooseWork.getText().toString());
-
-                    query.getFirstInBackground(new GetCallback<ParseObject>() {
-                        public void done(ParseObject object, ParseException e) {
-                            if (e == null) {
-                                object.put("User", "taken");
-                                FancyToast.makeText(Project.this, "All Good", FancyToast.LENGTH_SHORT, FancyToast.SUCCESS, true).show();
-                                object.saveInBackground();
-                            } else {
-                                FancyToast.makeText(Project.this, "There are no available projects", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
-
-                            }
-                            progressDialog.dismiss();
-                        }
-                    });
-
-   //User
-
-                    ParseQuery<ParseObject> query2 = ParseQuery.getQuery("New_User");
-                    query2.whereEqualTo("Username", txtChooseProfessor.getText().toString());
+                  if (trueFalse.equals("Nein")) {
 
 
-                    query2.getFirstInBackground(new GetCallback<ParseObject>() {
-                        public void done(ParseObject object, ParseException e) {
-                            if (e == null) {
+                      //User
+
+                      ParseQuery<ParseObject> query2 = ParseQuery.getQuery("New_User");
+                      query2.whereEqualTo("Username", txtChooseProfessor.getText().toString());
 
 
-                                if (object.getString("Slots").equals("0")) {
-                                    FancyToast.makeText(Project.this, "No more Slots", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
+                      query2.getFirstInBackground(new GetCallback<ParseObject>() {
+                          public void done(ParseObject object, ParseException e) {
+                              if (e == null) {
 
 
-                                }else {
-                                    int g = Integer.valueOf(object.getString("Slots"));
-
-                                    g = g - 1;
-                                    FancyToast.makeText(Project.this, "" + g, FancyToast.LENGTH_SHORT, FancyToast.SUCCESS, true).show();
-                                    String h = Integer.toString(g);
-                                    object.put("Slots", h);
+                                  if (object.getString("Slots").equals("0")) {
+                                      FancyToast.makeText(Project.this, "No more Slots", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
 
 
+                                  } else {
+                                      int g = Integer.valueOf(object.getString("Slots"));
+
+                                      g = g - 1;
+                                      FancyToast.makeText(Project.this, "" + g, FancyToast.LENGTH_SHORT, FancyToast.SUCCESS, true).show();
+                                      String h = Integer.toString(g);
+                                      object.put("Slots", h);
 
 
-                                    ParseQuery<ParseObject> query = ParseQuery.getQuery("temprary_User_Pikka");
-                                    query.whereEqualTo("objectId", "gH548pGCmO");
-                                    query.getFirstInBackground(new GetCallback<ParseObject>() {
-                                        public void done(ParseObject player, ParseException e) {
-                                            if (e == null) {
-                                                User = player.getString("email");
+                                      if (object.getString("Work").isEmpty()) {
+                                          user_temp = ";" + object.getString("Work");
+                                      } else {
+                                          user_temp = object.getString("Work");
+                                      }
 
-                                            } else {
-                                                // Something is wrong
-                                            }
-                                        }
-                                    });
+                                      user_temp = user_temp.concat(User + "; ");
+                                      object.put("user", "taken");
+                                      object.put("Work", user_temp);
 
-
-
-
-
-                                    String user_temp = object.getString("Work");
-                                    user_temp= user_temp.concat(User + "; ");
-                                    object.put("user", "taken");
-                                    object.put("Work", user_temp);
-
-                                    FancyToast.makeText(Project.this, "All Good", FancyToast.LENGTH_SHORT, FancyToast.SUCCESS, true).show();
-                                    object.saveInBackground();
+                                      FancyToast.makeText(Project.this, "All Good", FancyToast.LENGTH_SHORT, FancyToast.SUCCESS, true).show();
+                                      object.saveInBackground();
 //
-                                }
-                            } else {
-                                FancyToast.makeText(Project.this, "There are no available projects", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
-                            }
-                            progressDialog.dismiss();
-                        }
-                    });
+                                  }
+                              } else {
+                                  FancyToast.makeText(Project.this, "There are no available projects", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
+                              }
+                              progressDialog.dismiss();
+                          }
+                      });
 
-                }else{
+//Works
+                      ParseQuery<ParseObject> query = ParseQuery.getQuery("All_Works");
+                      query.whereEqualTo("Title", txtChooseWork.getText().toString());
+
+                      query.getFirstInBackground(new GetCallback<ParseObject>() {
+                          public void done(ParseObject object, ParseException e) {
+                              if (e == null) {
+                                  object.put("User", "taken");
+                                  FancyToast.makeText(Project.this, "All Good", FancyToast.LENGTH_SHORT, FancyToast.SUCCESS, true).show();
+                                  object.saveInBackground();
+                              } else {
+                                  FancyToast.makeText(Project.this, "There are no available projects", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
+
+                              }
+                              progressDialog.dismiss();
+                          }
+                      });
+
+
+                  }else{
+                      FancyToast.makeText(Project.this, "You cannot have multiple projects", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
+
+                  }
+                } else {
                     FancyToast.makeText(Project.this, "Please fill out the 'TextViews'. Not just one. Thanks :)", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
 
                 }
@@ -196,9 +214,22 @@ int n = 0;
 
 
 
+//Section to add to Student (No duplicate)
 
+
+                ParseQuery<ParseObject> query2 = ParseQuery.getQuery("New_User");
+                query2.whereEqualTo("email", User);
+
+
+                query2.getFirstInBackground(new GetCallback<ParseObject>() {
+                    public void done(ParseObject object, ParseException e) {
+                        if (e == null) {
+
+                                object.put("Projekt", "Yes");
+                            }
+                        }
+                });
         }
     }
-
-
 }
+
