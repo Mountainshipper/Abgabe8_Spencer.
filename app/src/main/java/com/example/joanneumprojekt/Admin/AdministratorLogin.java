@@ -11,6 +11,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.example.joanneumprojekt.Assistent.ProfessorLogin;
 import com.example.joanneumprojekt.R;
 import com.example.joanneumprojekt.SignUP.Login_Interface;
 import com.example.joanneumprojekt.SignUP.SignUp;
@@ -91,54 +92,69 @@ public class AdministratorLogin extends AppCompatActivity implements View.OnClic
                     progressDialog.show();
 
 
-                    ParseUser.logInInBackground(edtLoginEmail.getText().toString(), edtLoginPassword.getText().toString(), new LogInCallback() {
-                        @Override
-                        public void done(ParseUser AdminUser, ParseException e) {
-                            if (AdminUser != null && e == null) {
-                                String studentID = AdminUser.getString("ID");
-                                if (studentID.equals("Admin")){
-                                    FancyToast.makeText(AdministratorLogin.this, AdminUser.getUsername() + " is logged in successfully!", FancyToast.LENGTH_LONG, FancyToast.SUCCESS, true).show();
+                    ParseQuery<ParseObject> query = ParseQuery.getQuery("New_User");
+                    query.whereEqualTo("email", edtLoginEmail.getText().toString());
+                    query.getFirstInBackground(new GetCallback<ParseObject>() {
+                        public void done(ParseObject user, ParseException e) {
 
 
-                                    //Temporary User New Database
+                            if (e == null && edtLoginPassword.getText().toString().equals(user.getString("password"))) {
+                                if (user.getString("ID").equals("Admin")) {
+
+
+                                    FancyToast.makeText(AdministratorLogin.this, user.getString("Username") + " is logged in successfully!", FancyToast.LENGTH_LONG, FancyToast.SUCCESS, true).show();
+
+
+
                                     ParseQuery<ParseObject> query = ParseQuery.getQuery("temprary_User_Pikka");
-// Retrieve the object by id and overwrite it
+// Retrieve the object by id
                                     query.getInBackground("gH548pGCmO", new GetCallback<ParseObject>() {
                                         public void done(ParseObject appUser2, ParseException e) {
                                             if (e == null) {
-                                                String username = AdminUser.getString("username");
+                                                String username = user.getString("Username");
                                                 appUser2.put("username", username);
 
-                                                String email = AdminUser.getString("email");
+                                                String email = user.getString("email");
                                                 appUser2.put("email", email);
-                                                appUser2.put("ID", "Admin");
-                                                appUser2.put("Projekt", "");
-                                                appUser2.put("Bachelore","");
-                                                appUser2.put("Master","");
+                                                appUser2.put("ID", "Assistent");
 
+                                                String project = user.getString("Projekt");
+                                                appUser2.put("Projekt", project);
+
+                                                String bachelore = user.getString("Bachelor");
+                                                appUser2.put("Bachelor",bachelore);
+
+                                                String master = user.getString("Master");
+                                                appUser2.put("Master",master);
                                                 appUser2.saveInBackground();
 
+
+
                                             } else {
-                                                FancyToast.makeText(AdministratorLogin.this, "temporary Login could not be generated", FancyToast.LENGTH_LONG, FancyToast.SUCCESS, true).show();
+                                                FancyToast.makeText(AdministratorLogin.this, "Temporary Login could not be generated. But you can continue", FancyToast.LENGTH_LONG, FancyToast.SUCCESS, true).show();
                                                 // Failed
-                                                progressDialog.dismiss();
+
                                             }
-                                            progressDialog.dismiss();
+
                                         }
                                     });
-//temporary Database end Switch to Interface
+
                                     Intent INTERFACE_STUDENT = new Intent(AdministratorLogin.this, ADMIN_INTERFACE.class);
-                                    FancyToast.makeText(AdministratorLogin.this,"Logging in to Admin-Interface",FancyToast.LENGTH_SHORT,FancyToast.INFO,true).show();
+                                    FancyToast.makeText(AdministratorLogin.this,"Switching to STUDENT INTERFACE",FancyToast.LENGTH_SHORT,FancyToast.INFO,true).show();
                                     startActivity(INTERFACE_STUDENT);
 
-                                } else {
-                                    FancyToast.makeText(AdministratorLogin.this, AdminUser.getUsername() + "You are not registered as a Administrator", FancyToast.LENGTH_LONG, FancyToast.ERROR, true).show();
+                                }else{
+                                    FancyToast.makeText(AdministratorLogin.this, "his is the login for 'Assistents', please use the correct login. Thank you", FancyToast.LENGTH_LONG, FancyToast.SUCCESS, true).show();
+
                                 }
-                            }else {
-                                FancyToast.makeText(AdministratorLogin.this, "Email or Password is wrong", FancyToast.LENGTH_LONG, FancyToast.ERROR, true).show();
+                            } else {
+                                FancyToast.makeText(AdministratorLogin.this, "Password wrong", FancyToast.LENGTH_LONG, FancyToast.ERROR, true).show();
+
                             }
+                            progressDialog.dismiss();
                         }
                     });
+
                 }
                 break;
 

@@ -73,7 +73,7 @@ int n = 0;
                 break;
 
             case R.id.btn_GetProfessor:
-                ParseQuery<ParseObject> queryAllProfessor = ParseQuery.getQuery("Assistent");
+                ParseQuery<ParseObject> queryAllProfessor = ParseQuery.getQuery("New_User");
                 queryAllProfessor.findInBackground(new FindCallback<ParseObject>() {
                     @Override
                     public void done(List<ParseObject> objects, ParseException e) {
@@ -84,15 +84,17 @@ int n = 0;
 
                                     if (parseObject.get("ID").equals("Assistent")) {
                                         if (parseObject.get("Slots").equals("0")) {
+                                            FancyToast.makeText(Project.this, "    " +parseObject.get("ID") ,FancyToast.LENGTH_SHORT,FancyToast.ERROR,true).show();
 
-                                            // if no spots left
+//                                             if no spots left
                                         }else{
 
-                                            txt_Professor = txt_Professor + parseObject.get("username") + ".        Available slots" + parseObject.get("Slots") +"\n";
+                                            txt_Professor = txt_Professor + parseObject.get("Username") + ".        Available slots" + parseObject.get("Slots") +"\n";
                                         txtProfessor.setText(txt_Professor);
                                         }
 
                                     }else{
+                                        FancyToast.makeText(Project.this,parseObject.get("Slots")+ "  !!  " +parseObject.get("ID") ,FancyToast.LENGTH_SHORT,FancyToast.ERROR,true).show();
 
                                     }
                                 }
@@ -101,8 +103,8 @@ int n = 0;
                     }
                 });
 
-
                 break;
+
             case R.id.btn_Upload_ALL:
                 final ProgressDialog progressDialog = new ProgressDialog(this);
                 progressDialog.setMessage("Saving");
@@ -112,8 +114,6 @@ int n = 0;
                 if (txtChooseWork.getText().toString().length() > 3 && txtChooseProfessor.toString().length() > 3) {
                     ParseQuery<ParseObject> query = ParseQuery.getQuery("All_Works");
                     query.whereEqualTo("Title", txtChooseWork.getText().toString());
-
-
 
                     query.getFirstInBackground(new GetCallback<ParseObject>() {
                         public void done(ParseObject object, ParseException e) {

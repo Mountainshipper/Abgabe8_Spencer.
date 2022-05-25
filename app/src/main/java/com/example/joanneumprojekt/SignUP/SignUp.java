@@ -13,10 +13,17 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.joanneumprojekt.R;
+import com.example.joanneumprojekt.ui.Student.Project;
+import com.parse.FindCallback;
 import com.parse.ParseException;
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
 import com.parse.ParseUser;
+import com.parse.SaveCallback;
 import com.parse.SignUpCallback;
 import com.shashank.sony.fancytoastlib.FancyToast;
+
+import java.util.List;
 
 
 public class SignUp extends AppCompatActivity implements View.OnClickListener {
@@ -60,68 +67,82 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
+        try {
+            switch (view.getId()) {
+                case R.id.btnSignUp:
+                    // Checks if values are empty
+                    if (edtEmail.getText().toString().equals("") ||
+                            edtUsername.getText().toString().equals("") ||
+                            edtPassword.getText().toString().equals("")) {
 
-        switch (view.getId()) {
-            case R.id.btnSignUp:
-                // Checks if values are empty
-                if (edtEmail.getText().toString().equals("") ||
-                        edtUsername.getText().toString().equals("") ||
-                        edtPassword.getText().toString().equals("")){
+                        FancyToast.makeText(SignUp.this, "EMAIL, USERNAME, PASSWORD is required!",
+                                FancyToast.LENGTH_LONG, FancyToast.INFO, true).show();
 
-                    FancyToast.makeText(SignUp.this,"EMAIL, USERNAME, PASSWORD is required!",
-                            FancyToast.LENGTH_LONG,FancyToast.INFO,true).show();
-
-                } else if (edtEmail.getText().toString().length() > 5 && edtEmail.getText().toString().contains(".com") && edtEmail.getText().toString().contains("@") ) {
-                    if(edtPassword.getText().toString().length() > 4)  {
-
-
-                        final ParseUser appUser2 = new ParseUser();
-                        appUser2.setEmail(edtEmail.getText().toString());
-                        appUser2.setUsername(edtUsername.getText().toString());
-                        appUser2.setPassword(edtPassword.getText().toString());
-                        appUser2.put("ID", "Student");
-                        appUser2.put("Work", "");
+                    } else if (edtEmail.getText().toString().length() > 5 && edtEmail.getText().toString().contains(".com") && edtEmail.getText().toString().contains("@")) {
+                        if (edtPassword.getText().toString().length() > 4) {
 
 
-                        final ProgressDialog progressDialog = new ProgressDialog(this);
-                        progressDialog.setMessage("Signing up " + edtUsername.getText().toString());
-                        progressDialog.show();
+                            final ProgressDialog progressDialog = new ProgressDialog(this);
+                            progressDialog.setMessage("Signing up ");
+                            progressDialog.show();
+
+                            // Configure Query
+                            ParseObject new_User = new ParseObject("New_User");
+// Store an object
+                            new_User.put("email", edtEmail.getText().toString());
+                            new_User.put("password", edtPassword.getText().toString());
+                            new_User.put("Username", edtUsername.getText().toString());
+                            new_User.put("ID", "Student");
+                            new_User.put("Work", "");
+                            // Saving object
 
 
-                        appUser2.signUpInBackground(new SignUpCallback() {
-                            @Override
-                            public void done(ParseException e) {
-                                if (e == null) {
-                                    FancyToast.makeText(SignUp.this, appUser2.getUsername() + ": is signed up",
-                                            FancyToast.LENGTH_LONG, FancyToast.SUCCESS, true).show();
-
-
-                                } else {
-                                    FancyToast.makeText(SignUp.this, "Error",
-                                            FancyToast.LENGTH_LONG, FancyToast.ERROR, true).show();
-
+                            new_User.saveInBackground(new SaveCallback() {
+                                @Override
+                                public void done(ParseException e) {
+                                    if (e == null) {
+                                        FancyToast.makeText(SignUp.this, edtUsername.getText().toString() + ": is signed up",
+                                                FancyToast.LENGTH_LONG, FancyToast.SUCCESS, true).show();
+                                    } else {
+                                        FancyToast.makeText(SignUp.this, "Error",
+                                                FancyToast.LENGTH_LONG, FancyToast.ERROR, true).show();
+                                    }
+                                    progressDialog.dismiss();
                                 }
-                                progressDialog.dismiss();
-                            }
 
-                        });
+                            });
+
+
+                        } else {
+                            FancyToast.makeText(SignUp.this, "Password to short",
+                                    FancyToast.LENGTH_LONG, FancyToast.ERROR, true).show();
+
+                        }
+                    } else {
+                        FancyToast.makeText(SignUp.this, "please use a valid email",
+                                FancyToast.LENGTH_LONG, FancyToast.ERROR, true).show();
+
                     }
-                }else { FancyToast.makeText(SignUp.this, "Password / Email Error",
-                        FancyToast.LENGTH_LONG, FancyToast.ERROR, true).show();
-                }
-                break;
+                    break;
 
-            case R.id.btnLogIn:
+                case R.id.btnLogIn:
 
 //
 
-                Intent intent = new Intent(SignUp.this, Login_Interface.class);
-                FancyToast.makeText(SignUp.this,"Switching to Log In Interface",FancyToast.LENGTH_SHORT,FancyToast.INFO,true).show();
-                startActivity(intent);
+                    Intent intent = new Intent(SignUp.this, Login_Interface.class);
+                    FancyToast.makeText(SignUp.this, "Switching to Log In Interface", FancyToast.LENGTH_SHORT, FancyToast.INFO, true).show();
+                    startActivity(intent);
 
-                break;
-        }
+                    break;
+            }
 
+        }catch (Exception e){
+
+
+        FancyToast.makeText(SignUp.this, "Password was rejected",
+                FancyToast.LENGTH_LONG, FancyToast.ERROR, true).show();
+
+    }
     }
     // If tapped outside, keyboard goes away. Stackoverflow
     public void rootLayoutTapped (View view) {

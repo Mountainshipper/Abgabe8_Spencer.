@@ -16,7 +16,9 @@ import android.widget.TextView;
 
 import com.example.joanneumprojekt.Assistent.ProfessorLogin;
 import com.example.joanneumprojekt.R;
+import com.example.joanneumprojekt.SignUP.Login_Interface;
 import com.example.joanneumprojekt.SignUP.SignUp;
+import com.example.joanneumprojekt.ui.Student.LoginActivity;
 import com.parse.GetCallback;
 import com.parse.ParseException;
 import com.parse.ParseObject;
@@ -71,98 +73,118 @@ public class Interface_ADD extends AppCompatActivity implements View.OnClickList
 
 
             case R.id.addUser:
+                //
 
 
-                final ParseUser appUser2 = new ParseUser();
-                int for2Database = 0;
+                // Checks if values are empty
+                if (email.getText().toString().equals("") ||
+                        username.getText().toString().equals("") ||
+                        password.getText().toString().equals("")) {
+//
+                    FancyToast.makeText(Interface_ADD.this, "EMAIL, USERNAME, PASSWORD is required!",
+                            FancyToast.LENGTH_LONG, FancyToast.INFO, true).show();
+//
 
-                appUser2.setEmail(email.getText().toString());
-                appUser2.setUsername(username.getText().toString());
-                appUser2.setPassword(password.getText().toString());
-
-
-                int count = 0;
-                if (assistentBox.isChecked()) {
-                    count = count + 1;
-                }
-                if (adminBox.isChecked()) {
-                    count = count + 1;
-                }
-                if (studentBox.isChecked()) {
-                    count = count + 1;
-                }
-
-                if (count == 1) {
+                } else if (email.getText().toString().length() > 5 && email.getText().toString().contains(".com") && email.getText().toString().contains("@")) {
+                    if (password.getText().toString().length() > 4) {
 
 
-                    if (studentBox.isChecked()) {
-                        appUser2.put("ID", "Student");
-
-                    } else if (assistentBox.isChecked()) {
-                        appUser2.put("ID", "Assistent");
-                        for2Database++;
-
-                    } else if (adminBox.isChecked()) {
-                        appUser2.put("ID", "Admin");
-
-                    }
-                    appUser2.put("Bachelor", "No");
-                    appUser2.put("Projekt", "No");
-                    appUser2.put("Master", "No");
 
 
-                    if (for2Database == 1) {
-                        ParseObject assistent = new ParseObject("Assistent");
+//                        // Configure Query
+                        ParseObject new_User = new ParseObject("New_User");
+// Store an object
+                        new_User.put("email", email.getText().toString());
+                        new_User.put("Username", username.getText().toString());
+                        new_User.put("password", password.getText().toString());
 
-                        assistent.put("username", username.getText().toString());
-                        assistent.put("email", email.getText().toString());
-                        assistent.put("ID", "Assistent");
-                        assistent.put("Projekt", "Nein");
-                        assistent.put("Bachelore", "Nein");
-                        assistent.put("Master", "Nein");
-                        assistent.put("Slots", "3");
 
-                        assistent.saveInBackground(new SaveCallback() {
-                            @Override
-                            public void done(ParseException e) {
-                                if (e == null) {
-                                    // Success
-                                } else {
-                                    FancyToast.makeText(Interface_ADD.this, "temporary Login could not be generated", FancyToast.LENGTH_LONG, FancyToast.ERROR, true).show();
+                        int count = 0;
+                        if (assistentBox.isChecked()) {
+                            count = count + 1;
+                        }
+                        if (adminBox.isChecked()) {
+                            count = count + 1;
+                        }
+                        if (studentBox.isChecked()) {
+                            count = count + 1;
+                        }
 
-                                }
+                        if (count == 1) {
+                            final ProgressDialog progressDialog = new ProgressDialog(this);
+                            progressDialog.setMessage("Signing up ");
+                            progressDialog.show();
+
+                            if (studentBox.isChecked()) {
+                                new_User.put("ID", "Student");
+
+                            } else if (assistentBox.isChecked()) {
+                                new_User.put("ID", "Assistent");
+
+
+                            } else if (adminBox.isChecked()) {
+                                new_User.put("ID", "Admin");
+
                             }
-                        });
-                    }
 
 
-                        final ProgressDialog progressDialog = new ProgressDialog(this);
-                        progressDialog.setMessage("logging in" + username.getText().toString());
-                        progressDialog.show();
+                            new_User.put("Bachelor", "Nein");
+                            new_User.put("Projekt", "Nein");
+                            new_User.put("Master", "Nein");
+
+                            new_User.saveInBackground(new SaveCallback() {
 
 
-                        appUser2.signUpInBackground(new SignUpCallback() {
-                            @Override
-                            public void done(ParseException e) {
-                                if (e == null) {
-                                    FancyToast.makeText(Interface_ADD.this, appUser2.getUsername() + ": is signed up",
-                                            FancyToast.LENGTH_LONG, FancyToast.SUCCESS, true).show();
+                                @Override
+                                public void done(ParseException e) {
 
+                                    if (e == null) {
+                                        FancyToast.makeText(Interface_ADD.this, username.getText().toString() + ": is signed up",
+                                                FancyToast.LENGTH_LONG, FancyToast.SUCCESS, true).show();
 
-                                } else {
+                                    } else {
+                                        FancyToast.makeText(Interface_ADD.this, "Error",
+                                                FancyToast.LENGTH_LONG, FancyToast.ERROR, true).show();
 
-                                    FancyToast.makeText(Interface_ADD.this, "Error",
-                                            FancyToast.LENGTH_LONG, FancyToast.ERROR, true).show();
+                                    }
+                                    progressDialog.dismiss();
                                 }
-                                progressDialog.dismiss();
-                            }
-                        });
+
+                            });
+
+                        }else{
+                            FancyToast.makeText(Interface_ADD.this, "One Checkbox should be checked!",
+                                    FancyToast.LENGTH_LONG, FancyToast.ERROR, true).show();
+
+
+                        }
+
+                        } else {
+                                FancyToast.makeText(Interface_ADD.this, "Password to short",
+                                        FancyToast.LENGTH_LONG, FancyToast.ERROR, true).show();
+
+
+                        }
                     } else {
-                        FancyToast.makeText(Interface_ADD.this, "Password / Email Error",
+                        FancyToast.makeText(Interface_ADD.this, "please use a valid email",
                                 FancyToast.LENGTH_LONG, FancyToast.ERROR, true).show();
+
                     }
                     break;
 
-                }
+
+
         }
     }
+}
+
+
+
+
+
+
+
+
+
+
+

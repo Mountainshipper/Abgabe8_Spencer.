@@ -14,6 +14,8 @@ import android.widget.EditText;
 import com.example.joanneumprojekt.R;
 import com.example.joanneumprojekt.SignUP.Login_Interface;
 import com.example.joanneumprojekt.SignUP.SignUp;
+import com.example.joanneumprojekt.ui.Student.INTERFACE_STUDENT;
+import com.example.joanneumprojekt.ui.Student.LoginActivity;
 import com.parse.GetCallback;
 import com.parse.LogInCallback;
 import com.parse.ParseException;
@@ -86,52 +88,72 @@ public class ProfessorLogin extends AppCompatActivity implements View.OnClickLis
                     progressDialog.setMessage("Signing up ");
                     progressDialog.show();
 
-                    ParseUser.logInInBackground(edtLoginEmail.getText().toString(), edtLoginPassword.getText().toString(), new LogInCallback() {
-                        @Override
-                        public void done(ParseUser PrUser, ParseException e) {
-                            if (PrUser != null && e == null) {
-                                String studentID = PrUser.getString("ID");
-                                if (studentID.equals("Assistent")){
-                                    FancyToast.makeText(ProfessorLogin.this, PrUser.getUsername() + " is logged in successfully!", FancyToast.LENGTH_LONG, FancyToast.SUCCESS, true).show();
 
 
-                                    //Temporary User New Database
+
+
+                    ParseQuery<ParseObject> query = ParseQuery.getQuery("New_User");
+                    query.whereEqualTo("email", edtLoginEmail.getText().toString());
+                    query.getFirstInBackground(new GetCallback<ParseObject>() {
+                        public void done(ParseObject user, ParseException e) {
+
+                            if (e == null && edtLoginPassword.getText().toString().equals(user.getString("password"))) {
+                                if (user.getString("ID").equals("Assistent")) {
+
+
+                                    FancyToast.makeText(ProfessorLogin.this, user.getString("Username") + " is logged in successfully!", FancyToast.LENGTH_LONG, FancyToast.SUCCESS, true).show();
+
+
+
                                     ParseQuery<ParseObject> query = ParseQuery.getQuery("temprary_User_Pikka");
-// Retrieve the object by id and overwrite it
+// Retrieve the object by id
                                     query.getInBackground("gH548pGCmO", new GetCallback<ParseObject>() {
                                         public void done(ParseObject appUser2, ParseException e) {
                                             if (e == null) {
-                                                String username = PrUser.getString("username");
+                                                String username = user.getString("Username");
                                                 appUser2.put("username", username);
 
-                                                String email = PrUser.getString("email");
+                                                String email = user.getString("email");
                                                 appUser2.put("email", email);
                                                 appUser2.put("ID", "Assistent");
-                                                appUser2.put("Projekt", "");
-                                                appUser2.put("Bachelore","");
-                                                appUser2.put("Master", "");
 
+                                                String project = user.getString("Projekt");
+                                                appUser2.put("Projekt", project);
+
+                                                String bachelore = user.getString("Bachelor");
+                                                appUser2.put("Bachelor",bachelore);
+
+                                                String master = user.getString("Master");
+                                                appUser2.put("Master",master);
                                                 appUser2.saveInBackground();
 
+
+
                                             } else {
-                                                FancyToast.makeText(ProfessorLogin.this, "temporary Login could not be generated", FancyToast.LENGTH_LONG, FancyToast.SUCCESS, true).show();
+                                                FancyToast.makeText(ProfessorLogin.this, "Temporary Login could not be generated. But you can continue", FancyToast.LENGTH_LONG, FancyToast.SUCCESS, true).show();
+                                                // Failed
 
                                             }
+
                                         }
                                     });
-//temporary Database en
-                                } else {
 
-                                    FancyToast.makeText(ProfessorLogin.this, PrUser.getUsername() + "Youre 'ACCOUNT' id linked with an other 'CATEGORY'.", FancyToast.LENGTH_LONG, FancyToast.ERROR, true).show();
+                                    Intent INTERFACE_STUDENT = new Intent(ProfessorLogin.this, Login_Interface.class);
+                                    FancyToast.makeText(ProfessorLogin.this,"Switching to STUDENT INTERFACE",FancyToast.LENGTH_SHORT,FancyToast.INFO,true).show();
+                                    startActivity(INTERFACE_STUDENT);
+
+                                }else{
+                                    FancyToast.makeText(ProfessorLogin.this, "his is the login for 'Assistents', please use the correct login. Thank you", FancyToast.LENGTH_LONG, FancyToast.SUCCESS, true).show();
+
                                 }
-                            }else {
+                            } else {
+                                FancyToast.makeText(ProfessorLogin.this, "Password wrong", FancyToast.LENGTH_LONG, FancyToast.ERROR, true).show();
 
-                                FancyToast.makeText(ProfessorLogin.this, "Email or Password is wrong", FancyToast.LENGTH_LONG, FancyToast.ERROR, true).show();
                             }
                             progressDialog.dismiss();
-
                         }
                     });
+
                 }
                 break;
 

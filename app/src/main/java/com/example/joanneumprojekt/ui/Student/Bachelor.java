@@ -76,7 +76,7 @@ public class Bachelor extends AppCompatActivity implements View.OnClickListener{
                 break;
 
             case R.id.btn_Bechelor_GetProfessor:
-                ParseQuery<ParseObject> queryAllProfessor = ParseQuery.getQuery("Assistent");
+                ParseQuery<ParseObject> queryAllProfessor = ParseQuery.getQuery("New_User");
                 queryAllProfessor.findInBackground(new FindCallback<ParseObject>() {
                     @Override
                     public void done(List<ParseObject> objects, ParseException e) {
@@ -91,7 +91,7 @@ public class Bachelor extends AppCompatActivity implements View.OnClickListener{
                                             // if no spots left
                                         }else{
 
-                                            txt_Professor = txt_Professor + parseObject.get("username") + ".        Available slots" + parseObject.get("Slots") +"\n";
+                                            txt_Professor = txt_Professor + parseObject.get("Username") + ".        Available slots" + parseObject.get("Slots") +"\n";
                                             txtProfessor.setText(txt_Professor);
                                         }
 

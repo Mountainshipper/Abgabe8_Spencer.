@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 
+import com.example.joanneumprojekt.Assistent.ProfessorLogin;
 import com.example.joanneumprojekt.R;
 import com.example.joanneumprojekt.SignUP.Login_Interface;
 import com.example.joanneumprojekt.SignUP.SignUp;
@@ -88,17 +89,25 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     progressDialog.show();
 
 
-                    ParseUser.logInInBackground(edtLoginEmail.getText().toString(), edtLoginPassword.getText().toString(), new LogInCallback() {
-                        @Override
-                        public void done(ParseUser User, ParseException e) {
-                            if (User != null && e == null) {
-                                String studentID = User.getString("ID");
-                                if (studentID.equals("Student")){
-                                    FancyToast.makeText(LoginActivity.this, User.getUsername() + " is logged in successfully!", FancyToast.LENGTH_LONG, FancyToast.SUCCESS, true).show();
-                                    //SWITCH TO INTERFACE
 
 
-                                    //Temporary User New Database
+
+
+
+
+
+
+                    ParseQuery<ParseObject> query = ParseQuery.getQuery("New_User");
+                    query.whereEqualTo("email", edtLoginEmail.getText().toString());
+                    query.getFirstInBackground(new GetCallback<ParseObject>() {
+                        public void done(ParseObject user, ParseException e) {
+
+                            if (e == null && edtLoginPassword.getText().toString().equals(user.getString("password"))) {
+                                if (user.getString("ID").equals("Student")) {
+
+
+                                    FancyToast.makeText(LoginActivity.this, user.getString("Username") + " is logged in successfully!", FancyToast.LENGTH_LONG, FancyToast.SUCCESS, true).show();
+
 
 
                                     ParseQuery<ParseObject> query = ParseQuery.getQuery("temprary_User_Pikka");
@@ -106,53 +115,62 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                                     query.getInBackground("gH548pGCmO", new GetCallback<ParseObject>() {
                                         public void done(ParseObject appUser2, ParseException e) {
                                             if (e == null) {
-                                                String username = User.getString("username");
+                                                String username = user.getString("Username");
                                                 appUser2.put("username", username);
 
-                                                String email = User.getString("email");
+                                                String email = user.getString("email");
                                                 appUser2.put("email", email);
-                                                appUser2.put("ID", "Student");
+                                                appUser2.put("ID", "Assistent");
 
-                                                String project = User.getString("Projekt");
+                                                String project = user.getString("Projekt");
                                                 appUser2.put("Projekt", project);
 
-                                                String bachelore = User.getString("Bachelore");
-                                                appUser2.put("Bachelore",bachelore);
+                                                String bachelore = user.getString("Bachelor");
+                                                appUser2.put("Bachelor",bachelore);
 
-                                                String master = User.getString("Master");
-                                                appUser2.put("Bachelore",master);
+                                                String master = user.getString("Master");
+                                                appUser2.put("Master",master);
                                                 appUser2.saveInBackground();
 
 
 
                                             } else {
-                                                FancyToast.makeText(LoginActivity.this, "temporary Login could not be generated", FancyToast.LENGTH_LONG, FancyToast.SUCCESS, true).show();
+                                                FancyToast.makeText(LoginActivity.this, "Temporary Login could not be generated. But you can continue", FancyToast.LENGTH_LONG, FancyToast.SUCCESS, true).show();
                                                 // Failed
 
                                             }
 
                                         }
                                     });
-//temporary Database end
+
                                     Intent INTERFACE_STUDENT = new Intent(LoginActivity.this, INTERFACE_STUDENT.class);
                                     FancyToast.makeText(LoginActivity.this,"Switching to STUDENT INTERFACE",FancyToast.LENGTH_SHORT,FancyToast.INFO,true).show();
                                     startActivity(INTERFACE_STUDENT);
 
+                                }else{
+                                    FancyToast.makeText(LoginActivity.this, "This is the login for 'Students', please use the correct login. Thank you", FancyToast.LENGTH_LONG, FancyToast.SUCCESS, true).show();
 
-                                } else {
-
-                                    FancyToast.makeText(LoginActivity.this, User.getUsername() + "You are not registered as a Student", FancyToast.LENGTH_LONG, FancyToast.ERROR, true).show();
                                 }
-                            }else {
+                            } else {
+                                FancyToast.makeText(LoginActivity.this, "Password wrong", FancyToast.LENGTH_LONG, FancyToast.ERROR, true).show();
 
-                                FancyToast.makeText(LoginActivity.this, "Email or Password is wrong", FancyToast.LENGTH_LONG, FancyToast.ERROR, true).show();
                             }
                             progressDialog.dismiss();
                         }
-
                     });
+
                 }
                 break;
+
+
+
+
+
+
+
+
+
+
 
 
             case R.id.btnSignUpLoginActivity:
