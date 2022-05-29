@@ -10,12 +10,17 @@ import android.widget.Button;
 
 import com.example.joanneumprojekt.Admin.AdministratorLogin;
 import com.example.joanneumprojekt.Assistent.ProfessorLogin;
+import com.example.joanneumprojekt.Current_Login;
 import com.example.joanneumprojekt.R;
 import com.parse.ParseUser;
 import com.shashank.sony.fancytoastlib.FancyToast;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class INTERFACE_STUDENT extends AppCompatActivity implements View.OnClickListener{
     private Button btnProject, btnBachelor, btnMaster;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,20 +46,25 @@ public class INTERFACE_STUDENT extends AppCompatActivity implements View.OnClick
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btnProject:
+                Current_Login current_user = (Current_Login) getIntent().getSerializableExtra("current_user");
 
-                Intent intent = new Intent(INTERFACE_STUDENT.this, Project.class);
+
+
+                Intent intent = new Intent(INTERFACE_STUDENT.this, Project.class).putExtra("current_user", current_user);
                 FancyToast.makeText(INTERFACE_STUDENT.this, "Switching to projekt", FancyToast.LENGTH_SHORT, FancyToast.INFO, true).show();
                 startActivity(intent);
                 break;
 
             case R.id.btnBachelor:
-                Intent intentAdmin = new Intent(INTERFACE_STUDENT.this, Bachelor.class);
+                Current_Login current_user2 = (Current_Login) getIntent().getSerializableExtra("current_user");
+                Intent intentAdmin = new Intent(INTERFACE_STUDENT.this, Bachelor.class).putExtra("current_user", current_user2);
                 FancyToast.makeText(INTERFACE_STUDENT.this, "Switching to Bachelor", FancyToast.LENGTH_SHORT, FancyToast.INFO, true).show();
                 startActivity(intentAdmin);
                 break;
 
             case R.id.btnMaster:
-                Intent intentProf = new Intent(INTERFACE_STUDENT.this, ProfessorLogin.class);
+                Current_Login current_user3 = (Current_Login) getIntent().getSerializableExtra("current_user");
+                Intent intentProf = new Intent(INTERFACE_STUDENT.this, Master.class).putExtra("current_user", current_user3);
                 FancyToast.makeText(INTERFACE_STUDENT.this, "Switching to Master", FancyToast.LENGTH_SHORT, FancyToast.INFO, true).show();
                 startActivity(intentProf);
                 break;

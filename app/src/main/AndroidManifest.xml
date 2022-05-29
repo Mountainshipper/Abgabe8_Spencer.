@@ -11,6 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.JoanneumProjekt">
         <activity
+            android:name=".ui.Student.Master"
+            android:exported="false" />
+        <activity
             android:name=".ui.Student.Bachelor"
             android:exported="false" />
         <activity

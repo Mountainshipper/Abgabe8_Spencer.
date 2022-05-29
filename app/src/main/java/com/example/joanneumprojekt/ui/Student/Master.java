@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.example.joanneumprojekt.Admin.AdministratorLogin;
 import com.example.joanneumprojekt.Current_Login;
 import com.example.joanneumprojekt.R;
 import com.parse.FindCallback;
@@ -20,7 +19,7 @@ import com.shashank.sony.fancytoastlib.FancyToast;
 
 import java.util.List;
 
-public class Project extends AppCompatActivity implements View.OnClickListener {
+public class Master extends AppCompatActivity implements View.OnClickListener{
 
     private Button getbtnTitle, getbtnProfessor, saveAll;
     private TextView txtTitle, txtProfessor, txtChooseWork, txtChooseProfessor;
@@ -35,8 +34,7 @@ public class Project extends AppCompatActivity implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_project);
-        setTitle("Project");
-
+        setTitle("Master");
 
         txtTitle = findViewById(R.id.txt_GetTitle);
         getbtnTitle = findViewById(R.id.btn_GetText);
@@ -71,7 +69,7 @@ public class Project extends AppCompatActivity implements View.OnClickListener {
                         if (e == null) {
                             if (objects.size() > 0) {
                                 for (ParseObject parseObject : objects) {
-                                    if (parseObject.get("Function").equals("Project") && (parseObject.get("User").equals("open"))) {
+                                    if (parseObject.get("Function").equals("Master") && (parseObject.get("User").equals("open"))) {
                                         n++;
 
 
@@ -89,7 +87,7 @@ public class Project extends AppCompatActivity implements View.OnClickListener {
                                 }
                             }
                             if (n == 0) {
-                                FancyToast.makeText(Project.this, "There are no available projects", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
+                                FancyToast.makeText(Master.this, "There are no open master projects", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
 
                             }
                         }
@@ -142,15 +140,16 @@ public class Project extends AppCompatActivity implements View.OnClickListener {
 
 // local
                 Current_Login current_user = (Current_Login) getIntent().getSerializableExtra("current_user");
-                if (current_user.getProjektOB().equals("Nein") && counter <= 0) {
+                if (current_user.getProjektOB().equals("Yes") ) {
+                    if( counter <= 0){
 
 
-                    final ProgressDialog progressDialog = new ProgressDialog(this);
-                    progressDialog.setMessage("Saving");
-                    progressDialog.show();
+                        final ProgressDialog progressDialog = new ProgressDialog(this);
+                        progressDialog.setMessage("Saving");
+                        progressDialog.show();
 
 
-                    if (txtChooseWork.getText().toString().length() > 3 && txtChooseProfessor.toString().length() > 3) {
+                        if (txtChooseWork.getText().toString().length() > 3 && txtChooseProfessor.toString().length() > 3) {
 
 
 
@@ -166,15 +165,15 @@ public class Project extends AppCompatActivity implements View.OnClickListener {
 
 
                                         if (object.getString("Slots").equals("0")) {
-                                            FancyToast.makeText(Project.this, "No more Slots", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
+                                            FancyToast.makeText(Master.this, "No more Slots", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
 
                                         } else {
                                             String h = "";
                                             int g = Integer.valueOf(object.getString("Slots"));
 
                                             g = g - 1;
-                                            FancyToast.makeText(Project.this, "Professor has been booked" , FancyToast.LENGTH_SHORT, FancyToast.SUCCESS, true).show();
-                                             h = Integer.toString(g);
+                                            FancyToast.makeText(Master.this, "Professor has been booked" , FancyToast.LENGTH_SHORT, FancyToast.SUCCESS, true).show();
+                                            h = Integer.toString(g);
                                             object.put("Slots", h);
 
 
@@ -191,13 +190,13 @@ public class Project extends AppCompatActivity implements View.OnClickListener {
 
                                             object.put("Work", user_temp);
 
-                                            FancyToast.makeText(Project.this, "All Good", FancyToast.LENGTH_SHORT, FancyToast.SUCCESS, true).show();
+                                            FancyToast.makeText(Master.this, "All Good", FancyToast.LENGTH_SHORT, FancyToast.SUCCESS, true).show();
                                             counter++;
                                             object.saveInBackground();
 //
                                         }
                                     } else {
-                                        FancyToast.makeText(Project.this, "There are no available projects", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
+                                        FancyToast.makeText(Master.this, "There are no more master projects", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
                                     }
                                     progressDialog.dismiss();
                                 }
@@ -213,15 +212,15 @@ public class Project extends AppCompatActivity implements View.OnClickListener {
                                     if (e == null) {
 
                                         if (object.getString("User").equals("taken")){
-                                            FancyToast.makeText(Project.this, "Work has already been booked", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
+                                            FancyToast.makeText(Master.this, "Work has already been booked", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
 
                                         }else {
                                             object.put("User", "taken");
-                                            FancyToast.makeText(Project.this, "Work has been booked", FancyToast.LENGTH_SHORT, FancyToast.SUCCESS, true).show();
+                                            FancyToast.makeText(Master.this, "Work has been booked", FancyToast.LENGTH_SHORT, FancyToast.SUCCESS, true).show();
                                             object.saveInBackground();
                                         }
                                     } else {
-                                        FancyToast.makeText(Project.this, "Work could not be found. ERROR", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
+                                        FancyToast.makeText(Master.this, "Work could not be found. ERROR", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
 
                                     }
 
@@ -232,35 +231,37 @@ public class Project extends AppCompatActivity implements View.OnClickListener {
 
 
 
-                    } else {
-                        FancyToast.makeText(Project.this, "Please fill out the 'TextViews'. Not just one. Thanks :)", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
-                        progressDialog.dismiss();
-                        break;
-                    }
+                        } else {
+                            FancyToast.makeText(Master.this, "Please fill out the 'TextViews'. Not just one. Thanks :)", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
+                            progressDialog.dismiss();
+                            break;
+                        }
 
 
 //Section to add to Student (No duplicate)
 
 
-                    ParseQuery<ParseObject> query2 = ParseQuery.getQuery("New_User");
-                    query2.whereEqualTo("email", current_user.getEmailOB());
+                        ParseQuery<ParseObject> query2 = ParseQuery.getQuery("New_User");
+                        query2.whereEqualTo("email", current_user.getEmailOB());
 
 
-                    query2.getFirstInBackground(new GetCallback<ParseObject>() {
-                        public void done(ParseObject object, ParseException e) {
-                            if (e == null) {
+                        query2.getFirstInBackground(new GetCallback<ParseObject>() {
+                            public void done(ParseObject object, ParseException e) {
+                                if (e == null) {
 
-                                object.put("Projekt", "Yes");
-                                object.saveInBackground();
+                                    object.put("Master", "Yes");
+                                    object.saveInBackground();
+                                }
                             }
-                        }
-                    });
-
+                        });
                     } else {
-                        FancyToast.makeText(Project.this, "You cannot have multiple projects", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
+                        FancyToast.makeText(Master.this, "you cannot have multiple master projects ", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
 
                     }
+                } else {
+                    FancyToast.makeText(Master.this, "Please finish your bachelor project first. THX ^^", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
+
+                }
         }
     }
 }
-

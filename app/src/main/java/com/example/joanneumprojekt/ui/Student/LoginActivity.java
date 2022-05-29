@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -13,6 +14,7 @@ import android.widget.EditText;
 
 
 import com.example.joanneumprojekt.Assistent.ProfessorLogin;
+import com.example.joanneumprojekt.Current_Login;
 import com.example.joanneumprojekt.R;
 import com.example.joanneumprojekt.SignUP.Login_Interface;
 import com.example.joanneumprojekt.SignUP.SignUp;
@@ -26,12 +28,16 @@ import com.parse.SaveCallback;
 import com.parse.SignUpCallback;
 import com.shashank.sony.fancytoastlib.FancyToast;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener{
 
 
     public String Miau;
     private EditText edtLoginEmail, edtLoginPassword;
     private Button btnLoginActivity, btnSignUpLoginActivity, btnReturnInterface;
+    public Current_Login current_user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -106,44 +112,18 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                                 if (user.getString("ID").equals("Student")) {
 
 
-                                    FancyToast.makeText(LoginActivity.this, user.getString("Username") + " is logged in successfully!", FancyToast.LENGTH_LONG, FancyToast.SUCCESS, true).show();
 
 
 
-                                    ParseQuery<ParseObject> query = ParseQuery.getQuery("temprary_User_Pikka");
-// Retrieve the object by id
-                                    query.getInBackground("gH548pGCmO", new GetCallback<ParseObject>() {
-                                        public void done(ParseObject appUser2, ParseException e) {
-                                            if (e == null) {
-                                                String username = user.getString("Username");
-                                                appUser2.put("username", username);
-
-                                                String email = user.getString("email");
-                                                appUser2.put("email", email);
-                                                appUser2.put("ID", "Assistent");
-
-                                                String project = user.getString("Projekt");
-                                                appUser2.put("Projekt", project);
-
-                                                String bachelore = user.getString("Bachelor");
-                                                appUser2.put("Bachelor",bachelore);
-
-                                                String master = user.getString("Master");
-                                                appUser2.put("Master",master);
-                                                appUser2.saveInBackground();
+                                    current_user = new Current_Login(user.getString("Master"), user.getString("Bachelor"), user.getString("Projekt"), "0", user.getString("Username").toString(), "Student", user.getString("password"),user.getString("email").toString(), "Not defined");
 
 
 
-                                            } else {
-                                                FancyToast.makeText(LoginActivity.this, "Temporary Login could not be generated. But you can continue", FancyToast.LENGTH_LONG, FancyToast.SUCCESS, true).show();
-                                                // Failed
 
-                                            }
 
-                                        }
-                                    });
 
-                                    Intent INTERFACE_STUDENT = new Intent(LoginActivity.this, INTERFACE_STUDENT.class);
+
+                                    Intent INTERFACE_STUDENT = new Intent(LoginActivity.this, INTERFACE_STUDENT.class).putExtra("current_user", current_user);
                                     FancyToast.makeText(LoginActivity.this,"Switching to STUDENT INTERFACE",FancyToast.LENGTH_SHORT,FancyToast.INFO,true).show();
                                     startActivity(INTERFACE_STUDENT);
 
@@ -175,7 +155,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
             case R.id.btnSignUpLoginActivity:
                 Intent intent = new Intent(LoginActivity.this, SignUp.class);
-                FancyToast.makeText(LoginActivity.this,"Switching to SIGN UP",FancyToast.LENGTH_SHORT,FancyToast.INFO,true).show();
+//
+                FancyToast.makeText(LoginActivity.this, "",FancyToast.LENGTH_SHORT,FancyToast.INFO,true).show();
                 startActivity(intent);
 
                 break;

@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 
+import com.example.joanneumprojekt.Current_Login;
 import com.example.joanneumprojekt.R;
 import com.parse.FindCallback;
 import com.parse.GetCallback;
@@ -27,47 +28,69 @@ public class Bachelor extends AppCompatActivity implements View.OnClickListener{
     private TextView txtTitle, txtProfessor, txtChooseWork, txtChooseProfessor;
     String txt_Work = "";
     String txt_Professor = "";
+    String User = "";
+    String user_temp = "";
+    int counter = 0;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_bachelor);
+        setContentView(R.layout.activity_project);
+        setTitle("Bachelor");
 
-        txtTitle = findViewById(R.id.txt_Bachelor_GetTitle);
-        getbtnTitle = findViewById(R.id.btn_Bechelor_GetText);
-        txtProfessor = findViewById(R.id.txt_Bechelor_GetTitle2);
-        getbtnProfessor = findViewById(R.id.btn_Bechelor_GetProfessor);
-        txtChooseWork = findViewById(R.id.txt_Choose_Bechelor_Work);
-        txtChooseProfessor = findViewById(R.id.txt_Choose_Bechelor_Professor);
-        saveAll = findViewById(R.id.btn_Upload_Bechelor_ALL);
+        txtTitle = findViewById(R.id.txt_GetTitle);
+        getbtnTitle = findViewById(R.id.btn_GetText);
+        txtProfessor = findViewById(R.id.txt_GetTitle2);
+        getbtnProfessor = findViewById(R.id.btn_GetProfessor);
+        txtChooseWork = findViewById(R.id.txt_Choose_Work);
+        txtChooseProfessor = findViewById(R.id.txt_Choose_Professor);
+        saveAll = findViewById(R.id.btn_Upload_ALL);
 
 
         saveAll.setOnClickListener(this);
         getbtnProfessor.setOnClickListener(this);
         getbtnTitle.setOnClickListener(this);
     }
+
     int n = 0;
+
     @Override
     public void onClick(View view) {
+
         switch (view.getId()) {
-            case R.id.btn_Bechelor_GetText:
+            case R.id.btn_GetText:
+                txt_Work = "";
+                txtTitle.setText("");
+
                 ParseQuery<ParseObject> queryAllWork = ParseQuery.getQuery("All_Works");
                 queryAllWork.findInBackground(new FindCallback<ParseObject>() {
                     @Override
                     public void done(List<ParseObject> objects, ParseException e) {
+                        int count_Work = 0;
 
                         if (e == null) {
-                            if (objects.size() > 0 ) {
+                            if (objects.size() > 0) {
                                 for (ParseObject parseObject : objects) {
                                     if (parseObject.get("Function").equals("Bachelor") && (parseObject.get("User").equals("open"))) {
                                         n++;
-                                        txt_Work = txt_Work + parseObject.get("Title") + "\n";
-                                        txtTitle.setText(txt_Work);
+
+
+                                        if (count_Work == 0) {
+                                            txt_Work = txt_Work + "--------------\n" + parseObject.get("Title") + "\n";
+                                            txtTitle.setText(txt_Work);
+                                            ++count_Work;
+                                        } else {
+                                            txt_Work = txt_Work + parseObject.get("Title") + "\n";
+                                            txtTitle.setText(txt_Work);
+                                        }
+
+
                                     }
                                 }
-                            } if (n == 0){
-                                FancyToast.makeText(Bachelor.this,"No Bechelor open",FancyToast.LENGTH_SHORT,FancyToast.ERROR,true).show();
+                            }
+                            if (n == 0) {
+                                FancyToast.makeText(Bachelor.this, "There are no open bachelor projects", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
 
                             }
                         }
@@ -75,27 +98,36 @@ public class Bachelor extends AppCompatActivity implements View.OnClickListener{
                 });
                 break;
 
-            case R.id.btn_Bechelor_GetProfessor:
+            case R.id.btn_GetProfessor:
+                txt_Professor = "";
+                txtProfessor.setText("");
+
                 ParseQuery<ParseObject> queryAllProfessor = ParseQuery.getQuery("New_User");
                 queryAllProfessor.findInBackground(new FindCallback<ParseObject>() {
                     @Override
                     public void done(List<ParseObject> objects, ParseException e) {
-
+                        int count_Assistent = 0;
                         if (e == null) {
-                            if (objects.size() > 0 ) {
+                            if (objects.size() > 0) {
                                 for (ParseObject parseObject : objects) {
 
                                     if (parseObject.get("ID").equals("Assistent")) {
                                         if (parseObject.get("Slots").equals("0")) {
+                                        }else {
 
-                                            // if no spots left
-                                        }else{
 
-                                            txt_Professor = txt_Professor + parseObject.get("Username") + ".        Available slots" + parseObject.get("Slots") +"\n";
-                                            txtProfessor.setText(txt_Professor);
+                                            if (count_Assistent == 0){
+                                                txt_Professor = txt_Professor + "--------------\n"+parseObject.get("Username") + ". \nAvailable slots" + parseObject.get("Slots") + "\n\n";
+                                                txtProfessor.setText(txt_Professor);
+                                                ++count_Assistent;
+                                            }else{
+                                                txt_Professor = txt_Professor + parseObject.get("Username") + ". \nAvailable slots" + parseObject.get("Slots") + "\n\n";
+                                                txtProfessor.setText(txt_Professor);
+                                            }
+
                                         }
 
-                                    }else{
+                                    } else {
 
                                     }
                                 }
@@ -104,87 +136,136 @@ public class Bachelor extends AppCompatActivity implements View.OnClickListener{
                     }
                 });
 
-
                 break;
-            case R.id.btn_Upload_Bechelor_ALL:
-                final ProgressDialog progressDialog = new ProgressDialog(this);
-                progressDialog.setMessage("Saving");
-                progressDialog.show();
+
+
+            case R.id.btn_Upload_ALL:
+
+// local
+                Current_Login current_user = (Current_Login) getIntent().getSerializableExtra("current_user");
+                if (current_user.getProjektOB().equals("Yes") ) {
+                    if( counter <= 0){
+
+
+                    final ProgressDialog progressDialog = new ProgressDialog(this);
+                    progressDialog.setMessage("Saving");
+                    progressDialog.show();
+
+
+                    if (txtChooseWork.getText().toString().length() > 3 && txtChooseProfessor.toString().length() > 3) {
+
+
+
+                        //User
+
+                        ParseQuery<ParseObject> query2 = ParseQuery.getQuery("New_User");
+                        query2.whereEqualTo("Username", txtChooseProfessor.getText().toString());
+
+
+                        query2.getFirstInBackground(new GetCallback<ParseObject>() {
+                            public void done(ParseObject object, ParseException e) {
+                                if (e == null) {
+
+
+                                    if (object.getString("Slots").equals("0")) {
+                                        FancyToast.makeText(Bachelor.this, "No more Slots", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
+
+                                    } else {
+                                        String h = "";
+                                        int g = Integer.valueOf(object.getString("Slots"));
+
+                                        g = g - 1;
+                                        FancyToast.makeText(Bachelor.this, "Professor has been booked" , FancyToast.LENGTH_SHORT, FancyToast.SUCCESS, true).show();
+                                        h = Integer.toString(g);
+                                        object.put("Slots", h);
+
+
+                                        if (object.getString("Work").isEmpty()) {
+                                            user_temp = ";" + current_user.getEmailOB();
+                                        } else {
+                                            user_temp = object.getString("Work");
+                                        }
+
+                                        user_temp = user_temp.concat(User + "; ");
+                                        if (h.equals("0")){
+                                            object.put("user", "taken");
+                                        }
+
+                                        object.put("Work", user_temp);
+
+                                        FancyToast.makeText(Bachelor.this, "All Good", FancyToast.LENGTH_SHORT, FancyToast.SUCCESS, true).show();
+                                        counter++;
+                                        object.saveInBackground();
+//
+                                    }
+                                } else {
+                                    FancyToast.makeText(Bachelor.this, "There are no more bachelor projects", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
+                                }
+                                progressDialog.dismiss();
+                            }
+                        });
+
 //Works
 
-                if (txtChooseWork.getText().toString().length() > 3 && txtChooseProfessor.toString().length() > 3) {
-                    ParseQuery<ParseObject> query = ParseQuery.getQuery("All_Works");
-                    query.whereEqualTo("Title", txtChooseWork.getText().toString());
+                        ParseQuery<ParseObject> query = ParseQuery.getQuery("All_Works");
+                        query.whereEqualTo("Title", txtChooseWork.getText().toString());
 
+                        query.getFirstInBackground(new GetCallback<ParseObject>() {
+                            public void done(ParseObject object, ParseException e) {
+                                if (e == null) {
 
+                                    if (object.getString("User").equals("taken")){
+                                        FancyToast.makeText(Bachelor.this, "Work has already been booked", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
 
-                    query.getFirstInBackground(new GetCallback<ParseObject>() {
-                        public void done(ParseObject object, ParseException e) {
-                            if (e == null) {
-                                object.put("User", "taken");
-                                FancyToast.makeText(Bachelor.this, "All Good", FancyToast.LENGTH_SHORT, FancyToast.SUCCESS, true).show();
-                                object.saveInBackground();
-                            } else {
-                                FancyToast.makeText(Bachelor.this, "There are no open 'Bechelor' projects", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
+                                    }else {
+                                        object.put("User", "taken");
+                                        FancyToast.makeText(Bachelor.this, "Work has been booked", FancyToast.LENGTH_SHORT, FancyToast.SUCCESS, true).show();
+                                        object.saveInBackground();
+                                    }
+                                } else {
+                                    FancyToast.makeText(Bachelor.this, "Work could not be found. ERROR", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
+
+                                }
 
                             }
-                            progressDialog.dismiss();
-                        }
-                    });
+                        });
 
-                    //Assistent
 
-                    ParseQuery<ParseObject> query2 = ParseQuery.getQuery("Assistent");
-                    query2.whereEqualTo("username", txtChooseProfessor.getText().toString());
+
+
+
+                    } else {
+                        FancyToast.makeText(Bachelor.this, "Please fill out the 'TextViews'. Not just one. Thanks :)", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
+                        progressDialog.dismiss();
+                        break;
+                    }
+
+
+//Section to add to Student (No duplicate)
+
+
+                    ParseQuery<ParseObject> query2 = ParseQuery.getQuery("New_User");
+                    query2.whereEqualTo("email", current_user.getEmailOB());
 
 
                     query2.getFirstInBackground(new GetCallback<ParseObject>() {
                         public void done(ParseObject object, ParseException e) {
                             if (e == null) {
 
-                                FancyToast.makeText(Bachelor.this, ""+ object.getString("Slots") , FancyToast.LENGTH_SHORT, FancyToast.SUCCESS, true).show();
-
-                                if (object.getString("Slots").equals("0")) {
-
-
-                                }else {
-                                    int g = Integer.valueOf(object.getString("Slots"));
-
-                                    g = g-1;
-                                    FancyToast.makeText(Bachelor.this, ""+ g , FancyToast.LENGTH_SHORT, FancyToast.SUCCESS, true).show();
-                                    String h = Integer.toString(g);
-                                    object.put("Slots", h);
-
-
-                                    String user_temp = object.getString("users");
-                                    user_temp = user_temp + txtChooseProfessor.toString() + "; ";
-                                    object.put("user", "taken");
-
-                                    FancyToast.makeText(Bachelor.this, "All Good", FancyToast.LENGTH_SHORT, FancyToast.SUCCESS, true).show();
-                                    object.saveInBackground();
-//
-
-                                }
-                            } else {
-                                FancyToast.makeText(Bachelor.this, "No more 'Bachelor' projects", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
+                                object.put("Bachelor", "Yes");
+                                object.saveInBackground();
                             }
-                            progressDialog.dismiss();
                         }
                     });
+                    } else {
+                        FancyToast.makeText(Bachelor.this, "you cannot have multiple bachelor projects ", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
 
-                }else{
-                    FancyToast.makeText(Bachelor.this, "Please fill out the 'TextViews'. Not just one. Thanks :)", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
+                    }
+                } else {
+                    FancyToast.makeText(Bachelor.this, "Please finish your project first. THX ^^", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
 
                 }
-
-// Set on own Chanel too
-
-
-
-
         }
     }
-
-
 }
 
