@@ -16,7 +16,7 @@ import com.shashank.sony.fancytoastlib.FancyToast;
 
 public class INTERFACE_Assistent extends AppCompatActivity implements View.OnClickListener {
 
-    private Button assistantRead, assistantSlot;
+    private Button assistantRead;
 
 
     @Override
@@ -27,11 +27,11 @@ public class INTERFACE_Assistent extends AppCompatActivity implements View.OnCli
         setTitle("Assistant Interface");
 
         assistantRead = findViewById(R.id.Assigned_Students);
-        assistantSlot = findViewById(R.id.changeSlot);
+
 
 
         assistantRead.setOnClickListener(this);
-        assistantSlot.setOnClickListener(this);
+
 
 
     }
@@ -48,11 +48,7 @@ public class INTERFACE_Assistent extends AppCompatActivity implements View.OnCli
                 startActivity(intent);
                 break;
 
-            case R.id.changeSlot:
-                Intent intentAdmin = new Intent(INTERFACE_Assistent.this, AdministratorLogin.class);
-                FancyToast.makeText(INTERFACE_Assistent.this, "Switching to Administrator Log In", FancyToast.LENGTH_SHORT, FancyToast.INFO, true).show();
-                startActivity(intentAdmin);
-                break;
+
         }
     }
 }

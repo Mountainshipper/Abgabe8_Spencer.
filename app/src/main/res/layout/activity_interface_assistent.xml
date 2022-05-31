@@ -11,33 +11,22 @@
         android:id="@+id/Assigned_Students"
         android:layout_width="130dp"
         android:layout_height="60dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="352dp"
         android:text="Assigned Students"
-        app:layout_constraintEnd_toEndOf="@+id/imageView7"
-        app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintStart_toStartOf="@+id/imageView7"
-        app:layout_constraintTop_toBottomOf="@+id/imageView7" />
-
-    <Button
-        android:id="@+id/changeSlot"
-        android:layout_width="130dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="112dp"
-        android:text="Change slot"
-        app:layout_constraintEnd_toEndOf="@+id/Assigned_Students"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/Assigned_Students"
-        app:layout_constraintTop_toBottomOf="@+id/Assigned_Students" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.546"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView10" />
 
     <ImageView
-        android:id="@+id/imageView7"
-        android:layout_width="400dp"
-        android:layout_height="297dp"
-        android:layout_marginTop="28dp"
+        android:id="@+id/imageView10"
+        android:layout_width="670dp"
+        android:layout_height="455dp"
+        android:layout_marginBottom="668dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.454"
+        app:layout_constraintHorizontal_bias="0.764"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/student_interface" />
+        app:srcCompat="@drawable/assistant_interface" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

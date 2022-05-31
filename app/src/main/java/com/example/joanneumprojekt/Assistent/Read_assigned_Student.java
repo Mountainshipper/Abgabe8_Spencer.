@@ -22,8 +22,9 @@ import java.util.List;
 
 public class Read_assigned_Student extends AppCompatActivity implements View.OnClickListener {
     private Button btn_GetStudent, btn_GetSlots, btn_setSlots;
-    private TextView txt_ASSISTENT_Student, txt_ASSISTENT_Slots;
-    String txt_Work;
+    private TextView txt_ASSISTENT_Student, txt_ASSISTENT_Slots, txt_Upload_SLOTS;
+    String txt_Students;
+    String txt_Slots;
     int n = 0;
 
     @Override
@@ -37,6 +38,8 @@ public class Read_assigned_Student extends AppCompatActivity implements View.OnC
         btn_GetSlots = findViewById(R.id.btn_Assistent_getSlots);
         txt_ASSISTENT_Student = findViewById(R.id.txt_Assistent_Student);
         txt_ASSISTENT_Slots = findViewById(R.id.txtSetSlots);
+        txt_Upload_SLOTS = findViewById(R.id.ChooseSlots);
+
 
 
         btn_setSlots.setOnClickListener(this);
@@ -52,7 +55,7 @@ public class Read_assigned_Student extends AppCompatActivity implements View.OnC
 
 
             case R.id.btn_Assistent_getStudent:
-                txt_Work = "";
+                txt_Students = "";
                 txt_ASSISTENT_Student.setText("");
 
                 ParseQuery<ParseObject> querySetStudent = ParseQuery.getQuery("New_User");
@@ -71,12 +74,12 @@ public class Read_assigned_Student extends AppCompatActivity implements View.OnC
 
 
                                         if (count_Work == 0) {
-                                            txt_Work = txt_Work + "--------------\n" + parseObject.get("Work") + "\n";
-                                            txt_ASSISTENT_Student.setText(txt_Work);
+                                            txt_Students = txt_Students + "--------------\n" + parseObject.get("Work") + "\n";
+                                            txt_ASSISTENT_Student.setText(txt_Students);
                                             ++count_Work;
                                         } else {
-                                            txt_Work = txt_Work + parseObject.get("Work") + "\n";
-                                            txt_ASSISTENT_Student.setText(txt_Work);
+                                            txt_Students = txt_Students + parseObject.get("Work") + "\n";
+                                            txt_ASSISTENT_Student.setText(txt_Students);
                                         }
 
 
@@ -94,8 +97,8 @@ public class Read_assigned_Student extends AppCompatActivity implements View.OnC
 
             case R.id.btn_Assistent_getSlots:
 
-                txt_Work = "";
-                txt_ASSISTENT_Student.setText("");
+                txt_Slots = "";
+                txt_Upload_SLOTS.setText("");
 
                 ParseQuery<ParseObject> queryReadSlots = ParseQuery.getQuery("New_User");
                 queryReadSlots.findInBackground(new FindCallback<ParseObject>() {
@@ -113,12 +116,12 @@ public class Read_assigned_Student extends AppCompatActivity implements View.OnC
 
 
                                         if (count_Work == 0) {
-                                            txt_Work = txt_Work + "--------------\n" + parseObject.get("Slots") + "\n";
-                                            txt_ASSISTENT_Slots.setText(txt_Work);
+                                            txt_Slots = txt_Slots + "--------------\n" + parseObject.get("Slots") + "\n";
+                                            txt_ASSISTENT_Slots.setText(txt_Slots);
                                             ++count_Work;
                                         } else {
-                                            txt_Work = txt_Work + parseObject.get("Slots") + "\n";
-                                            txt_ASSISTENT_Slots.setText(txt_Work);
+                                            txt_Slots = txt_Slots + parseObject.get("Slots") + "\n";
+                                            txt_ASSISTENT_Slots.setText(txt_Slots);
                                         }
 
 
@@ -157,8 +160,22 @@ public class Read_assigned_Student extends AppCompatActivity implements View.OnC
                             if (e == null) {
 
 
-                                object.put("Work", "h");
+                                String g =  txt_Upload_SLOTS.getText().toString();
+                                int gg = Integer.getInteger(g);
+                                if (gg < 11) {
+                                    object.put("Slots", txt_Upload_SLOTS.getText().toString());
+                                    FancyToast.makeText(Read_assigned_Student.this, "Number of slots has been changed", FancyToast.LENGTH_SHORT, FancyToast.SUCCESS, true).show();
+                                    object.saveInBackground();
+
+                                }else {
+                                    FancyToast.makeText(Read_assigned_Student.this, "Maximum slot count is 10", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
+
+                                }
+                            }else{
+                                FancyToast.makeText(Read_assigned_Student.this, "Something went wrong", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
+
                             }
+                            progressDialog.dismiss();
                         }
                     });
 

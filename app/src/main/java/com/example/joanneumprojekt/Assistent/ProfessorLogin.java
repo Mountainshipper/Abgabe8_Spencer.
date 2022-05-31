@@ -87,7 +87,7 @@ public class ProfessorLogin extends AppCompatActivity implements View.OnClickLis
                 } else {
 
                     final ProgressDialog progressDialog = new ProgressDialog(this);
-                    progressDialog.setMessage("Signing up ");
+                    progressDialog.setMessage("Logging in ");
                     progressDialog.show();
 
 
