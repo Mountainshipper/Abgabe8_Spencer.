@@ -11,6 +11,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.example.joanneumprojekt.Current_Login;
 import com.example.joanneumprojekt.R;
 import com.example.joanneumprojekt.SignUP.Login_Interface;
 import com.example.joanneumprojekt.SignUP.SignUp;
@@ -28,6 +29,7 @@ public class ProfessorLogin extends AppCompatActivity implements View.OnClickLis
 
     private EditText edtLoginEmail, edtLoginPassword;
     private Button btnLoginActivity, btnSignUpLoginActivity, btnReturnInterface;
+    public Current_Login current_user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -112,15 +114,16 @@ public class ProfessorLogin extends AppCompatActivity implements View.OnClickLis
 
 
 
+                                    current_user = new Current_Login(user.getString("Master"), user.getString("Bachelor"), user.getString("Projekt"), "0", user.getString("Username").toString(), user.getString("password"),user.getString("email").toString());
 
 
 
-                                    Intent INTERFACE_STUDENT = new Intent(ProfessorLogin.this, INTERFACE_Assistent.class);
+                                    Intent INTERFACE_Assistant = new Intent(ProfessorLogin.this, INTERFACE_Assistent.class).putExtra("current_user", current_user);;
                                     FancyToast.makeText(ProfessorLogin.this,"Switching to Assistent Login",FancyToast.LENGTH_SHORT,FancyToast.INFO,true).show();
-                                    startActivity(INTERFACE_STUDENT);
+                                    startActivity(INTERFACE_Assistant);
 
                                 }else{
-                                    FancyToast.makeText(ProfessorLogin.this, "his is the login for 'Assistents', please use the correct login. Thank you", FancyToast.LENGTH_LONG, FancyToast.SUCCESS, true).show();
+                                    FancyToast.makeText(ProfessorLogin.this, "This is the login for 'Assistents', please use the correct login. Thank you", FancyToast.LENGTH_LONG, FancyToast.SUCCESS, true).show();
 
                                 }
                             } else {

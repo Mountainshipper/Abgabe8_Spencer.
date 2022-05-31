@@ -179,9 +179,9 @@ public class Project extends AppCompatActivity implements View.OnClickListener {
 
 
                                             if (object.getString("Work").isEmpty()) {
-                                                user_temp = ";" + current_user.getEmailOB();
+                                                user_temp = "" + current_user.getEmailOB()+"; ";
                                             } else {
-                                                user_temp = object.getString("Work");
+                                                user_temp = user_temp + object.getString("Work");
                                             }
 
                                             user_temp = user_temp.concat(User + "; ");

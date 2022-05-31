@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ui.Student.Project">
 
+    tools:context=".Assistent.Read_assigned_Student">
 
 
     <ScrollView
@@ -40,6 +39,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
             <Button
                 android:id="@+id/btn_Assistent_getStudent"
                 android:layout_width="150dp"
@@ -47,7 +47,7 @@
                 android:layout_marginLeft="35dp"
                 android:layout_marginTop="20dp"
                 android:background="#400000"
-                android:text="Get all avalable works"
+                android:text="Get Students"
                 android:textColor="#ffffff" />
 
             <Button
@@ -57,19 +57,11 @@
                 android:layout_marginLeft="35dp"
                 android:layout_marginTop="20dp"
                 android:background="#400000"
-                android:text="Get all available professors"
+                android:text="Get Slots"
                 android:textColor="#ffffff" />
 
         </LinearLayout>
     </HorizontalScrollView>
-
-
-
-
-
-
-
-
 
     <ScrollView
         android:layout_marginLeft="200dp"
@@ -81,7 +73,7 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/txt_Bechelor_GetTitle2"
+                android:id="@+id/txtSetSlots"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="" />
@@ -89,37 +81,32 @@
     </ScrollView>
 
 
+
+
     <HorizontalScrollView
+        android:layout_marginLeft="200dp"
         android:layout_width="match_parent"
-        android:layout_height="120dp"
-        android:layout_marginLeft="200dp">
+        android:layout_height="120dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-
             <EditText
-                android:id="@+id/txt_Choose_Bechelor_Work"
+                android:id="@+id/ChooseSlots"
                 android:layout_width="150dp"
                 android:layout_height="100dp"
-                android:layout_marginLeft="35dp"
-                android:layout_marginTop="20dp"
-                android:hint="Write Work"
-                android:text=""
-                android:textColorHint="#757575" />
-
-            <EditText
-                android:id="@+id/txt_Choose_Bechelor_Professor"
-                android:layout_width="150dp"
-                android:layout_height="100dp"
-                android:layout_marginLeft="35dp"
+                android:layout_marginLeft="100dp"
                 android:layout_marginTop="20dp"
                 android:hint="Write Professor"
                 android:text=""
-                android:textColorHint="#757575" />
+                android:textColorHint="#757575"/>
         </LinearLayout>
     </HorizontalScrollView>
+
+
+
+
 
     <HorizontalScrollView
         android:layout_marginLeft="150dp"
@@ -131,7 +118,7 @@
             android:layout_height="match_parent">
 
             <Button
-                android:id="@+id/btn_Upload_Bechelor_ALL"
+                android:id="@+id/btn_Upload_Slots"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
                 android:layout_marginLeft="147dp"
@@ -142,4 +129,5 @@
 
         </LinearLayout>
     </HorizontalScrollView>
+
 </LinearLayout>

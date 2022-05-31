@@ -25,7 +25,7 @@ public class INTERFACE_STUDENT extends AppCompatActivity implements View.OnClick
 
 
         btnProject = findViewById(R.id.Assigned_Students);
-        btnBachelor = findViewById(R.id.btnBachelor);
+        btnBachelor = findViewById(R.id.changeSlot);
         btnMaster = findViewById(R.id.btnMaster);
 
         btnProject.setOnClickListener(this);
@@ -50,7 +50,7 @@ public class INTERFACE_STUDENT extends AppCompatActivity implements View.OnClick
                 startActivity(intent);
                 break;
 
-            case R.id.btnBachelor:
+            case R.id.changeSlot:
                 Current_Login current_user2 = (Current_Login) getIntent().getSerializableExtra("current_user");
                 Intent intentAdmin = new Intent(INTERFACE_STUDENT.this, Bachelor.class).putExtra("current_user", current_user2);
                 FancyToast.makeText(INTERFACE_STUDENT.this, "Switching to Bachelor", FancyToast.LENGTH_SHORT, FancyToast.INFO, true).show();
