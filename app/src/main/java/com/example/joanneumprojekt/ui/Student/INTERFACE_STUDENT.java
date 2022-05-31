@@ -8,15 +8,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.joanneumprojekt.Admin.AdministratorLogin;
-import com.example.joanneumprojekt.Assistent.ProfessorLogin;
 import com.example.joanneumprojekt.Current_Login;
 import com.example.joanneumprojekt.R;
 import com.parse.ParseUser;
 import com.shashank.sony.fancytoastlib.FancyToast;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class INTERFACE_STUDENT extends AppCompatActivity implements View.OnClickListener{
     private Button btnProject, btnBachelor, btnMaster;
@@ -29,7 +24,7 @@ public class INTERFACE_STUDENT extends AppCompatActivity implements View.OnClick
         setTitle("Interface Login");
 
 
-        btnProject = findViewById(R.id.btnProject);
+        btnProject = findViewById(R.id.Assigned_Students);
         btnBachelor = findViewById(R.id.btnBachelor);
         btnMaster = findViewById(R.id.btnMaster);
 
@@ -45,7 +40,7 @@ public class INTERFACE_STUDENT extends AppCompatActivity implements View.OnClick
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.btnProject:
+            case R.id.Assigned_Students:
                 Current_Login current_user = (Current_Login) getIntent().getSerializableExtra("current_user");
 
 

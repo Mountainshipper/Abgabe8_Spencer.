@@ -143,8 +143,8 @@ public class Bachelor extends AppCompatActivity implements View.OnClickListener{
 
 // local
                 Current_Login current_user = (Current_Login) getIntent().getSerializableExtra("current_user");
-                if (current_user.getProjektOB().equals("Yes") ) {
-                    if( counter <= 0){
+                if (current_user.getProjektOB().equals("Yes")) {
+                    if( counter <= 0 && current_user.getBachelorOB().equals("Nein") ){
 
 
                     final ProgressDialog progressDialog = new ProgressDialog(this);
@@ -153,9 +153,6 @@ public class Bachelor extends AppCompatActivity implements View.OnClickListener{
 
 
                     if (txtChooseWork.getText().toString().length() > 3 && txtChooseProfessor.toString().length() > 3) {
-
-
-
                         //User
 
                         ParseQuery<ParseObject> query2 = ParseQuery.getQuery("New_User");

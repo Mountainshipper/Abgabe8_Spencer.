@@ -140,8 +140,8 @@ public class Master extends AppCompatActivity implements View.OnClickListener{
 
 // local
                 Current_Login current_user = (Current_Login) getIntent().getSerializableExtra("current_user");
-                if (current_user.getProjektOB().equals("Yes") ) {
-                    if( counter <= 0){
+                if (current_user.getBachelorOB().equals("Yes")  ) {
+                    if( counter <= 0 && current_user.getMasterOB().equals("Nein")){
 
 
                         final ProgressDialog progressDialog = new ProgressDialog(this);

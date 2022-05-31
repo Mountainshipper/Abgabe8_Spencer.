@@ -105,41 +105,18 @@ public class ProfessorLogin extends AppCompatActivity implements View.OnClickLis
 
 
 
-                                    ParseQuery<ParseObject> query = ParseQuery.getQuery("temprary_User_Pikka");
-// Retrieve the object by id
-                                    query.getInBackground("gH548pGCmO", new GetCallback<ParseObject>() {
-                                        public void done(ParseObject appUser2, ParseException e) {
-                                            if (e == null) {
-                                                String username = user.getString("Username");
-                                                appUser2.put("username", username);
-
-                                                String email = user.getString("email");
-                                                appUser2.put("email", email);
-                                                appUser2.put("ID", "Assistent");
-
-                                                String project = user.getString("Projekt");
-                                                appUser2.put("Projekt", project);
-
-                                                String bachelore = user.getString("Bachelor");
-                                                appUser2.put("Bachelor",bachelore);
-
-                                                String master = user.getString("Master");
-                                                appUser2.put("Master",master);
-                                                appUser2.saveInBackground();
 
 
 
-                                            } else {
-                                                FancyToast.makeText(ProfessorLogin.this, "Temporary Login could not be generated. But you can continue", FancyToast.LENGTH_LONG, FancyToast.SUCCESS, true).show();
-                                                // Failed
 
-                                            }
 
-                                        }
-                                    });
 
-                                    Intent INTERFACE_STUDENT = new Intent(ProfessorLogin.this, Login_Interface.class);
-                                    FancyToast.makeText(ProfessorLogin.this,"Switching to STUDENT INTERFACE",FancyToast.LENGTH_SHORT,FancyToast.INFO,true).show();
+
+
+
+
+                                    Intent INTERFACE_STUDENT = new Intent(ProfessorLogin.this, INTERFACE_Assistent.class);
+                                    FancyToast.makeText(ProfessorLogin.this,"Switching to Assistent Login",FancyToast.LENGTH_SHORT,FancyToast.INFO,true).show();
                                     startActivity(INTERFACE_STUDENT);
 
                                 }else{

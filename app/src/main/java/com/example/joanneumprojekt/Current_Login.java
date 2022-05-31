@@ -24,7 +24,7 @@ public Current_Login(){
 }
 
 
-public Current_Login (String master, String bachelor, String projekt,String slots, String username, String id, String password, String email, String user) {
+public Current_Login (String master, String bachelor, String projekt,String slots, String username, String password, String email) {
     this.master = master;
     this.bachelor = bachelor;
     this.projekt = projekt;

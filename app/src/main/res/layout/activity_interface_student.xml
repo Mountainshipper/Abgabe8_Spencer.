@@ -7,7 +7,7 @@
     tools:context=".ui.Student.INTERFACE_STUDENT">
 
   <Button
-      android:id="@+id/btnProject"
+      android:id="@+id/Assigned_Students"
       android:layout_width="130dp"
       android:layout_height="60dp"
       android:layout_marginTop="36dp"
@@ -23,10 +23,10 @@
       android:layout_height="60dp"
       android:layout_marginTop="64dp"
       android:text="Bachelor"
-      app:layout_constraintEnd_toEndOf="@+id/btnProject"
+      app:layout_constraintEnd_toEndOf="@+id/Assigned_Students"
       app:layout_constraintHorizontal_bias="0.0"
-      app:layout_constraintStart_toStartOf="@+id/btnProject"
-      app:layout_constraintTop_toBottomOf="@+id/btnProject" />
+      app:layout_constraintStart_toStartOf="@+id/Assigned_Students"
+      app:layout_constraintTop_toBottomOf="@+id/Assigned_Students" />
 
   <Button
       android:id="@+id/btnMaster"

@@ -115,11 +115,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
 
 
-                                    current_user = new Current_Login(user.getString("Master"), user.getString("Bachelor"), user.getString("Projekt"), "0", user.getString("Username").toString(), "Student", user.getString("password"),user.getString("email").toString(), "Not defined");
-
-
-
-
+                                    current_user = new Current_Login(user.getString("Master"), user.getString("Bachelor"), user.getString("Projekt"), "0", user.getString("Username").toString(), user.getString("password"),user.getString("email").toString());
 
 
 
