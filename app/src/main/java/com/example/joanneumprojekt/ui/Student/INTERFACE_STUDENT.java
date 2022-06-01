@@ -14,7 +14,7 @@ import com.parse.ParseUser;
 import com.shashank.sony.fancytoastlib.FancyToast;
 
 public class INTERFACE_STUDENT extends AppCompatActivity implements View.OnClickListener{
-    private Button btnProject, btnBachelor, btnMaster;
+    private Button btnProject, btnBachelor, btnMaster, read;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +27,9 @@ public class INTERFACE_STUDENT extends AppCompatActivity implements View.OnClick
         btnProject = findViewById(R.id.Assigned_Students);
         btnBachelor = findViewById(R.id.changeSlot);
         btnMaster = findViewById(R.id.btnMaster);
+        read = findViewById(R.id.Read_Button);
 
+        read.setOnClickListener(this);
         btnProject.setOnClickListener(this);
         btnBachelor.setOnClickListener(this);
         btnMaster.setOnClickListener(this);
@@ -42,9 +44,6 @@ public class INTERFACE_STUDENT extends AppCompatActivity implements View.OnClick
         switch (view.getId()) {
             case R.id.Assigned_Students:
                 Current_Login current_user = (Current_Login) getIntent().getSerializableExtra("current_user");
-
-
-
                 Intent intent = new Intent(INTERFACE_STUDENT.this, Project.class).putExtra("current_user", current_user);
                 FancyToast.makeText(INTERFACE_STUDENT.this, "Switching to projekt", FancyToast.LENGTH_SHORT, FancyToast.INFO, true).show();
                 startActivity(intent);
@@ -62,6 +61,12 @@ public class INTERFACE_STUDENT extends AppCompatActivity implements View.OnClick
                 Intent intentProf = new Intent(INTERFACE_STUDENT.this, Master.class).putExtra("current_user", current_user3);
                 FancyToast.makeText(INTERFACE_STUDENT.this, "Switching to Master", FancyToast.LENGTH_SHORT, FancyToast.INFO, true).show();
                 startActivity(intentProf);
+                break;
+
+            case R.id.Read_Button:
+                Current_Login current_user4 = (Current_Login) getIntent().getSerializableExtra("current_user");
+                Intent read = new Intent(INTERFACE_STUDENT.this, Read_Student.class).putExtra("current_user", current_user4);
+                startActivity(read);
                 break;
         }
     }

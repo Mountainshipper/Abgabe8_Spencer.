@@ -49,4 +49,15 @@
       app:layout_constraintTop_toTopOf="parent"
       app:srcCompat="@drawable/student_interface" />
 
+  <Button
+      android:id="@+id/Read_Button"
+      android:layout_width="0dp"
+      android:layout_height="60dp"
+      android:layout_marginTop="68dp"
+      android:text="Show Info"
+      app:layout_constraintEnd_toEndOf="@+id/btnMaster"
+      app:layout_constraintHorizontal_bias="0.0"
+      app:layout_constraintStart_toStartOf="@+id/btnMaster"
+      app:layout_constraintTop_toBottomOf="@+id/btnMaster" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

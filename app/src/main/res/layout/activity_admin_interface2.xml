@@ -8,10 +8,11 @@
 
     <ImageView
         android:id="@+id/imageView11"
-        android:layout_width="717dp"
-        android:layout_height="497dp"
-        android:layout_marginTop="44dp"
+        android:layout_width="663dp"
+        android:layout_height="383dp"
+        android:layout_marginTop="4dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.506"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/professor_login" />
@@ -19,9 +20,9 @@
     <Button
         android:id="@+id/btn_Delete_User"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="80dp"
         android:layout_marginTop="52dp"
-        android:text="Delete User"
+        android:text="Delete user or work"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
@@ -30,7 +31,7 @@
     <Button
         android:id="@+id/btn_Delete_Work"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="80dp"
         android:layout_marginTop="28dp"
         android:text="Delete Work"
         app:layout_constraintEnd_toEndOf="@+id/btn_Delete_User"
@@ -40,23 +41,36 @@
 
     <Button
         android:id="@+id/Interface3"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
         android:layout_marginTop="28dp"
-        android:text="Interface 3"
+        android:text="Edit Text"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/btn_Delete_Work"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/btn_Delete_Work"
-        app:layout_constraintTop_toBottomOf="@+id/btn_Delete_Work" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_Delete_Work"
+        app:layout_constraintVertical_bias="0.007" />
 
     <Button
         android:id="@+id/Interface2"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="128dp"
         android:text="Interface 1"
         app:layout_constraintEnd_toEndOf="@+id/Interface3"
         app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/Interface3"
+        app:layout_constraintTop_toBottomOf="@+id/Interface3" />
+
+    <Button
+        android:id="@+id/EditWork"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="24dp"
+        android:text="Button"
+        app:layout_constraintEnd_toEndOf="@+id/Interface3"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/Interface3"
         app:layout_constraintTop_toBottomOf="@+id/Interface3" />
 </androidx.constraintlayout.widget.ConstraintLayout>

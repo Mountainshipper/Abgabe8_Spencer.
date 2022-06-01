@@ -11,6 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.JoanneumProjekt">
         <activity
+            android:name=".ui.Student.Read_Student"
+            android:exported="false" />
+        <activity
             android:name=".Admin.Admin_Delete_USER"
             android:exported="false" />
         <activity

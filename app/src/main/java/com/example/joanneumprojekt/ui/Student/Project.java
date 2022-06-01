@@ -227,11 +227,6 @@ public class Project extends AppCompatActivity implements View.OnClickListener {
 
                                 }
                             });
-
-
-
-
-
                     } else {
                         FancyToast.makeText(Project.this, "Please fill out the 'TextViews'. Not just one. Thanks :)", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
                         progressDialog.dismiss();
