@@ -86,12 +86,12 @@ public class ProfessorLogin extends AppCompatActivity implements View.OnClickLis
                             FancyToast.LENGTH_LONG,FancyToast.INFO,true).show();
                 } else {
 
+
+
+
                     final ProgressDialog progressDialog = new ProgressDialog(this);
                     progressDialog.setMessage("Logging in ");
                     progressDialog.show();
-
-
-
 
 
                     ParseQuery<ParseObject> query = ParseQuery.getQuery("New_User");
@@ -102,35 +102,25 @@ public class ProfessorLogin extends AppCompatActivity implements View.OnClickLis
                             if (e == null && edtLoginPassword.getText().toString().equals(user.getString("password"))) {
                                 if (user.getString("ID").equals("Assistent")) {
 
+                                    progressDialog.dismiss();
 
                                     FancyToast.makeText(ProfessorLogin.this, user.getString("Username") + " is logged in successfully!", FancyToast.LENGTH_LONG, FancyToast.SUCCESS, true).show();
 
-
-
-
-
-
-
-
-
-
                                     current_user = new Current_Login(user.getString("Master"), user.getString("Bachelor"), user.getString("Projekt"), "0", user.getString("Username").toString(), user.getString("password"),user.getString("email").toString());
 
-
-
                                     Intent INTERFACE_Assistant = new Intent(ProfessorLogin.this, INTERFACE_Assistent.class).putExtra("current_user", current_user);;
-                                    FancyToast.makeText(ProfessorLogin.this,"Switching to Assistent Login",FancyToast.LENGTH_SHORT,FancyToast.INFO,true).show();
+                                    FancyToast.makeText(ProfessorLogin.this,"Switching to Assistant interface",FancyToast.LENGTH_SHORT,FancyToast.INFO,true).show();
                                     startActivity(INTERFACE_Assistant);
 
                                 }else{
-                                    FancyToast.makeText(ProfessorLogin.this, "This is the login for 'Assistents', please use the correct login. Thank you", FancyToast.LENGTH_LONG, FancyToast.SUCCESS, true).show();
+                                    FancyToast.makeText(ProfessorLogin.this, "This is the login for 'Assistants', please use the correct login. Thank you", FancyToast.LENGTH_LONG, FancyToast.SUCCESS, true).show();
 
                                 }
                             } else {
                                 FancyToast.makeText(ProfessorLogin.this, "Password wrong", FancyToast.LENGTH_LONG, FancyToast.ERROR, true).show();
 
                             }
-                            progressDialog.dismiss();
+
                         }
                     });
 

@@ -9,7 +9,6 @@ import android.widget.Button;
 
 import com.example.joanneumprojekt.Assistent.ProfessorLogin;
 import com.example.joanneumprojekt.R;
-import com.example.joanneumprojekt.ui.Student.LoginActivity;
 import com.shashank.sony.fancytoastlib.FancyToast;
 
 public class ADMIN_INTERFACE extends AppCompatActivity implements View.OnClickListener{
@@ -22,12 +21,12 @@ public class ADMIN_INTERFACE extends AppCompatActivity implements View.OnClickLi
         setContentView(R.layout.activity_admin_interface);
 
 
-        setTitle("Interface Login");
+        setTitle("Admin Interface 1");
 
 
         btn_Add = findViewById(R.id.interface_Add_Student);
         btn_Work = findViewById(R.id.interface_work);
-        btnMaster = findViewById(R.id.interface_admin_Master);
+        btnMaster = findViewById(R.id.btn_Interface2_ADMIN);
 
         btn_Add.setOnClickListener(this);
         btn_Work.setOnClickListener(this);
@@ -40,21 +39,21 @@ public class ADMIN_INTERFACE extends AppCompatActivity implements View.OnClickLi
         switch (view.getId()) {
             case R.id.interface_Add_Student:
 
-        Intent intent = new Intent(ADMIN_INTERFACE.this, Interface_ADD.class);
+        Intent intentUser = new Intent(ADMIN_INTERFACE.this, Interface_ADD.class);
         FancyToast.makeText(ADMIN_INTERFACE.this, "Switching to Student Log In", FancyToast.LENGTH_SHORT, FancyToast.INFO, true).show();
-        startActivity(intent);
+        startActivity(intentUser);
         break;
 
             case R.id.interface_work:
-        Intent intentAdmin = new Intent(ADMIN_INTERFACE.this, Interface_Work_ADD.class);
+        Intent intentWork = new Intent(ADMIN_INTERFACE.this, Interface_Work_ADD.class);
         FancyToast.makeText(ADMIN_INTERFACE.this, "Switching to Administrator Log In", FancyToast.LENGTH_SHORT, FancyToast.INFO, true).show();
-        startActivity(intentAdmin);
+        startActivity(intentWork);
         break;
 
-            case R.id.btnMaster:
-        Intent intentProf = new Intent(ADMIN_INTERFACE.this, ProfessorLogin.class);
-        FancyToast.makeText(ADMIN_INTERFACE.this, "Switching to 'Professor' LOG IN", FancyToast.LENGTH_SHORT, FancyToast.INFO, true).show();
-        startActivity(intentProf);
+            case R.id.btn_Interface2_ADMIN:
+        Intent Interface2 = new Intent(ADMIN_INTERFACE.this, ADMIN_INTERFACE_2.class);
+        FancyToast.makeText(ADMIN_INTERFACE.this, "Switching to 'Admin Interface 2'", FancyToast.LENGTH_SHORT, FancyToast.INFO, true).show();
+        startActivity(Interface2);
         break;
     }
     }

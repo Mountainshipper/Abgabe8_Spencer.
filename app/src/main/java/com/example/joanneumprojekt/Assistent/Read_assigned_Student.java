@@ -3,6 +3,7 @@ package com.example.joanneumprojekt.Assistent;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -159,20 +160,36 @@ public class Read_assigned_Student extends AppCompatActivity implements View.OnC
                         public void done(ParseObject object, ParseException e) {
                             if (e == null) {
 
+try {
 
-                                String g =  txt_Upload_SLOTS.getText().toString();
-                                int gg = Integer.getInteger(g);
-                                if (gg < 11) {
-                                    object.put("Slots", txt_Upload_SLOTS.getText().toString());
+
+    String g = txt_Upload_SLOTS.getText().toString();
+    int gg = Integer.parseInt(g);
+
+                                if (gg < 11 && gg >= 0) {
+
+
+                                FancyToast.makeText(Read_assigned_Student.this, "" +gg, FancyToast.LENGTH_SHORT, FancyToast.SUCCESS, true).show();
+
+                                object.put("Slots", txt_Upload_SLOTS.getText().toString());
                                     FancyToast.makeText(Read_assigned_Student.this, "Number of slots has been changed", FancyToast.LENGTH_SHORT, FancyToast.SUCCESS, true).show();
                                     object.saveInBackground();
 
+                                    Intent INTERFACE_Assistant = new Intent(Read_assigned_Student.this, INTERFACE_Assistent.class).putExtra("current_user", current_user);;
+                                    FancyToast.makeText(Read_assigned_Student.this,"Switching to Assistant Interface",FancyToast.LENGTH_SHORT,FancyToast.INFO,true).show();
+                                    startActivity(INTERFACE_Assistant);
+
+
                                 }else {
-                                    FancyToast.makeText(Read_assigned_Student.this, "Maximum slot count is 10", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
+                                    FancyToast.makeText(Read_assigned_Student.this, "Minimum - maximum slot count is 0 - 10", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
 
                                 }
+}catch (Exception d){
+    FancyToast.makeText(Read_assigned_Student.this,"Not a Integer",FancyToast.LENGTH_SHORT,FancyToast.ERROR,true).show();
+
+}
                             }else{
-                                FancyToast.makeText(Read_assigned_Student.this, "Something went wrong", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
+                                FancyToast.makeText(Read_assigned_Student.this, "Something went wrong Sorry :(  (Cat Slot)", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
 
                             }
                             progressDialog.dismiss();

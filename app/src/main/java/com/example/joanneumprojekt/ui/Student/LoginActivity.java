@@ -110,6 +110,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
                             if (e == null && edtLoginPassword.getText().toString().equals(user.getString("password"))) {
                                 if (user.getString("ID").equals("Student")) {
+                                    progressDialog.dismiss();
+                                    FancyToast.makeText(LoginActivity.this, user.getString("Username") + " is logged in successfully!", FancyToast.LENGTH_LONG, FancyToast.SUCCESS, true).show();
 
 
 
@@ -120,7 +122,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
 
                                     Intent INTERFACE_STUDENT = new Intent(LoginActivity.this, INTERFACE_STUDENT.class).putExtra("current_user", current_user);
-                                    FancyToast.makeText(LoginActivity.this,"Switching to STUDENT INTERFACE",FancyToast.LENGTH_SHORT,FancyToast.INFO,true).show();
+                                    FancyToast.makeText(LoginActivity.this,"Switching to 'STUDENT INTERFACE'",FancyToast.LENGTH_SHORT,FancyToast.INFO,true).show();
                                     startActivity(INTERFACE_STUDENT);
 
                                 }else{

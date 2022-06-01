@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+
+    tools:context=".Admin.Admin_Delete_USER">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_marginLeft="200dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txt_Display_Work"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="" />
+        </LinearLayout>
+    </ScrollView>
+
+
+
+
+
+
+    <HorizontalScrollView
+        android:layout_marginLeft="150dp"
+        android:layout_width="match_parent"
+        android:layout_height="100dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <Button
+                android:id="@+id/btnGetAllWORKS"
+                android:layout_width="150dp"
+                android:layout_height="70dp"
+                android:layout_marginLeft="35dp"
+                android:layout_marginTop="20dp"
+                android:background="#400000"
+                android:text="Get all avalable works"
+                android:textColor="#ffffff" />
+
+            <Button
+                android:id="@+id/btn_Get_ALLUSERS"
+                android:layout_width="150dp"
+                android:layout_height="70dp"
+                android:layout_marginLeft="35dp"
+                android:layout_marginTop="20dp"
+                android:background="#400000"
+                android:text="Get all available USERS"
+                android:textColor="#ffffff" />
+
+        </LinearLayout>
+    </HorizontalScrollView>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="353dp"
+        android:layout_marginLeft="200dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txt_Display_User"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="" />
+        </LinearLayout>
+    </ScrollView>
+
+
+
+
+
+
+
+    <HorizontalScrollView
+        android:layout_marginLeft="200dp"
+        android:layout_width="match_parent"
+        android:layout_height="120dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <EditText
+                android:id="@+id/txt_Write_Work"
+                android:layout_width="150dp"
+                android:layout_height="100dp"
+                android:layout_marginLeft="35dp"
+                android:layout_marginTop="20dp"
+                android:hint="WRITE TITLE"
+                android:text=""
+                android:textColorHint="#757575" />
+
+            <EditText
+                android:id="@+id/txt_Write_User"
+                android:layout_width="150dp"
+                android:layout_height="100dp"
+                android:layout_marginLeft="35dp"
+                android:layout_marginTop="20dp"
+                android:hint="Write USER"
+                android:text=""
+                android:textColorHint="#757575" />
+        </LinearLayout>
+    </HorizontalScrollView>
+
+
+
+
+
+
+    <HorizontalScrollView
+        android:layout_marginLeft="150dp"
+        android:layout_width="match_parent"
+        android:layout_height="100dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/btn_Upload_DELETE_WORK"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_marginLeft="47dp"
+                android:layout_marginTop="20dp"
+                android:background="#400000"
+                android:text="DELETE Work"
+                android:textColor="#ffffff" />
+
+            <Button
+                android:id="@+id/btn_Upload_DELETE"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_marginLeft="47dp"
+                android:layout_marginTop="20dp"
+                android:background="#400000"
+                android:text="DELETE User"
+                android:textColor="#ffffff" />
+
+        </LinearLayout>
+    </HorizontalScrollView>
+
+</LinearLayout>

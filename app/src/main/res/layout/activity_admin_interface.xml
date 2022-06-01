@@ -10,7 +10,7 @@
         android:id="@+id/interface_Add_Student"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
-        android:layout_marginTop="72dp"
+        android:layout_marginTop="36dp"
         android:text="Add User"
         app:layout_constraintEnd_toEndOf="@+id/imageView8"
         app:layout_constraintHorizontal_bias="0.498"
@@ -29,11 +29,11 @@
         app:layout_constraintTop_toBottomOf="@+id/interface_Add_Student" />
 
     <Button
-        android:id="@+id/interface_admin_Master"
-        android:layout_width="0dp"
+        android:id="@+id/btn_Interface2_ADMIN"
+        android:layout_width="119dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
-        android:text="Master"
+        android:layout_marginTop="62dp"
+        android:text="Interface 2"
         app:layout_constraintEnd_toEndOf="@+id/interface_work"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/interface_work"
