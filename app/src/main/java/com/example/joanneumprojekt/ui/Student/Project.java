@@ -29,6 +29,9 @@ public class Project extends AppCompatActivity implements View.OnClickListener {
     String User = "";
     String user_temp = "";
     int counter = 0;
+    int test1;
+    int test2;
+    int test3;
 
 
     @Override
@@ -155,7 +158,7 @@ public class Project extends AppCompatActivity implements View.OnClickListener {
 
 
                             //User
-
+                        if (test1 == 0) {
                             ParseQuery<ParseObject> query2 = ParseQuery.getQuery("New_User");
                             query2.whereEqualTo("Username", txtChooseProfessor.getText().toString());
 
@@ -202,9 +205,13 @@ public class Project extends AppCompatActivity implements View.OnClickListener {
                                     progressDialog.dismiss();
                                 }
                             });
+                        }else{
+                            FancyToast.makeText(Project.this, "You have already selected a Bachelor Project", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
+
+                        }
 
 //Works
-
+                        if (test2 == 0) {
                             ParseQuery<ParseObject> query = ParseQuery.getQuery("All_Works");
                             query.whereEqualTo("Title", txtChooseWork.getText().toString());
 
@@ -227,6 +234,12 @@ public class Project extends AppCompatActivity implements View.OnClickListener {
 
                                 }
                             });
+                    }else{
+                        FancyToast.makeText(Project.this, "You have already selected a professor", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
+
+                    }
+
+
                     } else {
                         FancyToast.makeText(Project.this, "Please fill out the 'TextViews'. Not just one. Thanks :)", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
                         progressDialog.dismiss();

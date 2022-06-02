@@ -51,12 +51,6 @@ public class Read_Student extends AppCompatActivity implements View.OnClickListe
                 Current_Login current_user = (Current_Login) getIntent().getSerializableExtra("current_user");
 
 
-
-
-
-
-
-
                 ParseQuery<ParseObject> query = ParseQuery.getQuery("New_User");
                 query.whereEqualTo("email", current_user.getEmailOB());
                 query.getFirstInBackground(new GetCallback<ParseObject>() {
@@ -72,12 +66,12 @@ public class Read_Student extends AppCompatActivity implements View.OnClickListe
 
                             if (current_user.getBachelorOB().equals("Nein")) {
                             } else {
-                                txt_Work = txt_Work +" \n\n Bachelor: "+ work.getString("Bachelor_txt");
+                                txt_Work = txt_Work +" \n\nBachelor: "+ work.getString("Bachelor_txt");
                             }
 
                             if (current_user.getMasterOB().equals("Nein")) {
                             } else {
-                                txt_Work = txt_Work +" \n\nMaster: "+ work.getString("Master_txt");
+                                txt_Work = txt_Work +" \n\nMaster: "+ work.getString("Master_txt")+ "\nExam Date: "+work.getString("Exam_Date");
                             }
                             setText.setText(txt_Work);
 
@@ -87,31 +81,6 @@ public class Read_Student extends AppCompatActivity implements View.OnClickListe
                         }
                     }
                 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
         }
     }

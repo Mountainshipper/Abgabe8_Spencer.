@@ -31,6 +31,9 @@ public class Bachelor extends AppCompatActivity implements View.OnClickListener{
     String User = "";
     String user_temp = "";
     int counter = 0;
+    int test1;
+    int test2;
+    int test3;
 
 
     @Override
@@ -142,6 +145,7 @@ public class Bachelor extends AppCompatActivity implements View.OnClickListener{
             case R.id.btn_Upload_ALL:
 
 // local
+
                 Current_Login current_user = (Current_Login) getIntent().getSerializableExtra("current_user");
                 if (current_user.getProjektOB().equals("Yes")) {
                     if( counter <= 0 && current_user.getBachelorOB().equals("Nein") ){
@@ -154,56 +158,61 @@ public class Bachelor extends AppCompatActivity implements View.OnClickListener{
 
                     if (txtChooseWork.getText().toString().length() > 3 && txtChooseProfessor.toString().length() > 3) {
                         //User
-
-                        ParseQuery<ParseObject> query2 = ParseQuery.getQuery("New_User");
-                        query2.whereEqualTo("Username", txtChooseProfessor.getText().toString());
-
-
-                        query2.getFirstInBackground(new GetCallback<ParseObject>() {
-                            public void done(ParseObject object, ParseException e) {
-                                if (e == null) {
+                        if (test1 == 0) {
+                            ParseQuery<ParseObject> query2 = ParseQuery.getQuery("New_User");
+                            query2.whereEqualTo("Username", txtChooseProfessor.getText().toString());
 
 
-                                    if (object.getString("Slots").equals("0")) {
-                                        FancyToast.makeText(Bachelor.this, "No more Slots", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
-
-                                    } else {
-                                        String h = "";
-                                        int g = Integer.valueOf(object.getString("Slots"));
-
-                                        g = g - 1;
-                                        FancyToast.makeText(Bachelor.this, "Professor has been booked" , FancyToast.LENGTH_SHORT, FancyToast.SUCCESS, true).show();
-                                        h = Integer.toString(g);
-                                        object.put("Slots", h);
+                            query2.getFirstInBackground(new GetCallback<ParseObject>() {
+                                public void done(ParseObject object, ParseException e) {
+                                    if (e == null) {
 
 
-                                        if (object.getString("Work").isEmpty()) {
-                                            user_temp = ";" + current_user.getEmailOB();
+                                        if (object.getString("Slots").equals("0")) {
+                                            FancyToast.makeText(Bachelor.this, "No more Slots", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
+
                                         } else {
-                                            user_temp = object.getString("Work");
-                                        }
+                                            String h = "";
+                                            int g = Integer.valueOf(object.getString("Slots"));
 
-                                        user_temp = user_temp.concat(User + "; ");
-                                        if (h.equals("0")){
-                                            object.put("user", "taken");
-                                        }
+                                            g = g - 1;
+                                            FancyToast.makeText(Bachelor.this, "Professor has been booked", FancyToast.LENGTH_SHORT, FancyToast.SUCCESS, true).show();
+                                            h = Integer.toString(g);
+                                            object.put("Slots", h);
 
-                                        object.put("Work", user_temp);
 
-                                        FancyToast.makeText(Bachelor.this, "All Good", FancyToast.LENGTH_SHORT, FancyToast.SUCCESS, true).show();
-                                        counter++;
-                                        object.saveInBackground();
+                                            if (object.getString("Work").isEmpty()) {
+                                                user_temp = "" + current_user.getEmailOB();
+                                            } else {
+                                                user_temp = object.getString("Work");
+                                            }
+
+                                            user_temp = user_temp.concat(User + "; ");
+                                            if (h.equals("0")) {
+                                                object.put("user", "taken");
+                                            }
+
+                                            object.put("Work", user_temp);
+
+                                            FancyToast.makeText(Bachelor.this, "All Good", FancyToast.LENGTH_SHORT, FancyToast.SUCCESS, true).show();
+                                            counter++;
+                                            ++test1;
+                                            object.saveInBackground();
 //
+                                        }
+                                    } else {
+                                        FancyToast.makeText(Bachelor.this, "There are no more bachelor projects", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
                                     }
-                                } else {
-                                    FancyToast.makeText(Bachelor.this, "There are no more bachelor projects", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
+                                    progressDialog.dismiss();
                                 }
-                                progressDialog.dismiss();
-                            }
-                        });
+                            });
+                        }else{
+                            FancyToast.makeText(Bachelor.this, "You have already selected a Bachelor Project", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
+
+                        }
 
 //Works
-
+                        if (test2 == 0) {
                         ParseQuery<ParseObject> query = ParseQuery.getQuery("All_Works");
                         query.whereEqualTo("Title", txtChooseWork.getText().toString());
 
@@ -214,6 +223,7 @@ public class Bachelor extends AppCompatActivity implements View.OnClickListener{
                                     if (object.getString("User").equals("taken")){
                                         FancyToast.makeText(Bachelor.this, "Work has already been booked", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
 
+                                        ++test2;
                                     }else {
                                         object.put("User", "taken");
                                         FancyToast.makeText(Bachelor.this, "Work has been booked", FancyToast.LENGTH_SHORT, FancyToast.SUCCESS, true).show();
@@ -226,6 +236,11 @@ public class Bachelor extends AppCompatActivity implements View.OnClickListener{
 
                             }
                         });
+                    }else{
+                        FancyToast.makeText(Bachelor.this, "You have already selected a professor", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
+
+                    }
+
 
 
 

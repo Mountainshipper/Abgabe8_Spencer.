@@ -19,7 +19,7 @@ import com.shashank.sony.fancytoastlib.FancyToast;
 
 import java.util.List;
 
-public class Master extends AppCompatActivity implements View.OnClickListener{
+public class Master extends AppCompatActivity implements View.OnClickListener {
 
     private Button getbtnTitle, getbtnProfessor, saveAll;
     private TextView txtTitle, txtProfessor, txtChooseWork, txtChooseProfessor;
@@ -28,6 +28,10 @@ public class Master extends AppCompatActivity implements View.OnClickListener{
     String User = "";
     String user_temp = "";
     int counter = 0;
+    String Date = "";
+    int test1;
+    int test2;
+    int test3;
 
 
     @Override
@@ -110,14 +114,14 @@ public class Master extends AppCompatActivity implements View.OnClickListener{
 
                                     if (parseObject.get("ID").equals("Assistent")) {
                                         if (parseObject.get("Slots").equals("0")) {
-                                        }else {
+                                        } else {
 
 
-                                            if (count_Assistent == 0){
-                                                txt_Professor = txt_Professor + "--------------\n"+parseObject.get("Username") + ". \nAvailable slots" + parseObject.get("Slots") + "\n\n";
+                                            if (count_Assistent == 0) {
+                                                txt_Professor = txt_Professor + "--------------\n" + parseObject.get("Username") + ". \nAvailable slots" + parseObject.get("Slots") + "\n\n";
                                                 txtProfessor.setText(txt_Professor);
                                                 ++count_Assistent;
-                                            }else{
+                                            } else {
                                                 txt_Professor = txt_Professor + parseObject.get("Username") + ". \nAvailable slots" + parseObject.get("Slots") + "\n\n";
                                                 txtProfessor.setText(txt_Professor);
                                             }
@@ -140,121 +144,136 @@ public class Master extends AppCompatActivity implements View.OnClickListener{
 
 // local
                 Current_Login current_user = (Current_Login) getIntent().getSerializableExtra("current_user");
-                if (current_user.getBachelorOB().equals("Yes")  ) {
-                    if( counter <= 0 && current_user.getMasterOB().equals("Nein")){
+                if (current_user.getBachelorOB().equals("Yes")) {
 
 
-                        final ProgressDialog progressDialog = new ProgressDialog(this);
-                        progressDialog.setMessage("Saving");
-                        progressDialog.show();
+                    if (current_user.getMasterOB().equals("Nein")) {
+                        if (test1 != 0 && test2 != 0) {
 
 
-                        if (txtChooseWork.getText().toString().length() > 3 && txtChooseProfessor.toString().length() > 3) {
+                            final ProgressDialog progressDialog = new ProgressDialog(this);
+                            progressDialog.setMessage("Saving");
+                            progressDialog.show();
 
 
-
-                            //User
-
-                            ParseQuery<ParseObject> query2 = ParseQuery.getQuery("New_User");
-                            query2.whereEqualTo("Username", txtChooseProfessor.getText().toString());
+                            if (txtChooseWork.getText().toString().length() > 3 && txtChooseProfessor.toString().length() > 3) {
 
 
-                            query2.getFirstInBackground(new GetCallback<ParseObject>() {
-                                public void done(ParseObject object, ParseException e) {
-                                    if (e == null) {
+                                //User
+                                if (test1 == 0) {
+                                    ParseQuery<ParseObject> query2 = ParseQuery.getQuery("New_User");
+                                    query2.whereEqualTo("Username", txtChooseProfessor.getText().toString());
 
 
-                                        if (object.getString("Slots").equals("0")) {
-                                            FancyToast.makeText(Master.this, "No more Slots", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
-
-                                        } else {
-                                            String h = "";
-                                            int g = Integer.valueOf(object.getString("Slots"));
-
-                                            g = g - 1;
-                                            FancyToast.makeText(Master.this, "Professor has been booked" , FancyToast.LENGTH_SHORT, FancyToast.SUCCESS, true).show();
-                                            h = Integer.toString(g);
-                                            object.put("Slots", h);
+                                    query2.getFirstInBackground(new GetCallback<ParseObject>() {
+                                        public void done(ParseObject object, ParseException e) {
+                                            if (e == null) {
 
 
-                                            if (object.getString("Work").isEmpty()) {
-                                                user_temp = ";" + current_user.getEmailOB();
-                                            } else {
-                                                user_temp = object.getString("Work");
-                                            }
+                                                if (object.getString("Slots").equals("0")) {
+                                                    FancyToast.makeText(Master.this, "No more Slots", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
 
-                                            user_temp = user_temp.concat(User + "; ");
-                                            if (h.equals("0")){
-                                                object.put("user", "taken");
-                                            }
+                                                } else {
+                                                    String h = "";
+                                                    int g = Integer.valueOf(object.getString("Slots"));
 
-                                            object.put("Work", user_temp);
+                                                    g = g - 1;
+                                                    FancyToast.makeText(Master.this, "Professor has been booked", FancyToast.LENGTH_SHORT, FancyToast.SUCCESS, true).show();
+                                                    h = Integer.toString(g);
+                                                    object.put("Slots", h);
 
-                                            FancyToast.makeText(Master.this, "All Good", FancyToast.LENGTH_SHORT, FancyToast.SUCCESS, true).show();
-                                            counter++;
-                                            object.saveInBackground();
+
+                                                    if (object.getString("Work").isEmpty()) {
+                                                        user_temp = "" + current_user.getEmailOB();
+                                                    } else {
+                                                        user_temp = object.getString("Work");
+                                                    }
+
+                                                    user_temp = user_temp.concat(User + "; ");
+                                                    if (h.equals("0")) {
+                                                        object.put("user", "taken");
+                                                    }
+
+                                                    object.put("Work", user_temp);
+
+                                                    FancyToast.makeText(Master.this, "All Good", FancyToast.LENGTH_SHORT, FancyToast.SUCCESS, true).show();
+                                                    counter++;
+                                                    object.saveInBackground();
 //
+                                                }
+                                            } else {
+                                                FancyToast.makeText(Master.this, "There are no more master projects", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
+                                            }
+                                            progressDialog.dismiss();
                                         }
-                                    } else {
-                                        FancyToast.makeText(Master.this, "There are no more master projects", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
-                                    }
-                                    progressDialog.dismiss();
+                                    });
+                                } else {
+                                    FancyToast.makeText(Master.this, "You have already selected a master project", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
+
                                 }
-                            });
 
 //Works
+                                if (test2 == 0) {
+                                    ParseQuery<ParseObject> query = ParseQuery.getQuery("All_Works");
+                                    query.whereEqualTo("Title", txtChooseWork.getText().toString());
 
-                            ParseQuery<ParseObject> query = ParseQuery.getQuery("All_Works");
-                            query.whereEqualTo("Title", txtChooseWork.getText().toString());
+                                    query.getFirstInBackground(new GetCallback<ParseObject>() {
+                                        public void done(ParseObject object, ParseException e) {
+                                            if (e == null) {
 
-                            query.getFirstInBackground(new GetCallback<ParseObject>() {
-                                public void done(ParseObject object, ParseException e) {
-                                    if (e == null) {
+                                                if (object.getString("User").equals("taken")) {
+                                                    FancyToast.makeText(Master.this, "Work has already been booked", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
 
-                                        if (object.getString("User").equals("taken")){
-                                            FancyToast.makeText(Master.this, "Work has already been booked", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
+                                                } else {
+                                                    object.put("User", "taken");
+                                                    Date = object.getString("Exam_Date");
 
-                                        }else {
-                                            object.put("User", "taken");
-                                            FancyToast.makeText(Master.this, "Work has been booked", FancyToast.LENGTH_SHORT, FancyToast.SUCCESS, true).show();
-                                            object.saveInBackground();
+                                                    FancyToast.makeText(Master.this, "Work has been booked", FancyToast.LENGTH_SHORT, FancyToast.SUCCESS, true).show();
+                                                    object.saveInBackground();
+                                                }
+                                            } else {
+                                                FancyToast.makeText(Master.this, "Work could not be found. ERROR", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
+
+                                            }
+
                                         }
-                                    } else {
-                                        FancyToast.makeText(Master.this, "Work could not be found. ERROR", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
-
-                                    }
+                                    });
+                                } else {
+                                    FancyToast.makeText(Master.this, "You have already selected a professor", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
 
                                 }
-                            });
-
-
-
-
-
-                        } else {
-                            FancyToast.makeText(Master.this, "Please fill out the 'TextViews'. Not just one. Thanks :)", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
-                            progressDialog.dismiss();
-                            break;
-                        }
-
+                            } else {
+                                FancyToast.makeText(Master.this, "Please fill out the 'TextViews'. Not just one. Thanks :)", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
+                                progressDialog.dismiss();
+                                break;
+                            }
+                            if (test1 != 0 && test2 != 0) {
 
 //Section to add to Student (No duplicate)
 
 
-                        ParseQuery<ParseObject> query2 = ParseQuery.getQuery("New_User");
-                        query2.whereEqualTo("email", current_user.getEmailOB());
+                                ParseQuery<ParseObject> query2 = ParseQuery.getQuery("New_User");
+                                query2.whereEqualTo("email", current_user.getEmailOB());
 
 
-                        query2.getFirstInBackground(new GetCallback<ParseObject>() {
-                            public void done(ParseObject object, ParseException e) {
-                                if (e == null) {
+                                query2.getFirstInBackground(new GetCallback<ParseObject>() {
+                                    public void done(ParseObject object, ParseException e) {
+                                        if (e == null) {
+                                            object.put("Exam_Date", "Open");
+                                            if (Date.isEmpty()) {
+                                            } else {
+                                                object.put("Exam_Date", Date);
+                                            }
 
-                                    object.put("Master", "Yes");
-                                    object.put("Master_txt", txtChooseWork.getText().toString());
-                                    object.saveInBackground();
-                                }
+
+                                            object.put("Master", "Yes");
+                                            object.put("Master_txt", txtChooseWork.getText().toString());
+                                            object.saveInBackground();
+                                        }
+                                    }
+                                });
                             }
-                        });
+                        }
                     } else {
                         FancyToast.makeText(Master.this, "you cannot have multiple master projects ", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
 

@@ -105,8 +105,8 @@ public class ProfessorLogin extends AppCompatActivity implements View.OnClickLis
                                     progressDialog.dismiss();
 
                                     FancyToast.makeText(ProfessorLogin.this, user.getString("Username") + " is logged in successfully!", FancyToast.LENGTH_LONG, FancyToast.SUCCESS, true).show();
-
-                                    current_user = new Current_Login(user.getString("Master"), user.getString("Bachelor"), user.getString("Projekt"), "0", user.getString("Username").toString(), user.getString("password"),user.getString("email").toString());
+//User
+                                    current_user = new Current_Login(user.getString("Master"), user.getString("Bachelor"), user.getString("Projekt"), user.getString("password"),user.getString("email").toString());
 
                                     Intent INTERFACE_Assistant = new Intent(ProfessorLogin.this, INTERFACE_Assistent.class).putExtra("current_user", current_user);;
                                     FancyToast.makeText(ProfessorLogin.this,"Switching to Assistant interface",FancyToast.LENGTH_SHORT,FancyToast.INFO,true).show();
