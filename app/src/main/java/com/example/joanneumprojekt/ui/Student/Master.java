@@ -250,6 +250,7 @@ public class Master extends AppCompatActivity implements View.OnClickListener{
                                 if (e == null) {
 
                                     object.put("Master", "Yes");
+                                    object.put("Master_txt", txtChooseWork.getText().toString());
                                     object.saveInBackground();
                                 }
                             }

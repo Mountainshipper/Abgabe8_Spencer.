@@ -246,6 +246,7 @@ public class Project extends AppCompatActivity implements View.OnClickListener {
                             if (e == null) {
 
                                 object.put("Projekt", "Yes");
+                                object.put("Project_txt", txtChooseWork.getText().toString());
                                 object.saveInBackground();
                             }
                         }

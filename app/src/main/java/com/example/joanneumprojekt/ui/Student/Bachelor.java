@@ -250,6 +250,7 @@ public class Bachelor extends AppCompatActivity implements View.OnClickListener{
                             if (e == null) {
 
                                 object.put("Bachelor", "Yes");
+                                object.put("Bachelor_txt", txtChooseWork.getText().toString());
                                 object.saveInBackground();
                             }
                         }
