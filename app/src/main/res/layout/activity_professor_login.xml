@@ -68,10 +68,11 @@
 
     <ImageView
         android:id="@+id/imageView5"
-        android:layout_width="409dp"
-        android:layout_height="294dp"
-        android:layout_marginTop="28dp"
+        android:layout_width="555dp"
+        android:layout_height="371dp"
+        android:layout_marginTop="4dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/professor_login" />
