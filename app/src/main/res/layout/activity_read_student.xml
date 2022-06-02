@@ -11,9 +11,9 @@
 
     <ImageView
         android:id="@+id/imageView16"
+        android:layout_width="638dp"
+        android:layout_height="436dp"
         android:layout_marginLeft="50dp"
-        android:layout_width="600dp"
-        android:layout_height="400dp"
         app:srcCompat="@drawable/forest" />
 
     <ScrollView
