@@ -40,19 +40,16 @@ public class ADMIN_INTERFACE extends AppCompatActivity implements View.OnClickLi
             case R.id.interface_Add_Student:
 
         Intent intentUser = new Intent(ADMIN_INTERFACE.this, Interface_ADD.class);
-        FancyToast.makeText(ADMIN_INTERFACE.this, "Switching to Student Log In", FancyToast.LENGTH_SHORT, FancyToast.INFO, true).show();
         startActivity(intentUser);
         break;
 
             case R.id.interface_work:
         Intent intentWork = new Intent(ADMIN_INTERFACE.this, Interface_Work_ADD.class);
-        FancyToast.makeText(ADMIN_INTERFACE.this, "Switching to Administrator Log In", FancyToast.LENGTH_SHORT, FancyToast.INFO, true).show();
         startActivity(intentWork);
         break;
 
             case R.id.btn_Interface2_ADMIN:
         Intent Interface2 = new Intent(ADMIN_INTERFACE.this, ADMIN_INTERFACE_2.class);
-        FancyToast.makeText(ADMIN_INTERFACE.this, "Switching to 'Admin Interface 2'", FancyToast.LENGTH_SHORT, FancyToast.INFO, true).show();
         startActivity(Interface2);
         break;
     }

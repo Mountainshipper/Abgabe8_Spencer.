@@ -67,7 +67,7 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
-        try {
+
             switch (view.getId()) {
                 case R.id.btnSignUp:
                     // Checks if values are empty
@@ -126,24 +126,14 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
                     break;
 
                 case R.id.btnLogIn:
-
-//
-
                     Intent intent = new Intent(SignUp.this, Login_Interface.class);
-                    FancyToast.makeText(SignUp.this, "Switching to Log In Interface", FancyToast.LENGTH_SHORT, FancyToast.INFO, true).show();
                     startActivity(intent);
-
                     break;
             }
-
-        }catch (Exception e){
-
-
-        FancyToast.makeText(SignUp.this, "Password was rejected",
-                FancyToast.LENGTH_LONG, FancyToast.ERROR, true).show();
-
     }
-    }
+
+
+
     // If tapped outside, keyboard goes away. Stackoverflow
     public void rootLayoutTapped (View view) {
         try {

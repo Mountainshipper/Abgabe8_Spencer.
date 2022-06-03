@@ -103,19 +103,12 @@ public class AdministratorLogin extends AppCompatActivity implements View.OnClic
 
                                     progressDialog.dismiss();
                                     FancyToast.makeText(AdministratorLogin.this, user.getString("Username") + " is logged in successfully!", FancyToast.LENGTH_LONG, FancyToast.SUCCESS, true).show();
-
-
-
-
-
-
-
                                     Intent INTERFACE_STUDENT = new Intent(AdministratorLogin.this, ADMIN_INTERFACE.class);
                                     FancyToast.makeText(AdministratorLogin.this,"Switching to 'Admin INTERFACE'",FancyToast.LENGTH_SHORT,FancyToast.INFO,true).show();
                                     startActivity(INTERFACE_STUDENT);
 
                                 }else{
-                                    FancyToast.makeText(AdministratorLogin.this, "This is the login for 'Administrator', please use the correct login. Thank you", FancyToast.LENGTH_LONG, FancyToast.SUCCESS, true).show();
+                                    FancyToast.makeText(AdministratorLogin.this, "This is the login for 'Administrator', please use the correct login. Thank you", FancyToast.LENGTH_LONG, FancyToast.ERROR, true).show();
 
                                 }
                             } else {
@@ -131,13 +124,11 @@ public class AdministratorLogin extends AppCompatActivity implements View.OnClic
 
             case R.id.btnAdminSignUp:
                 Intent intent = new Intent(AdministratorLogin.this, SignUp.class);
-                FancyToast.makeText(AdministratorLogin.this,"Switching to sign-up",FancyToast.LENGTH_SHORT,FancyToast.INFO,true).show();
                 startActivity(intent);
                 break;
 
             case R.id.btnAdmin_toInterface:
                 Intent intentInterface = new Intent(AdministratorLogin.this, Login_Interface.class);
-                FancyToast.makeText(AdministratorLogin.this,"Switching to LOGIN INTERFACE",FancyToast.LENGTH_SHORT,FancyToast.INFO,true).show();
                 startActivity(intentInterface);
 
 

@@ -45,25 +45,21 @@ public class ADMIN_INTERFACE_2 extends AppCompatActivity implements View.OnClick
             case R.id.btn_Delete_User:
 
                 Intent intent = new Intent(ADMIN_INTERFACE_2.this, Admin_Delete_USER.class);
-                FancyToast.makeText(ADMIN_INTERFACE_2.this, "Switching to Student Log In", FancyToast.LENGTH_SHORT, FancyToast.INFO, true).show();
                 startActivity(intent);
                 break;
 
             case R.id.btn_Delete_Work:
                 Intent intentAdmin = new Intent(ADMIN_INTERFACE_2.this, Interface_Work_ADD.class);
-                FancyToast.makeText(ADMIN_INTERFACE_2.this, "Switching to Administrator Log In", FancyToast.LENGTH_SHORT, FancyToast.INFO, true).show();
                 startActivity(intentAdmin);
                 break;
 
             case R.id.Interface3:
                 Intent Interface3 = new Intent(ADMIN_INTERFACE_2.this, ProfessorLogin.class);
-                FancyToast.makeText(ADMIN_INTERFACE_2.this, "Switching to 'Admin Interface 3'", FancyToast.LENGTH_SHORT, FancyToast.INFO, true).show();
                 startActivity(Interface3);
                 break;
 
             case R.id.Interface2:
                 Intent Interface1 = new Intent(ADMIN_INTERFACE_2.this, ADMIN_INTERFACE.class);
-                FancyToast.makeText(ADMIN_INTERFACE_2.this, "Switching to 'Admin Interface'", FancyToast.LENGTH_SHORT, FancyToast.INFO, true).show();
                 startActivity(Interface1);
                 break;
         }

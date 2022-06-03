@@ -113,7 +113,7 @@ public class ProfessorLogin extends AppCompatActivity implements View.OnClickLis
                                     startActivity(INTERFACE_Assistant);
 
                                 }else{
-                                    FancyToast.makeText(ProfessorLogin.this, "This is the login for 'Assistants', please use the correct login. Thank you", FancyToast.LENGTH_LONG, FancyToast.SUCCESS, true).show();
+                                    FancyToast.makeText(ProfessorLogin.this, "This is the login for 'Assistants', please use the correct login. Thank you", FancyToast.LENGTH_LONG, FancyToast.ERROR, true).show();
 
                                 }
                             } else {
@@ -129,14 +129,12 @@ public class ProfessorLogin extends AppCompatActivity implements View.OnClickLis
 
             case R.id.btnProfSignUp:
                 Intent intent = new Intent(ProfessorLogin.this, SignUp.class);
-                FancyToast.makeText(ProfessorLogin.this,"Switching to SIGN UP",FancyToast.LENGTH_SHORT,FancyToast.INFO,true).show();
                 startActivity(intent);
 
                 break;
 
             case R.id.btnProf_toInterface:
                 Intent intentInterface = new Intent(ProfessorLogin.this, Login_Interface.class);
-                FancyToast.makeText(ProfessorLogin.this,"Switching to LOGIN INTERFACE",FancyToast.LENGTH_SHORT,FancyToast.INFO,true).show();
                 startActivity(intentInterface);
 
 

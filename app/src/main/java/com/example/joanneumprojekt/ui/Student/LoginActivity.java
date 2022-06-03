@@ -110,11 +110,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
 
                                     Intent INTERFACE_STUDENT = new Intent(LoginActivity.this, INTERFACE_STUDENT.class).putExtra("current_user", current_user);
-                                    FancyToast.makeText(LoginActivity.this,"Switching to 'STUDENT INTERFACE'",FancyToast.LENGTH_SHORT,FancyToast.INFO,true).show();
                                     startActivity(INTERFACE_STUDENT);
 
                                 }else{
-                                    FancyToast.makeText(LoginActivity.this, "This is the login for 'Students', please use the correct login. Thank you", FancyToast.LENGTH_LONG, FancyToast.SUCCESS, true).show();
+                                    FancyToast.makeText(LoginActivity.this, "This is the login for 'Students', please use the correct login. Thank you", FancyToast.LENGTH_LONG, FancyToast.ERROR, true).show();
 
                                 }
                             } else {
@@ -132,13 +131,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
             case R.id.btnSignUpLoginActivity:
                 Intent intent = new Intent(LoginActivity.this, SignUp.class);
-                FancyToast.makeText(LoginActivity.this, "",FancyToast.LENGTH_SHORT,FancyToast.INFO,true).show();
                 startActivity(intent);
                 break;
 
             case R.id.btnStudent_toInterface:
                 Intent intentInterface = new Intent(LoginActivity.this, Login_Interface.class);
-                FancyToast.makeText(LoginActivity.this,"Switching to LOG IN INTERFACE",FancyToast.LENGTH_SHORT,FancyToast.INFO,true).show();
                 startActivity(intentInterface);
 
 

@@ -49,19 +49,16 @@ public class Login_Interface extends AppCompatActivity implements View.OnClickLi
             case R.id.btnStudentInt:
 
                 Intent intent = new Intent(Login_Interface.this, LoginActivity.class);
-                FancyToast.makeText(Login_Interface.this, "Switching to Student Log In", FancyToast.LENGTH_SHORT, FancyToast.INFO, true).show();
                 startActivity(intent);
                 break;
 
             case R.id.btnAdministratorInt:
                 Intent intentAdmin = new Intent(Login_Interface.this, AdministratorLogin.class);
-                FancyToast.makeText(Login_Interface.this, "Switching to Administrator Log In", FancyToast.LENGTH_SHORT, FancyToast.INFO, true).show();
                 startActivity(intentAdmin);
                 break;
 
             case R.id.btnProfessorInt:
                 Intent intentProf = new Intent(Login_Interface.this, ProfessorLogin.class);
-                FancyToast.makeText(Login_Interface.this, "Switching to 'Professor' LOG IN", FancyToast.LENGTH_SHORT, FancyToast.INFO, true).show();
                 startActivity(intentProf);
                 break;
         }

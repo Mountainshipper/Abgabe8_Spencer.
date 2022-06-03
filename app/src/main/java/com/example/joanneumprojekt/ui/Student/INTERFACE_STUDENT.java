@@ -45,21 +45,18 @@ public class INTERFACE_STUDENT extends AppCompatActivity implements View.OnClick
             case R.id.Assigned_Students:
                 Current_Login current_user = (Current_Login) getIntent().getSerializableExtra("current_user");
                 Intent intent = new Intent(INTERFACE_STUDENT.this, Project.class).putExtra("current_user", current_user);
-                FancyToast.makeText(INTERFACE_STUDENT.this, "Switching to projekt", FancyToast.LENGTH_SHORT, FancyToast.INFO, true).show();
                 startActivity(intent);
                 break;
 
             case R.id.changeSlot:
                 Current_Login current_user2 = (Current_Login) getIntent().getSerializableExtra("current_user");
                 Intent intentAdmin = new Intent(INTERFACE_STUDENT.this, Bachelor.class).putExtra("current_user", current_user2);
-                FancyToast.makeText(INTERFACE_STUDENT.this, "Switching to Bachelor", FancyToast.LENGTH_SHORT, FancyToast.INFO, true).show();
                 startActivity(intentAdmin);
                 break;
 
             case R.id.btnMaster:
                 Current_Login current_user3 = (Current_Login) getIntent().getSerializableExtra("current_user");
                 Intent intentProf = new Intent(INTERFACE_STUDENT.this, Master.class).putExtra("current_user", current_user3);
-                FancyToast.makeText(INTERFACE_STUDENT.this, "Switching to Master", FancyToast.LENGTH_SHORT, FancyToast.INFO, true).show();
                 startActivity(intentProf);
                 break;
 
