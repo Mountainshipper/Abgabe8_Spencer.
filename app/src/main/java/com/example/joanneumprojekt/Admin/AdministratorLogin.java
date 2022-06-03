@@ -104,7 +104,6 @@ public class AdministratorLogin extends AppCompatActivity implements View.OnClic
                                     progressDialog.dismiss();
                                     FancyToast.makeText(AdministratorLogin.this, user.getString("Username") + " is logged in successfully!", FancyToast.LENGTH_LONG, FancyToast.SUCCESS, true).show();
                                     Intent INTERFACE_STUDENT = new Intent(AdministratorLogin.this, ADMIN_INTERFACE.class);
-                                    FancyToast.makeText(AdministratorLogin.this,"Switching to 'Admin INTERFACE'",FancyToast.LENGTH_SHORT,FancyToast.INFO,true).show();
                                     startActivity(INTERFACE_STUDENT);
 
                                 }else{

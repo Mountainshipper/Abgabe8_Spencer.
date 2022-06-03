@@ -22,7 +22,10 @@ import com.parse.ParseUser;
 import com.parse.SaveCallback;
 import com.shashank.sony.fancytoastlib.FancyToast;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
 
 public class Interface_Work_ADD extends AppCompatActivity implements View.OnClickListener {
 
@@ -32,7 +35,9 @@ public class Interface_Work_ADD extends AppCompatActivity implements View.OnClic
     private DatePickerDialog.OnDateSetListener dateListener,Listenerdate;
     //Date end; Checkbox star
     private CheckBox projectBox, bachelorBox, masterBox;
-    private Button setUpload;
+    private Button setUpload;String dateM;
+    Date date1;
+    Date date2;
     // end
 
 
@@ -93,6 +98,11 @@ public class Interface_Work_ADD extends AppCompatActivity implements View.OnClic
 
                         String date = month + "/" + day + "/" + year;
                         displayDeadline.setText(date);
+                        try {
+                            date2 =new SimpleDateFormat("dd/MM/yyyy").parse(date);
+                        }catch ( java.text.ParseException e){
+
+                        }
                     }
                 };
                 break;
@@ -116,8 +126,13 @@ public class Interface_Work_ADD extends AppCompatActivity implements View.OnClic
                         month = month + 1;  //starts at 0
 
 
-                        String dateM = month + "/" + day + "/" + year;
-                        displayExamDate.setText(dateM);
+                      String dateM = month + "/" + day + "/" + year;
+                       displayExamDate.setText(dateM);
+                       try {
+                           date1 =new SimpleDateFormat("dd/MM/yyyy").parse(dateM);
+                       }catch ( java.text.ParseException e){
+
+                       }
                     }
 
                 };
@@ -125,57 +140,77 @@ public class Interface_Work_ADD extends AppCompatActivity implements View.OnClic
 
             case R.id.btn_setWork:
 
+                //Check if Date is ok
+
+                java.util.Date date = new java.util.Date();
+
+
                 ParseObject work = new ParseObject("All_Works");
-                work.put("Deadline", displayDeadline.getText().toString());
-                work.put("Title", title.getText().toString());
+                int number = 0;
+                if (masterBox.isChecked()) {
+                    if (date.after(date1)) {
+                        number = 1;
+                    }
+                }
+                if(date.before(date2) && number == 0) {
 
 
-
-                int count=0;
-                if (bachelorBox.isChecked()) {
-                    count=count+1;
-                }if (masterBox.isChecked()) {
-                count=count+1;
-            }if (projectBox.isChecked()) {
-                count=count+1;}
-
-                if (count == 1) {
+                    work.put("Deadline", displayDeadline.getText().toString());
+                    work.put("Title", title.getText().toString());
+                    work.put("Title", "open");
 
 
-                    if (bachelorBox.isChecked()){
-                        work.put("Function", "Bachelor");
-
-                    }else if (projectBox.isChecked()){
-                        work.put("Function", "Project");
-
-                    }else if (masterBox.isChecked()) {
-                        work.put("Function", "Master");
+                    int count = 0;
+                    if (bachelorBox.isChecked()) {
+                        count = count + 1;
                     }
                     if (masterBox.isChecked()) {
-                        work.put("Exam_Date", displayExamDate.getText().toString());
+                        count = count + 1;
+                    }
+                    if (projectBox.isChecked()) {
+                        count = count + 1;
                     }
 
+                    if (count == 1) {
 
 
-                work.saveInBackground(new SaveCallback() {
-                    @Override
-                    public void done(ParseException e) {
-                        if (e == null) {
-                            FancyToast.makeText(Interface_Work_ADD.this, " Work has been uploaded", FancyToast.LENGTH_LONG, FancyToast.SUCCESS, true).show();
-                            Intent intentAdmin = new Intent(Interface_Work_ADD.this, ADMIN_INTERFACE.class);
-                            startActivity(intentAdmin);
+                        if (bachelorBox.isChecked()) {
+                            work.put("Function", "Bachelor");
 
-                        } else {
-                            FancyToast.makeText(Interface_Work_ADD.this, "Something went wrong", FancyToast.LENGTH_LONG, FancyToast.ERROR, true).show();
+                        } else if (projectBox.isChecked()) {
+                            work.put("Function", "Project");
 
+                        } else if (masterBox.isChecked()) {
+                            work.put("Function", "Master");
                         }
+                        if (masterBox.isChecked()) {
+                            work.put("Exam_Date", displayExamDate.getText().toString());
+                        }
+
+
+                        work.saveInBackground(new SaveCallback() {
+                            @Override
+                            public void done(ParseException e) {
+                                if (e == null) {
+                                    FancyToast.makeText(Interface_Work_ADD.this, " Work has been uploaded", FancyToast.LENGTH_LONG, FancyToast.SUCCESS, true).show();
+                                    Intent intentAdmin = new Intent(Interface_Work_ADD.this, ADMIN_INTERFACE.class);
+                                    startActivity(intentAdmin);
+
+                                } else {
+                                    FancyToast.makeText(Interface_Work_ADD.this, "Something went wrong", FancyToast.LENGTH_LONG, FancyToast.ERROR, true).show();
+
+                                }
+                            }
+                        });
+                        break;
+
+                    } else {
+                        FancyToast.makeText(Interface_Work_ADD.this, " Please check only one box", FancyToast.LENGTH_LONG, FancyToast.ERROR, true).show();
+
+
                     }
-                });
-                break;
-
-                }else {
-                    FancyToast.makeText(Interface_Work_ADD.this, " You can only check one", FancyToast.LENGTH_LONG, FancyToast.ERROR, true).show();
-
+                }else{
+                    FancyToast.makeText(Interface_Work_ADD.this, "Date has already expired\n" +"Please choose anly dates after :\n"+date, FancyToast.LENGTH_LONG, FancyToast.ERROR, true).show();
 
                 }
         }

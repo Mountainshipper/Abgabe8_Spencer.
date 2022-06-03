@@ -51,6 +51,7 @@ public class Project extends AppCompatActivity implements View.OnClickListener {
         saveAll.setOnClickListener(this);
         getbtnProfessor.setOnClickListener(this);
         getbtnTitle.setOnClickListener(this);
+
     }
 
     int n = 0;
@@ -60,82 +61,13 @@ public class Project extends AppCompatActivity implements View.OnClickListener {
 
         switch (view.getId()) {
             case R.id.btn_GetText:
-                txt_Work = "";
-                txtTitle.setText("");
 
-                ParseQuery<ParseObject> queryAllWork = ParseQuery.getQuery("All_Works");
-                queryAllWork.findInBackground(new FindCallback<ParseObject>() {
-                    @Override
-                    public void done(List<ParseObject> objects, ParseException e) {
-                        int count_Work = 0;
-
-                        if (e == null) {
-                            if (objects.size() > 0) {
-                                for (ParseObject parseObject : objects) {
-                                    if (parseObject.get("Function").equals("Project") && (parseObject.get("User").equals("open"))) {
-                                        n++;
-
-
-                                        if (count_Work == 0) {
-                                            txt_Work = txt_Work + "--------------\n" + parseObject.get("Title") + "\n";
-                                            txtTitle.setText(txt_Work);
-                                            ++count_Work;
-                                        } else {
-                                            txt_Work = txt_Work + parseObject.get("Title") + "\n";
-                                            txtTitle.setText(txt_Work);
-                                        }
-
-
-                                    }
-                                }
-                            }
-                            if (n == 0) {
-                                FancyToast.makeText(Project.this, "There are no available projects", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
-
-                            }
-                        }
-                    }
-                });
+                getWorks();
                 break;
 
+
             case R.id.btn_GetProfessor:
-                txt_Professor = "";
-                txtProfessor.setText("");
-
-                ParseQuery<ParseObject> queryAllProfessor = ParseQuery.getQuery("New_User");
-                queryAllProfessor.findInBackground(new FindCallback<ParseObject>() {
-                    @Override
-                    public void done(List<ParseObject> objects, ParseException e) {
-                        int count_Assistent = 0;
-                        if (e == null) {
-                            if (objects.size() > 0) {
-                                for (ParseObject parseObject : objects) {
-
-                                    if (parseObject.get("ID").equals("Assistent")) {
-                                        if (parseObject.get("Slots").equals("0")) {
-                                        }else {
-
-
-                                            if (count_Assistent == 0){
-                                                txt_Professor = txt_Professor + "--------------\n"+parseObject.get("Username") + ". \nAvailable slots" + parseObject.get("Slots") + "\n\n";
-                                                txtProfessor.setText(txt_Professor);
-                                                ++count_Assistent;
-                                            }else{
-                                                txt_Professor = txt_Professor + parseObject.get("Username") + ". \nAvailable slots" + parseObject.get("Slots") + "\n\n";
-                                                txtProfessor.setText(txt_Professor);
-                                            }
-
-                                        }
-
-                                    } else {
-
-                                    }
-                                }
-                            }
-                        }
-                    }
-                });
-
+                get_Met_Professor();
                 break;
 
 
@@ -143,8 +75,8 @@ public class Project extends AppCompatActivity implements View.OnClickListener {
 
 // local
                 Current_Login current_user = (Current_Login) getIntent().getSerializableExtra("current_user");
-
-                        if (txtChooseWork.getText().toString().length() >= 3 && txtChooseProfessor.toString().length() >= 3) {
+                if (current_user.getProjektOB().equals("Nein")) {
+                    if (test_work == 0 || test_user ==0) {
 
 
                             //User
@@ -161,21 +93,102 @@ public class Project extends AppCompatActivity implements View.OnClickListener {
                             }
 
 
-                        } else {
-                            FancyToast.makeText(Project.this, "Please fill out the 'TextViews'. Not just one. Thanks :)", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
+                    } else {
+                        FancyToast.makeText(Project.this, "You can not have more then one projects", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
+                    }
 
-                        }
+                } else {
+                    FancyToast.makeText(Project.this, "you cannot have multiple master projects ", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
 
-
-
-
-
+                }
         }
     }
 
 
 
+
+
+    public void get_Met_Professor(){
+
+            txt_Professor = "";
+            txtProfessor.setText("");
+
+            ParseQuery<ParseObject> queryAllProfessor = ParseQuery.getQuery("New_User");
+            queryAllProfessor.findInBackground(new FindCallback<ParseObject>() {
+                @Override
+                public void done(List<ParseObject> objects, ParseException e) {
+                    int count_Assistent = 0;
+                    if (e == null) {
+                        if (objects.size() > 0) {
+                            for (ParseObject parseObject : objects) {
+
+                                if (parseObject.get("ID").equals("Assistent")) {
+                                    if (parseObject.get("Slots").equals("0")) {
+                                    }else {
+
+
+                                        if (count_Assistent == 0){
+                                            txt_Professor = txt_Professor + "--------------\n"+parseObject.get("Username") + ". \nAvailable slots" + parseObject.get("Slots") + "\n\n";
+                                            txtProfessor.setText(txt_Professor);
+                                            ++count_Assistent;
+                                        }else{
+                                            txt_Professor = txt_Professor + parseObject.get("Username") + ". \nAvailable slots" + parseObject.get("Slots") + "\n\n";
+                                            txtProfessor.setText(txt_Professor);
+                                        }
+
+                                    }
+
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+    }
+
+
+public void getWorks(){
+    txt_Work = "";
+    txtTitle.setText("");
+
+    ParseQuery<ParseObject> queryAllWork = ParseQuery.getQuery("All_Works");
+    queryAllWork.findInBackground(new FindCallback<ParseObject>() {
+        @Override
+        public void done(List<ParseObject> objects, ParseException e) {
+            int count_Work = 0;
+
+            if (e == null) {
+                if (objects.size() > 0) {
+                    for (ParseObject parseObject : objects) {
+                        if (parseObject.get("Function").equals("Project") && (parseObject.get("User").equals("open"))) {
+                            n++;
+
+
+                            if (count_Work == 0) {
+                                txt_Work = txt_Work + "--------------\n" + parseObject.get("Title") + "\n";
+                                txtTitle.setText(txt_Work);
+                                ++count_Work;
+                            } else {
+                                txt_Work = txt_Work + parseObject.get("Title") + "\n";
+                                txtTitle.setText(txt_Work);
+                            }
+
+
+                        }
+                    }
+                }
+                if (n == 0) {
+                    FancyToast.makeText(Project.this, "There are no available projects", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
+
+                }
+            }
+        }
+    });
+}
+
+
     public void set_work(){
+
         Current_Login current_user = (Current_Login) getIntent().getSerializableExtra("current_user");
 
         ParseQuery<ParseObject> query = ParseQuery.getQuery("All_Works");
@@ -185,6 +198,8 @@ public class Project extends AppCompatActivity implements View.OnClickListener {
             public void done(ParseObject object, ParseException e) {
                 if (e == null) {
 
+
+
                     if (object.getString("User").equals("taken")) {
                         FancyToast.makeText(Project.this, "Work has already been booked", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
 
@@ -193,7 +208,10 @@ public class Project extends AppCompatActivity implements View.OnClickListener {
 
 
                         FancyToast.makeText(Project.this, "Work has been booked", FancyToast.LENGTH_SHORT, FancyToast.SUCCESS, true).show();
+                        test_work = 1;
                         object.saveInBackground();
+
+
                         ParseQuery<ParseObject> query2 = ParseQuery.getQuery("New_User");
                         query2.whereEqualTo("email", current_user.getEmailOB());
 
@@ -206,6 +224,7 @@ public class Project extends AppCompatActivity implements View.OnClickListener {
 
                                     object.put("Projekt", "Yes");
                                     object.put("Project_txt", txtChooseWork.getText().toString());
+
                                     object.saveInBackground();
                                     FancyToast.makeText(Project.this, "All Good", FancyToast.LENGTH_SHORT, FancyToast.SUCCESS, true).show();
 
@@ -246,20 +265,22 @@ public class Project extends AppCompatActivity implements View.OnClickListener {
                         FancyToast.makeText(Project.this, "Professor has been booked", FancyToast.LENGTH_SHORT, FancyToast.SUCCESS, true).show();
                         h = Integer.toString(g);
                         object.put("Slots", h);
+                        test_user =1;
 
-
+                        user_temp = object.getString("Work");
                         if (object.getString("Work").isEmpty()) {
                             user_temp = "" + current_user.getEmailOB();
                         } else {
-                            user_temp = object.getString("Work");
+                            user_temp = user_temp +"; " + current_user.getEmailOB();
                         }
 
-                        user_temp = user_temp.concat(User + "; ");
+
                         if (h.equals("0")) {
                             object.put("user", "taken");
                         }
 
                         object.put("Work", user_temp);
+
                         object.saveInBackground();
 
 //
