@@ -83,7 +83,7 @@ public class ProfessorLogin extends AppCompatActivity implements View.OnClickLis
                         edtLoginPassword.getText().toString().equals("")){
 
                     FancyToast.makeText(ProfessorLogin.this,"EMAIL and PASSWORD is required!",
-                            FancyToast.LENGTH_LONG,FancyToast.INFO,true).show();
+                            FancyToast.LENGTH_SHORT,FancyToast.INFO,true).show();
                 } else {
 
 
@@ -104,7 +104,7 @@ public class ProfessorLogin extends AppCompatActivity implements View.OnClickLis
 
                                     progressDialog.dismiss();
 
-                                    FancyToast.makeText(ProfessorLogin.this, user.getString("Username") + " is logged in successfully!", FancyToast.LENGTH_LONG, FancyToast.SUCCESS, true).show();
+                                    FancyToast.makeText(ProfessorLogin.this, user.getString("Username") + " is logged in successfully!", FancyToast.LENGTH_SHORT, FancyToast.SUCCESS, true).show();
 //User
                                     current_user = new Current_Login(user.getString("Master"), user.getString("Bachelor"), user.getString("Projekt"), user.getString("password"),user.getString("email").toString());
 

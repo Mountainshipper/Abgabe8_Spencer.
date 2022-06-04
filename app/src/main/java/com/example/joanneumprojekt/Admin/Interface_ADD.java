@@ -85,7 +85,8 @@ public class Interface_ADD extends AppCompatActivity implements View.OnClickList
                             FancyToast.LENGTH_LONG, FancyToast.INFO, true).show();
 //
 
-                } else if (email.getText().toString().length() > 5 && email.getText().toString().contains(".com") && email.getText().toString().contains("@")) {
+                } else if (email.getText().toString().length() > 5 && (email.getText().toString().contains(".com") || email.getText().toString().contains(".at"))
+                        && email.getText().toString().contains("@")) {
                     if (password.getText().toString().length() > 4) {
 
 
@@ -132,6 +133,9 @@ public class Interface_ADD extends AppCompatActivity implements View.OnClickList
                             new_User.put("Projekt", "Nein");
                             new_User.put("Master", "Nein");
                             new_User.put("User", "open");
+                            new_User.put("Bachelor_txt", "");
+                            new_User.put("Projekt_txt", "");
+                            new_User.put("Master_txt", "");
 
                             new_User.saveInBackground(new SaveCallback() {
 
@@ -155,20 +159,20 @@ public class Interface_ADD extends AppCompatActivity implements View.OnClickList
 
                         }else{
                             FancyToast.makeText(Interface_ADD.this, "One Checkbox should be checked!",
-                                    FancyToast.LENGTH_LONG, FancyToast.ERROR, true).show();
+                                    FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
 
 
                         }
 
                         } else {
                                 FancyToast.makeText(Interface_ADD.this, "Password to short",
-                                        FancyToast.LENGTH_LONG, FancyToast.ERROR, true).show();
+                                        FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
 
 
                         }
                     } else {
                         FancyToast.makeText(Interface_ADD.this, "please use a valid email",
-                                FancyToast.LENGTH_LONG, FancyToast.ERROR, true).show();
+                                FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
 
                     }
                     break;

@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Admin.Change_DATA_1_User">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="308dp"
+        android:layout_marginLeft="100dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txt_Get_ALL_INFO"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="" />
+        </LinearLayout>
+    </ScrollView>
+
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="94dp"
+        android:layout_marginLeft="150dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/btn_GET_ALL_INFO"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_marginLeft="147dp"
+                android:layout_marginTop="20dp"
+                android:background="#400000"
+                android:text="Get all 'Users'"
+                android:textColor="#ffffff" />
+
+
+        </LinearLayout>
+    </HorizontalScrollView>
+
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="116dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <EditText
+                android:id="@+id/txt_Admin_Choose_User"
+                android:layout_width="150dp"
+                android:layout_height="100dp"
+                android:layout_marginLeft="280dp"
+
+                android:hint="Choose User: USERNAME"
+                android:text=""
+                android:textColorHint="#757575" />
+
+
+        </LinearLayout>
+    </HorizontalScrollView>
+
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="124dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <EditText
+                android:id="@+id/txt_Admin_Choose_Username"
+                android:layout_width="150dp"
+                android:layout_height="100dp"
+                android:layout_marginLeft="35dp"
+                android:hint="USERNAME"
+                android:text=""
+                android:textColorHint="#757575" />
+
+            <EditText
+                android:id="@+id/txt_Admin_Choose_ID"
+                android:layout_width="150dp"
+                android:layout_height="100dp"
+                android:layout_marginLeft="35dp"
+                android:hint="ID (This can cause redundant data!!!)"
+                android:text=""
+                android:textColorHint="#757575" />
+
+
+            <EditText
+                android:id="@+id/txt_Admin_Choose_Password"
+                android:layout_width="150dp"
+                android:layout_height="100dp"
+                android:layout_marginLeft="35dp"
+                android:hint="Password"
+                android:text=""
+                android:textColorHint="#757575" />
+
+            <EditText
+                android:id="@+id/txt_Admin_Choose_Email"
+                android:layout_width="150dp"
+                android:layout_height="100dp"
+                android:layout_marginLeft="35dp"
+
+                android:hint="Email (This can cause redundant data!!!)"
+                android:text=""
+                android:textColorHint="#757575" />
+
+            <EditText
+                android:id="@+id/txt_Admin_Choose_Slots"
+                android:layout_width="150dp"
+                android:layout_height="100dp"
+                android:layout_marginLeft="35dp"
+
+                android:hint="Slots (This can cause redundant data!!!)"
+                android:text=""
+                android:textColorHint="#757575" />
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="171dp"
+        android:layout_marginLeft="18dp"
+        android:layout_marginTop="20dp"
+        android:text="Note: \nRedundant data can be caused in two ways. First is when a student is
+assigned to one of the Projects. And the latter being a assistant with assigned students.
+If one of these is true a deletion and remake of the Account is recomended. Please proceed with caution!"
+        android:textSize="24sp" />
+
+    <HorizontalScrollView
+        android:layout_marginLeft="150dp"
+        android:layout_width="match_parent"
+        android:layout_height="100dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/btn_Upload_Info_ALL"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_marginLeft="147dp"
+                android:layout_marginTop="20dp"
+                android:background="#400000"
+                android:text="Upload all data"
+                android:textColor="#ffffff" />
+
+        </LinearLayout>
+    </HorizontalScrollView>
+</LinearLayout>

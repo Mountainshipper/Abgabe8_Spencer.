@@ -12,6 +12,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.example.joanneumprojekt.Admin.Admin_Delete_USER;
 import com.example.joanneumprojekt.R;
 import com.example.joanneumprojekt.ui.Student.Project;
 import com.parse.FindCallback;
@@ -94,6 +95,9 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
                             new_User.put("Username", edtUsername.getText().toString());
                             new_User.put("ID", "Student");
                             new_User.put("Work", "");
+                            new_User.put("Bachelor_txt", "");
+                            new_User.put("Projekt_txt", "");
+                            new_User.put("Master_txt", "");
                             // Saving object
 
 
@@ -142,6 +146,5 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
         }catch (Exception e){
             e.printStackTrace();
         }
-
     }
 }

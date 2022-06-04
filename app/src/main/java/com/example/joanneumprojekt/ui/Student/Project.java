@@ -61,7 +61,6 @@ public class Project extends AppCompatActivity implements View.OnClickListener {
 
         switch (view.getId()) {
             case R.id.btn_GetText:
-
                 getWorks();
                 break;
 

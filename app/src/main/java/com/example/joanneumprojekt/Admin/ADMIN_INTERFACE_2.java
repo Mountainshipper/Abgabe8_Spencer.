@@ -13,7 +13,7 @@ import com.shashank.sony.fancytoastlib.FancyToast;
 
 public class ADMIN_INTERFACE_2 extends AppCompatActivity implements View.OnClickListener{
 
-    private Button btn_User_delete, btn_Work_Delete, Interface3, Interface2;
+    private Button btn_User_delete, btn_Change_user, Change_WORK, Interface2;
 
 
     @Override
@@ -28,13 +28,13 @@ public class ADMIN_INTERFACE_2 extends AppCompatActivity implements View.OnClick
 
 
         btn_User_delete = findViewById(R.id.btn_Delete_User);
-        btn_Work_Delete = findViewById(R.id.btn_Delete_Work);
-        Interface3 = findViewById(R.id.Interface3);
+        btn_Change_user = findViewById(R.id.btn_Change_user);
+        Change_WORK = findViewById(R.id.Change_WORK);
         Interface2 = findViewById(R.id.Interface2);
 
         btn_User_delete.setOnClickListener(this);
-        btn_Work_Delete.setOnClickListener(this);
-        Interface3.setOnClickListener(this);
+        btn_Change_user.setOnClickListener(this);
+        Change_WORK.setOnClickListener(this);
         Interface2.setOnClickListener(this);
 
     }
@@ -48,13 +48,13 @@ public class ADMIN_INTERFACE_2 extends AppCompatActivity implements View.OnClick
                 startActivity(intent);
                 break;
 
-            case R.id.btn_Delete_Work:
-                Intent intentAdmin = new Intent(ADMIN_INTERFACE_2.this, Interface_Work_ADD.class);
+            case R.id.btn_Change_user:
+                Intent intentAdmin = new Intent(ADMIN_INTERFACE_2.this, Change_DATA_1_User.class);
                 startActivity(intentAdmin);
                 break;
 
-            case R.id.Interface3:
-                Intent Interface3 = new Intent(ADMIN_INTERFACE_2.this, ProfessorLogin.class);
+            case R.id.Change_WORK:
+                Intent Interface3 = new Intent(ADMIN_INTERFACE_2.this, Change_DATA_WORK.class);
                 startActivity(Interface3);
                 break;
 

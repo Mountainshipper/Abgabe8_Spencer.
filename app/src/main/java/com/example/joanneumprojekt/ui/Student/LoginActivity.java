@@ -103,7 +103,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                             if (e == null && edtLoginPassword.getText().toString().equals(user.getString("password"))) {
                                 if (user.getString("ID").equals("Student")) {
                                     progressDialog.dismiss();
-                                    FancyToast.makeText(LoginActivity.this, user.getString("Username") + " is logged in successfully!", FancyToast.LENGTH_LONG, FancyToast.SUCCESS, true).show();
+                                    FancyToast.makeText(LoginActivity.this, user.getString("Username") + " is logged in successfully!", FancyToast.LENGTH_SHORT, FancyToast.SUCCESS, true).show();
 
 
                                     current_user = new Current_Login(user.getString("Master"), user.getString("Bachelor"), user.getString("Projekt"), user.getString("password"),user.getString("email").toString());
@@ -113,11 +113,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                                     startActivity(INTERFACE_STUDENT);
 
                                 }else{
-                                    FancyToast.makeText(LoginActivity.this, "This is the login for 'Students', please use the correct login. Thank you", FancyToast.LENGTH_LONG, FancyToast.ERROR, true).show();
+                                    FancyToast.makeText(LoginActivity.this, "This is the login for 'Students', please use the correct login. Thank you", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
 
                                 }
                             } else {
-                                FancyToast.makeText(LoginActivity.this, "Password wrong", FancyToast.LENGTH_LONG, FancyToast.ERROR, true).show();
+                                FancyToast.makeText(LoginActivity.this, "Password wrong", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
 
                             }
                             progressDialog.dismiss();

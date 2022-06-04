@@ -15,9 +15,12 @@
         <entry key="..\:/Studios Programme/Uebung 2/app/src/main/res/layout/activity_administrator_interface_long.xml" value="0.18802083333333333" />
         <entry key="..\:/Studios Programme/Uebung 2/app/src/main/res/layout/activity_administrator_login.xml" value="0.36666666666666664" />
         <entry key="..\:/Studios Programme/Uebung 2/app/src/main/res/layout/activity_assistent_interface.xml" value="0.33" />
-        <entry key="..\:/Studios Programme/Uebung 2/app/src/main/res/layout/activity_bachelor.xml" value="0.36666666666666664" />
+        <entry key="..\:/Studios Programme/Uebung 2/app/src/main/res/layout/activity_bachelor.xml" value="0.25" />
+        <entry key="..\:/Studios Programme/Uebung 2/app/src/main/res/layout/activity_change_data1_user.xml" value="0.18" />
+        <entry key="..\:/Studios Programme/Uebung 2/app/src/main/res/layout/activity_change_data_work.xml" value="0.2" />
         <entry key="..\:/Studios Programme/Uebung 2/app/src/main/res/layout/activity_interface_add.xml" value="0.3625" />
         <entry key="..\:/Studios Programme/Uebung 2/app/src/main/res/layout/activity_interface_administrator.xml" value="0.36666666666666664" />
+        <entry key="..\:/Studios Programme/Uebung 2/app/src/main/res/layout/activity_interface_assistent.xml" value="0.13515625" />
         <entry key="..\:/Studios Programme/Uebung 2/app/src/main/res/layout/activity_interface_student.xml" value="0.25" />
         <entry key="..\:/Studios Programme/Uebung 2/app/src/main/res/layout/activity_interface_work_add.xml" value="0.3625" />
         <entry key="..\:/Studios Programme/Uebung 2/app/src/main/res/layout/activity_login.xml" value="0.22" />

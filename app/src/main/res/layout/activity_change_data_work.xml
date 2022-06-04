@@ -6,82 +6,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ui.Student.Project">
-
-
+    tools:context=".Admin.Change_DATA_WORK">
 
     <ScrollView
-        android:layout_marginLeft="200dp"
         android:layout_width="match_parent"
-        android:layout_height="200dp">
+        android:layout_height="308dp"
+        android:layout_marginLeft="100dp">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/txt_Assistent_Student"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="" />
-        </LinearLayout>
-    </ScrollView>
-
-
-
-
-
-
-    <HorizontalScrollView
-        android:layout_marginLeft="150dp"
-        android:layout_width="match_parent"
-        android:layout_height="100dp">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <Button
-                android:id="@+id/btn_Assistent_getStudent"
-                android:layout_width="150dp"
-                android:layout_height="70dp"
-                android:layout_marginLeft="35dp"
-                android:layout_marginTop="20dp"
-                android:background="#400000"
-                android:text="Get all avalable works"
-                android:textColor="#ffffff" />
-
-            <Button
-                android:id="@+id/btn_Assistent_getSlots"
-                android:layout_width="150dp"
-                android:layout_height="70dp"
-                android:layout_marginLeft="35dp"
-                android:layout_marginTop="20dp"
-                android:background="#400000"
-                android:text="Get all available professors"
-                android:textColor="#ffffff" />
-
-        </LinearLayout>
-    </HorizontalScrollView>
-
-
-
-
-
-
-
-
-
-    <ScrollView
-        android:layout_marginLeft="200dp"
-        android:layout_width="match_parent"
-        android:layout_height="200dp">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/txt_Bechelor_GetTitle2"
+                android:id="@+id/txt_Get_ALL_WORK"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="" />
@@ -91,8 +29,33 @@
 
     <HorizontalScrollView
         android:layout_width="match_parent"
-        android:layout_height="120dp"
-        android:layout_marginLeft="200dp">
+        android:layout_height="94dp"
+        android:layout_marginLeft="150dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/btn_GET_ALL_Work"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_marginLeft="147dp"
+                android:layout_marginTop="20dp"
+                android:background="#400000"
+                android:text="Get all 'Works'"
+                android:textColor="#ffffff" />
+
+
+        </LinearLayout>
+    </HorizontalScrollView>
+
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="116dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="10dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -100,26 +63,71 @@
 
 
             <EditText
-                android:id="@+id/txt_Choose_Bechelor_Work"
+                android:id="@+id/txt_Admin_Choose_Work"
                 android:layout_width="150dp"
                 android:layout_height="100dp"
-                android:layout_marginLeft="35dp"
-                android:layout_marginTop="20dp"
-                android:hint="Write Work"
+                android:layout_marginLeft="280dp"
+
+                android:hint="Choose Work: Work"
+                android:text=""
+                android:textColorHint="#757575" />
+
+
+        </LinearLayout>
+    </HorizontalScrollView>
+
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="124dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <EditText
+                android:id="@+id/txt_Admin_Choose_USER"
+                android:layout_width="150dp"
+                android:layout_height="100dp"
+                android:layout_marginLeft="95dp"
+                android:hint="User (open / taken"
                 android:text=""
                 android:textColorHint="#757575" />
 
             <EditText
-                android:id="@+id/txt_Choose_Bechelor_Professor"
+                android:id="@+id/txt_Admin_Choose_Title"
                 android:layout_width="150dp"
                 android:layout_height="100dp"
                 android:layout_marginLeft="35dp"
-                android:layout_marginTop="20dp"
-                android:hint="Write Professor"
+                android:hint="Title (This can cause redundant data!!!)"
                 android:text=""
                 android:textColorHint="#757575" />
+
+
+            <EditText
+                android:id="@+id/txt_Admin_Choose_Function"
+                android:layout_width="150dp"
+                android:layout_height="100dp"
+                android:layout_marginLeft="35dp"
+                android:hint="Function (Bachelor/ Project/Master"
+                android:text=""
+                android:textColorHint="#757575" />
+
+
         </LinearLayout>
     </HorizontalScrollView>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="171dp"
+        android:layout_marginLeft="18dp"
+        android:layout_marginTop="20dp"
+        android:text="Note: \nRedundant data can be caused, when the project is already assigned to the users!"
+        android:textSize="24sp" />
 
     <HorizontalScrollView
         android:layout_marginLeft="150dp"
@@ -131,7 +139,7 @@
             android:layout_height="match_parent">
 
             <Button
-                android:id="@+id/btn_Upload_Info_ALL"
+                android:id="@+id/btn_Upload_Work_ALL"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
                 android:layout_marginLeft="147dp"

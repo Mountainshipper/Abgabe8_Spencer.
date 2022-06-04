@@ -32,7 +32,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:text="Professor Login"
+        android:text="Assistant Login"
         app:layout_constraintEnd_toEndOf="@+id/btnStudentInt"
         app:layout_constraintHorizontal_bias="0.473"
         app:layout_constraintStart_toStartOf="@+id/btnStudentInt"

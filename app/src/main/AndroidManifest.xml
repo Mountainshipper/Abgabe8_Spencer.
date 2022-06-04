@@ -11,6 +11,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.JoanneumProjekt">
         <activity
+            android:name=".Admin.Change_DATA_WORK"
+            android:exported="false" />
+        <activity
+            android:name=".Admin.Change_DATA_1_User"
+            android:exported="false" />
+        <activity
             android:name=".ui.Student.Read_Student"
             android:exported="false" />
         <activity

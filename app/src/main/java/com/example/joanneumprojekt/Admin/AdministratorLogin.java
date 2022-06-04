@@ -83,7 +83,7 @@ public class AdministratorLogin extends AppCompatActivity implements View.OnClic
                         edtLoginPassword.getText().toString().equals("")){
 
                     FancyToast.makeText(AdministratorLogin.this,"EMAIL and PASSWORD is required!",
-                            FancyToast.LENGTH_LONG,FancyToast.INFO,true).show();
+                            FancyToast.LENGTH_SHORT,FancyToast.INFO,true).show();
                 } else {
 
 
@@ -102,16 +102,16 @@ public class AdministratorLogin extends AppCompatActivity implements View.OnClic
                                 if (user.getString("ID").equals("Admin")) {
 
                                     progressDialog.dismiss();
-                                    FancyToast.makeText(AdministratorLogin.this, user.getString("Username") + " is logged in successfully!", FancyToast.LENGTH_LONG, FancyToast.SUCCESS, true).show();
+                                    FancyToast.makeText(AdministratorLogin.this, user.getString("Username") + " is logged in successfully!", FancyToast.LENGTH_SHORT, FancyToast.SUCCESS, true).show();
                                     Intent INTERFACE_STUDENT = new Intent(AdministratorLogin.this, ADMIN_INTERFACE.class);
                                     startActivity(INTERFACE_STUDENT);
 
                                 }else{
-                                    FancyToast.makeText(AdministratorLogin.this, "This is the login for 'Administrator', please use the correct login. Thank you", FancyToast.LENGTH_LONG, FancyToast.ERROR, true).show();
+                                    FancyToast.makeText(AdministratorLogin.this, "This is the login for 'Administrator', please use the correct login. Thank you", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
 
                                 }
                             } else {
-                                FancyToast.makeText(AdministratorLogin.this, "Password wrong", FancyToast.LENGTH_LONG, FancyToast.ERROR, true).show();
+                                FancyToast.makeText(AdministratorLogin.this, "Password wrong", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
 
                             }
                             progressDialog.dismiss();

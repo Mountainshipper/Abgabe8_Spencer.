@@ -19,17 +19,17 @@ import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.shashank.sony.fancytoastlib.FancyToast;
 
+import java.util.IllegalFormatCodePointException;
 import java.util.List;
 
-public class Admin_Delete_USER extends AppCompatActivity implements View.OnClickListener{
+public class Admin_Delete_USER extends AppCompatActivity implements View.OnClickListener {
 
     private Button getWorks, getUser, Delete, Delete_WORK;
     private TextView txt_Display_Work, txt_Display_User, txt_Write_Work, txt_Write_User;
     String txt_Work = "";
     String txt_Professor = "";
-    String User = "";
-    String user_temp = "";
-    int counter = 0;
+    String Project = "";
+    String email = "";
 
 
     @Override
@@ -83,12 +83,8 @@ public class Admin_Delete_USER extends AppCompatActivity implements View.OnClick
                                         txt_Work = txt_Work + parseObject.get("Title") + "\n";
                                         txt_Display_Work.setText(txt_Work);
                                     }
-
-
                                 }
                             }
-
-
                         }
                     }
                 });
@@ -112,6 +108,7 @@ public class Admin_Delete_USER extends AppCompatActivity implements View.OnClick
                                         txt_Professor = txt_Professor + "--------------\n" + parseObject.get("Username") + ". \nAvailable slots" + parseObject.get("Slots") + "\n\n";
                                         txt_Display_User.setText(txt_Professor);
                                         ++count_Assistent;
+
                                     } else {
                                         txt_Professor = txt_Professor + parseObject.get("Username") + ". \nAvailable slots" + parseObject.get("Slots") + "\n\n";
                                         txt_Display_User.setText(txt_Professor);
@@ -136,87 +133,192 @@ public class Admin_Delete_USER extends AppCompatActivity implements View.OnClick
 
 
                 //User
-try {
+                try {
 
 
-    ParseQuery<ParseObject> soccerPlayers = ParseQuery.getQuery("New_User");
-// Query parameters based on the item name
-    soccerPlayers.whereEqualTo("Username", txt_Write_User.getText().toString());
-    soccerPlayers.findInBackground(new FindCallback<ParseObject>() {
-        @Override
-        public void done(final List<ParseObject> user, ParseException e) {
-            if (e == null) {
-                user.get(0).deleteInBackground(new DeleteCallback() {
-                    @Override
-                    public void done(ParseException e) {
-                        if (e == null) {
-                            FancyToast.makeText(Admin_Delete_USER.this, "completed", FancyToast.LENGTH_SHORT, FancyToast.SUCCESS, true).show();
+                    ParseQuery<ParseObject> soccerPlayers = ParseQuery.getQuery("New_User");
 
-                        } else {
-                            FancyToast.makeText(Admin_Delete_USER.this, "Failed to delete User", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
+                    soccerPlayers.whereEqualTo("Username", txt_Write_User.getText().toString());
+                    soccerPlayers.findInBackground(new FindCallback<ParseObject>() {
+                        @Override
+                        public void done(final List<ParseObject> user, ParseException e) {
+                            if (e == null) {
 
+                                //for redundant data
+                                redundant_User();
+
+                                user.get(0).deleteInBackground(new DeleteCallback() {
+                                    @Override
+                                    public void done(ParseException e) {
+                                        if (e == null) {
+                                            FancyToast.makeText(Admin_Delete_USER.this, "completed", FancyToast.LENGTH_SHORT, FancyToast.SUCCESS, true).show();
+
+                                        } else {
+                                            FancyToast.makeText(Admin_Delete_USER.this, "Failed to delete User", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
+
+                                        }
+                                    }
+                                });
+                            } else {
+                                FancyToast.makeText(Admin_Delete_USER.this, "Something went wrong (Database)", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
+
+                            }
+                            progressDialog.dismiss();
                         }
-                    }
-                });
-            } else {
-                FancyToast.makeText(Admin_Delete_USER.this, "Something went wrong (Database)", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
-
-            }
-            progressDialog.dismiss();
-        }
 
 
-    });
-    break;
+                    });
+                    break;
 
-}catch (Exception e){
-    FancyToast.makeText(Admin_Delete_USER.this, "Something went wrong (True Error)", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
+                } catch (Exception e) {
+                    FancyToast.makeText(Admin_Delete_USER.this, "Something went wrong (True Error)", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
 
-}
+                }
 
 //Works
 
 
-
             case R.id.btn_Upload_DELETE_WORK:
 
-try {
+                try {
 
 
-    ParseQuery<ParseObject> work_delete = ParseQuery.getQuery("All_Works");
+                    ParseQuery<ParseObject> work_delete = ParseQuery.getQuery("All_Works");
 // Query parameters based on the item name
-    work_delete.whereEqualTo("Title", txt_Write_Work.getText().toString());
-    work_delete.findInBackground(new FindCallback<ParseObject>() {
-        @Override
-        public void done(final List<ParseObject> player, ParseException e) {
-            if (e == null) {
-                player.get(0).deleteInBackground(new DeleteCallback() {
-                    @Override
-                    public void done(ParseException e) {
-                        if (e == null) {
-                            FancyToast.makeText(Admin_Delete_USER.this, "completed", FancyToast.LENGTH_SHORT, FancyToast.SUCCESS, true).show();
+                    work_delete.whereEqualTo("Title", txt_Write_Work.getText().toString());
+                    work_delete.findInBackground(new FindCallback<ParseObject>() {
+                        @Override
+                        public void done(final List<ParseObject> work, ParseException e) {
+                            if (e == null) {
 
-                        } else {
-                            FancyToast.makeText(Admin_Delete_USER.this, "Failed to delete 'Work", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
+                                redundant_Work();
+
+                                work.get(0).deleteInBackground(new DeleteCallback() {
+                                    @Override
+                                    public void done(ParseException e) {
+                                        if (e == null) {
+                                            FancyToast.makeText(Admin_Delete_USER.this, "completed", FancyToast.LENGTH_SHORT, FancyToast.SUCCESS, true).show();
+
+                                        } else {
+                                            FancyToast.makeText(Admin_Delete_USER.this, "Failed to delete 'Work", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
+                                        }
+                                    }
+                                });
+                            } else {
+                                FancyToast.makeText(Admin_Delete_USER.this, "Something went wrong (Database)", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
+                            }
                         }
-                    }
-                });
-            } else {
-                FancyToast.makeText(Admin_Delete_USER.this, "Something went wrong (Database)", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
+                    });
 
+                    break;
+                } catch (Exception e) {
+                    FancyToast.makeText(Admin_Delete_USER.this, "Something went wrong (true Error)", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
+
+                }
+        }
+    }
+
+
+    // Horror fix redundant data
+    String bachelor;
+    String master;
+
+    public void redundant_User() {
+
+
+        ParseQuery<ParseObject> update = ParseQuery.getQuery("New_User");
+        update.whereEqualTo("Username", txt_Write_User.getText().toString());
+        update.getFirstInBackground(new GetCallback<ParseObject>() {
+            public void done(ParseObject parseObject, ParseException e) {
+                if (e == null) {
+                    email = parseObject.getString("email");
+                    Project = parseObject.getString("Project_txt");
+                    bachelor = parseObject.getString("Bachelor_txt");
+                    master = parseObject.getString("Master_txt");
+
+                } else {
+                    FancyToast.makeText(Admin_Delete_USER.this, "Wrong1", FancyToast.LENGTH_SHORT, FancyToast.SUCCESS, true).show();
+                }
             }
-        }
+        });
 
 
-    });
-    break;
+        //FOR REDUNDANT DATA
+        ParseQuery<ParseObject> work = ParseQuery.getQuery("All_Works");
+        work.findInBackground(new FindCallback<ParseObject>() {
+            @Override
+            public void done(List<ParseObject> objects, ParseException e) {
+
+                if (e == null) {
+                    for (ParseObject object : objects) {
 
 
-}catch (Exception e){
-    FancyToast.makeText(Admin_Delete_USER.this, "Something went wrong (true Error)", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
+                        if (object.get("Title").equals(Project) || object.get("Title").equals(bachelor) || object.get("Title").equals(master)) {
+                            object.put("User", "open");
+                        }
+                        object.saveInBackground();
+                    redundant_Work();
+                    }
+                }
+            }
+        });
 
-}
-        }
+
+    }
+
+
+
+
+    public void redundant_Work() {
+
+        ParseQuery<ParseObject> User = ParseQuery.getQuery("New_User");
+        User.findInBackground(new FindCallback<ParseObject>() {
+            @Override
+            public void done(List<ParseObject> objects, ParseException e) {
+
+                if (e == null) {
+//                    FancyToast.makeText(Admin_Delete_USER.this, "" +txt_Write_Work.getText().toString(), FancyToast.LENGTH_SHORT, FancyToast.SUCCESS, true).show();
+
+                    for (ParseObject object : objects) {
+                        if (object.getString("Project_txt").isEmpty()){
+
+                        }else{
+                            if (object.getString("Project_txt").equals(txt_Write_Work.getText().toString())){
+                                object.put("Project_txt","");
+                            }
+                        }
+                        if (object.getString("Bachelor_txt").isEmpty()){
+
+                        }else{
+                            if (object.getString("Bachelor_txt").equals(txt_Write_Work.getText().toString())){
+                                object.put("Bachelor_txt","");
+                            }
+                        }
+                        if (object.getString("Master_txt").isEmpty()){
+
+                        }else{
+                            if (object.getString("Master_txt").equals(txt_Write_Work.getText().toString())){
+                                object.put("Master_txt","");
+                            }
+                        }
+
+
+                        if (email.isEmpty()){
+
+                        }else {
+                            if (object.getString("Work").contains(email)) {
+                                String hh = object.getString("Work");
+                                String strNew = hh.replaceFirst(email, "");
+
+                                object.put("Work", strNew);
+
+                            }
+                        }
+                        object.saveInBackground();
+                    }
+                }
+            }
+        });
     }
 }
 

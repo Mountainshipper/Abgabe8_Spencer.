@@ -98,7 +98,7 @@
                 android:layout_height="100dp"
                 android:layout_marginLeft="100dp"
                 android:layout_marginTop="20dp"
-                android:hint="Write Professor"
+                android:hint="Get Slots"
                 android:text=""
                 android:textColorHint="#757575"/>
         </LinearLayout>
