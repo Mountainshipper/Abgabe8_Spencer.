@@ -1,3 +1,8 @@
+/**
+ * Autor: Samuel Spencer
+ * This is the code where a admin can change the data of a existing user
+ */
+
 package com.example.joanneumprojekt.Admin;
 
 import androidx.appcompat.app.AppCompatActivity;

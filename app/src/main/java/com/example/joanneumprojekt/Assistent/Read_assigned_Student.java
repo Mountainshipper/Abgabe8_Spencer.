@@ -1,3 +1,9 @@
+/**
+ * Autor: Samuel Spencer
+ * This is the code where the assistant can see his assigned students, and where he can set the amount of students!
+ */
+
+
 package com.example.joanneumprojekt.Assistent;
 
 import androidx.appcompat.app.AppCompatActivity;

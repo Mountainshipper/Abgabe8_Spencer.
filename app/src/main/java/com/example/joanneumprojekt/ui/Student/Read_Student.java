@@ -1,3 +1,8 @@
+/**
+ * Autor: Samuel Spencer
+ * This is the code lets the student see his achievements
+ */
+
 package com.example.joanneumprojekt.ui.Student;
 
 import androidx.appcompat.app.AppCompatActivity;

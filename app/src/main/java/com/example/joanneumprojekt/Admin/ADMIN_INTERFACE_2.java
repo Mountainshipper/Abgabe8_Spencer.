@@ -1,3 +1,8 @@
+/**
+ * Autor: Samuel Spencer
+ * This is the second interface for the administrator
+ */
+
 package com.example.joanneumprojekt.Admin;
 
 import androidx.appcompat.app.AppCompatActivity;

@@ -1,3 +1,8 @@
+/**
+ * Autor: Samuel Spencer
+ * This is the code to assign a project to a user
+ */
+
 package com.example.joanneumprojekt.Admin;
 
 import androidx.appcompat.app.AppCompatActivity;

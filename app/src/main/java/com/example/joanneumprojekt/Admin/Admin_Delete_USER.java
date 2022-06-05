@@ -1,3 +1,8 @@
+/**
+ * Autor: Samuel Spencer
+ * This is the code for deleting user and projects
+ */
+
 package com.example.joanneumprojekt.Admin;
 
 import androidx.appcompat.app.AppCompatActivity;

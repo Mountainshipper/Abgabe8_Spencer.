@@ -1,3 +1,8 @@
+/**
+ * Autor: Samuel Spencer
+ * This is the code where a admin can add a user
+ */
+
 package com.example.joanneumprojekt.Admin;
 
 import androidx.appcompat.app.AppCompatActivity;

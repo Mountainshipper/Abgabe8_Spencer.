@@ -1,3 +1,8 @@
+/**
+ * Autor: Samuel Spencer
+ * This is the code was auto created
+ */
+
 package com.example.joanneumprojekt;
 
 import android.app.Application;

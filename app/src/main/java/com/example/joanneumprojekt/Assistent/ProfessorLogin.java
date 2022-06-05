@@ -1,3 +1,8 @@
+/**
+ * Autor: Samuel Spencer
+ * This is the code for assistant login
+ */
+
 package com.example.joanneumprojekt.Assistent;
 
 import androidx.appcompat.app.AppCompatActivity;

@@ -1,3 +1,9 @@
+/**
+ * Autor: Samuel Spencer
+ * This is the login inteface
+ */
+
+
 package com.example.joanneumprojekt.SignUP;
 
 import androidx.appcompat.app.AppCompatActivity;

@@ -1,3 +1,8 @@
+/**
+ * Autor: Samuel Spencer
+ * This is the interface for the assistant
+ */
+
 package com.example.joanneumprojekt.Assistent;
 
 import androidx.appcompat.app.AppCompatActivity;

@@ -1,3 +1,8 @@
+/**
+ * Autor: Samuel Spencer
+ * This is the code for creating a object
+ */
+
 package com.example.joanneumprojekt;
 
 import com.example.joanneumprojekt.ui.Student.LoginActivity;

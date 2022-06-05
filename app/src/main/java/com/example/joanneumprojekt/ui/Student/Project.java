@@ -1,3 +1,8 @@
+/**
+ * Autor: Samuel Spencer
+ * This is the code for students to book a project
+ */
+
 package com.example.joanneumprojekt.ui.Student;
 
 import androidx.appcompat.app.AppCompatActivity;

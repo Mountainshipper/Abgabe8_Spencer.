@@ -1,3 +1,9 @@
+/**
+ * Autor: Samuel Spencer
+ * This is the code for students to log in
+ */
+
+
 package com.example.joanneumprojekt.ui.Student;
 
 import androidx.appcompat.app.AppCompatActivity;

@@ -1,3 +1,9 @@
+/**
+ * Autor: Samuel Spencer
+ * This is the code for the student interface
+ */
+
+
 package com.example.joanneumprojekt.ui.Student;
 
 

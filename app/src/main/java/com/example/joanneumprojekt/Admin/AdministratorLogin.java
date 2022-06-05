@@ -1,3 +1,8 @@
+/**
+ * Autor: Samuel Spencer
+ * This is admin login
+ */
+
 package com.example.joanneumprojekt.Admin;
 
 import androidx.appcompat.app.AppCompatActivity;

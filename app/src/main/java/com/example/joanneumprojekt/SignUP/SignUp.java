@@ -1,3 +1,8 @@
+/**
+ * Autor: Samuel Spencer
+ * This is the code for signing up as a student
+ */
+
 package com.example.joanneumprojekt.SignUP;
 
 
