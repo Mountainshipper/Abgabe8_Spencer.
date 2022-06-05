@@ -132,10 +132,12 @@ public class Interface_ADD extends AppCompatActivity implements View.OnClickList
                             new_User.put("Bachelor", "Nein");
                             new_User.put("Projekt", "Nein");
                             new_User.put("Master", "Nein");
-                            new_User.put("User", "open");
                             new_User.put("Bachelor_txt", "");
-                            new_User.put("Projekt_txt", "");
+                            new_User.put("Project_txt", "");
                             new_User.put("Master_txt", "");
+                            new_User.put("Work", "");
+                            new_User.put("Exam_Date", "");
+
 
                             new_User.saveInBackground(new SaveCallback() {
 
@@ -153,6 +155,8 @@ public class Interface_ADD extends AppCompatActivity implements View.OnClickList
 
                                     }
                                     progressDialog.dismiss();
+                                    Intent Interface2 = new Intent(Interface_ADD.this, ADMIN_INTERFACE.class);
+                                    startActivity(Interface2);
                                 }
 
                             });

@@ -43,13 +43,6 @@ public Current_Login (String master, String bachelor, String projekt, String pas
         return projekt;
     }
 
-
-
-
-
-
-
-
     public String getEmailOB() {
         return email;
     }

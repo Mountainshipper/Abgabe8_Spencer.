@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -26,12 +27,8 @@ import java.util.List;
 public class Bachelor extends AppCompatActivity implements View.OnClickListener{
     private Button getbtnTitle, getbtnProfessor, saveAll;
     private TextView txtTitle, txtProfessor, txtChooseWork, txtChooseProfessor;
-    String txt_Work = "";
-    String txt_Professor = "";
-    String User = "";
     String user_temp = "";
-    int test_work;
-    int test_user;
+    int test_work, test_user;
 
 
     @Override
@@ -74,11 +71,10 @@ public class Bachelor extends AppCompatActivity implements View.OnClickListener{
                 Current_Login current_user = (Current_Login) getIntent().getSerializableExtra("current_user");
                 if (current_user.getProjektOB().equals("Yes")) {
 
-
                     if (current_user.getBachelorOB().equals("Nein") ) {
 
-
                         if (test_work == 0 || test_user ==0) {
+
 
 
                             //User
@@ -112,6 +108,10 @@ public class Bachelor extends AppCompatActivity implements View.OnClickListener{
         }
     }
 
+
+
+
+String txt_Professor;
     public void get_Met_Professor(){
         txt_Professor = "";
         txtProfessor.setText("");
@@ -152,6 +152,11 @@ public class Bachelor extends AppCompatActivity implements View.OnClickListener{
 
     }
 
+
+
+
+
+    String txt_Work;
     public void getWorks(){
         txt_Work = "";
         txtTitle.setText("");
@@ -190,6 +195,8 @@ public class Bachelor extends AppCompatActivity implements View.OnClickListener{
             }
         });
     }
+
+
 
 
     public void set_work(){
@@ -246,6 +253,8 @@ public class Bachelor extends AppCompatActivity implements View.OnClickListener{
     }
 
 
+
+
     public void setUser(){
         Current_Login current_user = (Current_Login) getIntent().getSerializableExtra("current_user");
 
@@ -278,14 +287,7 @@ public class Bachelor extends AppCompatActivity implements View.OnClickListener{
                             user_temp = user_temp +"; " + current_user.getEmailOB();
                         }
 
-
-                        if (h.equals("0")) {
-                            object.put("user", "taken");
-                        }
-
                         object.put("Work", user_temp);
-
-
                         object.saveInBackground();
 
 //
@@ -296,5 +298,14 @@ public class Bachelor extends AppCompatActivity implements View.OnClickListener{
 
             }
         });
+    }
+
+    public void loginLayoutTapped (View view) {
+        try{
+            InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+            inputMethodManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 }

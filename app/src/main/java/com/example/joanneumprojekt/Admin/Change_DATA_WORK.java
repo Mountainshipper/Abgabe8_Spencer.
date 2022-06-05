@@ -151,6 +151,7 @@ public class Change_DATA_WORK extends AppCompatActivity  implements View.OnClick
 
                 } else {
                     FancyToast.makeText(Change_DATA_WORK.this, "Professor could not be found. ERROR", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
+                    progressDialog.dismiss();
                 }
 
             }

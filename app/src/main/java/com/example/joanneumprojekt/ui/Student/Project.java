@@ -24,9 +24,8 @@ public class Project extends AppCompatActivity implements View.OnClickListener {
 
     private Button getbtnTitle, getbtnProfessor, saveAll;
     private TextView txtTitle, txtProfessor, txtChooseWork, txtChooseProfessor;
-    String txt_Work = "";
-    String txt_Professor = "";
-    String User = "";
+
+
     String user_temp = "";
     int test_work;
     int test_user;
@@ -106,7 +105,7 @@ public class Project extends AppCompatActivity implements View.OnClickListener {
 
 
 
-
+    String txt_Professor;
     public void get_Met_Professor(){
 
             txt_Professor = "";
@@ -145,7 +144,7 @@ public class Project extends AppCompatActivity implements View.OnClickListener {
             });
     }
 
-
+    String txt_Work;
 public void getWorks(){
     txt_Work = "";
     txtTitle.setText("");
@@ -274,9 +273,7 @@ public void getWorks(){
                         }
 
 
-                        if (h.equals("0")) {
-                            object.put("user", "taken");
-                        }
+
 
                         object.put("Work", user_temp);
 
@@ -291,5 +288,6 @@ public void getWorks(){
             }
         });
     }
+
 }
 

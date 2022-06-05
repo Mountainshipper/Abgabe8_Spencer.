@@ -6,26 +6,37 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
 
-    tools:context=".Admin.Admin_Delete_USER">
+
+    tools:context=".Admin.Assign_Project_to_Student">
 
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="291dp"
         android:layout_marginLeft="200dp">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+        <HorizontalScrollView
+            android:layout_width="420dp"
+            android:layout_height="fill_parent">
 
-            <TextView
-                android:id="@+id/txt_Display_Work"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="" />
-        </LinearLayout>
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/Admin_txt_Display_Works"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="" />
+
+
+            </LinearLayout>
+        </HorizontalScrollView>
     </ScrollView>
+
+
+
 
 
 
@@ -41,17 +52,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <Button
-                android:id="@+id/btnGetAllWORKS"
+                android:id="@+id/admin_btn_get_Works"
                 android:layout_width="150dp"
                 android:layout_height="70dp"
                 android:layout_marginLeft="35dp"
                 android:layout_marginTop="20dp"
                 android:background="#400000"
-                android:text="Get all avalable works"
+                android:text="Get all available Works"
                 android:textColor="#ffffff" />
 
             <Button
-                android:id="@+id/btn_Get_ALLUSERS"
+                android:id="@+id/admin_get_all_users"
                 android:layout_width="150dp"
                 android:layout_height="70dp"
                 android:layout_marginLeft="35dp"
@@ -66,8 +77,11 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="353dp"
+        android:layout_height="300dp"
         android:layout_marginLeft="200dp">
+
+        <HorizontalScrollView
+            android:layout_width="420dp" android:layout_height="fill_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -75,11 +89,12 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/txt_Display_User"
+                android:id="@+id/admin_txt_Display_Users"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="" />
         </LinearLayout>
+        </HorizontalScrollView>
     </ScrollView>
 
 
@@ -89,7 +104,7 @@
 
 
     <HorizontalScrollView
-        android:layout_marginLeft="200dp"
+        android:layout_marginLeft="50dp"
         android:layout_width="match_parent"
         android:layout_height="120dp">
 
@@ -99,22 +114,32 @@
 
 
             <EditText
-                android:id="@+id/txt_Write_Work"
+                android:id="@+id/admin_Txt_Write_professor"
                 android:layout_width="150dp"
                 android:layout_height="100dp"
                 android:layout_marginLeft="35dp"
                 android:layout_marginTop="20dp"
-                android:hint="WRITE TITLE"
+                android:hint="Write professor"
                 android:text=""
                 android:textColorHint="#757575" />
 
             <EditText
-                android:id="@+id/txt_Write_User"
+                android:id="@+id/admin_txt_wite_Users"
                 android:layout_width="150dp"
                 android:layout_height="100dp"
                 android:layout_marginLeft="35dp"
                 android:layout_marginTop="20dp"
-                android:hint="Write USER"
+                android:hint="Write user"
+                android:text=""
+                android:textColorHint="#757575" />
+
+            <EditText
+                android:id="@+id/admin_Txt_Write_work"
+                android:layout_width="150dp"
+                android:layout_height="100dp"
+                android:layout_marginLeft="35dp"
+                android:layout_marginTop="20dp"
+                android:hint="Write work"
                 android:text=""
                 android:textColorHint="#757575" />
         </LinearLayout>
@@ -136,24 +161,16 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/btn_Upload_DELETE_WORK"
+                android:id="@+id/admin_upload_all"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
-                android:layout_marginLeft="47dp"
+                android:layout_marginLeft="140dp"
                 android:layout_marginTop="20dp"
                 android:background="#400000"
-                android:text="DELETE Work"
+                android:text="Upload all"
                 android:textColor="#ffffff" />
 
-            <Button
-                android:id="@+id/btn_Upload_DELETE"
-                android:layout_width="match_parent"
-                android:layout_height="70dp"
-                android:layout_marginLeft="47dp"
-                android:layout_marginTop="20dp"
-                android:background="#400000"
-                android:text="DELETE User"
-                android:textColor="#ffffff" />
+
 
         </LinearLayout>
     </HorizontalScrollView>

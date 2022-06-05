@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -23,13 +24,8 @@ public class Master extends AppCompatActivity implements View.OnClickListener {
 
     private Button getbtnTitle, getbtnProfessor, saveAll;
     private TextView txtTitle, txtProfessor, txtChooseWork, txtChooseProfessor;
-    String txt_Work = "";
-    String txt_Professor = "";
-    String User = "";
-    String user_temp = "";
     String Date = "";
-    int test_work;
-    int test_user;
+    int test_work, test_user;
 
 
 
@@ -109,6 +105,7 @@ public class Master extends AppCompatActivity implements View.OnClickListener {
                 }
         }
     }
+    String txt_Work;
     public void getWorks(){
 
         txt_Work = "";
@@ -149,6 +146,7 @@ public class Master extends AppCompatActivity implements View.OnClickListener {
         });
 
     }
+    String txt_Professor;
     public void get_Met_Professor(){
         txt_Professor = "";
         txtProfessor.setText("");
@@ -212,7 +210,6 @@ public class Master extends AppCompatActivity implements View.OnClickListener {
 
 
 
-
                         ParseQuery<ParseObject> query2 = ParseQuery.getQuery("New_User");
                         query2.whereEqualTo("email", current_user.getEmailOB());
 
@@ -245,7 +242,7 @@ public class Master extends AppCompatActivity implements View.OnClickListener {
         });
     }
 
-
+    String user_temp = "";
     public void setUser(){
         Current_Login current_user = (Current_Login) getIntent().getSerializableExtra("current_user");
 
@@ -277,13 +274,11 @@ public class Master extends AppCompatActivity implements View.OnClickListener {
                         } else {
                             user_temp = user_temp +"; " + current_user.getEmailOB();
                         }
-
-                        user_temp = user_temp.concat(User + "; ");
-                        if (h.equals("0")) {
-                            object.put("user", "taken");
-                        }
-
                         object.put("Work", user_temp);
+
+
+
+
 
 
                         object.saveInBackground();
@@ -296,5 +291,15 @@ public class Master extends AppCompatActivity implements View.OnClickListener {
 
             }
         });
+    }
+
+
+    public void rootLayoutTapped (View view) {
+        try{
+            InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+            inputMethodManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 }

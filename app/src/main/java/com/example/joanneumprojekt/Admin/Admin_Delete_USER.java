@@ -3,6 +3,7 @@ package com.example.joanneumprojekt.Admin;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -54,7 +55,7 @@ public class Admin_Delete_USER extends AppCompatActivity implements View.OnClick
         Delete_WORK.setOnClickListener(this);
     }
 
-    int n = 0;
+
 
     @Override
     public void onClick(View view) {
@@ -127,19 +128,25 @@ public class Admin_Delete_USER extends AppCompatActivity implements View.OnClick
             case R.id.btn_Upload_DELETE:
                 Current_Login current_user = (Current_Login) getIntent().getSerializableExtra("current_user");
 
-                final ProgressDialog progressDialog = new ProgressDialog(this);
-                progressDialog.setMessage("Deleting Data");
-                progressDialog.show();
+
 
 
                 //User
-                try {
+
+                if (txt_Write_User.getText().toString().isEmpty()) {
+                    FancyToast.makeText(Admin_Delete_USER.this, "Text View cannot be empty", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
+                }else {
 
 
-                    ParseQuery<ParseObject> soccerPlayers = ParseQuery.getQuery("New_User");
+                    final ProgressDialog progressDialog = new ProgressDialog(this);
+                    progressDialog.setMessage("Deleting Data");
+                    progressDialog.show();
 
-                    soccerPlayers.whereEqualTo("Username", txt_Write_User.getText().toString());
-                    soccerPlayers.findInBackground(new FindCallback<ParseObject>() {
+                    ParseQuery<ParseObject> deleteUser = ParseQuery.getQuery("New_User");
+
+                    deleteUser.whereEqualTo("Username", txt_Write_User.getText().toString());
+                    deleteUser.findInBackground(new FindCallback<ParseObject>() {
+                        //No error?
                         @Override
                         public void done(final List<ParseObject> user, ParseException e) {
                             if (e == null) {
@@ -164,57 +171,57 @@ public class Admin_Delete_USER extends AppCompatActivity implements View.OnClick
 
                             }
                             progressDialog.dismiss();
+                            Intent Interface2 = new Intent(Admin_Delete_USER.this, ADMIN_INTERFACE_2.class);
+                            startActivity(Interface2);
                         }
-
-
                     });
-                    break;
-
-                } catch (Exception e) {
-                    FancyToast.makeText(Admin_Delete_USER.this, "Something went wrong (True Error)", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
-
                 }
-
+                break;
 //Works
 
 
             case R.id.btn_Upload_DELETE_WORK:
 
-                try {
+                if (txt_Write_Work.getText().toString().isEmpty()) {
+                    FancyToast.makeText(Admin_Delete_USER.this, "Text View cannot be empty", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
+                }else{
 
 
                     ParseQuery<ParseObject> work_delete = ParseQuery.getQuery("All_Works");
-// Query parameters based on the item name
+
+
                     work_delete.whereEqualTo("Title", txt_Write_Work.getText().toString());
                     work_delete.findInBackground(new FindCallback<ParseObject>() {
                         @Override
+
+                        //No error?
                         public void done(final List<ParseObject> work, ParseException e) {
                             if (e == null) {
 
-                                redundant_Work();
+                                    if (work.size() > 0) {
 
-                                work.get(0).deleteInBackground(new DeleteCallback() {
-                                    @Override
-                                    public void done(ParseException e) {
-                                        if (e == null) {
-                                            FancyToast.makeText(Admin_Delete_USER.this, "completed", FancyToast.LENGTH_SHORT, FancyToast.SUCCESS, true).show();
+                                        redundant_Work();
 
-                                        } else {
-                                            FancyToast.makeText(Admin_Delete_USER.this, "Failed to delete 'Work", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
-                                        }
+                                        work.get(0).deleteInBackground(new DeleteCallback() {
+                                            @Override
+                                            public void done(ParseException e) {
+                                                if (e == null) {
+                                                    FancyToast.makeText(Admin_Delete_USER.this, "completed", FancyToast.LENGTH_SHORT, FancyToast.SUCCESS, true).show();
+
+                                                } else {
+                                                    FancyToast.makeText(Admin_Delete_USER.this, "Failed to delete 'Work", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
+                                                }
+                                            }
+                                        });
+                                    } else {
+                                        FancyToast.makeText(Admin_Delete_USER.this, "Not available", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
                                     }
-                                });
                             } else {
                                 FancyToast.makeText(Admin_Delete_USER.this, "Something went wrong (Database)", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
                             }
                         }
                     });
-
-                    break;
-                } catch (Exception e) {
-                    FancyToast.makeText(Admin_Delete_USER.this, "Something went wrong (true Error)", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
-
-                }
+            }break;
         }
     }
 
@@ -224,8 +231,6 @@ public class Admin_Delete_USER extends AppCompatActivity implements View.OnClick
     String master;
 
     public void redundant_User() {
-
-
         ParseQuery<ParseObject> update = ParseQuery.getQuery("New_User");
         update.whereEqualTo("Username", txt_Write_User.getText().toString());
         update.getFirstInBackground(new GetCallback<ParseObject>() {
@@ -257,16 +262,12 @@ public class Admin_Delete_USER extends AppCompatActivity implements View.OnClick
                             object.put("User", "open");
                         }
                         object.saveInBackground();
-                    redundant_Work();
+                        redundant_Work();
                     }
                 }
             }
         });
-
-
     }
-
-
 
 
     public void redundant_Work() {
@@ -280,32 +281,32 @@ public class Admin_Delete_USER extends AppCompatActivity implements View.OnClick
 //                    FancyToast.makeText(Admin_Delete_USER.this, "" +txt_Write_Work.getText().toString(), FancyToast.LENGTH_SHORT, FancyToast.SUCCESS, true).show();
 
                     for (ParseObject object : objects) {
-                        if (object.getString("Project_txt").isEmpty()){
+                        if (object.getString("Project_txt").isEmpty()) {
 
-                        }else{
-                            if (object.getString("Project_txt").equals(txt_Write_Work.getText().toString())){
-                                object.put("Project_txt","");
+                        } else {
+                            if (object.getString("Project_txt").equals(txt_Write_Work.getText().toString())) {
+                                object.put("Project_txt", "");
                             }
                         }
-                        if (object.getString("Bachelor_txt").isEmpty()){
+                        if (object.getString("Bachelor_txt").isEmpty()) {
 
-                        }else{
-                            if (object.getString("Bachelor_txt").equals(txt_Write_Work.getText().toString())){
-                                object.put("Bachelor_txt","");
+                        } else {
+                            if (object.getString("Bachelor_txt").equals(txt_Write_Work.getText().toString())) {
+                                object.put("Bachelor_txt", "");
                             }
                         }
-                        if (object.getString("Master_txt").isEmpty()){
+                        if (object.getString("Master_txt").isEmpty()) {
 
-                        }else{
-                            if (object.getString("Master_txt").equals(txt_Write_Work.getText().toString())){
-                                object.put("Master_txt","");
+                        } else {
+                            if (object.getString("Master_txt").equals(txt_Write_Work.getText().toString())) {
+                                object.put("Master_txt", "");
                             }
                         }
 
 
-                        if (email.isEmpty()){
+                        if (email.isEmpty()) {
 
-                        }else {
+                        } else {
                             if (object.getString("Work").contains(email)) {
                                 String hh = object.getString("Work");
                                 String strNew = hh.replaceFirst(email, "");

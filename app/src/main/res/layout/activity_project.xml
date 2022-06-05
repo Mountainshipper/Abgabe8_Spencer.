@@ -46,7 +46,7 @@
         android:layout_marginLeft="35dp"
         android:layout_marginTop="20dp"
         android:background="#400000"
-        android:text="Get all avalable works"
+        android:text="Get all available works"
         android:textColor="#ffffff" />
 
             <Button

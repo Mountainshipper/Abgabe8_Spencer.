@@ -179,6 +179,7 @@ public class Change_DATA_1_User extends AppCompatActivity implements View.OnClic
 
                 } else {
                     FancyToast.makeText(Change_DATA_1_User.this, "Professor could not be found. ERROR", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
+                    progressDialog.dismiss();
                 }
 
             }

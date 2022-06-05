@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.joanneumprojekt.Admin.Admin_Delete_USER;
+import com.example.joanneumprojekt.Admin.Assign_Project_to_Student;
 import com.example.joanneumprojekt.R;
 import com.example.joanneumprojekt.ui.Student.Project;
 import com.parse.FindCallback;
@@ -54,6 +55,8 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
             }
         });
 
+
+
         edtUsername = findViewById(R.id.edtUsername);
         btnSignUp = findViewById(R.id.btnSignUp);
         btnLogIn = findViewById(R.id.btnLogIn);
@@ -61,9 +64,7 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
         btnSignUp.setOnClickListener(this);
         btnLogIn.setOnClickListener(this);
 
-        if (ParseUser.getCurrentUser() != null) {
-            ParseUser.getCurrentUser().logOut();
-        }
+
     }
 
     @Override
@@ -96,8 +97,11 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
                             new_User.put("ID", "Student");
                             new_User.put("Work", "");
                             new_User.put("Bachelor_txt", "");
-                            new_User.put("Projekt_txt", "");
+                            new_User.put("Project_txt", "");
                             new_User.put("Master_txt", "");
+                            new_User.put("Work", "");
+                            new_User.put("Exam_Date", "");
+                            new_User.put("user", "open");
                             // Saving object
 
 
@@ -130,7 +134,7 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
                     break;
 
                 case R.id.btnLogIn:
-                    Intent intent = new Intent(SignUp.this, Login_Interface.class);
+                    Intent intent = new Intent(SignUp.this, Assign_Project_to_Student.class);
                     startActivity(intent);
                     break;
             }
