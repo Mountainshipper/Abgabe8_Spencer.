@@ -5,8 +5,8 @@ Database:
 https://dashboard.back4app.com/apps
 
 Login Via Github ("I will change the password in a view days :) ")
-samuel.spencer@edu.fh-joanneum.at
-The_Big_Project
+Email:		Samuel.spencer@edu.fh-joanneum.at
+Password:	The_Big_Project
 
 
 
@@ -68,7 +68,6 @@ in to the designated fields.
 Bachelor:
 Same as project. The difference is that you have to have a completed project and not yet have a bachelor's degree.
 
-
 Master:
 Same as Bachelor only the rules are adjusted.
 
@@ -116,18 +115,13 @@ There is also a class where I create an object that I access in several classes 
 
 
 
+Things i would do different.
+Fewer calls to the database.
+More object oriented
+Put more comments
+Use enums.
+A class that handles all database calls.
 
 
 
 
-
-
-
-
-
-
-
-
-
-Mehr Kommentare setzen
-Mehr Object orientiert 

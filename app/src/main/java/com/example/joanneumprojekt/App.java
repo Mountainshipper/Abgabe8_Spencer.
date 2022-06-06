@@ -1,13 +1,12 @@
 /**
  * Autor: Samuel Spencer
- * This code was auto created
+ * Datenbank
  * 06.06.2022
  */
 
 package com.example.joanneumprojekt;
 
 import android.app.Application;
-
 import com.parse.Parse;
 
 public class App extends Application {
