@@ -1,6 +1,7 @@
 /**
  * Autor: Samuel Spencer
- * This is the code was auto created
+ * This code was auto created
+ * 06.06.2022
  */
 
 package com.example.joanneumprojekt;

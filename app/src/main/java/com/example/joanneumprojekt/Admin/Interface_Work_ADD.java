@@ -1,6 +1,7 @@
 /**
  * Autor: Samuel Spencer
  * This is the code where a admin can add a work
+ * 06.06.2022
  */
 
 package com.example.joanneumprojekt.Admin;
@@ -12,25 +13,19 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.TextView;
-
 import com.example.joanneumprojekt.R;
-import com.example.joanneumprojekt.SignUP.Login_Interface;
 import com.parse.ParseException;
 import com.parse.ParseObject;
-import com.parse.ParseUser;
 import com.parse.SaveCallback;
 import com.shashank.sony.fancytoastlib.FancyToast;
-
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.Locale;
 
 public class Interface_Work_ADD extends AppCompatActivity implements View.OnClickListener {
 

@@ -1,6 +1,7 @@
 /**
  * Autor: Samuel Spencer
  * This is the code where a admin can change the data of a existing work
+ * 06.06.2022
  */
 
 package com.example.joanneumprojekt.Admin;
@@ -13,7 +14,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-
 import com.example.joanneumprojekt.Current_Login;
 import com.example.joanneumprojekt.R;
 import com.parse.FindCallback;

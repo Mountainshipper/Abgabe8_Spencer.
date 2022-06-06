@@ -1,6 +1,7 @@
 /**
  * Autor: Samuel Spencer
  * This is the code lets the student see his achievements
+ * 06.06.2022
  */
 
 package com.example.joanneumprojekt.ui.Student;
@@ -12,18 +13,15 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.TextView;
-
-import com.example.joanneumprojekt.Assistent.Read_assigned_Student;
 import com.example.joanneumprojekt.Current_Login;
 import com.example.joanneumprojekt.R;
-import com.parse.FindCallback;
 import com.parse.GetCallback;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.shashank.sony.fancytoastlib.FancyToast;
 
-import java.util.List;
+
 
 public class Read_Student extends AppCompatActivity implements View.OnClickListener {
 

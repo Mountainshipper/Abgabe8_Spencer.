@@ -1,6 +1,7 @@
 /**
  * Autor: Samuel Spencer
  * This is the code for deleting user and projects
+ * 06.06.2022
  */
 
 package com.example.joanneumprojekt.Admin;
@@ -13,10 +14,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-
 import com.example.joanneumprojekt.Current_Login;
 import com.example.joanneumprojekt.R;
-import com.example.joanneumprojekt.ui.Student.Project;
 import com.parse.DeleteCallback;
 import com.parse.FindCallback;
 import com.parse.GetCallback;
@@ -24,8 +23,6 @@ import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.shashank.sony.fancytoastlib.FancyToast;
-
-import java.util.IllegalFormatCodePointException;
 import java.util.List;
 
 public class Admin_Delete_USER extends AppCompatActivity implements View.OnClickListener {

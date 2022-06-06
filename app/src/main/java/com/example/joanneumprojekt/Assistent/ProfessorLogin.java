@@ -1,6 +1,7 @@
 /**
  * Autor: Samuel Spencer
  * This is the code for assistant login
+ * 06.06.2022
  */
 
 package com.example.joanneumprojekt.Assistent;
@@ -15,15 +16,11 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
-
 import com.example.joanneumprojekt.Current_Login;
 import com.example.joanneumprojekt.R;
 import com.example.joanneumprojekt.SignUP.Login_Interface;
 import com.example.joanneumprojekt.SignUP.SignUp;
-import com.example.joanneumprojekt.ui.Student.INTERFACE_STUDENT;
-import com.example.joanneumprojekt.ui.Student.LoginActivity;
 import com.parse.GetCallback;
-import com.parse.LogInCallback;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;

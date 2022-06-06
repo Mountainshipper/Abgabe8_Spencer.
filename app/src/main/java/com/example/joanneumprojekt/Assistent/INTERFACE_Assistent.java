@@ -1,6 +1,7 @@
 /**
  * Autor: Samuel Spencer
  * This is the interface for the assistant
+ * 06.06.2022
  */
 
 package com.example.joanneumprojekt.Assistent;
@@ -11,12 +12,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-
-import com.example.joanneumprojekt.Admin.AdministratorLogin;
 import com.example.joanneumprojekt.Current_Login;
 import com.example.joanneumprojekt.R;
-import com.example.joanneumprojekt.SignUP.Login_Interface;
-import com.example.joanneumprojekt.ui.Student.LoginActivity;
 import com.shashank.sony.fancytoastlib.FancyToast;
 
 public class INTERFACE_Assistent extends AppCompatActivity implements View.OnClickListener {

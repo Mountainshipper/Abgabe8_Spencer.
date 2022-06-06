@@ -1,20 +1,17 @@
 /**
  * Autor: Samuel Spencer
  * This is the second interface for the administrator
+ * 06.06.2022
  */
 
 package com.example.joanneumprojekt.Admin;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-
-import com.example.joanneumprojekt.Assistent.ProfessorLogin;
 import com.example.joanneumprojekt.R;
-import com.shashank.sony.fancytoastlib.FancyToast;
 
 public class ADMIN_INTERFACE_2 extends AppCompatActivity implements View.OnClickListener{
 

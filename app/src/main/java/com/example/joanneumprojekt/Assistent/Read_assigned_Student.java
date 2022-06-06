@@ -1,6 +1,7 @@
 /**
  * Autor: Samuel Spencer
  * This is the code where the assistant can see his assigned students, and where he can set the amount of students!
+ * 06.06.2022
  */
 
 
@@ -17,7 +18,7 @@ import android.widget.TextView;
 
 import com.example.joanneumprojekt.Current_Login;
 import com.example.joanneumprojekt.R;
-import com.example.joanneumprojekt.ui.Student.Bachelor;
+
 import com.parse.FindCallback;
 import com.parse.GetCallback;
 import com.parse.ParseException;
@@ -38,6 +39,7 @@ public class Read_assigned_Student extends AppCompatActivity implements View.OnC
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_read_assigned_student);
+        setTitle("Assistant Slots");
 
 
         btn_setSlots = findViewById(R.id.btn_Upload_Slots);

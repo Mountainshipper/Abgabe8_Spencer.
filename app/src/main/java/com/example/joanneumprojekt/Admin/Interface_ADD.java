@@ -1,39 +1,24 @@
 /**
  * Autor: Samuel Spencer
  * This is the code where a admin can add a user
+ * 06.06.2022
  */
 
 package com.example.joanneumprojekt.Admin;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.DatePicker;
 import android.widget.TextView;
-
-import com.example.joanneumprojekt.Assistent.ProfessorLogin;
 import com.example.joanneumprojekt.R;
-import com.example.joanneumprojekt.SignUP.Login_Interface;
-import com.example.joanneumprojekt.SignUP.SignUp;
-import com.example.joanneumprojekt.ui.Student.LoginActivity;
-import com.parse.GetCallback;
 import com.parse.ParseException;
 import com.parse.ParseObject;
-import com.parse.ParseQuery;
-import com.parse.ParseUser;
 import com.parse.SaveCallback;
-import com.parse.SignUpCallback;
 import com.shashank.sony.fancytoastlib.FancyToast;
-
-import java.util.Calendar;
 
 public class Interface_ADD extends AppCompatActivity implements View.OnClickListener {
     //Date

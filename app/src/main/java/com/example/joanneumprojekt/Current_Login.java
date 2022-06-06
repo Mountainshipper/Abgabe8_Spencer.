@@ -1,14 +1,10 @@
 /**
  * Autor: Samuel Spencer
  * This is the code for creating a object
+ * 06.06.2022
  */
 
 package com.example.joanneumprojekt;
-
-import com.example.joanneumprojekt.ui.Student.LoginActivity;
-import com.parse.ParseObject;
-import com.parse.ParseQuery;
-
 import java.io.Serializable;
 
 public class Current_Login implements Serializable {

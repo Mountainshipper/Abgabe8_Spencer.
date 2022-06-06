@@ -1,6 +1,7 @@
 /**
  * Autor: Samuel Spencer
  * This is admin login
+ * 06.06.2022
  */
 
 package com.example.joanneumprojekt.Admin;
@@ -15,18 +16,14 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
-
-import com.example.joanneumprojekt.Assistent.ProfessorLogin;
 import com.example.joanneumprojekt.R;
 import com.example.joanneumprojekt.SignUP.Login_Interface;
 import com.example.joanneumprojekt.SignUP.SignUp;
 import com.parse.GetCallback;
-import com.parse.LogInCallback;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
-import com.parse.SaveCallback;
 import com.shashank.sony.fancytoastlib.FancyToast;
 
 

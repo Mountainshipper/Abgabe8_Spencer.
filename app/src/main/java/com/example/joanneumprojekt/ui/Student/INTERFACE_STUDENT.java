@@ -1,23 +1,20 @@
 /**
  * Autor: Samuel Spencer
- * This is the code for the student interface. 
+ * This is the code for the student interface.
+ * 06.06.2022
  */
 
 
 package com.example.joanneumprojekt.ui.Student;
-
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-
 import com.example.joanneumprojekt.Current_Login;
 import com.example.joanneumprojekt.R;
 import com.parse.ParseUser;
-import com.shashank.sony.fancytoastlib.FancyToast;
+
 
 public class INTERFACE_STUDENT extends AppCompatActivity implements View.OnClickListener{
     private Button btnProject, btnBachelor, btnMaster, read;
