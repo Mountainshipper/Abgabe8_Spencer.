@@ -14,11 +14,12 @@ import android.widget.Button;
 
 import com.example.joanneumprojekt.Assistent.ProfessorLogin;
 import com.example.joanneumprojekt.R;
+import com.example.joanneumprojekt.SignUP.Login_Interface;
 import com.shashank.sony.fancytoastlib.FancyToast;
 
 public class ADMIN_INTERFACE extends AppCompatActivity implements View.OnClickListener{
 
-    private Button btn_Add, btn_Work, btnMaster;
+    private Button btn_Add, btn_Work, btnMaster, logout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,10 +33,12 @@ public class ADMIN_INTERFACE extends AppCompatActivity implements View.OnClickLi
         btn_Add = findViewById(R.id.interface_Add_Student);
         btn_Work = findViewById(R.id.interface_work);
         btnMaster = findViewById(R.id.btn_Interface2_ADMIN);
+        logout = findViewById(R.id.logout);
 
         btn_Add.setOnClickListener(this);
         btn_Work.setOnClickListener(this);
         btnMaster.setOnClickListener(this);
+        logout.setOnClickListener(this);
 
     }
 
@@ -57,6 +60,11 @@ public class ADMIN_INTERFACE extends AppCompatActivity implements View.OnClickLi
         Intent Interface2 = new Intent(ADMIN_INTERFACE.this, ADMIN_INTERFACE_2.class);
         startActivity(Interface2);
         break;
+
+            case R.id.logout:
+                Intent logout = new Intent(ADMIN_INTERFACE.this, Login_Interface.class);
+                startActivity(logout);
+                break;
     }
     }
 }

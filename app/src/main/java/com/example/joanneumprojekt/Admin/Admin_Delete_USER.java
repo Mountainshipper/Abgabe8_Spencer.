@@ -111,12 +111,12 @@ public class Admin_Delete_USER extends AppCompatActivity implements View.OnClick
 
 
                                     if (count_Assistent == 0) {
-                                        txt_Professor = txt_Professor + "--------------\n" + parseObject.get("Username") + ". \nAvailable slots" + parseObject.get("Slots") + "\n\n";
+                                        txt_Professor = txt_Professor + "--------------\n" + parseObject.get("Username") + ". \nEmail: " + parseObject.get("email") + ". \nRole: " + parseObject.get("ID")+ "\n\n";
                                         txt_Display_User.setText(txt_Professor);
                                         ++count_Assistent;
 
                                     } else {
-                                        txt_Professor = txt_Professor + parseObject.get("Username") + ". \nAvailable slots" + parseObject.get("Slots") + "\n\n";
+                                        txt_Professor = txt_Professor + parseObject.get("Username") + ". \nEmail: " + parseObject.get("email") + ". \nRole: " + parseObject.get("ID") + "\n\n";
                                         txt_Display_User.setText(txt_Professor);
                                     }
 

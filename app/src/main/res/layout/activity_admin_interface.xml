@@ -8,8 +8,8 @@
 
     <Button
         android:id="@+id/interface_Add_Student"
-        android:layout_width="wrap_content"
-        android:layout_height="48dp"
+        android:layout_width="128dp"
+        android:layout_height="50dp"
         android:layout_marginTop="36dp"
         android:text="Add User"
         app:layout_constraintEnd_toEndOf="@+id/imageView8"
@@ -30,7 +30,7 @@
 
     <Button
         android:id="@+id/btn_Interface2_ADMIN"
-        android:layout_width="119dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="62dp"
         android:text="Interface 2"
@@ -41,11 +41,22 @@
 
     <ImageView
         android:id="@+id/imageView8"
-        android:layout_width="361dp"
-        android:layout_height="256dp"
+        android:layout_width="440dp"
+        android:layout_height="311dp"
         android:layout_marginTop="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/admin_interface" />
+
+    <Button
+        android:id="@+id/logout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:text="lougout"
+        app:layout_constraintEnd_toEndOf="@+id/btn_Interface2_ADMIN"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/btn_Interface2_ADMIN"
+        app:layout_constraintTop_toBottomOf="@+id/btn_Interface2_ADMIN" />
 </androidx.constraintlayout.widget.ConstraintLayout>

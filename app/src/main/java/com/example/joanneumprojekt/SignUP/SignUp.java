@@ -107,6 +107,9 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
                             new_User.put("Work", "");
                             new_User.put("Exam_Date", "");
                             new_User.put("user", "open");
+                            new_User.put("Bachelor", "Nein");
+                            new_User.put("Projekt", "Nein");
+                            new_User.put("Master", "Nein");
                             // Saving object
 
 
@@ -139,7 +142,7 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
                     break;
 
                 case R.id.btnLogIn:
-                    Intent intent = new Intent(SignUp.this, Assign_Project_to_Student.class);
+                    Intent intent = new Intent(SignUp.this, Login_Interface.class);
                     startActivity(intent);
                     break;
             }

@@ -72,6 +72,7 @@ int code1 = 0, code2 = 0, code3 = 0;
                 break;
 
             case R.id.admin_upload_all:
+                code1=0; code3=0; code2 =0;
                 set_work();
                 break;
         }
@@ -91,38 +92,43 @@ int code1 = 0, code2 = 0, code3 = 0;
                 int count_Assistent = 0;
                 if (e == null) {
                     if (objects.size() > 0) {
-                        for (ParseObject parseObject : objects) {
 
-                            if (parseObject.get("ID").equals("Assistent")) {
-                                if (parseObject.get("Slots").equals("0")) {
-                                } else {
-                                    set_User = "Assistent: ";
+                            for (ParseObject parseObject : objects) {
+
+                                if (parseObject.get("ID").equals("Assistent")) {
+                                    if (parseObject.get("Slots").equals("0")) {
+                                    } else {
+                                        set_User = "Assistent: ";
+                                    }
+                                    if (count_Assistent == 0) {
+                                        txt_Professor = txt_Professor + "------------------------------------------------------------------------\nRole: " + set_User + "\nUsername: " + parseObject.get("Username") + ". \nAvailable slots" + parseObject.get("Slots") + "\n\n";
+                                        admin_txt_Display_Users.setText(txt_Professor);
+                                        ++count_Assistent;
+                                    } else {
+                                        txt_Professor = txt_Professor + "Role: " + set_User + "\nUsername: " + parseObject.get("Username") + ". \nAvailable slots" + parseObject.get("Slots") + "\n\n";
+                                        admin_txt_Display_Users.setText(txt_Professor);
+                                    }
                                 }
+                            }
+                            //SORTED
+                            count_Assistent = 0;
+                            for (ParseObject parseObject : objects) {
+                                if (parseObject.get("ID").equals("Student")) {
+                                    set_User = "Student: ";
+                                }
+
                                 if (count_Assistent == 0) {
-                                    txt_Professor = txt_Professor + "------------------------------------------------------------------------\nRole: " + set_User + "\nUsername: " + parseObject.get("Username") + ". \nAvailable slots" + parseObject.get("Slots") + "\n\n";
+                                    txt_Professor = txt_Professor + "------------------------------------------------------------------------\nUsername: " + parseObject.get("Username") + "\nRole: " + set_User + ". \nProject: " + parseObject.get("Projekt")
+                                            + ". \nBachelor: " + parseObject.get("Bachelor") + ". \nMaster: " + parseObject.get("Master") + "\n\n";
                                     admin_txt_Display_Users.setText(txt_Professor);
                                     ++count_Assistent;
                                 } else {
-                                    txt_Professor = txt_Professor + "Role: " + set_User + "\nUsername: " + parseObject.get("Username") + ". \nAvailable slots" + parseObject.get("Slots") + "\n\n";
+                                    txt_Professor = txt_Professor + "Username: " + parseObject.get("Username") + "\nRole: " + set_User + ". \nProject: " + parseObject.get("Projekt")
+                                            + ". \nBachelor: " + parseObject.get("Bachelor") + ". \nMaster: " + parseObject.get("Master") + "\n\n";
                                     admin_txt_Display_Users.setText(txt_Professor);
-                                }
-                            }
-                        }
-                        //SORTED
-                        count_Assistent = 0;
-                        for (ParseObject parseObject : objects) {
-                            if (parseObject.get("ID").equals("Student")) {
-                                set_User = "Student: ";
-                            }
 
-                            if (count_Assistent == 0) {
-                                txt_Professor = txt_Professor + "------------------------------------------------------------------------\nUsername: " + parseObject.get("Username") + "\nRole: " + set_User + ". \nAvailable slots" + parseObject.get("Slots") + "\n\n";
-                                admin_txt_Display_Users.setText(txt_Professor);
-                                ++count_Assistent;
-                            } else {
-                                txt_Professor = txt_Professor + "Username: " + parseObject.get("Username") + "\nRole: " + set_User + ". \nAvailable slots" + parseObject.get("Slots") + "\n\n";
-                                admin_txt_Display_Users.setText(txt_Professor);
-                            }
+                                }
+
                         }
                     }
                 }
@@ -190,7 +196,7 @@ int code1 = 0, code2 = 0, code3 = 0;
             query.getFirstInBackground(new GetCallback<ParseObject>() {
                 public void done(ParseObject object, ParseException e) {
                     if (e == null) {
-
+                        if (code1 == 0) {
 
 
                             object.put("User", "taken");
@@ -199,12 +205,24 @@ int code1 = 0, code2 = 0, code3 = 0;
                             FancyToast.makeText(Assign_Project_to_Student.this, "Work has been booked", FancyToast.LENGTH_SHORT, FancyToast.SUCCESS, true).show();
                             test_work = 1;
                             object.saveEventually();
+                            code1 = 1;
                             set_user();
 
+                        }else {
+                            object.put("User", "open");
+                            code1 = 2;
+                            code2 = 2;
+                            code3 = 2;
+                            object.saveEventually();
+                            remove();
+                        }
 
                     } else {
                         FancyToast.makeText(Assign_Project_to_Student.this, "Work could not be found. ERROR", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
-
+                        code1 = 2;
+                        code2 = 2;
+                        code3 = 2;
+                        remove();
                     }
 
                 }
@@ -224,41 +242,67 @@ int code1 = 0, code2 = 0, code3 = 0;
         student.getFirstInBackground(new GetCallback<ParseObject>() {
             public void done(ParseObject object, ParseException e) {
                 if (e == null) {
+                    if (code2 == 0) {
 
 
-                    email = object.getString("email");
+                        email = object.getString("email");
 
 
-                    if (Rank.equals("Project")) {
-                        object.put("Projekt", "Yes");
+                        if (Rank.equals("Project")) {
+                            object.put("Projekt", "Yes");
+                            object.put("Project_txt", admin_Txt_Write_work.getText().toString());
 
-                    } else if (Rank.equals("Bachelor")) {
-                        object.put("Bachelor", "Yes");
+                        } else if (Rank.equals("Bachelor")) {
+                            object.put("Bachelor", "Yes");
+                            object.put("Bachelor_txt", admin_Txt_Write_work.getText().toString());
 
-                    } else if (Rank.equals("Master")) {
-                        object.put("Master", "Yes");
+                        } else if (Rank.equals("Master")) {
+                            object.put("Master", "Yes");
+                            object.put("Master_txt", admin_Txt_Write_work.getText().toString());
+                        }
+
+
+                        FancyToast.makeText(Assign_Project_to_Student.this, "Student has been booked", FancyToast.LENGTH_SHORT, FancyToast.SUCCESS, true).show();
+
+                        code2 = 1;
+                        object.saveEventually();
+                        setProfessor();
+//REMOVE
+                    } else {
+                        if (Rank.equals("Project")) {
+                            object.put("Projekt", "");
+                            object.put("Project_txt", admin_Txt_Write_work.getText().toString());
+
+                        } else if (Rank.equals("Bachelor")) {
+                            object.put("Bachelor", "");
+                            object.put("Bachelor_txt", admin_Txt_Write_work.getText().toString());
+
+                        } else if (Rank.equals("Master")) {
+                            object.put("Master", "");
+                            object.put("Master_txt", "");
+                        }
+                        code2 = 2;
+                        set_work();
+                        object.saveEventually();
                     }
 
-
-                    object.put("Project_txt", admin_Txt_Write_work.getText().toString());
-
-                    object.saveEventually();
-
-
                 } else {
-                    FancyToast.makeText(Assign_Project_to_Student.this, "User not found", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
+                    code1 = 1;
 
+                    FancyToast.makeText(Assign_Project_to_Student.this, "User not found", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
+                    set_work();
                 }
             }
         });
+    }
 
-
+public void setProfessor(){
         ParseQuery<ParseObject> assistant = ParseQuery.getQuery("New_User");
         assistant.whereEqualTo("Username", admin_Txt_Write_professor.getText().toString());
         assistant.getFirstInBackground(new GetCallback<ParseObject>() {
             public void done(ParseObject object, ParseException e) {
                 if (e == null) {
-
+                    if (code3 == 0) {
                     //Professor
 
 
@@ -268,30 +312,60 @@ int code1 = 0, code2 = 0, code3 = 0;
                     user_temp = object.getString("Work");
                     if (object.getString("Work").isEmpty()) {
                         user_temp = "" + email;
-                        FancyToast.makeText(Assign_Project_to_Student.this, "" + email, FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
 
                     } else {
-                        FancyToast.makeText(Assign_Project_to_Student.this, "" + email, FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
 
                         user_temp = user_temp + "; " + email;
 
                     }
                     object.put("Work", user_temp);
-                    object.saveInBackground();
+                    code3=1;
+                        FancyToast.makeText(Assign_Project_to_Student.this, "Professor has been booked", FancyToast.LENGTH_SHORT, FancyToast.SUCCESS, true).show();
+
+                        object.saveEventually();
+                        remove();
 
 
 //Student
-                    if (object.get("ID").equals("Student") && object.get("Username").equals(admin_txt_wite_Users.getText().toString())) {
+
+
+                    }else {
+//                        String hh = object.getString("Work");
+//                        String strNew = hh.replaceFirst(email, "");
+//
+//                        object.put("Work", strNew);
+//                        code3 = 2;
+//
+//                        object.saveEventually();
 
                     }
 
+
                 } else {
                     FancyToast.makeText(Assign_Project_to_Student.this, "Professor could not be found. ERROR", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
+                   code2=1;
+                    set_user();
 
                 }
             }
         });
     }
+
+
+    public void remove(){
+        if (code1==1 && code2 == 1 && code3 == 1) {
+            FancyToast.makeText(Assign_Project_to_Student.this, "All GOOD", FancyToast.LENGTH_SHORT, FancyToast.SUCCESS, true).show();
+
+        }
+
+
+            if (code1 == 2 && code2 == 2 && code3 == 2) {
+                FancyToast.makeText(Assign_Project_to_Student.this, "At least one category could not be found. Reverting changes", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
+
+
+        }
+        }
+
 }
 
 
