@@ -1,6 +1,6 @@
 /**
  * Autor: Samuel Spencer
- * This is the code for the student interface
+ * This is the code for the student interface. 
  */
 
 
@@ -27,7 +27,7 @@ public class INTERFACE_STUDENT extends AppCompatActivity implements View.OnClick
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_interface_student);
 
-        setTitle("Interface Login");
+        setTitle("Student Interface");
 
 
         btnProject = findViewById(R.id.Assigned_Students);

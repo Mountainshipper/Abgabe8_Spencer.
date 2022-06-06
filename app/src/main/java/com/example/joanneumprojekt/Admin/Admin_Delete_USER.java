@@ -132,10 +132,6 @@ public class Admin_Delete_USER extends AppCompatActivity implements View.OnClick
 
             case R.id.btn_Upload_DELETE:
                 Current_Login current_user = (Current_Login) getIntent().getSerializableExtra("current_user");
-
-
-
-
                 //User
 
                 if (txt_Write_User.getText().toString().isEmpty()) {
