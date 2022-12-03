@@ -6,27 +6,122 @@
     android:layout_height="match_parent"
     tools:context=".Admin.AddBill">
 
-<TextView
-    android:id="@+id/tv_Title_AddBill"
-    android:text="Title"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:textStyle="bold"
-    android:textSize="24sp"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintTop_toTopOf="parent"
-    app:layout_constraintBottom_toBottomOf="parent"
+    <TextView
+        android:id="@+id/tv_Title_AddBill"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="40dp"
+        android:text="Title"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    />
+    <TextView
+        android:id="@+id/tv_Price_AddBill"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="Price"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/tv_Title_AddBill"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/tv_Title_AddBill"
+        app:layout_constraintTop_toBottomOf="@+id/tv_Title_AddBill" />
 
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="83dp"
-        android:layout_height="51dp"
-        app:srcCompat="@drawable/image"
-        tools:layout_editor_absoluteX="-9dp"
-        tools:layout_editor_absoluteY="-3dp" />
+    <TextView
+        android:id="@+id/tv_Category_AddBill"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="Category"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/tv_Price_AddBill"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/tv_Price_AddBill"
+        app:layout_constraintTop_toBottomOf="@+id/tv_Price_AddBill" />
+
+    <TextView
+        android:id="@+id/tv_Date_AddBill"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="Date"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/tv_Category_AddBill"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/tv_Category_AddBill"
+        app:layout_constraintTop_toBottomOf="@+id/tv_Category_AddBill" />
+
+
+    <RadioButton
+        android:id="@+id/radBtn_private_AddBill"
+        android:layout_width="107dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="44dp"
+        android:text="Private"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_Category_AddBill"
+        app:layout_constraintStart_toEndOf="@+id/tv_Category_AddBill"
+        app:layout_constraintTop_toTopOf="@+id/tv_Category_AddBill"
+        app:layout_constraintVertical_bias="0.583" />
+
+    <RadioButton
+        android:id="@+id/radBtn_business_AddBill3"
+        android:layout_width="107dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="164dp"
+        android:text="Business"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_Category_AddBill"
+        app:layout_constraintStart_toEndOf="@+id/tv_Category_AddBill"
+        app:layout_constraintTop_toTopOf="@+id/tv_Category_AddBill"
+        app:layout_constraintVertical_bias="0.583" />
+
+    <TextView
+        android:id="@+id/tv_TaxDepr_AddBill"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="Tax Depreciation:"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/tv_Date_AddBill"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/tv_Date_AddBill"
+        app:layout_constraintTop_toBottomOf="@+id/tv_Date_AddBill" />
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="239dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="12dp"
+        app:layout_constraintEnd_toEndOf="@+id/tv_TaxDepr_AddBill"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/tv_TaxDepr_AddBill"
+        app:layout_constraintTop_toBottomOf="@+id/tv_TaxDepr_AddBill" />
+
+    <Button
+        android:id="@+id/button_save_addBill"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="50dp"
+        android:layout_marginBottom="30dp"
+        android:text="Save"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/button_openCamera_addBill"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="50dp"
+        android:layout_marginBottom="30dp"
+        android:text="open Camera"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
