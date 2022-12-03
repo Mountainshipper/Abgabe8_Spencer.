@@ -9,7 +9,7 @@
         <entry key="..\:/Studios Programme/Uebung 2/app/src/main/res/drawable/ic_menu_gallery.xml" value="0.196" />
         <entry key="..\:/Studios Programme/Uebung 2/app/src/main/res/drawable/ic_menu_slideshow.xml" value="0.196" />
         <entry key="..\:/Studios Programme/Uebung 2/app/src/main/res/drawable/side_nav_bar.xml" value="0.196" />
-        <entry key="..\:/Studios Programme/Uebung 2/app/src/main/res/layout/activity_add_bill.xml" value="0.176" />
+        <entry key="..\:/Studios Programme/Uebung 2/app/src/main/res/layout/activity_add_bill.xml" value="0.4" />
         <entry key="..\:/Studios Programme/Uebung 2/app/src/main/res/layout/activity_add_bill2.xml" value="0.2026315789473684" />
         <entry key="..\:/Studios Programme/Uebung 2/app/src/main/res/layout/activity_admin_delete_user.xml" value="0.22" />
         <entry key="..\:/Studios Programme/Uebung 2/app/src/main/res/layout/activity_admin_interface.xml" value="0.25" />
@@ -37,7 +37,7 @@
         <entry key="..\:/Studios Programme/Uebung 2/app/src/main/res/layout/activity_read_assigned_student.xml" value="0.18333333333333332" />
         <entry key="..\:/Studios Programme/Uebung 2/app/src/main/res/layout/activity_read_student.xml" value="0.16" />
         <entry key="..\:/Studios Programme/Uebung 2/app/src/main/res/layout/activity_sign_up.xml" value="0.2" />
-        <entry key="..\:/Studios Programme/Uebung 2/app/src/main/res/layout/activity_start.xml" value="0.176" />
+        <entry key="..\:/Studios Programme/Uebung 2/app/src/main/res/layout/activity_start.xml" value="0.264" />
         <entry key="..\:/Studios Programme/Uebung 2/app/src/main/res/layout/activity_start2.xml" value="0.2026315789473684" />
         <entry key="..\:/Studios Programme/Uebung 2/app/src/main/res/layout/activity_student_interface.xml" value="0.36666666666666664" />
         <entry key="..\:/Studios Programme/Uebung 2/app/src/main/res/layout/app_bar_administrator_interface_long.xml" value="0.18802083333333333" />
