@@ -1,0 +1,59 @@
+Index: app/src/main/res/layout/activity_sign_up.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<androidx.constraintlayout.widget.ConstraintLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\"\r\n    android:onClick=\"rootLayoutTapped\"\r\n    tools:context=\".SignUP.SignUp\">\r\n\r\n    <EditText\r\n        android:id=\"@+id/edtUsername\"\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"0dp\"\r\n        android:layout_marginTop=\"12dp\"\r\n        android:ems=\"10\"\r\n        android:hint=\"User Name\"\r\n        android:inputType=\"textPersonName\"\r\n        android:minHeight=\"48dp\"\r\n        app:layout_constraintEnd_toEndOf=\"@+id/edtEnterEmail\"\r\n        app:layout_constraintHorizontal_bias=\"0.0\"\r\n        app:layout_constraintStart_toStartOf=\"@+id/edtEnterEmail\"\r\n        app:layout_constraintTop_toBottomOf=\"@+id/edtEnterEmail\"\r\n        android:autofillHints=\"\" />\r\n\r\n    <EditText\r\n        android:id=\"@+id/edtEnterPassword\"\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"0dp\"\r\n        android:layout_marginTop=\"8dp\"\r\n        android:ems=\"10\"\r\n        android:hint=\"Password\"\r\n        android:inputType=\"textPassword\"\r\n        android:minHeight=\"48dp\"\r\n        app:layout_constraintEnd_toEndOf=\"@+id/edtUsername\"\r\n        app:layout_constraintHorizontal_bias=\"0.0\"\r\n        app:layout_constraintStart_toStartOf=\"@+id/edtUsername\"\r\n        app:layout_constraintTop_toBottomOf=\"@+id/edtUsername\"\r\n        android:autofillHints=\"\" />\r\n\r\n    <EditText\r\n        android:id=\"@+id/edtEnterEmail\"\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:layout_marginTop=\"24dp\"\r\n        android:ems=\"10\"\r\n        android:hint=\"Email\"\r\n        android:inputType=\"textPersonName\"\r\n        android:minHeight=\"48dp\"\r\n        app:layout_constraintEnd_toEndOf=\"@+id/imageView2\"\r\n        app:layout_constraintHorizontal_bias=\"0.503\"\r\n        app:layout_constraintStart_toStartOf=\"@+id/imageView2\"\r\n        app:layout_constraintTop_toBottomOf=\"@+id/imageView2\" />\r\n\r\n    <Button\r\n        android:id=\"@+id/btnSignUp\"\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:layout_marginTop=\"20dp\"\r\n        android:text=\"Sign Up\"\r\n        app:layout_constraintEnd_toEndOf=\"@+id/edtEnterPassword\"\r\n        app:layout_constraintHorizontal_bias=\"0.491\"\r\n        app:layout_constraintStart_toStartOf=\"@+id/edtEnterPassword\"\r\n        app:layout_constraintTop_toBottomOf=\"@+id/edtEnterPassword\" />\r\n\r\n    <Button\r\n        android:id=\"@+id/btnLogIn\"\r\n        android:layout_width=\"96dp\"\r\n        android:layout_height=\"0dp\"\r\n        android:text=\"Login\"\r\n        app:layout_constraintEnd_toEndOf=\"@+id/btnSignUp\"\r\n        app:layout_constraintHorizontal_bias=\"0.0\"\r\n        app:layout_constraintStart_toStartOf=\"@+id/btnSignUp\"\r\n        app:layout_constraintTop_toBottomOf=\"@+id/btnSignUp\" />\r\n\r\n    <ImageView\r\n        android:id=\"@+id/imageView2\"\r\n        android:layout_width=\"433dp\"\r\n        android:layout_height=\"524dp\"\r\n        android:layout_marginTop=\"16dp\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintTop_toTopOf=\"parent\"\r\n        app:srcCompat=\"@drawable/sign_up_all\" />\r\n\r\n</androidx.constraintlayout.widget.ConstraintLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/activity_sign_up.xml b/app/src/main/res/layout/activity_sign_up.xml
+--- a/app/src/main/res/layout/activity_sign_up.xml	(revision 35656693078d318ded5726b45a5267e1b8bda54d)
++++ b/app/src/main/res/layout/activity_sign_up.xml	(date 1670088826960)
+@@ -74,8 +74,8 @@
+ 
+     <ImageView
+         android:id="@+id/imageView2"
+-        android:layout_width="433dp"
+-        android:layout_height="524dp"
++        android:layout_width="281dp"
++        android:layout_height="348dp"
+         android:layout_marginTop="16dp"
+         app:layout_constraintEnd_toEndOf="parent"
+         app:layout_constraintStart_toStartOf="parent"
+Index: app/src/main/res/drawable-v24/ic_launcher_foreground.xml
+===================================================================
+diff --git a/app/src/main/res/drawable-v24/ic_launcher_foreground.xml b/app/src/main/res/drawable-v24/ic_launcher_foreground.xml
+deleted file mode 100644
+--- a/app/src/main/res/drawable-v24/ic_launcher_foreground.xml	(revision 35656693078d318ded5726b45a5267e1b8bda54d)
++++ /dev/null	(revision 35656693078d318ded5726b45a5267e1b8bda54d)
+@@ -1,30 +0,0 @@
+-<vector xmlns:android="http://schemas.android.com/apk/res/android"
+-    xmlns:aapt="http://schemas.android.com/aapt"
+-    android:width="108dp"
+-    android:height="108dp"
+-    android:viewportWidth="108"
+-    android:viewportHeight="108">
+-    <path android:pathData="M31,63.928c0,0 6.4,-11 12.1,-13.1c7.2,-2.6 26,-1.4 26,-1.4l38.1,38.1L107,108.928l-32,-1L31,63.928z">
+-        <aapt:attr name="android:fillColor">
+-            <gradient
+-                android:endX="85.84757"
+-                android:endY="92.4963"
+-                android:startX="42.9492"
+-                android:startY="49.59793"
+-                android:type="linear">
+-                <item
+-                    android:color="#44000000"
+-                    android:offset="0.0" />
+-                <item
+-                    android:color="#00000000"
+-                    android:offset="1.0" />
+-            </gradient>
+-        </aapt:attr>
+-    </path>
+-    <path
+-        android:fillColor="#FFFFFF"
+-        android:fillType="nonZero"
+-        android:pathData="M65.3,45.828l3.8,-6.6c0.2,-0.4 0.1,-0.9 -0.3,-1.1c-0.4,-0.2 -0.9,-0.1 -1.1,0.3l-3.9,6.7c-6.3,-2.8 -13.4,-2.8 -19.7,0l-3.9,-6.7c-0.2,-0.4 -0.7,-0.5 -1.1,-0.3C38.8,38.328 38.7,38.828 38.9,39.228l3.8,6.6C36.2,49.428 31.7,56.028 31,63.928h46C76.3,56.028 71.8,49.428 65.3,45.828zM43.4,57.328c-0.8,0 -1.5,-0.5 -1.8,-1.2c-0.3,-0.7 -0.1,-1.5 0.4,-2.1c0.5,-0.5 1.4,-0.7 2.1,-0.4c0.7,0.3 1.2,1 1.2,1.8C45.3,56.528 44.5,57.328 43.4,57.328L43.4,57.328zM64.6,57.328c-0.8,0 -1.5,-0.5 -1.8,-1.2s-0.1,-1.5 0.4,-2.1c0.5,-0.5 1.4,-0.7 2.1,-0.4c0.7,0.3 1.2,1 1.2,1.8C66.5,56.528 65.6,57.328 64.6,57.328L64.6,57.328z"
+-        android:strokeWidth="1"
+-        android:strokeColor="#00000000" />
+-</vector>
+\ No newline at end of file
