@@ -11,6 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.JoanneumProjekt">
         <activity
+            android:name=".AddBill"
+            android:exported="false" />
+        <activity
             android:name=".Admin.AddBill"
             android:exported="false" />
         <activity
