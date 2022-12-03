@@ -11,6 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.JoanneumProjekt">
         <activity
+            android:name=".Admin.Start"
+            android:exported="false" />
+        <activity
             android:name=".Admin.Assign_Project_to_Student"
             android:exported="false" />
         <activity
