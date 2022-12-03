@@ -13,7 +13,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import com.example.joanneumprojekt.Admin.AdministratorLogin;
-import com.example.joanneumprojekt.Assistent.ProfessorLogin;
 import com.example.joanneumprojekt.R;
 import com.example.joanneumprojekt.ui.Student.LoginActivity;
 import com.parse.ParseUser;

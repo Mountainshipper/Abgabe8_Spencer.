@@ -3,13 +3,16 @@
     package="com.example.joanneumprojekt">
 
     <application
-        android:name=".App"
+        android:name=".SignUP.App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.JoanneumProjekt">
+        <activity
+            android:name=".Admin.AddBill"
+            android:exported="false" />
         <activity
             android:name=".Admin.Start"
             android:exported="false" />
@@ -54,9 +57,6 @@
             android:exported="false" />
         <activity
             android:name=".Admin.ADMIN_INTERFACE"
-            android:exported="false" />
-        <activity
-            android:name=".Assistent.ProfessorLogin"
             android:exported="false" />
         <activity
             android:name=".SignUP.Login_Interface"

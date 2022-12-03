@@ -4,7 +4,7 @@
  * 06.06.2022
  */
 
-package com.example.joanneumprojekt;
+package com.example.joanneumprojekt.SignUP;
 
 import android.app.Application;
 import com.parse.Parse;
