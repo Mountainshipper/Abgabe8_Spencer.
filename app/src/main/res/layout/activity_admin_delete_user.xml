@@ -9,7 +9,6 @@
     tools:context=".Admin.Admin_Delete_USER">
 
 
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="300dp"
@@ -29,18 +28,15 @@
     </ScrollView>
 
 
-
-
-
-
     <HorizontalScrollView
-        android:layout_marginLeft="150dp"
-        android:layout_width="match_parent"
-        android:layout_height="100dp">
+        android:layout_width="558dp"
+        android:layout_height="101dp"
+        android:layout_marginLeft="150dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
             <Button
                 android:id="@+id/btnGetAllWORKS"
                 android:layout_width="150dp"
@@ -63,7 +59,6 @@
 
         </LinearLayout>
     </HorizontalScrollView>
-
 
     <ScrollView
         android:layout_width="match_parent"
@@ -122,14 +117,10 @@
     </HorizontalScrollView>
 
 
-
-
-
-
     <HorizontalScrollView
-        android:layout_marginLeft="150dp"
         android:layout_width="match_parent"
-        android:layout_height="100dp">
+        android:layout_height="100dp"
+        android:layout_marginLeft="150dp">
 
         <LinearLayout
             android:layout_width="match_parent"
