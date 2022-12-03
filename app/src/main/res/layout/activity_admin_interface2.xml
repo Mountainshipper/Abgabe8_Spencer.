@@ -19,19 +19,18 @@
 
     <Button
         android:id="@+id/btn_Delete_User"
-        android:layout_width="wrap_content"
-        android:layout_height="80dp"
-        android:layout_marginTop="52dp"
+        android:layout_width="172dp"
+        android:layout_height="63dp"
+        android:layout_marginTop="20dp"
         android:text="Delete user or work"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView11" />
 
     <Button
         android:id="@+id/btn_Change_user"
-        android:layout_width="0dp"
-        android:layout_height="80dp"
+        android:layout_width="167dp"
+        android:layout_height="63dp"
         android:layout_marginTop="36dp"
         android:text="Change User"
         app:layout_constraintEnd_toEndOf="@+id/btn_Delete_User"
@@ -41,8 +40,8 @@
 
     <Button
         android:id="@+id/Change_WORK"
-        android:layout_width="0dp"
-        android:layout_height="80dp"
+        android:layout_width="170dp"
+        android:layout_height="60dp"
         android:layout_marginTop="140dp"
         android:text="Change Work"
         app:layout_constraintEnd_toEndOf="@+id/btn_Delete_User"

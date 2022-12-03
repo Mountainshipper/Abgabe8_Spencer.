@@ -11,6 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.JoanneumProjekt">
         <activity
+            android:name=".Admin.AddBill"
+            android:exported="false" />
+        <activity
             android:name=".Interface"
             android:exported="false" />
         <activity
@@ -39,9 +42,6 @@
             android:exported="false" />
         <activity
             android:name=".Admin.ADMIN_INTERFACE"
-            android:exported="false" />
-        <activity
-            android:name=".Assistent.ProfessorLogin"
             android:exported="false" />
         <activity
             android:name=".SignUP.Login_Interface"
