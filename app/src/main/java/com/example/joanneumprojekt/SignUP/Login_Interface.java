@@ -31,14 +31,10 @@ public class Login_Interface extends AppCompatActivity implements View.OnClickLi
         setTitle("Interface Login");
 
 
-        btnStudent = findViewById(R.id.btnStudentInt);
+
         btnAdministrator = findViewById(R.id.btnAdministratorInt);
-        btnProfessor = findViewById(R.id.btnProfessorInt);
-
-        btnStudent.setOnClickListener(this);
         btnAdministrator.setOnClickListener(this);
-        btnProfessor.setOnClickListener(this);
-
+        
         if (ParseUser.getCurrentUser() != null) {
             ParseUser.getCurrentUser().logOut();
         }
