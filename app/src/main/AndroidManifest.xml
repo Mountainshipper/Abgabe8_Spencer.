@@ -26,28 +26,10 @@
             android:name=".Admin.Change_DATA_1_User"
             android:exported="false" />
         <activity
-            android:name=".ui.Student.Read_Student"
-            android:exported="false" />
-        <activity
             android:name=".Admin.Admin_Delete_USER"
             android:exported="false" />
         <activity
             android:name=".Admin.ADMIN_INTERFACE_2"
-            android:exported="false" />
-        <activity
-            android:name=".Assistent.Read_assigned_Student"
-            android:exported="false" />
-        <activity
-            android:name=".Assistent.INTERFACE_Assistent"
-            android:exported="false" />
-        <activity
-            android:name=".ui.Student.Master"
-            android:exported="false" />
-        <activity
-            android:name=".ui.Student.Bachelor"
-            android:exported="false" />
-        <activity
-            android:name=".ui.Student.Project"
             android:exported="false" />
         <activity
             android:name=".Admin.Interface_Work_ADD"
@@ -63,12 +45,6 @@
             android:exported="false" />
         <activity
             android:name=".Admin.AdministratorLogin"
-            android:exported="false" />
-        <activity
-            android:name=".ui.Student.LoginActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.Student.INTERFACE_STUDENT"
             android:exported="false" />
         <activity
             android:name=".SignUP.SignUp"
