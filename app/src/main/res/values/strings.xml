@@ -2,4 +2,6 @@
     <string name="app_name">Beta</string>
     <string name="privat">Private</string>
     <string name="business">Business</string>
+    <string name="total_pre_tax">Total pre-tax</string>
+    <string name="tax_deprication">Tax deprication</string>
 </resources>

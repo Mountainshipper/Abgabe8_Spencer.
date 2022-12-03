@@ -319,5 +319,14 @@ public class Admin_Delete_USER extends AppCompatActivity implements View.OnClick
             }
         });
     }
+
+    public static class Abrechnung extends AppCompatActivity {
+
+        @Override
+        protected void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.activity_abrechnung);
+        }
+    }
 }
 

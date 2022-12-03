@@ -11,6 +11,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.JoanneumProjekt">
         <activity
+            android:name=".Admin.Admin_Delete_USER$Abrechnung"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".AddBill"
             android:exported="false" />
         <activity
