@@ -13,9 +13,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import com.example.joanneumprojekt.Admin.AdministratorLogin;
-import com.example.joanneumprojekt.Assistent.ProfessorLogin;
 import com.example.joanneumprojekt.R;
-import com.example.joanneumprojekt.ui.Student.LoginActivity;
 import com.parse.ParseUser;
 
 public class Login_Interface extends AppCompatActivity implements View.OnClickListener {
@@ -49,20 +47,11 @@ public class Login_Interface extends AppCompatActivity implements View.OnClickLi
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.btnStudentInt:
 
-                Intent intent = new Intent(Login_Interface.this, LoginActivity.class);
-                startActivity(intent);
-                break;
 
             case R.id.btnAdministratorInt:
                 Intent intentAdmin = new Intent(Login_Interface.this, AdministratorLogin.class);
                 startActivity(intentAdmin);
-                break;
-
-            case R.id.btnProfessorInt:
-                Intent intentProf = new Intent(Login_Interface.this, ProfessorLogin.class);
-                startActivity(intentProf);
                 break;
         }
     }
