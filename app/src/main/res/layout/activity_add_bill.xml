@@ -105,20 +105,19 @@
 
     <Button
         android:id="@+id/button_save_addBill"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="50dp"
-        android:layout_marginBottom="30dp"
+        android:layout_width="115dp"
+        android:layout_height="54dp"
         android:text="Save"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintBottom_toBottomOf="@+id/button_openCamera_addBill"
+        app:layout_constraintTop_toTopOf="@+id/button_openCamera_addBill"
+        tools:layout_editor_absoluteX="32dp" />
 
     <Button
         android:id="@+id/button_openCamera_addBill"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginRight="50dp"
-        android:layout_marginBottom="30dp"
+        android:layout_marginEnd="48dp"
+        android:layout_marginBottom="32dp"
         android:text="open Camera"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
