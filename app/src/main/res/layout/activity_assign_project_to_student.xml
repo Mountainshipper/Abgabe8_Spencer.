@@ -81,27 +81,22 @@
         android:layout_marginLeft="200dp">
 
         <HorizontalScrollView
-            android:layout_width="420dp" android:layout_height="fill_parent">
+            android:layout_width="420dp"
+            android:layout_height="fill_parent">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/admin_txt_Display_Users"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="" />
-        </LinearLayout>
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/admin_txt_Display_Users"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="" />
+            </LinearLayout>
         </HorizontalScrollView>
     </ScrollView>
-
-
-
-
-
-
 
     <HorizontalScrollView
         android:layout_marginLeft="50dp"
