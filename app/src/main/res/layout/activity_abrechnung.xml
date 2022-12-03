@@ -50,7 +50,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:text=""
-            android:textSize="6pt"
+            android:textSize="10pt"
             android:textColor="@color/black"
             android:textAlignment="center"
             tools:layout_editor_absoluteX="174dp"
@@ -59,8 +59,8 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="409dp"
-        android:layout_height="629dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         tools:layout_editor_absoluteX="1dp"
         tools:layout_editor_absoluteY="380dp">
@@ -71,9 +71,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:text="@string/tax_deprication"
-            android:textSize="15pt"
-            android:textColor="@color/black"
             android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="15pt"
             tools:layout_editor_absoluteX="174dp"
             tools:layout_editor_absoluteY="47dp" />
 
@@ -83,17 +83,17 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:text="2022"
-            android:textSize="6pt"
-            android:textColor="@color/black"
             android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="6pt"
             tools:layout_editor_absoluteX="174dp"
             tools:layout_editor_absoluteY="47dp" />
 
         <View
             android:layout_width="300dp"
+            android:layout_height="2dp"
             android:layout_gravity="center"
             android:layout_marginTop="30dp"
-            android:layout_height="2dp"
             android:background="#000000" />
 
         <TextView
@@ -102,11 +102,20 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:text=""
-            android:textSize="6pt"
-            android:textColor="@color/black"
             android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="10pt"
             tools:layout_editor_absoluteX="174dp"
             tools:layout_editor_absoluteY="47dp" />
 
     </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_done"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="done"
+        tools:layout_editor_absoluteX="161dp"
+        tools:layout_editor_absoluteY="687dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
