@@ -8,11 +8,11 @@
 
     <ImageView
         android:id="@+id/imageView11"
-        android:layout_width="663dp"
-        android:layout_height="383dp"
+        android:layout_width="390dp"
+        android:layout_height="203dp"
         android:layout_marginTop="4dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.506"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/professor_login" />
@@ -51,9 +51,9 @@
 
     <Button
         android:id="@+id/Interface2"
-        android:layout_width="0dp"
-        android:layout_height="80dp"
-        android:layout_marginTop="360dp"
+        android:layout_width="175dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="328dp"
         android:text="Interface 1"
         app:layout_constraintEnd_toEndOf="@+id/btn_Delete_User"
         app:layout_constraintHorizontal_bias="1.0"
@@ -62,12 +62,12 @@
 
     <Button
         android:id="@+id/EditWork"
-        android:layout_width="0dp"
-        android:layout_height="80dp"
-        android:layout_marginTop="252dp"
+        android:layout_width="169dp"
+        android:layout_height="66dp"
+        android:layout_marginTop="236dp"
         android:text="Comming soon"
         app:layout_constraintEnd_toEndOf="@+id/btn_Delete_User"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.666"
         app:layout_constraintStart_toStartOf="@+id/btn_Delete_User"
         app:layout_constraintTop_toBottomOf="@+id/btn_Delete_User" />
 </androidx.constraintlayout.widget.ConstraintLayout>
