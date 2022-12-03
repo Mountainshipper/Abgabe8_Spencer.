@@ -1,0 +1,70 @@
+Index: app/src/main/res/layout/activity_add_bill.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<androidx.constraintlayout.widget.ConstraintLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\"\r\n    tools:context=\".Admin.AddBill\">\r\n\r\n</androidx.constraintlayout.widget.ConstraintLayout>
+===================================================================
+diff --git a/app/src/main/res/layout/activity_add_bill.xml b/app/src/main/res/layout/activity_add_bill.xml
+--- a/app/src/main/res/layout/activity_add_bill.xml	
++++ b/app/src/main/res/layout/activity_add_bill.xml	
+@@ -6,4 +6,42 @@
+     android:layout_height="match_parent"
+     tools:context=".Admin.AddBill">
+ 
++
++
++
++    <EditText
++        android:id="@+id/edtLoginPassword"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:ems="10"
++        android:hint="Please enter a Password"
++        android:inputType="textPassword"
++        android:minHeight="48dp"
++        app:layout_constraintEnd_toEndOf="@+id/edtLoginEmail"
++        app:layout_constraintStart_toStartOf="@+id/edtLoginEmail"
++        app:layout_constraintTop_toBottomOf="@+id/edtLoginEmail" />
++
++    <TextView
++        android:id="@+id/tv_Title_AddBill"
++        android:text="Title"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:textStyle="bold"
++        android:textSize="24sp"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintTop_toTopOf="parent"
++        app:layout_constraintBottom_toBottomOf="parent"
++
++
++
++
++        />
++
++
++
++
++
++
++
+ </androidx.constraintlayout.widget.ConstraintLayout>
+\ No newline at end of file
+Index: app/src/main/java/com/example/joanneumprojekt/Admin/AddBill.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.joanneumprojekt.Admin;\r\n\r\nimport androidx.appcompat.app.AppCompatActivity;\r\n\r\nimport android.os.Bundle;\r\n\r\nimport com.example.joanneumprojekt.R;\r\n\r\npublic class AddBill extends AppCompatActivity {\r\n\r\n    @Override\r\n    protected void onCreate(Bundle savedInstanceState) {\r\n        super.onCreate(savedInstanceState);\r\n        setContentView(R.layout.activity_add_bill);\r\n    }\r\n}
+===================================================================
+diff --git a/app/src/main/java/com/example/joanneumprojekt/Admin/AddBill.java b/app/src/main/java/com/example/joanneumprojekt/Admin/AddBill.java
+--- a/app/src/main/java/com/example/joanneumprojekt/Admin/AddBill.java	
++++ b/app/src/main/java/com/example/joanneumprojekt/Admin/AddBill.java	
+@@ -13,4 +13,8 @@
+         super.onCreate(savedInstanceState);
+         setContentView(R.layout.activity_add_bill);
+     }
++
++
++
++
+ }
+\ No newline at end of file
