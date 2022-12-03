@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Billing</string>
-
+    <string name="privat">Private</string>
+    <string name="business">Business</string>
 </resources>
