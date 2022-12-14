@@ -47,7 +47,6 @@ public class Login_Interface extends AppCompatActivity implements View.OnClickLi
     public void onClick(View view) {
         switch (view.getId()) {
 
-
             case R.id.Login:
                 Intent intentAdmin = new Intent(Login_Interface.this, AdministratorLogin.class);
                 startActivity(intentAdmin);
