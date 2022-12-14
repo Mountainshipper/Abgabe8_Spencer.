@@ -8,35 +8,10 @@
 
 
     <TextView
-        android:id="@+id/tv_Title_AddBill"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="40dp"
-        android:text="Title"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/tv_Price_AddBill"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:text="Price"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/tv_Title_AddBill"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/tv_Title_AddBill"
-        app:layout_constraintTop_toBottomOf="@+id/tv_Title_AddBill" />
-
-    <TextView
         android:id="@+id/tv_Category_AddBill"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="48dp"
         android:text="Category"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -44,20 +19,6 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/tv_Price_AddBill"
         app:layout_constraintTop_toBottomOf="@+id/tv_Price_AddBill" />
-
-    <TextView
-        android:id="@+id/tv_Date_AddBill"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:text="Date"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/tv_Category_AddBill"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/tv_Category_AddBill"
-        app:layout_constraintTop_toBottomOf="@+id/tv_Category_AddBill" />
-
 
     <RadioButton
         android:id="@+id/radBtn_private_AddBill"
@@ -105,6 +66,89 @@
         app:layout_constraintStart_toStartOf="@+id/tv_TaxDepr_AddBill"
         app:layout_constraintTop_toBottomOf="@+id/tv_TaxDepr_AddBill" />
 
+
+
+    <TextView
+        android:id="@+id/tv_Title_AddBill"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="40dp"
+        android:text="Title"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <EditText
+        android:id="@+id/editText_title_AddBill"
+        android:layout_width="280dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="36dp"
+        android:ems="10"
+        android:hint="Enter your title"
+        android:inputType="textPersonName"
+        android:text=""
+        app:layout_constraintBottom_toBottomOf="@+id/tv_Title_AddBill"
+        app:layout_constraintStart_toEndOf="@+id/tv_Title_AddBill"
+        app:layout_constraintTop_toTopOf="@+id/tv_Title_AddBill"
+        app:layout_constraintVertical_bias="0.583" />
+
+    <TextView
+        android:id="@+id/tv_Price_AddBill"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:text="Price"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/tv_Title_AddBill"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/tv_Title_AddBill"
+        app:layout_constraintTop_toBottomOf="@+id/tv_Title_AddBill" />
+
+    <EditText
+        android:id="@+id/editText_price_AddBill3"
+        android:layout_width="280dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="24dp"
+        android:ems="10"
+        android:hint="Enter your price"
+        android:inputType="textPersonName"
+        android:text=""
+        app:layout_constraintEnd_toEndOf="@+id/editText_title_AddBill"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/editText_title_AddBill"
+        app:layout_constraintTop_toBottomOf="@+id/editText_title_AddBill" />
+
+    <TextView
+        android:id="@+id/tv_Date_AddBill"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="52dp"
+        android:text="Date"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/tv_Category_AddBill"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/tv_Category_AddBill"
+        app:layout_constraintTop_toBottomOf="@+id/tv_Category_AddBill" />
+
+    <EditText
+        android:id="@+id/editText_date_AddBill"
+        android:layout_width="280dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="172dp"
+        android:ems="10"
+        android:hint="Enter your date"
+        android:inputType="textPersonName"
+        android:text=""
+        app:layout_constraintEnd_toEndOf="@+id/editText_title_AddBill"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/editText_title_AddBill"
+        app:layout_constraintTop_toBottomOf="@+id/editText_title_AddBill" />
+
     <Button
         android:id="@+id/button_save_addBill"
         android:layout_width="150dp"
@@ -125,44 +169,6 @@
         android:text="open Camera"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
-
-    <EditText
-        android:id="@+id/editText_title_AddBill"
-        android:layout_width="280dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="35dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text=""
-        app:layout_constraintBottom_toBottomOf="@+id/tv_Title_AddBill"
-        app:layout_constraintStart_toEndOf="@+id/tv_Title_AddBill"
-        app:layout_constraintTop_toTopOf="@+id/tv_Title_AddBill"
-        app:layout_constraintVertical_bias="0.38" />
-
-    <EditText
-        android:id="@+id/editText_price_AddBill3"
-        android:layout_width="280dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="20dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text=""
-        app:layout_constraintEnd_toEndOf="@+id/editText_title_AddBill"
-        app:layout_constraintStart_toStartOf="@+id/editText_title_AddBill"
-        app:layout_constraintTop_toBottomOf="@+id/editText_title_AddBill" />
-
-    <EditText
-        android:id="@+id/editText_date_AddBill"
-        android:layout_width="280dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="150dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text=""
-        app:layout_constraintEnd_toEndOf="@+id/editText_title_AddBill"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/editText_title_AddBill"
-        app:layout_constraintTop_toBottomOf="@+id/editText_title_AddBill" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
