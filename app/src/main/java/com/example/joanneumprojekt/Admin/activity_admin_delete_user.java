@@ -130,13 +130,13 @@ public class activity_admin_delete_user extends AppCompatActivity implements Vie
 
 
             case R.id.Delete_Business:
-                if (txt_Write_Work.getText().toString().isEmpty()) {
+                if (txt_Write_User.getText().toString().isEmpty()) {
                     FancyToast.makeText(activity_admin_delete_user.this, "Text View cannot be empty", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
                 }else{
 
 
                     ParseQuery<ParseObject> work_delete = ParseQuery.getQuery("Business");
-                    work_delete.whereEqualTo("Title", txt_Write_Work.getText().toString());
+                    work_delete.whereEqualTo("Title", txt_Write_User.getText().toString());
                     work_delete.findInBackground(new FindCallback<ParseObject>() {
                         @Override
 
