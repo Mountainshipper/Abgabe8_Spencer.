@@ -89,14 +89,8 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
                             new_User.put("email", edtEmail.getText().toString());
                             new_User.put("password", edtPassword.getText().toString());
                             new_User.put("Username", edtUsername.getText().toString());
-                            new_User.put("ID", "Administrator");
-                            new_User.put("Work", "");
-                            new_User.put("Bachelor_txt", "");
-                            new_User.put("Project_txt", "");
-                            new_User.put("Master_txt", "");
-                            new_User.put("Work", "");
-                            new_User.put("Exam_Date", "");
-                            new_User.put("user", "open");
+                            new_User.put("ID", "Admin");
+
                             new_User.put("Bachelor", "Nein");
                             new_User.put("Projekt", "Nein");
                             new_User.put("Master", "Nein");
