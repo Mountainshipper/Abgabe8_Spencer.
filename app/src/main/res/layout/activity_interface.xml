@@ -7,44 +7,31 @@
     tools:context=".SignUP.Login_Interface">
 
     <Button
-        android:id="@+id/btnStudentInt"
-        android:layout_width="wrap_content"
+        android:id="@+id/Login"
+        android:layout_width="202dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
-        android:text="Student Login"
-        app:layout_constraintEnd_toEndOf="@+id/imageView"
-        app:layout_constraintStart_toStartOf="@+id/imageView"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
-
-    <Button
-        android:id="@+id/btnAdministratorInt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="40dp"
         android:text="Administrator Login"
-        app:layout_constraintEnd_toEndOf="@+id/btnProfessorInt"
-        app:layout_constraintHorizontal_bias="0.574"
-        app:layout_constraintStart_toStartOf="@+id/btnProfessorInt"
-        app:layout_constraintTop_toBottomOf="@+id/btnProfessorInt" />
+        app:layout_constraintEnd_toEndOf="@+id/SignUp"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/SignUp"
+        app:layout_constraintTop_toBottomOf="@+id/SignUp" />
 
     <Button
-        android:id="@+id/btnProfessorInt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="Assistant Login"
-        app:layout_constraintEnd_toEndOf="@+id/btnStudentInt"
-        app:layout_constraintHorizontal_bias="0.473"
-        app:layout_constraintStart_toStartOf="@+id/btnStudentInt"
-        app:layout_constraintTop_toBottomOf="@+id/btnStudentInt" />
+        android:id="@+id/SignUp"
+        android:layout_width="202dp"
+        android:layout_height="56dp"
+        android:text="Sign Up"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="508dp" />
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="331dp"
-        android:layout_height="366dp"
+        android:layout_width="317dp"
+        android:layout_height="461dp"
         android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.39"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/login_interface" />

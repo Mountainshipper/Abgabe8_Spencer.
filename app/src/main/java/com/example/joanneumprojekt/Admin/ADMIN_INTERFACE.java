@@ -13,13 +13,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.joanneumprojekt.Abrechnung;
 import com.example.joanneumprojekt.R;
 import com.example.joanneumprojekt.SignUP.Login_Interface;
 
 
 public class ADMIN_INTERFACE extends AppCompatActivity implements View.OnClickListener {
 
-    private Button btn_Add, btn_Work, btnMaster, logout;
+    private Button btn_Add, btn_Work, logout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +37,6 @@ public class ADMIN_INTERFACE extends AppCompatActivity implements View.OnClickLi
 
         btn_Add.setOnClickListener(this);
         btn_Work.setOnClickListener(this);
-        btnMaster.setOnClickListener(this);
         logout.setOnClickListener(this);
 
     }
@@ -51,7 +51,7 @@ public class ADMIN_INTERFACE extends AppCompatActivity implements View.OnClickLi
                 break;
 
             case R.id.Abrechnung:
-                Intent intentWork = new Intent(ADMIN_INTERFACE.this, Interface_Work_ADD.class);
+                Intent intentWork = new Intent(ADMIN_INTERFACE.this, Abrechnung.class);
                 startActivity(intentWork);
                 break;
 
