@@ -46,7 +46,7 @@ public class ADMIN_INTERFACE extends AppCompatActivity implements View.OnClickLi
         switch (view.getId()) {
             case R.id.Abrechnung:
 
-                Intent intentUser = new Intent(ADMIN_INTERFACE.this, Abrechnung.class);
+                Intent intentUser = new Intent(ADMIN_INTERFACE.this, Admin_Delete_USER.class);
                 startActivity(intentUser);
                 break;
 
