@@ -14,7 +14,7 @@
             android:name=".Admin.Interface2"
             android:exported="false" />
         <activity
-            android:name=".Admin.Admin_Delete_USER$Abrechnung"
+            android:name=".Admin.activity_admin_delete_user$Abrechnung"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -36,7 +36,7 @@
             android:name=".Admin.Change_DATA_1_User"
             android:exported="false" />
         <activity
-            android:name=".Admin.Admin_Delete_USER"
+            android:name=".Admin.activity_admin_delete_user"
             android:exported="false" />
         <activity
             android:name=".Admin.Interface_Work_ADD"

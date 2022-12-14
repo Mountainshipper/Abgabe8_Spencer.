@@ -31,12 +31,11 @@ public class Interface_Work_ADD extends AppCompatActivity implements View.OnClic
 
     //Date
     private static final String Tag = "MainActivity";
-    private TextView displayDeadline, title;
+    private TextView displayDeadline, title, txt_Titel;
     private DatePickerDialog.OnDateSetListener dateListener, Listenerdate;
     //Date end; Checkbox star
-    private CheckBox projectBox, bachelorBox;
+    private CheckBox Private, Business;
     private Button setUpload;
-    String dateM;
     Date date2;
     // end
 
@@ -49,16 +48,17 @@ public class Interface_Work_ADD extends AppCompatActivity implements View.OnClic
 
         //Date import
         displayDeadline = findViewById(R.id.txt_deadline);
-        projectBox = findViewById(R.id.chack_Project);
-        bachelorBox = findViewById(R.id.check_Bachelor);
-        title = findViewById(R.id.txt_Titel);
+        Private = findViewById(R.id.Private);
+        Business = findViewById(R.id.Business);
+        title = findViewById(R.id.Bill_Title);
+        txt_Titel = findViewById(R.id.txt_Titel);
         setUpload = findViewById(R.id.btn_setWork);
         //end
 
 
         displayDeadline.setOnClickListener(this);
-        projectBox.setOnClickListener(this);
-        bachelorBox.setOnClickListener(this);
+        Private.setOnClickListener(this);
+        Business.setOnClickListener(this);
         setUpload.setOnClickListener(this);
 
 
@@ -111,42 +111,43 @@ public class Interface_Work_ADD extends AppCompatActivity implements View.OnClic
     }
 
 
-
     public void setWork() {
         //Check if Date is ok
 
-        java.util.Date date = new java.util.Date();
+        int count = 0;
+        if (Business.isChecked()) {
+            count = count + 1;
+        }
+        if (Private.isChecked()) {
+            count = count + 1;
+        }
+        String role = "";
+        if (count == 1) {
+            if (Business.isChecked()) {
+                role = "Business";
 
-
-        ParseObject addBill = new ParseObject("All_Works");
-
-
-
-
-        addBill.put("Date", displayDeadline.getText().toString());
-        addBill.put("Title", title.getText().toString());
-        addBill.put("User", "open");
-
-
-            int count = 0;
-            if (bachelorBox.isChecked()) {
-                count = count + 1;
+            } else if (Private.isChecked()) {
+                role = "Private";
             }
-            if (projectBox.isChecked()) {
-                count = count + 1;
-            }
+
+
+            ParseObject Categorize = new ParseObject(role);
 
             if (count == 1) {
-                if (bachelorBox.isChecked()) {
-                    addBill.put("Function", "Bachelor");
+                if (Business.isChecked()) {
+                    Categorize.put("Date", displayDeadline.getText().toString());
+                    Categorize.put("Title", title.getText().toString());
+                    Categorize.put("Price", txt_Titel.getText().toString());
 
-                } else if (projectBox.isChecked()) {
-                    addBill.put("Function", "Project");
+                } else if (Private.isChecked()) {
+                    Categorize.put("Date", displayDeadline.getText().toString());
+                    Categorize.put("Title", title.getText().toString());
+                    Categorize.put("Price", txt_Titel.getText().toString());
 
                 }
 
 
-                addBill.saveInBackground(new SaveCallback() {
+                Categorize.saveInBackground(new SaveCallback() {
                     @Override
                     public void done(ParseException e) {
                         if (e == null) {
@@ -165,3 +166,4 @@ public class Interface_Work_ADD extends AppCompatActivity implements View.OnClic
             }
         }
     }
+}

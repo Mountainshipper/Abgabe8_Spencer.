@@ -13,7 +13,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.joanneumprojekt.Abrechnung;
 import com.example.joanneumprojekt.R;
 import com.example.joanneumprojekt.SignUP.Login_Interface;
 
@@ -46,7 +45,7 @@ public class ADMIN_INTERFACE extends AppCompatActivity implements View.OnClickLi
         switch (view.getId()) {
             case R.id.Abrechnung:
 
-                Intent intentUser = new Intent(ADMIN_INTERFACE.this, Admin_Delete_USER.class);
+                Intent intentUser = new Intent(ADMIN_INTERFACE.this, activity_admin_delete_user.class);
                 startActivity(intentUser);
                 break;
 

@@ -42,19 +42,19 @@
         app:srcCompat="@drawable/flower" />
 
     <CheckBox
-        android:id="@+id/chack_Project"
+        android:id="@+id/Private"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:text="Private"
-        app:layout_constraintBottom_toBottomOf="@+id/check_Bachelor"
-        app:layout_constraintEnd_toStartOf="@+id/check_Bachelor"
+        app:layout_constraintBottom_toBottomOf="@+id/Business"
+        app:layout_constraintEnd_toStartOf="@+id/Business"
         app:layout_constraintHorizontal_bias="0.398"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/check_Bachelor"
+        app:layout_constraintTop_toTopOf="@+id/Business"
         app:layout_constraintVertical_bias="1.0" />
 
     <CheckBox
-        android:id="@+id/check_Bachelor"
+        android:id="@+id/Business"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:text="Buisiness"
@@ -81,7 +81,7 @@
         app:layout_constraintVertical_bias="0.176" />
 
     <EditText
-        android:id="@+id/txt_Titel2"
+        android:id="@+id/Bill_Title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
