@@ -31,8 +31,8 @@ public class ADMIN_INTERFACE extends AppCompatActivity implements View.OnClickLi
         setTitle("Admin Interface 1");
 
 
-        btn_Add = findViewById(R.id.interface_Add_Work);
-        btn_Work = findViewById(R.id.Abrechnung);
+        btn_Add = findViewById(R.id.Abrechnung);
+        btn_Work = findViewById(R.id.interface_Add_Work);
         logout = findViewById(R.id.logout);
 
         btn_Add.setOnClickListener(this);
@@ -44,14 +44,14 @@ public class ADMIN_INTERFACE extends AppCompatActivity implements View.OnClickLi
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.interface_Add_Work:
+            case R.id.Abrechnung:
 
-                Intent intentUser = new Intent(ADMIN_INTERFACE.this, Interface_Work_ADD.class);
+                Intent intentUser = new Intent(ADMIN_INTERFACE.this, Abrechnung.class);
                 startActivity(intentUser);
                 break;
 
-            case R.id.Abrechnung:
-                Intent intentWork = new Intent(ADMIN_INTERFACE.this, Abrechnung.class);
+            case R.id.interface_Add_Work:
+                Intent intentWork = new Intent(ADMIN_INTERFACE.this, Interface_Work_ADD.class);
                 startActivity(intentWork);
                 break;
 

@@ -8,7 +8,7 @@
     tools:context=".Admin.ADMIN_INTERFACE">
 
     <Button
-        android:id="@+id/interface_Add_Work"
+        android:id="@+id/Abrechnung"
         android:layout_width="164dp"
         android:layout_height="60dp"
         android:layout_marginTop="68dp"
@@ -19,15 +19,15 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView8" />
 
     <Button
-        android:id="@+id/Abrechnung"
+        android:id="@+id/interface_Add_Work"
         android:layout_width="171dp"
         android:layout_height="60dp"
         android:layout_marginTop="28dp"
         android:text="ADD Work"
-        app:layout_constraintEnd_toEndOf="@+id/interface_Add_Work"
+        app:layout_constraintEnd_toEndOf="@+id/Abrechnung"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/interface_Add_Work"
-        app:layout_constraintTop_toBottomOf="@+id/interface_Add_Work" />
+        app:layout_constraintStart_toStartOf="@+id/Abrechnung"
+        app:layout_constraintTop_toBottomOf="@+id/Abrechnung" />
 
     <Button
         android:id="@+id/logout"
@@ -35,10 +35,10 @@
         android:layout_height="60dp"
         android:layout_marginTop="112dp"
         android:text="logout"
-        app:layout_constraintEnd_toEndOf="@+id/interface_Add_Work"
+        app:layout_constraintEnd_toEndOf="@+id/Abrechnung"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/interface_Add_Work"
-        app:layout_constraintTop_toBottomOf="@+id/interface_Add_Work" />
+        app:layout_constraintStart_toStartOf="@+id/Abrechnung"
+        app:layout_constraintTop_toBottomOf="@+id/Abrechnung" />
 
     <ImageView
         android:id="@+id/imageView8"
