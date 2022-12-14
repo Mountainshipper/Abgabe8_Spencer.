@@ -77,13 +77,13 @@ public class activity_admin_delete_user extends AppCompatActivity implements Vie
 
 
                                     if (count_Work == 0) {
-                                        txt_Private = txt_Private + "--------------\n" + "Title: "+  parseObject.get("Title") + "\n" + "Price: "+  parseObject.get("Price")+
-                                                "Date: "+  parseObject.get("Date") + "\n \n";
+                                        txt_Private = txt_Private + "--------------\n" + "Title: "+  parseObject.get("Title") + "\n" + "Price: "+  parseObject.get("Price") +
+                                                "\n Date: "+  parseObject.get("createdAt")+ "\n \n";
                                         txt_Display_Work.setText(txt_Private);
                                         ++count_Work;
                                     } else {
                                         txt_Private = txt_Private + "Title: "+  parseObject.get("Title") + "\n" + "Price: "+  parseObject.get("Price") +
-                                                "Date: "+  parseObject.get("Date")+ "\n \n";
+                                                "\n Date: "+  parseObject.get("createdAt")+ "\n \n";
                                         txt_Display_Work.setText(txt_Private);
                                     }
                                 }
@@ -108,14 +108,14 @@ public class activity_admin_delete_user extends AppCompatActivity implements Vie
 
 
                                     if (count_Assistent == 0) {
-                                        txtBusiness = txtBusiness + "--------------\n" + "Title: "+  parseObject.get("Title") + "\n" + "Price: "+  parseObject.get("Price")+
-                                                "Date: "+  parseObject.get("Date") + "\n \n";
+                                        txtBusiness = txtBusiness + "--------------\n" + "Title: "+  parseObject.get("Title") + "\n" + "Price: "+  parseObject.get("Price") +
+                                                "\n Date: "+  parseObject.get("createdAt")+ "\n \n";
                                         txt_Display_User.setText(txtBusiness);
                                         ++count_Assistent;
 
                                     } else {
-                                        txtBusiness = txtBusiness + "Title: "+  parseObject.get("Title") + "\n" + "Price: "+  parseObject.get("Price")+
-                                                "Date: "+  parseObject.get("Date") + "\n \n";
+                                        txtBusiness = txtBusiness + "Title: "+  parseObject.get("Title") + "\n" + "Price: "+  parseObject.get("Price") +
+                                                "\n Date: "+  parseObject.get("createdAt")+ "\n \n";
                                         txt_Display_User.setText(txtBusiness);
                                     }
 
