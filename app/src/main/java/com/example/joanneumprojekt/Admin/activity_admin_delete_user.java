@@ -130,51 +130,46 @@ public class activity_admin_delete_user extends AppCompatActivity implements Vie
 
 
             case R.id.Delete_Business:
-                Current_Login current_user = (Current_Login) getIntent().getSerializableExtra("Business");
-                //User
-
-                if (txt_Write_User.getText().toString().isEmpty()) {
+                if (txt_Write_Work.getText().toString().isEmpty()) {
                     FancyToast.makeText(activity_admin_delete_user.this, "Text View cannot be empty", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
-                }else {
+                }else{
 
 
-                    final ProgressDialog progressDialog = new ProgressDialog(this);
-                    progressDialog.setMessage("Deleting Data");
-                    progressDialog.show();
-
-                    ParseQuery<ParseObject> deleteUser = ParseQuery.getQuery("Private");
-
-                    deleteUser.whereEqualTo("Tile", txt_Write_User.getText().toString());
-                    deleteUser.findInBackground(new FindCallback<ParseObject>() {
-                        //No error?
+                    ParseQuery<ParseObject> work_delete = ParseQuery.getQuery("Business");
+                    work_delete.whereEqualTo("Title", txt_Write_Work.getText().toString());
+                    work_delete.findInBackground(new FindCallback<ParseObject>() {
                         @Override
-                        public void done(final List<ParseObject> user, ParseException e) {
+
+                        //No error?
+                        public void done(final List<ParseObject> work, ParseException e) {
                             if (e == null) {
 
-                                //for redundant data
-                                redundant_User();
+                                if (work.size() > 0) {
 
-                                user.get(0).deleteInBackground(new DeleteCallback() {
-                                    @Override
-                                    public void done(ParseException e) {
-                                        if (e == null) {
-                                            FancyToast.makeText(activity_admin_delete_user.this, "completed", FancyToast.LENGTH_SHORT, FancyToast.SUCCESS, true).show();
+                                    redundant_Work();
 
-                                        } else {
-                                            FancyToast.makeText(activity_admin_delete_user.this, "Failed to delete User", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
+                                    work.get(0).deleteInBackground(new DeleteCallback() {
+                                        @Override
+                                        public void done(ParseException e) {
+                                            if (e == null) {
+                                                FancyToast.makeText(activity_admin_delete_user.this, "completed", FancyToast.LENGTH_SHORT, FancyToast.SUCCESS, true).show();
 
+                                            } else {
+                                                FancyToast.makeText(activity_admin_delete_user.this, "Failed to delete 'Work", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
+                                            }
                                         }
-                                    }
-                                });
+                                    });
+                                } else {
+                                    FancyToast.makeText(activity_admin_delete_user.this, "Not available", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
+                                }
                             } else {
                                 FancyToast.makeText(activity_admin_delete_user.this, "Something went wrong (Database)", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
-
                             }
-                            progressDialog.dismiss();
                         }
                     });
-                }
-                break;
+                }break;
+
+
 //Works
 
 
