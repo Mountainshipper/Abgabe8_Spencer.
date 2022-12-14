@@ -18,12 +18,6 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".AddBill"
-            android:exported="false" />
-        <activity
-            android:name=".Admin.AddBill"
-            android:exported="false" />
-        <activity
             android:name=".Interface"
             android:exported="false" />
         <activity
@@ -40,9 +34,6 @@
             android:exported="false" />
         <activity
             android:name=".Admin.Admin_Delete_USER"
-            android:exported="false" />
-        <activity
-            android:name=".Admin.ADMIN_INTERFACE_2"
             android:exported="false" />
         <activity
             android:name=".Admin.Interface_Work_ADD"

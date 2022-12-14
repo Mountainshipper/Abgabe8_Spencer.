@@ -150,8 +150,7 @@ public class Change_DATA_WORK extends AppCompatActivity  implements View.OnClick
 
                     object.saveInBackground();
                     FancyToast.makeText(Change_DATA_WORK.this, "All Good", FancyToast.LENGTH_SHORT, FancyToast.SUCCESS, true).show();
-                    Intent Interface3 = new Intent(Change_DATA_WORK.this, ADMIN_INTERFACE_2.class);
-                    startActivity(Interface3);
+
 //
 
                 } else {

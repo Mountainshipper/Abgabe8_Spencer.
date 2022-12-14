@@ -19,7 +19,7 @@ import com.parse.ParseUser;
 public class Login_Interface extends AppCompatActivity implements View.OnClickListener {
 
 
-    private Button btnStudent, btnAdministrator, btnProfessor;
+    private Button btnAdministrator;
 
 
     @Override
@@ -34,7 +34,7 @@ public class Login_Interface extends AppCompatActivity implements View.OnClickLi
 
         btnAdministrator = findViewById(R.id.btnAdministratorInt);
         btnAdministrator.setOnClickListener(this);
-        
+
         if (ParseUser.getCurrentUser() != null) {
             ParseUser.getCurrentUser().logOut();
         }

@@ -31,13 +31,12 @@ public class Interface_Work_ADD extends AppCompatActivity implements View.OnClic
 
     //Date
     private static final String Tag = "MainActivity";
-    private TextView displayDeadline, displayExamDate, title;
+    private TextView displayDeadline, title;
     private DatePickerDialog.OnDateSetListener dateListener, Listenerdate;
     //Date end; Checkbox star
-    private CheckBox projectBox, bachelorBox, masterBox;
+    private CheckBox projectBox, bachelorBox;
     private Button setUpload;
     String dateM;
-    Date date1;
     Date date2;
     // end
 
@@ -49,21 +48,16 @@ public class Interface_Work_ADD extends AppCompatActivity implements View.OnClic
 
 
         //Date import
-
         displayDeadline = findViewById(R.id.txt_deadline);
-        displayExamDate = findViewById(R.id.txtExamDate);
         projectBox = findViewById(R.id.chack_Project);
         bachelorBox = findViewById(R.id.check_Bachelor);
-        masterBox = findViewById(R.id.check_Master);
         title = findViewById(R.id.txt_Titel);
         setUpload = findViewById(R.id.btn_setWork);
         //end
 
 
         displayDeadline.setOnClickListener(this);
-        displayExamDate.setOnClickListener(this);
         projectBox.setOnClickListener(this);
-        masterBox.setOnClickListener(this);
         bachelorBox.setOnClickListener(this);
         setUpload.setOnClickListener(this);
 
@@ -77,10 +71,6 @@ public class Interface_Work_ADD extends AppCompatActivity implements View.OnClic
 
             case R.id.txt_deadline:
                 deadline();
-                break;
-
-            case R.id.txtExamDate:
-               examDate();
                 break;
 
             case R.id.btn_setWork:
@@ -122,65 +112,24 @@ public class Interface_Work_ADD extends AppCompatActivity implements View.OnClic
 
 
 
-
-    public void examDate(){
-        Calendar calender1 = Calendar.getInstance();
-        int year1 = calender1.get(Calendar.YEAR);
-        int month1 = calender1.get(Calendar.MONTH);
-        int day1 = calender1.get(Calendar.DAY_OF_MONTH);
-
-        DatePickerDialog datedialog = new DatePickerDialog(
-                Interface_Work_ADD.this,
-                android.R.style.Theme_Black, Listenerdate,
-                year1, month1, day1);
-        datedialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        datedialog.show();
-
-        Listenerdate = new DatePickerDialog.OnDateSetListener() {
-            @Override
-            public void onDateSet(DatePicker datePick, int year, int month, int day) {
-                month = month + 1;  //starts at 0
-
-
-                String dateM = month + "/" + day + "/" + year;
-                displayExamDate.setText(dateM);
-                try {
-                    date1 = new SimpleDateFormat("dd/MM/yyyy").parse(dateM);
-                } catch (java.text.ParseException e) {
-
-                }
-            }
-
-        };
-    }
-
-
     public void setWork() {
         //Check if Date is ok
 
         java.util.Date date = new java.util.Date();
 
 
-        ParseObject work = new ParseObject("All_Works");
-        int number = 0;
-        if (masterBox.isChecked()) {
-            if (date.after(date1)) {
-                number = 1;
-            }
-        }
-        if (date.before(date2) && number == 0) {
+        ParseObject addBill = new ParseObject("All_Works");
 
 
-            work.put("Deadline", displayDeadline.getText().toString());
-            work.put("Title", title.getText().toString());
-            work.put("User", "open");
+
+
+        addBill.put("Date", displayDeadline.getText().toString());
+        addBill.put("Title", title.getText().toString());
+        addBill.put("User", "open");
 
 
             int count = 0;
             if (bachelorBox.isChecked()) {
-                count = count + 1;
-            }
-            if (masterBox.isChecked()) {
                 count = count + 1;
             }
             if (projectBox.isChecked()) {
@@ -189,20 +138,15 @@ public class Interface_Work_ADD extends AppCompatActivity implements View.OnClic
 
             if (count == 1) {
                 if (bachelorBox.isChecked()) {
-                    work.put("Function", "Bachelor");
+                    addBill.put("Function", "Bachelor");
 
                 } else if (projectBox.isChecked()) {
-                    work.put("Function", "Project");
+                    addBill.put("Function", "Project");
 
-                } else if (masterBox.isChecked()) {
-                    work.put("Function", "Master");
-                }
-                if (masterBox.isChecked()) {
-                    work.put("Exam_Date", displayExamDate.getText().toString());
                 }
 
 
-                work.saveInBackground(new SaveCallback() {
+                addBill.saveInBackground(new SaveCallback() {
                     @Override
                     public void done(ParseException e) {
                         if (e == null) {
@@ -219,8 +163,5 @@ public class Interface_Work_ADD extends AppCompatActivity implements View.OnClic
             } else {
                 FancyToast.makeText(Interface_Work_ADD.this, " Please check only one box", FancyToast.LENGTH_LONG, FancyToast.ERROR, true).show();
             }
-        } else {
-            FancyToast.makeText(Interface_Work_ADD.this, "Date has already expired\n" + "Please choose anly dates after :\n" + date, FancyToast.LENGTH_LONG, FancyToast.ERROR, true).show();
         }
     }
-}

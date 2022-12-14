@@ -169,8 +169,6 @@ public class Admin_Delete_USER extends AppCompatActivity implements View.OnClick
 
                             }
                             progressDialog.dismiss();
-                            Intent Interface2 = new Intent(Admin_Delete_USER.this, ADMIN_INTERFACE_2.class);
-                            startActivity(Interface2);
                         }
                     });
                 }

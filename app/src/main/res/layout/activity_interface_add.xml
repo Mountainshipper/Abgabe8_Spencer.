@@ -10,13 +10,13 @@
         android:id="@+id/txt_PASSWORD_ADD"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="36dp"
         android:ems="10"
         android:hint="Password"
         android:inputType="textPersonName"
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="@+id/txt_USERNAMR_ADD"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/txt_USERNAMR_ADD"
         app:layout_constraintTop_toBottomOf="@+id/txt_USERNAMR_ADD" />
 
@@ -90,12 +90,12 @@
         android:id="@+id/txt_EMAIL_ADD"
         android:layout_width="151dp"
         android:layout_height="48dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="72dp"
         android:ems="10"
         android:hint="Email"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.13"
+        app:layout_constraintHorizontal_bias="0.066"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

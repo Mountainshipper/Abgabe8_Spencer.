@@ -176,8 +176,7 @@ public class Change_DATA_1_User extends AppCompatActivity implements View.OnClic
 
                     object.saveInBackground();
                     FancyToast.makeText(Change_DATA_1_User.this, "All Good", FancyToast.LENGTH_SHORT, FancyToast.SUCCESS, true).show();
-                    Intent Interface3 = new Intent(Change_DATA_1_User.this, ADMIN_INTERFACE_2.class);
-                    startActivity(Interface3);
+
 //
 
                 } else {
