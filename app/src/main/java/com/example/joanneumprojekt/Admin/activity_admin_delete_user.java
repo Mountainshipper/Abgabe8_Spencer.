@@ -130,7 +130,7 @@ public class activity_admin_delete_user extends AppCompatActivity implements Vie
 
 
             case R.id.Delete_Business:
-                Current_Login current_user = (Current_Login) getIntent().getSerializableExtra("current_user");
+                Current_Login current_user = (Current_Login) getIntent().getSerializableExtra("Business");
                 //User
 
                 if (txt_Write_User.getText().toString().isEmpty()) {
@@ -185,7 +185,7 @@ public class activity_admin_delete_user extends AppCompatActivity implements Vie
                 }else{
 
 
-                    ParseQuery<ParseObject> work_delete = ParseQuery.getQuery("Business");
+                    ParseQuery<ParseObject> work_delete = ParseQuery.getQuery("Private");
 
 
                     work_delete.whereEqualTo("Title", txt_Write_Work.getText().toString());
