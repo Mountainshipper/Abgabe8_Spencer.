@@ -142,9 +142,9 @@ public class activity_admin_delete_user extends AppCompatActivity implements Vie
                     progressDialog.setMessage("Deleting Data");
                     progressDialog.show();
 
-                    ParseQuery<ParseObject> deleteUser = ParseQuery.getQuery("New_User");
+                    ParseQuery<ParseObject> deleteUser = ParseQuery.getQuery("Private");
 
-                    deleteUser.whereEqualTo("Username", txt_Write_User.getText().toString());
+                    deleteUser.whereEqualTo("Tile", txt_Write_User.getText().toString());
                     deleteUser.findInBackground(new FindCallback<ParseObject>() {
                         //No error?
                         @Override
@@ -185,7 +185,7 @@ public class activity_admin_delete_user extends AppCompatActivity implements Vie
                 }else{
 
 
-                    ParseQuery<ParseObject> work_delete = ParseQuery.getQuery("All_Works");
+                    ParseQuery<ParseObject> work_delete = ParseQuery.getQuery("Business");
 
 
                     work_delete.whereEqualTo("Title", txt_Write_Work.getText().toString());
