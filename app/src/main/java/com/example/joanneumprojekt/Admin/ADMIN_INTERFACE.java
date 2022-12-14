@@ -46,7 +46,7 @@ public class ADMIN_INTERFACE extends AppCompatActivity implements View.OnClickLi
         switch (view.getId()) {
             case R.id.interface_Add_Work:
 
-                Intent intentUser = new Intent(ADMIN_INTERFACE.this, Interface_ADD.class);
+                Intent intentUser = new Intent(ADMIN_INTERFACE.this, Interface_Work_ADD.class);
                 startActivity(intentUser);
                 break;
 
