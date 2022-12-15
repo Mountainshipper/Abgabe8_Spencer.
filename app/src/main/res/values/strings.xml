@@ -4,4 +4,21 @@
     <string name="business">Business</string>
     <string name="total_pre_tax">Total pre-tax</string>
     <string name="tax_deprication">Tax deprication</string>
+
+
+    <string name="app_name">billings</string>
+
+    <string name="navigatorText">ADD BILL</string>
+
+    <string name="home">Home</string>
+    <string name="addnewbill">Add new Bill</string>
+    <string name="calculate">Calculate</string>
+    <string name="logout">Logout</string>
+
+    <string name="drawerMenu">Billing Manager</string>
+
+    <string name="logout_alert_title">Logout</string>
+    <string name="logout_alert_message">Do you really want to log out?</string>
+    <string name="logout_alert_responsePositive">YES</string>
+    <string name="logout_alert_responseNegative">NO</string>
 </resources>
