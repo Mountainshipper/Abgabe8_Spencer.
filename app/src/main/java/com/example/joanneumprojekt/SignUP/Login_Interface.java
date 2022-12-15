@@ -19,7 +19,7 @@ import com.parse.ParseUser;
 public class Login_Interface extends AppCompatActivity implements View.OnClickListener {
 
 
-    private Button btnStudent, btnAdministrator, btnProfessor;
+    private Button Login, SignUp;
 
 
     @Override
@@ -32,9 +32,12 @@ public class Login_Interface extends AppCompatActivity implements View.OnClickLi
 
 
 
-        btnAdministrator = findViewById(R.id.btnAdministratorInt);
-        btnAdministrator.setOnClickListener(this);
-        
+        Login = findViewById(R.id.Login);
+        Login.setOnClickListener(this);
+
+        SignUp = findViewById(R.id.SignUp);
+        SignUp.setOnClickListener(this);
+
         if (ParseUser.getCurrentUser() != null) {
             ParseUser.getCurrentUser().logOut();
         }
@@ -44,10 +47,14 @@ public class Login_Interface extends AppCompatActivity implements View.OnClickLi
     public void onClick(View view) {
         switch (view.getId()) {
 
-
-            case R.id.btnAdministratorInt:
+            case R.id.Login:
                 Intent intentAdmin = new Intent(Login_Interface.this, AdministratorLogin.class);
                 startActivity(intentAdmin);
+                break;
+
+            case R.id.SignUp:
+                Intent SignUp = new Intent(Login_Interface.this, SignUp.class);
+                startActivity(SignUp);
                 break;
         }
     }

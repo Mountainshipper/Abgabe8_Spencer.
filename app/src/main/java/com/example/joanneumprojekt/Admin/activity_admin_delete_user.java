@@ -9,7 +9,6 @@ package com.example.joanneumprojekt.Admin;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -25,12 +24,11 @@ import com.parse.ParseQuery;
 import com.shashank.sony.fancytoastlib.FancyToast;
 import java.util.List;
 
-public class Admin_Delete_USER extends AppCompatActivity implements View.OnClickListener {
+public class activity_admin_delete_user extends AppCompatActivity implements View.OnClickListener {
 
-    private Button getWorks, getUser, Delete, Delete_WORK;
+    private Button Private_Button, Business_Button, Delete_Business, deletePrivate;
     private TextView txt_Display_Work, txt_Display_User, txt_Write_Work, txt_Write_User;
-    String txt_Work = "";
-    String txt_Professor = "";
+    String txt_Private, txtBusiness;
     String Project = "";
     String email = "";
 
@@ -41,20 +39,20 @@ public class Admin_Delete_USER extends AppCompatActivity implements View.OnClick
         setContentView(R.layout.activity_admin_delete_user);
 
 
-        Delete_WORK = findViewById(R.id.btn_Upload_DELETE_WORK);
-        getWorks = findViewById(R.id.btnGetAllWORKS);
-        getUser = findViewById(R.id.btn_Get_ALLUSERS);
-        Delete = findViewById(R.id.btn_Upload_DELETE);
+        deletePrivate = findViewById(R.id.Delete_Private);
+        Private_Button = findViewById(R.id.Private_Button);
+        Business_Button = findViewById(R.id.Business_Button);
+        Delete_Business = findViewById(R.id.Delete_Business);
         txt_Display_Work = findViewById(R.id.txt_Display_Work);
         txt_Display_User = findViewById(R.id.txt_Display_User);
         txt_Write_Work = findViewById(R.id.txt_Write_Work);
         txt_Write_User = findViewById(R.id.txt_Write_User);
 
 
-        getWorks.setOnClickListener(this);
-        getUser.setOnClickListener(this);
-        Delete.setOnClickListener(this);
-        Delete_WORK.setOnClickListener(this);
+        Private_Button.setOnClickListener(this);
+        Business_Button.setOnClickListener(this);
+        Delete_Business.setOnClickListener(this);
+        deletePrivate.setOnClickListener(this);
     }
 
 
@@ -63,11 +61,11 @@ public class Admin_Delete_USER extends AppCompatActivity implements View.OnClick
     public void onClick(View view) {
 
         switch (view.getId()) {
-            case R.id.btnGetAllWORKS:
-                txt_Work = "";
+            case R.id.Private_Button:
+                txt_Private = "";
                 txt_Display_Work.setText("");
 
-                ParseQuery<ParseObject> queryAllWork = ParseQuery.getQuery("All_Works");
+                ParseQuery<ParseObject> queryAllWork = ParseQuery.getQuery("Private");
                 queryAllWork.findInBackground(new FindCallback<ParseObject>() {
                     @Override
                     public void done(List<ParseObject> objects, ParseException e) {
@@ -79,12 +77,14 @@ public class Admin_Delete_USER extends AppCompatActivity implements View.OnClick
 
 
                                     if (count_Work == 0) {
-                                        txt_Work = txt_Work + "--------------\n" + parseObject.get("Title") + "\n";
-                                        txt_Display_Work.setText(txt_Work);
+                                        txt_Private = txt_Private + "--------------\n" + "Title: "+  parseObject.get("Title") + "\n" + "Price: "+  parseObject.get("Price") +
+                                                "\n Date: "+  parseObject.get("createdAt")+ "\n \n";
+                                        txt_Display_Work.setText(txt_Private);
                                         ++count_Work;
                                     } else {
-                                        txt_Work = txt_Work + parseObject.get("Title") + "\n";
-                                        txt_Display_Work.setText(txt_Work);
+                                        txt_Private = txt_Private + "Title: "+  parseObject.get("Title") + "\n" + "Price: "+  parseObject.get("Price") +
+                                                "\n Date: "+  parseObject.get("createdAt")+ "\n \n";
+                                        txt_Display_Work.setText(txt_Private);
                                     }
                                 }
                             }
@@ -93,11 +93,11 @@ public class Admin_Delete_USER extends AppCompatActivity implements View.OnClick
                 });
                 break;
 
-            case R.id.btn_Get_ALLUSERS:
-                txt_Professor = "";
+            case R.id.Business_Button:
+                txtBusiness = "";
                 txt_Display_User.setText("");
 
-                ParseQuery<ParseObject> queryAllProfessor = ParseQuery.getQuery("New_User");
+                ParseQuery<ParseObject> queryAllProfessor = ParseQuery.getQuery("Business");
                 queryAllProfessor.findInBackground(new FindCallback<ParseObject>() {
                     @Override
                     public void done(List<ParseObject> objects, ParseException e) {
@@ -108,13 +108,15 @@ public class Admin_Delete_USER extends AppCompatActivity implements View.OnClick
 
 
                                     if (count_Assistent == 0) {
-                                        txt_Professor = txt_Professor + "--------------\n" + parseObject.get("Username") + ". \nEmail: " + parseObject.get("email") + ". \nRole: " + parseObject.get("ID")+ "\n\n";
-                                        txt_Display_User.setText(txt_Professor);
+                                        txtBusiness = txtBusiness + "--------------\n" + "Title: "+  parseObject.get("Title") + "\n" + "Price: "+  parseObject.get("Price") +
+                                                "\n Date: "+  parseObject.get("createdAt")+ "\n \n";
+                                        txt_Display_User.setText(txtBusiness);
                                         ++count_Assistent;
 
                                     } else {
-                                        txt_Professor = txt_Professor + parseObject.get("Username") + ". \nEmail: " + parseObject.get("email") + ". \nRole: " + parseObject.get("ID") + "\n\n";
-                                        txt_Display_User.setText(txt_Professor);
+                                        txtBusiness = txtBusiness + "Title: "+  parseObject.get("Title") + "\n" + "Price: "+  parseObject.get("Price") +
+                                                "\n Date: "+  parseObject.get("createdAt")+ "\n \n";
+                                        txt_Display_User.setText(txtBusiness);
                                     }
 
                                 }
@@ -127,65 +129,58 @@ public class Admin_Delete_USER extends AppCompatActivity implements View.OnClick
                 break;
 
 
-            case R.id.btn_Upload_DELETE:
-                Current_Login current_user = (Current_Login) getIntent().getSerializableExtra("current_user");
-                //User
-
+            case R.id.Delete_Business:
                 if (txt_Write_User.getText().toString().isEmpty()) {
-                    FancyToast.makeText(Admin_Delete_USER.this, "Text View cannot be empty", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
-                }else {
-
-
-                    final ProgressDialog progressDialog = new ProgressDialog(this);
-                    progressDialog.setMessage("Deleting Data");
-                    progressDialog.show();
-
-                    ParseQuery<ParseObject> deleteUser = ParseQuery.getQuery("New_User");
-
-                    deleteUser.whereEqualTo("Username", txt_Write_User.getText().toString());
-                    deleteUser.findInBackground(new FindCallback<ParseObject>() {
-                        //No error?
-                        @Override
-                        public void done(final List<ParseObject> user, ParseException e) {
-                            if (e == null) {
-
-                                //for redundant data
-                                redundant_User();
-
-                                user.get(0).deleteInBackground(new DeleteCallback() {
-                                    @Override
-                                    public void done(ParseException e) {
-                                        if (e == null) {
-                                            FancyToast.makeText(Admin_Delete_USER.this, "completed", FancyToast.LENGTH_SHORT, FancyToast.SUCCESS, true).show();
-
-                                        } else {
-                                            FancyToast.makeText(Admin_Delete_USER.this, "Failed to delete User", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
-
-                                        }
-                                    }
-                                });
-                            } else {
-                                FancyToast.makeText(Admin_Delete_USER.this, "Something went wrong (Database)", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
-
-                            }
-                            progressDialog.dismiss();
-                            Intent Interface2 = new Intent(Admin_Delete_USER.this, ADMIN_INTERFACE_2.class);
-                            startActivity(Interface2);
-                        }
-                    });
-                }
-                break;
-//Works
-
-
-            case R.id.btn_Upload_DELETE_WORK:
-
-                if (txt_Write_Work.getText().toString().isEmpty()) {
-                    FancyToast.makeText(Admin_Delete_USER.this, "Text View cannot be empty", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
+                    FancyToast.makeText(activity_admin_delete_user.this, "Text View cannot be empty", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
                 }else{
 
 
-                    ParseQuery<ParseObject> work_delete = ParseQuery.getQuery("All_Works");
+                    ParseQuery<ParseObject> work_delete = ParseQuery.getQuery("Business");
+                    work_delete.whereEqualTo("Title", txt_Write_User.getText().toString());
+                    work_delete.findInBackground(new FindCallback<ParseObject>() {
+                        @Override
+
+                        //No error?
+                        public void done(final List<ParseObject> work, ParseException e) {
+                            if (e == null) {
+
+                                if (work.size() > 0) {
+
+                                    redundant_Work();
+
+                                    work.get(0).deleteInBackground(new DeleteCallback() {
+                                        @Override
+                                        public void done(ParseException e) {
+                                            if (e == null) {
+                                                FancyToast.makeText(activity_admin_delete_user.this, "completed", FancyToast.LENGTH_SHORT, FancyToast.SUCCESS, true).show();
+
+                                            } else {
+                                                FancyToast.makeText(activity_admin_delete_user.this, "Failed to delete 'Work", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
+                                            }
+                                        }
+                                    });
+                                } else {
+                                    FancyToast.makeText(activity_admin_delete_user.this, "Not available", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
+                                }
+                            } else {
+                                FancyToast.makeText(activity_admin_delete_user.this, "Something went wrong (Database)", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
+                            }
+                        }
+                    });
+                }break;
+
+
+//Works
+
+
+            case R.id.Delete_Private:
+
+                if (txt_Write_Work.getText().toString().isEmpty()) {
+                    FancyToast.makeText(activity_admin_delete_user.this, "Text View cannot be empty", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
+                }else{
+
+
+                    ParseQuery<ParseObject> work_delete = ParseQuery.getQuery("Private");
 
 
                     work_delete.whereEqualTo("Title", txt_Write_Work.getText().toString());
@@ -204,18 +199,18 @@ public class Admin_Delete_USER extends AppCompatActivity implements View.OnClick
                                             @Override
                                             public void done(ParseException e) {
                                                 if (e == null) {
-                                                    FancyToast.makeText(Admin_Delete_USER.this, "completed", FancyToast.LENGTH_SHORT, FancyToast.SUCCESS, true).show();
+                                                    FancyToast.makeText(activity_admin_delete_user.this, "completed", FancyToast.LENGTH_SHORT, FancyToast.SUCCESS, true).show();
 
                                                 } else {
-                                                    FancyToast.makeText(Admin_Delete_USER.this, "Failed to delete 'Work", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
+                                                    FancyToast.makeText(activity_admin_delete_user.this, "Failed to delete 'Work", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
                                                 }
                                             }
                                         });
                                     } else {
-                                        FancyToast.makeText(Admin_Delete_USER.this, "Not available", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
+                                        FancyToast.makeText(activity_admin_delete_user.this, "Not available", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
                                     }
                             } else {
-                                FancyToast.makeText(Admin_Delete_USER.this, "Something went wrong (Database)", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
+                                FancyToast.makeText(activity_admin_delete_user.this, "Something went wrong (Database)", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
                             }
                         }
                     });
@@ -240,7 +235,7 @@ public class Admin_Delete_USER extends AppCompatActivity implements View.OnClick
                     master = parseObject.getString("Master_txt");
 
                 } else {
-                    FancyToast.makeText(Admin_Delete_USER.this, "Wrong1", FancyToast.LENGTH_SHORT, FancyToast.SUCCESS, true).show();
+                    FancyToast.makeText(activity_admin_delete_user.this, "Wrong1", FancyToast.LENGTH_SHORT, FancyToast.SUCCESS, true).show();
                 }
             }
         });
@@ -276,7 +271,7 @@ public class Admin_Delete_USER extends AppCompatActivity implements View.OnClick
             public void done(List<ParseObject> objects, ParseException e) {
 
                 if (e == null) {
-//                    FancyToast.makeText(Admin_Delete_USER.this, "" +txt_Write_Work.getText().toString(), FancyToast.LENGTH_SHORT, FancyToast.SUCCESS, true).show();
+//                    FancyToast.makeText(activity_admin_delete_user.this, "" +txt_Write_Work.getText().toString(), FancyToast.LENGTH_SHORT, FancyToast.SUCCESS, true).show();
 
                     for (ParseObject object : objects) {
                         if (object.getString("Project_txt").isEmpty()) {
@@ -318,15 +313,6 @@ public class Admin_Delete_USER extends AppCompatActivity implements View.OnClick
                 }
             }
         });
-    }
-
-    public static class Abrechnung extends AppCompatActivity {
-
-        @Override
-        protected void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_abrechnung);
-        }
     }
 }
 

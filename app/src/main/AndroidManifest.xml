@@ -11,18 +11,22 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.JoanneumProjekt">
         <activity
-            android:name=".Admin.Admin_Delete_USER$Abrechnung"
+            android:name=".testAndi"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".AddBill"
+            android:name=".Admin.Interface2"
             android:exported="false" />
         <activity
-            android:name=".Admin.AddBill"
-            android:exported="false" />
+            android:name=".Admin.activity_admin_delete_user$Abrechnung"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
         <activity
             android:name=".Interface"
             android:exported="false" />
@@ -39,16 +43,10 @@
             android:name=".Admin.Change_DATA_1_User"
             android:exported="false" />
         <activity
-            android:name=".Admin.Admin_Delete_USER"
-            android:exported="false" />
-        <activity
-            android:name=".Admin.ADMIN_INTERFACE_2"
+            android:name=".Admin.activity_admin_delete_user"
             android:exported="false" />
         <activity
             android:name=".Admin.Interface_Work_ADD"
-            android:exported="false" />
-        <activity
-            android:name=".Admin.Interface_ADD"
             android:exported="false" />
         <activity
             android:name=".Admin.ADMIN_INTERFACE"

@@ -6,14 +6,13 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
 
-    tools:context=".Admin.Admin_Delete_USER">
-
+    tools:context=".Admin.activity_admin_delete_user">
 
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:layout_marginLeft="200dp">
+        android:layout_height="200dp"
+        android:layout_marginLeft="10dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -28,37 +27,33 @@
         </LinearLayout>
     </ScrollView>
 
-
-
-
-
-
     <HorizontalScrollView
-        android:layout_marginLeft="150dp"
+        android:layout_marginLeft="10dp"
         android:layout_width="match_parent"
         android:layout_height="100dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
             <Button
-                android:id="@+id/btnGetAllWORKS"
+                android:id="@+id/Private_Button"
                 android:layout_width="150dp"
                 android:layout_height="70dp"
                 android:layout_marginLeft="35dp"
                 android:layout_marginTop="20dp"
                 android:background="#400000"
-                android:text="Get all avalable works"
+                android:text="Private Bills"
                 android:textColor="#ffffff" />
 
             <Button
-                android:id="@+id/btn_Get_ALLUSERS"
+                android:id="@+id/Business_Button"
                 android:layout_width="150dp"
                 android:layout_height="70dp"
                 android:layout_marginLeft="35dp"
                 android:layout_marginTop="20dp"
                 android:background="#400000"
-                android:text="Get all available USERS"
+                android:text="Buisness Bill"
                 android:textColor="#ffffff" />
 
         </LinearLayout>
@@ -67,8 +62,8 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="353dp"
-        android:layout_marginLeft="200dp">
+        android:layout_height="200dp"
+        android:layout_marginLeft="20dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -90,7 +85,7 @@
 
 
     <HorizontalScrollView
-        android:layout_marginLeft="200dp"
+        android:layout_marginLeft="20dp"
         android:layout_width="match_parent"
         android:layout_height="120dp">
 
@@ -105,7 +100,7 @@
                 android:layout_height="100dp"
                 android:layout_marginLeft="35dp"
                 android:layout_marginTop="20dp"
-                android:hint="WRITE TITLE"
+                android:hint="Private"
                 android:text=""
                 android:textColorHint="#757575" />
 
@@ -115,7 +110,7 @@
                 android:layout_height="100dp"
                 android:layout_marginLeft="35dp"
                 android:layout_marginTop="20dp"
-                android:hint="Write USER"
+                android:hint="Business"
                 android:text=""
                 android:textColorHint="#757575" />
         </LinearLayout>
@@ -127,7 +122,7 @@
 
 
     <HorizontalScrollView
-        android:layout_marginLeft="150dp"
+        android:layout_marginLeft="20dp"
         android:layout_width="match_parent"
         android:layout_height="100dp">
 
@@ -137,23 +132,23 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/btn_Upload_DELETE_WORK"
+                android:id="@+id/Delete_Private"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
-                android:layout_marginLeft="47dp"
+                android:layout_marginLeft="17dp"
                 android:layout_marginTop="20dp"
                 android:background="#400000"
-                android:text="DELETE Work"
+                android:text="Delete Private"
                 android:textColor="#ffffff" />
 
             <Button
-                android:id="@+id/btn_Upload_DELETE"
+                android:id="@+id/Delete_Business"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
                 android:layout_marginLeft="47dp"
                 android:layout_marginTop="20dp"
                 android:background="#400000"
-                android:text="DELETE User"
+                android:text="Delete Business"
                 android:textColor="#ffffff" />
 
         </LinearLayout>

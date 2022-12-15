@@ -2,61 +2,53 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Admin.ADMIN_INTERFACE">
 
     <Button
-        android:id="@+id/interface_Add_Student"
-        android:layout_width="128dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="36dp"
-        android:text="Add User"
-        app:layout_constraintEnd_toEndOf="@+id/imageView8"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="@+id/imageView8"
+        android:id="@+id/Abrechnung"
+        android:layout_width="164dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="68dp"
+        android:text="Abrechnung"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView8" />
 
     <Button
-        android:id="@+id/interface_work"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
+        android:id="@+id/interface_Add_Work"
+        android:layout_width="171dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="28dp"
         android:text="ADD Work"
-        app:layout_constraintEnd_toEndOf="@+id/interface_Add_Student"
+        app:layout_constraintEnd_toEndOf="@+id/Abrechnung"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/interface_Add_Student"
-        app:layout_constraintTop_toBottomOf="@+id/interface_Add_Student" />
-
-    <Button
-        android:id="@+id/btn_Interface2_ADMIN"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="62dp"
-        android:text="Interface 2"
-        app:layout_constraintEnd_toEndOf="@+id/interface_work"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/interface_work"
-        app:layout_constraintTop_toBottomOf="@+id/interface_work" />
-
-    <ImageView
-        android:id="@+id/imageView8"
-        android:layout_width="440dp"
-        android:layout_height="311dp"
-        android:layout_marginTop="48dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/admin_interface" />
+        app:layout_constraintStart_toStartOf="@+id/Abrechnung"
+        app:layout_constraintTop_toBottomOf="@+id/Abrechnung" />
 
     <Button
         android:id="@+id/logout"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:text="lougout"
-        app:layout_constraintEnd_toEndOf="@+id/btn_Interface2_ADMIN"
+        android:layout_width="171dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="112dp"
+        android:text="logout"
+        app:layout_constraintEnd_toEndOf="@+id/Abrechnung"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/btn_Interface2_ADMIN"
-        app:layout_constraintTop_toBottomOf="@+id/btn_Interface2_ADMIN" />
+        app:layout_constraintStart_toStartOf="@+id/Abrechnung"
+        app:layout_constraintTop_toBottomOf="@+id/Abrechnung" />
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="308dp"
+        android:layout_height="351dp"
+        android:layout_marginTop="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/open" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
