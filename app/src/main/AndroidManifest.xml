@@ -11,6 +11,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.JoanneumProjekt">
         <activity
+            android:name=".rob_toolbar"
+            android:exported="false" />
+        <activity
+            android:name=".rob_addbill"
+            android:exported="false" />
+        <activity
+            android:name=".rob_nav_drawer"
+            android:exported="false" />
+        <activity
+            android:name=".rob_main"
+            android:exported="false" />
+        <activity
             android:name=".testAndi"
             android:exported="false">
             <meta-data
