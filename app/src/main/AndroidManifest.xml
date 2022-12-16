@@ -15,7 +15,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.JoanneumProjekt">
         <activity
-            android:name=".activity_showdata"
+            android:name=".Admin.show_add_bill"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".Admin.activity_showdata"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
