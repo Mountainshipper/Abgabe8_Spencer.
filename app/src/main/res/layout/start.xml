@@ -13,8 +13,9 @@
         android:layout_height="202dp"
         android:orientation="vertical">
 
-        <include
-            layout="@layout/activity_rob_toolbar" />
+        <include layout="@layout/activity_rob_toolbar" />
+
+        <include layout="@layout/activity_showdata" />
 
     </LinearLayout>
 
@@ -35,19 +36,6 @@
             android:textStyle="bold" />
 
     </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="202dp"
-        android:orientation="vertical"
-        android:layout_marginTop="200dp">
-
-<!--        <include-->
-<!--            layout="@layout/" />-->
-
-    </LinearLayout>
-    <include
-        layout="@layout/" />
 
 
 </androidx.drawerlayout.widget.DrawerLayout>
