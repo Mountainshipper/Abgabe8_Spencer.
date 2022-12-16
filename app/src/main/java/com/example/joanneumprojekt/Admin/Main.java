@@ -36,7 +36,7 @@ public class Main extends AppCompatActivity implements View.OnClickListener{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main);
+        setContentView(R.layout);
 
 
 
@@ -57,7 +57,7 @@ public class Main extends AppCompatActivity implements View.OnClickListener{
     public void onClick(View view) {
 
         switch (view.getId()) {
-            case R.id.Private_Button:
+            case R.id.Main_b_private:
                 txt_Private = "";
                 txt_Display_Work.setText("");
 
@@ -89,7 +89,7 @@ public class Main extends AppCompatActivity implements View.OnClickListener{
                 });
                 break;
 
-            case R.id.Business_Button:
+            case R.id.Main_b_buisness:
                 txtBusiness = "";
                 txt_Display_Work.setText("");
 
