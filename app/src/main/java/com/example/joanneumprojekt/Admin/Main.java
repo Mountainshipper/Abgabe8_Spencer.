@@ -23,161 +23,120 @@ import android.widget.TextView;
 
 import com.example.joanneumprojekt.R;
 import com.example.joanneumprojekt.rob_addbill;
+import com.parse.DeleteCallback;
+import com.parse.FindCallback;
+import com.parse.GetCallback;
 import com.parse.ParseException;
 import com.parse.ParseObject;
+import com.parse.ParseQuery;
 import com.parse.SaveCallback;
 import com.shashank.sony.fancytoastlib.FancyToast;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 public class Main extends AppCompatActivity implements View.OnClickListener{
     private TextView changetoolbarText;
     DrawerLayout drawerLayout;
     private static final String Tag = "MainActivity";
-    private TextView displayDeadline, title, txt_Titel;
-    private DatePickerDialog.OnDateSetListener dateListener, Listenerdate;
-    //Date end; Checkbox star
-    private CheckBox Private, Business;
-    private Button setUpload;
-    Date date2;
+    private Button Private_Button, Business_Button;
+    private TextView txt_Display_Work;
+    String txt_Private, txtBusiness;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rob_main);
 
-//Date import
-        displayDeadline = findViewById(R.id.txt_deadline);
-        Private = findViewById(R.id.Private);
-        Business = findViewById(R.id.Business);
-        title = findViewById(R.id.Bill_Title);
-        txt_Titel = findViewById(R.id.txt_Titel);
-        setUpload = findViewById(R.id.btn_setWork);
-        //end
 
+
+        Private_Button = findViewById(R.id.Main_b_private);
+        Business_Button = findViewById(R.id.Main_b_buisness);
+        txt_Display_Work = findViewById(R.id.Display_Info);
 
         drawerLayout = findViewById(R.id.drawer_layout);
         changetoolbarText = findViewById(R.id.tv_toolbarText);
         changetoolbarText.setText("Bills");
 
-        displayDeadline.setOnClickListener(this);
-        Private.setOnClickListener(this);
-        Business.setOnClickListener(this);
-        setUpload.setOnClickListener(this);
+        Private_Button.setOnClickListener(this);
     }
+
 
 
     @Override
     public void onClick(View view) {
+
         switch (view.getId()) {
+            case R.id.Private_Button:
+                txt_Private = "";
+                txt_Display_Work.setText("");
 
-            case R.id.txt_deadline:
-                deadline();
-                break;
-
-            case R.id.btn_setWork:
-                setWork();
-
-        }
-    }
-
-    public void deadline() {
-        Calendar newCalender = Calendar.getInstance();
-        int year = newCalender.get(Calendar.YEAR);
-        int month = newCalender.get(Calendar.MONTH);
-        int day = newCalender.get(Calendar.DAY_OF_MONTH);
-
-        DatePickerDialog newDialog = new DatePickerDialog(
-                Main.this,
-                android.R.style.Theme_Black,
-                dateListener,
-                year, month, day);
-        newDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        newDialog.show();
-
-
-        dateListener = new DatePickerDialog.OnDateSetListener() {
-            @Override
-            public void onDateSet(DatePicker datenew, int year, int month, int day) {
-                month = month + 1;
-
-                String date = month + "/" + day + "/" + year;
-                displayDeadline.setText(date);
-                try {
-                    date2 = new SimpleDateFormat("dd/MM/yyyy").parse(date);
-                } catch (java.text.ParseException e) {
-
-                }
-            }
-        };
-    }
-
-
-    public void setWork() {
-        //Check if Date is ok
-
-        int count = 0;
-        if (Business.isChecked()) {
-            count = count + 1;
-        }
-        if (Private.isChecked()) {
-            count = count + 1;
-        }
-        String role = "";
-        if (count == 1) {
-            if (Business.isChecked()) {
-                role = "Business";
-
-            } else if (Private.isChecked()) {
-                role = "Private";
-            }
-
-
-            ParseObject Categorize = new ParseObject(role);
-
-            if (count == 1) {
-                if (Business.isChecked()) {
-                    Categorize.put("Date", displayDeadline.getText().toString());
-                    Categorize.put("Title", title.getText().toString());
-                    Categorize.put("Price", txt_Titel.getText().toString());
-
-                } else if (Private.isChecked()) {
-                    Categorize.put("Date", displayDeadline.getText().toString());
-                    Categorize.put("Title", title.getText().toString());
-                    Categorize.put("Price", txt_Titel.getText().toString());
-
-                }
-
-
-                Categorize.saveInBackground(new SaveCallback() {
+                ParseQuery<ParseObject> queryAllWork = ParseQuery.getQuery("Private");
+                queryAllWork.findInBackground(new FindCallback<ParseObject>() {
                     @Override
-                    public void done(ParseException e) {
-                        if (e == null) {
-                            FancyToast.makeText(Main.this, " Work has been uploaded", FancyToast.LENGTH_LONG, FancyToast.SUCCESS, true).show();
-                            Intent intentAdmin = new Intent(Main.this, ADMIN_INTERFACE.class);
-                            startActivity(intentAdmin);
+                    public void done(List<ParseObject> objects, ParseException e) {
+                        int count_Work = 0;
 
-                        } else {
-                            FancyToast.makeText(Main.this, "Something went wrong", FancyToast.LENGTH_LONG, FancyToast.ERROR, true).show();
+                        if (e == null) {
+                            if (objects.size() > 0) {
+                                for (ParseObject parseObject : objects) {
+
+
+                                    if (count_Work == 0) {
+                                        txt_Private = txt_Private + "--------------\n" + "Title: " + parseObject.get("Title") + "\n" + "Price: " + parseObject.get("Price") +
+                                                "\n Date: " + parseObject.get("createdAt") + "\n \n";
+                                        txt_Display_Work.setText(txt_Private);
+                                        ++count_Work;
+                                    } else {
+                                        txt_Private = txt_Private + "Title: " + parseObject.get("Title") + "\n" + "Price: " + parseObject.get("Price") +
+                                                "\n Date: " + parseObject.get("createdAt") + "\n \n";
+                                        txt_Display_Work.setText(txt_Private);
+                                    }
+                                }
+                            }
                         }
                     }
                 });
+                break;
 
-            } else {
-                FancyToast.makeText(Main.this, " Please check only one box", FancyToast.LENGTH_LONG, FancyToast.ERROR, true).show();
-            }
+            case R.id.Business_Button:
+                txtBusiness = "";
+                txt_Display_Work.setText("");
+
+                ParseQuery<ParseObject> queryAllProfessor = ParseQuery.getQuery("Business");
+                queryAllProfessor.findInBackground(new FindCallback<ParseObject>() {
+                    @Override
+                    public void done(List<ParseObject> objects, ParseException e) {
+                        int count_Assistent = 0;
+                        if (e == null) {
+                            if (objects.size() > 0) {
+                                for (ParseObject parseObject : objects) {
+
+
+                                    if (count_Assistent == 0) {
+                                        txtBusiness = txtBusiness + "--------------\n" + "Title: " + parseObject.get("Title") + "\n" + "Price: " + parseObject.get("Price") +
+                                                "\n Date: " + parseObject.get("createdAt") + "\n \n";
+                                        txt_Display_Work.setText(txtBusiness);
+                                        ++count_Assistent;
+
+                                    } else {
+                                        txtBusiness = txtBusiness + "Title: " + parseObject.get("Title") + "\n" + "Price: " + parseObject.get("Price") +
+                                                "\n Date: " + parseObject.get("createdAt") + "\n \n";
+                                        txt_Display_Work.setText(txtBusiness);
+                                    }
+
+                                }
+                            }
+                        }
+                    }
+
+                });
+
+                break;
         }
     }
-
-
-
-
-
-
-
-
 
     public void clickMenu(View view){
         openDrawer(drawerLayout);
