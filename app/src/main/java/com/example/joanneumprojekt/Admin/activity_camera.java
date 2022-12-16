@@ -372,9 +372,6 @@ public class activity_camera extends AppCompatActivity {
                 ParseObject parseObject = new ParseObject("Photo");
                 parseObject.put("picture", parseFile);
                 parseObject.put("username", ParseUser.getCurrentUser().getUsername());
-                final ProgressDialog dialog = new ProgressDialog(this);
-                dialog.setMessage("Loading");
-                dialog.show();
                 parseObject.saveInBackground(new SaveCallback() {
                     @Override
                     public void done(ParseException e) {
