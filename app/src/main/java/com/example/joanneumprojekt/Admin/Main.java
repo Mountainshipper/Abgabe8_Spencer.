@@ -36,12 +36,12 @@ public class Main extends AppCompatActivity implements View.OnClickListener{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout);
+        setContentView(R.layout.start);
 
 
 
         Private_Button = findViewById(R.id.Main_b_private);
-        Business_Button = findViewById(R.id.Main_b_buisness);
+        Business_Button = findViewById(R.id.Main_b_Business);
         txt_Display_Work = findViewById(R.id.Display_Info);
 
         drawerLayout = findViewById(R.id.drawer_layout);
@@ -49,6 +49,7 @@ public class Main extends AppCompatActivity implements View.OnClickListener{
         changetoolbarText.setText("Bills");
 
         Private_Button.setOnClickListener(this);
+        Business_Button.setOnClickListener(this);
     }
 
 
@@ -75,12 +76,12 @@ public class Main extends AppCompatActivity implements View.OnClickListener{
                                     if (count_Work == 0) {
                                         txt_Private = txt_Private + "--------------\n" + "Title: " + parseObject.get("Title") + "\n" + "Price: " + parseObject.get("Price") +
                                                 "\n Date: " + parseObject.get("createdAt") + "\n \n";
-                                        txt_Display_Work.setText(txt_Private);
+                                        txt_Display_Work.setText(txt_Private+ "s");
                                         ++count_Work;
                                     } else {
                                         txt_Private = txt_Private + "Title: " + parseObject.get("Title") + "\n" + "Price: " + parseObject.get("Price") +
                                                 "\n Date: " + parseObject.get("createdAt") + "\n \n";
-                                        txt_Display_Work.setText(txt_Private);
+                                        txt_Display_Work.setText(txt_Private +"d");
                                     }
                                 }
                             }
@@ -89,7 +90,7 @@ public class Main extends AppCompatActivity implements View.OnClickListener{
                 });
                 break;
 
-            case R.id.Main_b_buisness:
+            case R.id.Main_b_Business:
                 txtBusiness = "";
                 txt_Display_Work.setText("");
 
@@ -105,7 +106,7 @@ public class Main extends AppCompatActivity implements View.OnClickListener{
 
                                     if (count_Assistent == 0) {
                                         txtBusiness = txtBusiness + "--------------\n" + "Title: " + parseObject.get("Title") + "\n" + "Price: " + parseObject.get("Price") +
-                                                "\n Date: " + parseObject.get("createdAt") + "\n \n";
+                                                "\n Date: " + parseObject.get("createdAt") + "\n \n miau";
                                         txt_Display_Work.setText(txtBusiness);
                                         ++count_Assistent;
 
