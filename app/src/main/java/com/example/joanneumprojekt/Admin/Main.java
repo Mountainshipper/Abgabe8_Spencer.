@@ -1,7 +1,7 @@
 package com.example.joanneumprojekt.Admin;
 
 /*
-    Main und gugg bei New_Bill
+
  */
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;

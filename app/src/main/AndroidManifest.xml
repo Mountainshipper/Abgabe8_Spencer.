@@ -55,7 +55,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".Admin.activity_admin_delete_user$Abrechnung"
+            android:name=".Admin.activity_admin_delete_user"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -70,15 +70,8 @@
         <activity
             android:name=".open.Change_DATA_1_User"
             android:exported="false" />
-        <activity
-            android:name=".Admin.activity_admin_delete_user"
-            android:exported="false" />
-        <activity
-            android:name=".Admin.Add_Bill"
-            android:exported="false" />
-        <activity
-            android:name=".Admin.ADMIN_INTERFACE"
-            android:exported="false" />
+
+
         <activity
             android:name=".SignUP.Login_Interface"
             android:exported="false" />

@@ -14,15 +14,13 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <include layout="@layout/activity_rob_toolbar"/>
-
-        <TextView
+        <include
+            layout="@layout/activity_rob_toolbar"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="@string/addnewbill"
-            android:textSize="30sp"
-            android:textStyle="bold" />
+            android:layout_height="wrap_content" />
+
+        <include layout="@layout/activity_show_add_bill" />
+
     </LinearLayout>
 
     <RelativeLayout
@@ -33,6 +31,8 @@
 
         <include
             layout="@layout/activity_rob_nav_drawer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
             android:layout_marginEnd="0dp"

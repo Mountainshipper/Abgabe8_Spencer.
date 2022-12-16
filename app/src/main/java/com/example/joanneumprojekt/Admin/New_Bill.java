@@ -155,8 +155,7 @@ public class New_Bill extends AppCompatActivity implements View.OnClickListener{
                     public void done(ParseException e) {
                         if (e == null) {
                             FancyToast.makeText(New_Bill.this, " Work has been uploaded", FancyToast.LENGTH_LONG, FancyToast.SUCCESS, true).show();
-                            Intent intentAdmin = new Intent(New_Bill.this, ADMIN_INTERFACE.class);
-                            startActivity(intentAdmin);
+
 
                         } else {
                             FancyToast.makeText(New_Bill.this, "Something went wrong", FancyToast.LENGTH_LONG, FancyToast.ERROR, true).show();
