@@ -36,6 +36,7 @@ public class Add_Bill extends AppCompatActivity implements View.OnClickListener 
     //Date end; Checkbox star
     private CheckBox Private, Business;
     private Button setUpload;
+    private Button openCamera;
     Date date2;
     // end
 
@@ -53,6 +54,7 @@ public class Add_Bill extends AppCompatActivity implements View.OnClickListener 
         title = findViewById(R.id.Bill_Title);
         txt_Titel = findViewById(R.id.txt_Titel);
         setUpload = findViewById(R.id.btn_setWork);
+        openCamera = findViewById(R.id.btn_camera);
         //end
 
 
@@ -60,6 +62,7 @@ public class Add_Bill extends AppCompatActivity implements View.OnClickListener 
         Private.setOnClickListener(this);
         Business.setOnClickListener(this);
         setUpload.setOnClickListener(this);
+        openCamera.setOnClickListener(this);
 
 
     }
@@ -75,6 +78,10 @@ public class Add_Bill extends AppCompatActivity implements View.OnClickListener 
 
             case R.id.btn_setWork:
                 setWork();
+                break;
+
+            case R.id.btn_camera:
+                cameraOpen();
 
         }
     }
@@ -165,5 +172,10 @@ public class Add_Bill extends AppCompatActivity implements View.OnClickListener 
                 FancyToast.makeText(Add_Bill.this, " Please check only one box", FancyToast.LENGTH_LONG, FancyToast.ERROR, true).show();
             }
         }
+    }
+
+    private void cameraOpen() {
+        Intent camera = new Intent(Add_Bill.this, activity_camera.class);
+        startActivity(camera);
     }
 }

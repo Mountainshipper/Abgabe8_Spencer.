@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.joanneumprojekt" >
+    package="com.example.joanneumprojekt">
 
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -13,11 +13,17 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.JoanneumProjekt" >
-       
+        android:theme="@style/Theme.JoanneumProjekt">
         <activity
-            android:name=".activity_camera"
-            android:exported="false" >
+            android:name=".activity_showdata"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".Admin.activity_camera"
+            android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -36,14 +42,14 @@
             android:exported="false" />
         <activity
             android:name=".testAndi"
-            android:exported="false" >
+            android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
             android:name=".Admin.activity_admin_delete_user$Abrechnung"
-            android:exported="false" >
+            android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -74,7 +80,7 @@
             android:exported="false" />
         <activity
             android:name=".SignUP.SignUp"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

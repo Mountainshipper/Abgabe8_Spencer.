@@ -33,8 +33,6 @@ public class testAndi extends AppCompatActivity {
         setContentView(R.layout.activity_test_andi);
     }
 
-    // Andis verzweifelte Versuche
-
     public void onClick(View view) {
         if (view.getId() == R.id.btn_Andi) {
             if (Build.VERSION.SDK_INT >= 23 && checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {

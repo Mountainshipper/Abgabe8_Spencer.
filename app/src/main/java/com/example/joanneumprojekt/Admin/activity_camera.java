@@ -1,4 +1,4 @@
-package com.example.joanneumprojekt;
+package com.example.joanneumprojekt.Admin;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -31,6 +31,8 @@ import android.view.TextureView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
+
+import com.example.joanneumprojekt.R;
 
 import java.io.File;
 import java.io.FileNotFoundException;
