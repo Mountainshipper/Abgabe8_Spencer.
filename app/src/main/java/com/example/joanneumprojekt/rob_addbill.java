@@ -1,7 +1,7 @@
 package com.example.joanneumprojekt;
 
 /*
-    rob_addbill und rob_main
+    rob_addbill und Main
  */
 
 
@@ -12,6 +12,8 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+
+import com.example.joanneumprojekt.Admin.Main;
 
 public class rob_addbill extends AppCompatActivity {
     private TextView changetoolbarText;
@@ -28,17 +30,17 @@ public class rob_addbill extends AppCompatActivity {
     }
 
     public void clickMenu(View view){
-        rob_main.openDrawer(drawerLayout);
+        Main.openDrawer(drawerLayout);
 
     }
 
     public void clickLogo(View view){
-        rob_main.closeDrawer(drawerLayout);
+        Main.closeDrawer(drawerLayout);
     }
 
     public void clickHome(View view){
         //Redirect activity to MainActivity (Home)
-        rob_main.redirectActivity(this, rob_main.class);
+        Main.redirectActivity(this, Main.class);
     }
 
     public void clickApplications(View view){
@@ -48,12 +50,12 @@ public class rob_addbill extends AppCompatActivity {
 
     public void clickLogout(View view){
         //Close app
-        rob_main.logout(this);
+        Main.logout(this);
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        rob_main.closeDrawer(drawerLayout);
+        Main.closeDrawer(drawerLayout);
     }
 }

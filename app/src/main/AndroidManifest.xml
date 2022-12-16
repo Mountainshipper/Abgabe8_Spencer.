@@ -20,7 +20,7 @@
             android:name=".rob_nav_drawer"
             android:exported="false" />
         <activity
-            android:name=".rob_main"
+            android:name=".Admin.Main"
             android:exported="false" />
         <activity
             android:name=".testAndi"
@@ -58,7 +58,7 @@
             android:name=".Admin.activity_admin_delete_user"
             android:exported="false" />
         <activity
-            android:name=".Admin.Interface_Work_ADD"
+            android:name=".Admin.Abrechnung"
             android:exported="false" />
         <activity
             android:name=".Admin.ADMIN_INTERFACE"

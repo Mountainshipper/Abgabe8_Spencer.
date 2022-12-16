@@ -50,7 +50,7 @@ public class ADMIN_INTERFACE extends AppCompatActivity implements View.OnClickLi
                 break;
 
             case R.id.interface_Add_Work:
-                Intent intentWork = new Intent(ADMIN_INTERFACE.this, Interface_Work_ADD.class);
+                Intent intentWork = new Intent(ADMIN_INTERFACE.this, Abrechnung.class);
                 startActivity(intentWork);
                 break;
 
