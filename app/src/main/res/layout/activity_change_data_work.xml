@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Admin.Change_DATA_WORK">
+    tools:context=".open.Change_DATA_WORK">
 
     <ScrollView
         android:layout_width="match_parent"

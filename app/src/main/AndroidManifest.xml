@@ -42,29 +42,21 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".Admin.Interface2"
-            android:exported="false" />
-        <activity
             android:name=".Admin.activity_admin_delete_user$Abrechnung"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+
         <activity
-            android:name=".Interface"
+            android:name=".open.Assign_Project_to_Student"
             android:exported="false" />
         <activity
-            android:name=".Admin.Start"
+            android:name=".open.Change_DATA_WORK"
             android:exported="false" />
         <activity
-            android:name=".Admin.Assign_Project_to_Student"
-            android:exported="false" />
-        <activity
-            android:name=".Admin.Change_DATA_WORK"
-            android:exported="false" />
-        <activity
-            android:name=".Admin.Change_DATA_1_User"
+            android:name=".open.Change_DATA_1_User"
             android:exported="false" />
         <activity
             android:name=".Admin.activity_admin_delete_user"

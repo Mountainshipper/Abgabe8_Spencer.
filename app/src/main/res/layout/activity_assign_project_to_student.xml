@@ -7,7 +7,7 @@
     android:orientation="vertical"
 
 
-    tools:context=".Admin.Assign_Project_to_Student">
+    tools:context=".open.Assign_Project_to_Student">
 
 
     <ScrollView

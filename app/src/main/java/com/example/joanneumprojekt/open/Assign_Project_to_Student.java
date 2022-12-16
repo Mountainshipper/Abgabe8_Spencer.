@@ -4,7 +4,7 @@
  * 06.06.2022
  */
 
-package com.example.joanneumprojekt.Admin;
+package com.example.joanneumprojekt.open;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
