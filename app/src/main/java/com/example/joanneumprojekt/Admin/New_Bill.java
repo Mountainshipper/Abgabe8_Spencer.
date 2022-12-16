@@ -38,7 +38,7 @@ public class New_Bill extends AppCompatActivity implements View.OnClickListener{
     private DatePickerDialog.OnDateSetListener dateListener, Listenerdate;
     //Date end; Checkbox star
     private CheckBox Private, Business;
-    private Button setUpload;
+    private Button setUpload, openCamera;
     Date date2;
 
 
@@ -58,6 +58,7 @@ public class New_Bill extends AppCompatActivity implements View.OnClickListener{
         title = findViewById(R.id.Bill_Title);
         txt_Titel = findViewById(R.id.txt_Titel);
         setUpload = findViewById(R.id.btn_setWork);
+        openCamera = findViewById(R.id.btn_camera);
         //end
 
 
@@ -65,6 +66,7 @@ public class New_Bill extends AppCompatActivity implements View.OnClickListener{
         Private.setOnClickListener(this);
         Business.setOnClickListener(this);
         setUpload.setOnClickListener(this);
+        openCamera.setOnClickListener(this);
     }
 
 
@@ -78,6 +80,9 @@ public class New_Bill extends AppCompatActivity implements View.OnClickListener{
 
             case R.id.btn_setWork:
                 setWork();
+
+            case R.id.btn_camera:
+                cameraOpen();
 
         }
     }
@@ -198,5 +203,10 @@ public class New_Bill extends AppCompatActivity implements View.OnClickListener{
     protected void onPause() {
         super.onPause();
         Main.closeDrawer(drawerLayout);
+    }
+
+    private void cameraOpen() {
+        Intent camera = new Intent(New_Bill.this, activity_camera.class);
+        startActivity(camera);
     }
 }
