@@ -27,7 +27,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-public class Abrechnung extends AppCompatActivity implements View.OnClickListener {
+public class Add_Bill extends AppCompatActivity implements View.OnClickListener {
 
     //Date
     private static final String Tag = "MainActivity";
@@ -43,7 +43,7 @@ public class Abrechnung extends AppCompatActivity implements View.OnClickListene
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_interface_work_add);
+        setContentView(R.layout.add_bill);
 
 
         //Date import
@@ -86,7 +86,7 @@ public class Abrechnung extends AppCompatActivity implements View.OnClickListene
         int day = newCalender.get(Calendar.DAY_OF_MONTH);
 
         DatePickerDialog newDialog = new DatePickerDialog(
-                Abrechnung.this,
+                Add_Bill.this,
                 android.R.style.Theme_Black,
                 dateListener,
                 year, month, day);
@@ -151,18 +151,18 @@ public class Abrechnung extends AppCompatActivity implements View.OnClickListene
                     @Override
                     public void done(ParseException e) {
                         if (e == null) {
-                            FancyToast.makeText(Abrechnung.this, " Work has been uploaded", FancyToast.LENGTH_LONG, FancyToast.SUCCESS, true).show();
-                            Intent intentAdmin = new Intent(Abrechnung.this, ADMIN_INTERFACE.class);
+                            FancyToast.makeText(Add_Bill.this, " Work has been uploaded", FancyToast.LENGTH_LONG, FancyToast.SUCCESS, true).show();
+                            Intent intentAdmin = new Intent(Add_Bill.this, ADMIN_INTERFACE.class);
                             startActivity(intentAdmin);
 
                         } else {
-                            FancyToast.makeText(Abrechnung.this, "Something went wrong", FancyToast.LENGTH_LONG, FancyToast.ERROR, true).show();
+                            FancyToast.makeText(Add_Bill.this, "Something went wrong", FancyToast.LENGTH_LONG, FancyToast.ERROR, true).show();
                         }
                     }
                 });
 
             } else {
-                FancyToast.makeText(Abrechnung.this, " Please check only one box", FancyToast.LENGTH_LONG, FancyToast.ERROR, true).show();
+                FancyToast.makeText(Add_Bill.this, " Please check only one box", FancyToast.LENGTH_LONG, FancyToast.ERROR, true).show();
             }
         }
     }

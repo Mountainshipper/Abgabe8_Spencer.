@@ -62,7 +62,7 @@
             android:name=".Admin.activity_admin_delete_user"
             android:exported="false" />
         <activity
-            android:name=".Admin.Abrechnung"
+            android:name=".Admin.Add_Bill"
             android:exported="false" />
         <activity
             android:name=".Admin.ADMIN_INTERFACE"
