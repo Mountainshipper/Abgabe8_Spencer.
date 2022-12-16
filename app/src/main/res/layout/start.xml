@@ -38,62 +38,14 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="202dp"
         android:orientation="vertical"
-        android:layout_marginTop="100dp">
+        android:layout_marginTop="200dp">
 
-        <HorizontalScrollView
-            android:layout_width="wrap_content"
-            android:layout_height="97dp">
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="120dp">
-
-                <Button
-                    android:id="@+id/Main_b_private"
-                    android:layout_width="150dp"
-                    android:layout_height="70dp"
-                    android:layout_marginLeft="35dp"
-                    android:layout_marginTop="20dp"
-                    android:background="#400000"
-                    android:text="Private Bills"
-                    android:textColor="#ffffff" />
-
-                <Button
-                    android:id="@+id/Main_b_Business"
-                    android:layout_width="150dp"
-                    android:layout_height="70dp"
-                    android:layout_marginLeft="35dp"
-                    android:layout_marginTop="20dp"
-                    android:background="#400000"
-                    android:text="Buisness Bill"
-                    android:textColor="#ffffff" />
-
-            </LinearLayout>
-        </HorizontalScrollView>
-
-        <ScrollView
-            android:layout_width="380dp"
-            android:layout_height="390dp"
-            android:layout_marginTop="30dp">
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="400dp"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/Display_Info"
-                    android:layout_width="380dp"
-                    android:layout_height="400dp"
-                    android:text="" />
-
-            </LinearLayout>
-        </ScrollView>
+<!--        <include-->
+<!--            layout="@layout/" />-->
 
     </LinearLayout>
+
 
 </androidx.drawerlayout.widget.DrawerLayout>

@@ -1,7 +1,7 @@
 package com.example.joanneumprojekt.Admin;
 
 /*
-    Main und gugg bei rob_addbill
+    Main und gugg bei New_Bill
  */
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
@@ -17,7 +17,6 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.joanneumprojekt.R;
-import com.example.joanneumprojekt.rob_addbill;
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseObject;
@@ -157,7 +156,7 @@ public class Main extends AppCompatActivity implements View.OnClickListener{
     public void clickApplications(View view){
         //Redirect current activity to Applications activity
         // --> wenn ich auf add bill click, soll er zu add bill kommen
-        redirectActivity(this, rob_addbill.class);
+        redirectActivity(this, New_Bill.class);
     }
 
 
