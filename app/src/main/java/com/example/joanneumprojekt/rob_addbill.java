@@ -11,9 +11,10 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 public class rob_addbill extends AppCompatActivity {
-
+    private TextView changetoolbarText;
     DrawerLayout drawerLayout;
 
     @Override
@@ -22,6 +23,8 @@ public class rob_addbill extends AppCompatActivity {
         setContentView(R.layout.activity_rob_addbill);
 
         drawerLayout = findViewById(R.id.drawer_layout);
+        changetoolbarText = findViewById(R.id.tv_toolbarText);
+        changetoolbarText.setText("ADD BILL");
     }
 
     public void clickMenu(View view){

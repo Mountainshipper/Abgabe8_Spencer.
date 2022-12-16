@@ -13,9 +13,10 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 public class rob_main extends AppCompatActivity {
-
+    private TextView changetoolbarText;
     DrawerLayout drawerLayout;
 
     @Override
@@ -24,6 +25,8 @@ public class rob_main extends AppCompatActivity {
         setContentView(R.layout.activity_rob_main);
 
         drawerLayout = findViewById(R.id.drawer_layout);
+        changetoolbarText = findViewById(R.id.tv_toolbarText);
+        changetoolbarText.setText("Bills");
     }
 
 
