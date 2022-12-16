@@ -46,6 +46,8 @@
 <!--            layout="@layout/" />-->
 
     </LinearLayout>
+    <include
+        layout="@layout/" />
 
 
 </androidx.drawerlayout.widget.DrawerLayout>
