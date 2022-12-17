@@ -26,7 +26,7 @@ public class Login_Interface extends AppCompatActivity implements View.OnClickLi
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_interface);
+        setContentView(R.layout.main_interface);
 
 
         setTitle("Interface Login");

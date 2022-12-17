@@ -122,7 +122,7 @@
                     android:backgroundTint="@color/white"
                     android:textColorHint="@color/black"
                     android:textColor="@color/black"
-                    android:text="Private Bills" />
+                    android:text="delete Private Bills" />
 
                 <Button
                     android:id="@+id/Delete_Business"
@@ -133,7 +133,7 @@
                     android:textColor="@color/black"
                     android:layout_marginLeft="35dp"
                     android:layout_marginTop="20dp"
-                    android:text="Business Bill" />
+                    android:text="delete Business Bill" />
 
             </LinearLayout>
         </HorizontalScrollView>

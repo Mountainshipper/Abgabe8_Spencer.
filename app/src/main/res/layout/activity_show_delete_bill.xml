@@ -15,7 +15,7 @@
 
 
     <include layout="@layout/toolbar2" />
-    <include layout="@layout/activity_admin_delete_user" />
+    <include layout="@layout/delete_user" />
 
   </LinearLayout>
 

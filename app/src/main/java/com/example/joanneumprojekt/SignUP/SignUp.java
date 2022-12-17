@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -100,6 +101,8 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
                                     if (e == null) {
                                         FancyToast.makeText(SignUp.this, edtUsername.getText().toString() + ": is signed up",
                                                 FancyToast.LENGTH_LONG, FancyToast.SUCCESS, true).show();
+                                        Intent intent = new Intent(SignUp.this, Login.class);
+                                        startActivity(intent);
                                     } else {
                                         FancyToast.makeText(SignUp.this, "Error",
                                                 FancyToast.LENGTH_LONG, FancyToast.ERROR, true).show();

@@ -5,6 +5,7 @@
  */
 
 package com.example.joanneumprojekt.After_Login;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 
@@ -29,15 +30,13 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-public class New_Bill extends AppCompatActivity implements View.OnClickListener{
+public class New_Bill extends AppCompatActivity implements View.OnClickListener {
     private TextView changetoolbarText;
     DrawerLayout drawerLayout;
-    //Date
     private static final String Tag = "MainActivity";
     private TextView displayDeadline, title, price;
     private DatePickerDialog.OnDateSetListener dateListener, Listenerdate;
-    //Date end; Checkbox star
-    private CheckBox Private, Business;
+    private CheckBox Private, Business, check20, check10, check13;
     private Button setUpload, openCamera;
     Date date2;
 
@@ -57,6 +56,10 @@ public class New_Bill extends AppCompatActivity implements View.OnClickListener{
         title = findViewById(R.id.Bill_Title);
         price = findViewById(R.id.txt_Titel);
         setUpload = findViewById(R.id.btn_setWork);
+        check20 = findViewById(R.id.check20);
+        check10 = findViewById(R.id.check10);
+        check13 = findViewById(R.id.check13);
+
         //end
 
 
@@ -64,6 +67,9 @@ public class New_Bill extends AppCompatActivity implements View.OnClickListener{
         Private.setOnClickListener(this);
         Business.setOnClickListener(this);
         setUpload.setOnClickListener(this);
+        check20.setOnClickListener(this);
+        check10.setOnClickListener(this);
+        check13.setOnClickListener(this);
     }
 
 
@@ -85,7 +91,6 @@ public class New_Bill extends AppCompatActivity implements View.OnClickListener{
 
         }
     }
-
 
 
     public void deadline() {
@@ -137,28 +142,38 @@ public class New_Bill extends AppCompatActivity implements View.OnClickListener{
             } else if (Private.isChecked()) {
                 role = "Private";
             }
+        }
 
 
+        String percent = "";
+        int checkPercent = 0;
+        if (Business.isChecked()) {
+            checkPercent = checkPercent + 1;
+        }
+        if (Private.isChecked()) {
+            checkPercent = checkPercent + 1;
+        }
+
+        if (checkPercent == 1) {
+            if (check10.isChecked())
+                role = "10";
+            else if (check13.isChecked()) {
+                role = "13";
+            } else if (check20.isChecked()) {
+                role = "20";
+            }
+        }
 
 
-
-
-            ParseObject Categorize = new ParseObject(role);
-            if (title.getText().toString().length() > 3) {
-                if (price.getText().toString().length() > 1) {
+        ParseObject Categorize = new ParseObject(role);
+        if (title.getText().toString().length() > 3) {
+            if (price.getText().toString().length() > 1) {
                 if (displayDeadline.getText().toString().length() > 5) {
-                    if (count == 1) {
-                        if (Business.isChecked()) {
-                            Categorize.put("Date", displayDeadline.getText().toString());
-                            Categorize.put("Title", title.getText().toString());
-                            Categorize.put("Price", price.getText().toString());
-
-                        } else if (Private.isChecked()) {
-                            Categorize.put("Date", displayDeadline.getText().toString());
-                            Categorize.put("Title", title.getText().toString());
-                            Categorize.put("Price", price.getText().toString());
-
-                        }
+                    if (count == 1 && checkPercent == 1) {
+                        Categorize.put("Date", displayDeadline.getText().toString());
+                        Categorize.put("Title", title.getText().toString());
+                        Categorize.put("Price", price.getText().toString());
+                        Categorize.put("Abrechnung", role);
 
 
                         Categorize.saveInBackground(new SaveCallback() {
@@ -181,52 +196,51 @@ public class New_Bill extends AppCompatActivity implements View.OnClickListener{
                 } else {
                     FancyToast.makeText(New_Bill.this, "Please select a date.", FancyToast.LENGTH_LONG, FancyToast.ERROR, true).show();
                 }
-                } else {
-                    FancyToast.makeText(New_Bill.this, "The price has not been set / is malformed", FancyToast.LENGTH_LONG, FancyToast.ERROR, true).show();
-                }
             } else {
-                FancyToast.makeText(New_Bill.this, "The title has not been set / is malformed", FancyToast.LENGTH_LONG, FancyToast.ERROR, true).show();
+                FancyToast.makeText(New_Bill.this, "The price has not been set / is malformed", FancyToast.LENGTH_LONG, FancyToast.ERROR, true).show();
             }
-
+        } else {
+            FancyToast.makeText(New_Bill.this, "The title has not been set / is malformed", FancyToast.LENGTH_LONG, FancyToast.ERROR, true).show();
         }
+
+
     }
 
-    public void clickMenu (View view){
+    public void clickMenu(View view) {
         Main.openDrawer(drawerLayout);
 
     }
 
-    public void clickLogo (View view){
+    public void clickLogo(View view) {
         Main.closeDrawer(drawerLayout);
     }
 
-    public void clickHome (View view){
+    public void clickHome(View view) {
         //Redirect activity to MainActivity (Home)
         Main.redirectActivity(this, Main.class);
     }
 
-    public void clickApplications (View view){
+    public void clickApplications(View view) {
         //Recreate the ApplicationsActivity
         recreate();
     }
 
-    public void deleteUser(View view){
+    public void deleteUser(View view) {
         //Redirect activity to deleteUser
         Main.redirectActivity(this, show_delete_bill.class);
     }
 
 
-    public void clickLogout (View view){
+    public void clickLogout(View view) {
         //Close app
         Main.logout(this);
     }
 
     @Override
-    protected void onPause () {
+    protected void onPause() {
         super.onPause();
         Main.closeDrawer(drawerLayout);
     }
-
 
 
     private void cameraOpen() {
