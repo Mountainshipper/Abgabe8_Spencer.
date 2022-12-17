@@ -122,7 +122,7 @@ public class Main extends AppCompatActivity implements View.OnClickListener {
 
                                 }
                                 String total = "Total sum of taxes: " + sum +"€\n";
-                                txt_Display_Work.setText(total + "\n\n" + txt_Private);
+                                txt_Display_Work.setText(total + "\n\n" + txtBusiness);
                             }
                         }
                     }
