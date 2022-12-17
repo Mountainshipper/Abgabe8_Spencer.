@@ -11,6 +11,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Sign Up"
+        android:backgroundTint="@color/white"
+        android:textColorHint="@color/black"
         app:layout_constraintEnd_toEndOf="@+id/btnAdminLogin"
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintTop_toBottomOf="@+id/btnAdminLogin" />
@@ -20,6 +22,8 @@
         android:layout_width="94dp"
         android:layout_height="50dp"
         android:layout_marginTop="20dp"
+        android:backgroundTint="@color/white"
+        android:textColorHint="@color/black"
         android:text="Log In"
 
         app:layout_constraintEnd_toEndOf="@+id/edtAdminPassword"
@@ -61,6 +65,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="56dp"
         android:text="Interface Login"
+        android:backgroundTint="@color/white"
+        android:textColorHint="@color/black"
         app:layout_constraintEnd_toEndOf="@+id/btnAdminSignUp"
         app:layout_constraintHorizontal_bias="0.472"
         app:layout_constraintStart_toStartOf="@+id/btnAdminSignUp"

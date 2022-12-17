@@ -17,6 +17,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.example.joanneumprojekt.Admin.AdministratorLogin;
 import com.example.joanneumprojekt.Admin.GetPictures;
 import com.example.joanneumprojekt.R;
 import com.parse.ParseException;
@@ -124,7 +125,7 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
                     break;
 
                 case R.id.btnLogIn:
-                    Intent intent = new Intent(SignUp.this, GetPictures.class);
+                    Intent intent = new Intent(SignUp.this, AdministratorLogin.class);
                     startActivity(intent);
                     break;
             }

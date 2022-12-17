@@ -29,6 +29,8 @@
                     android:layout_height="70dp"
                     android:layout_marginLeft="35dp"
                     android:layout_marginTop="20dp"
+                    android:backgroundTint="@color/white"
+                    android:textColorHint="@color/black"
                     android:background="#400000"
                     android:text="Private Bills"
                     android:textColor="#ffffff" />
@@ -37,6 +39,8 @@
                     android:id="@+id/Main_b_Business"
                     android:layout_width="150dp"
                     android:layout_height="70dp"
+                    android:backgroundTint="@color/white"
+                    android:textColorHint="@color/black"
                     android:layout_marginLeft="35dp"
                     android:layout_marginTop="20dp"
                     android:background="#400000"
@@ -47,8 +51,8 @@
         </HorizontalScrollView>
 
         <ScrollView
-            android:layout_width="380dp"
-            android:layout_height="390dp"
+            android:layout_width="match_parent"
+            android:layout_height="628dp"
             android:layout_marginTop="30dp">
 
 
@@ -60,7 +64,7 @@
                 <TextView
                     android:id="@+id/Display_Info"
                     android:layout_width="380dp"
-                    android:layout_height="400dp"
+                    android:layout_height="match_parent"
                     android:text="" />
 
             </LinearLayout>

@@ -3,6 +3,12 @@
     <style name="Theme.JoanneumProjekt" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
 
+    </style>
+    <style name="MyTheme" parent="@android:style/Theme.Light">
+        <item name="android:windowBackground">@color/background</item>
+    </style>
 
+    <style name="Button.White" parent="ThemeOverlay.AppCompat">
+        <item name="colorAccent">@android:color/white</item>
     </style>
 </resources>

@@ -59,7 +59,6 @@ public class GetPictures extends AppCompatActivity {
 
                         final TextView postDescription = new TextView(GetPictures.this);
                         postDescription.setText(post.get("image_des") + "");
-                        File test = parseQuery.get
                          ParseFile file2 = post.getParseFile("picture");
                         file2.getDataInBackground(new GetDataCallback() {
                             @Override
