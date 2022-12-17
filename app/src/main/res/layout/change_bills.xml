@@ -9,134 +9,138 @@
     tools:context=".After_Login.Change_Bill">
 
 
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="208dp">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <LinearLayout
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_height="208dp">
 
-            <TextView
-                android:id="@+id/txt_Get_ALL_INFO"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="" />
-        </LinearLayout>
-    </ScrollView>
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/txt_Get_ALL_INFO"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="" />
+            </LinearLayout>
+        </ScrollView>
+
+        <HorizontalScrollView
+            android:layout_width="170dp"
+            android:layout_height="116dp"
+            android:layout_marginLeft="130dp"
+            android:layout_marginTop="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
 
-    <HorizontalScrollView
-        android:layout_width="179dp"
-        android:layout_height="70dp"
-        android:layout_marginLeft="135dp">
+                <EditText
+                    android:id="@+id/txt_Admin_Choose_User"
+                    android:layout_width="150dp"
+                    android:layout_height="100dp"
+                    android:hint="Choose name of bill: "
+                    android:text=""
+                    android:textColorHint="#757575" />
 
-        <LinearLayout
+
+            </LinearLayout>
+        </HorizontalScrollView>
+
+        <HorizontalScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="124dp"
+            android:layout_marginTop="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
 
-            <Button
-                android:id="@+id/btn_GET_ALL_INFO"
-                android:layout_width="150dp"
-                android:layout_height="70dp"
-                android:backgroundTint="@color/white"
-                android:textColorHint="@color/black"
-                android:textColor="@color/black"
-                android:text="Private Bills" />
+                <EditText
+                    android:id="@+id/txt_Admin_Choose_Username"
+                    android:layout_width="150dp"
+                    android:layout_height="100dp"
+                    android:layout_marginLeft="10dp"
+                    android:hint="Title of bill: "
+                    android:text=""
+                    android:textColorHint="#757575" />
+
+                <EditText
+                    android:id="@+id/txt_Admin_Choose_ID"
+                    android:layout_width="150dp"
+                    android:layout_height="100dp"
+                    android:layout_marginLeft="25dp"
+                    android:hint="Price"
+                    android:text=""
+                    android:textColorHint="#757575" />
 
 
-        </LinearLayout>
-    </HorizontalScrollView>
+                <EditText
+                    android:id="@+id/txt_Admin_Choose_Password"
+                    android:layout_width="150dp"
+                    android:layout_height="100dp"
+                    android:layout_marginLeft="25dp"
+                    android:hint="deprication rate"
+                    android:text=""
+                    android:textColorHint="#757575" />
 
 
-    <HorizontalScrollView
-        android:layout_width="170dp"
-        android:layout_height="116dp"
-        android:layout_marginLeft="130dp"
-        android:layout_marginTop="10dp">
+            </LinearLayout>
+        </HorizontalScrollView>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+        <HorizontalScrollView
+            android:layout_width="170dp"
+            android:layout_height="100dp"
+            android:layout_marginLeft="150dp">
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-            <EditText
-                android:id="@+id/txt_Admin_Choose_User"
-                android:layout_width="150dp"
-                android:layout_height="100dp"
-                android:hint="Choose name of bill: "
-                android:text=""
-                android:textColorHint="#757575" />
+                <Button
+                    android:id="@+id/btn_Upload_Info_ALL"
+                    android:layout_width="150dp"
+                    android:layout_height="70dp"
+                    android:backgroundTint="@color/white"
+                    android:text="Private Bills"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/black" />
 
+            </LinearLayout>
+        </HorizontalScrollView>
 
-        </LinearLayout>
-    </HorizontalScrollView>
+        <HorizontalScrollView
+            android:layout_width="179dp"
+            android:layout_height="70dp"
+            android:layout_marginLeft="135dp">
 
-
-    <HorizontalScrollView
-        android:layout_width="match_parent"
-        android:layout_height="124dp"
-        android:layout_marginTop="10dp">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-
-            <EditText
-                android:id="@+id/txt_Admin_Choose_Username"
-                android:layout_width="150dp"
-                android:layout_height="100dp"
-                android:layout_marginLeft="10dp"
-                android:hint="Title of bill: "
-                android:text=""
-                android:textColorHint="#757575" />
-
-            <EditText
-                android:id="@+id/txt_Admin_Choose_ID"
-                android:layout_width="150dp"
-                android:layout_height="100dp"
-                android:layout_marginLeft="25dp"
-                android:hint="Price"
-                android:text=""
-                android:textColorHint="#757575" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
 
-            <EditText
-                android:id="@+id/txt_Admin_Choose_Password"
-                android:layout_width="150dp"
-                android:layout_height="100dp"
-                android:layout_marginLeft="25dp"
-                android:hint="deprication rate"
-                android:text=""
-                android:textColorHint="#757575" />
+                <Button
+                    android:id="@+id/btn_GET_ALL_INFO"
+                    android:layout_width="150dp"
+                    android:layout_height="70dp"
+                    android:backgroundTint="@color/white"
+                    android:text="Private Bills"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/black" />
 
 
-        </LinearLayout>
-    </HorizontalScrollView>
+            </LinearLayout>
+        </HorizontalScrollView>
+
+    </LinearLayout>
 
 
-
-    <HorizontalScrollView
-        android:layout_marginLeft="150dp"
-        android:layout_width="170dp"
-        android:layout_height="100dp">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <Button
-                android:id="@+id/btn_Upload_Info_ALL"
-                android:layout_width="150dp"
-                android:layout_height="70dp"
-                android:backgroundTint="@color/white"
-                android:textColorHint="@color/black"
-                android:textColor="@color/black"
-                android:text="Private Bills" />
-
-        </LinearLayout>
-    </HorizontalScrollView>
 </LinearLayout>
