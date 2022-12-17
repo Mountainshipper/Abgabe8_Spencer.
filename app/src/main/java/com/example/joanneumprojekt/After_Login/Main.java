@@ -165,6 +165,11 @@ public class Main extends AppCompatActivity implements View.OnClickListener{
         logout(this);
     }
 
+    public void deleteUser(View view){
+        //close app
+        redirectActivity(this, show_delete_bill.class);
+    }
+
     public static void logout(Activity activity) {
         //Initialize the alert dialog
         AlertDialog.Builder builder = new AlertDialog.Builder(activity);

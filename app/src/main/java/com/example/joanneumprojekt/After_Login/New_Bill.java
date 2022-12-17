@@ -48,7 +48,7 @@ public class New_Bill extends AppCompatActivity implements View.OnClickListener{
 
         drawerLayout = findViewById(R.id.drawer_layout);
         changetoolbarText = findViewById(R.id.tv_toolbarText);
-        changetoolbarText.setText("ADD BILL");
+//        changetoolbarText.setText("ADD BILL");
 
         //Date import
         displayDeadline = findViewById(R.id.txt_deadline);
@@ -121,7 +121,6 @@ public class New_Bill extends AppCompatActivity implements View.OnClickListener{
 
 
     public void setWork() {
-        //Check if Date is ok
 
         int count = 0;
         if (Business.isChecked()) {
@@ -138,6 +137,10 @@ public class New_Bill extends AppCompatActivity implements View.OnClickListener{
             } else if (Private.isChecked()) {
                 role = "Private";
             }
+
+
+
+
 
 
             ParseObject Categorize = new ParseObject(role);

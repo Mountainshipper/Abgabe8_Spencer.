@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
 
-    tools:context=".After_Login.activity_admin_delete_user">
+    tools:context=".Delete_Bill.activity_admin_delete_user">
 
 
     <ScrollView

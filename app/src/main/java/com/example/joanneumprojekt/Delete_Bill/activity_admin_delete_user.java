@@ -4,7 +4,7 @@
  * 06.06.2022
  */
 
-package com.example.joanneumprojekt.After_Login;
+package com.example.joanneumprojekt.Delete_Bill;
 
 import androidx.appcompat.app.AppCompatActivity;
 
