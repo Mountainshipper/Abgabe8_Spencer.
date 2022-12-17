@@ -371,9 +371,6 @@ public class activity_camera extends AppCompatActivity {
                 ParseFile parseFile = new ParseFile("img.png", bytes);
                 ParseObject parseObject = new ParseObject("Photo");
                 parseObject.put("picture", parseFile);
-                final ProgressDialog dialog = new ProgressDialog(this);
-                dialog.setMessage("Loading");
-                dialog.show();
                 parseObject.saveInBackground(new SaveCallback() {
                     @Override
                     public void done(ParseException e) {
@@ -388,6 +385,8 @@ public class activity_camera extends AppCompatActivity {
             } catch (Exception e) {
                 e.printStackTrace();
             }
+
+            Main.redirectActivity(this, show_add_bill.class);
         }
     }
 }
