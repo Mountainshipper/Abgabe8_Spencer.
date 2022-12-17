@@ -1,3 +1,7 @@
+/**
+ * Class show_add_bill for displaying the add bill screen
+ */
+
 package com.example.joanneumprojekt.Display_Interface;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -7,9 +11,6 @@ import android.os.Bundle;
 import com.example.joanneumprojekt.R;
 
 public class show_add_bill extends AppCompatActivity {
-    //Date
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

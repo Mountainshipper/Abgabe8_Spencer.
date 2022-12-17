@@ -1,7 +1,5 @@
 /**
- * Autor: Samuel Spencer
- * This is the code for signing up as a student
- * 06.06.2022
+ * Class for signing up a new user
  */
 
 package com.example.joanneumprojekt.SignUP;
@@ -35,7 +33,7 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.sign_up);
 
-        setTitle(" Student Sign Up");
+        setTitle("Sign Up");
 
         edtEmail = findViewById(R.id.edtEnterEmail);
         edtPassword = findViewById(R.id.edtEnterPassword);

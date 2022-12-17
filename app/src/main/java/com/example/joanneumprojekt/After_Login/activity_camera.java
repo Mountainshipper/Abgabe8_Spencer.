@@ -1,3 +1,7 @@
+/**
+ * Open Camera, take picture, save to files and save to database (sometimes)
+ */
+
 package com.example.joanneumprojekt.After_Login;
 
 import androidx.annotation.NonNull;
@@ -37,7 +41,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.example.joanneumprojekt.Display_Interface.show_add_bill;
 import com.example.joanneumprojekt.R;
 import com.parse.ParseException;
 import com.parse.ParseFile;
@@ -75,12 +78,10 @@ public class activity_camera extends AppCompatActivity {
     private CameraCaptureSession cameraCaptureSessions;
     private CaptureRequest.Builder captureRequestBuilder;
     private Size imageDimension;
-    private ImageReader imageReader;
 
     // Save to file
     private File file;
     private static final int REQUEST_CAMERA_PERMISSION = 200;
-    private boolean mFlashSupported;
     private Handler mBackgroundHandler;
     private HandlerThread mBackgroundThread;
 
@@ -374,7 +375,7 @@ public class activity_camera extends AppCompatActivity {
                         if (e == null) {
                             FancyToast.makeText(activity_camera.this, "Picture uploaded!", Toast.LENGTH_SHORT, FancyToast.INFO, true);
                         } else {
-                            FancyToast.makeText(activity_camera.this, "Unknown error", Toast.LENGTH_SHORT, FancyToast.INFO, true);
+                            FancyToast.makeText(activity_camera.this, "Unknown error.", Toast.LENGTH_SHORT, FancyToast.INFO, true);
                         }
                     }
                 });
@@ -383,7 +384,6 @@ public class activity_camera extends AppCompatActivity {
                 e.printStackTrace();
             }
         }
-
         Main.redirectActivity(this, New_Bill.class);
     }
 }

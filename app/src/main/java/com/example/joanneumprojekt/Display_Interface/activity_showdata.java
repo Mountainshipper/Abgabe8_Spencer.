@@ -1,3 +1,7 @@
+/**
+ * Show data for main screen
+ */
+
 package com.example.joanneumprojekt.Display_Interface;
 
 import androidx.appcompat.app.AppCompatActivity;

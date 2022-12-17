@@ -1,7 +1,5 @@
 /**
- * Autor: Samuel Spencer
- * This is the code where a admin can add a work
- * 06.06.2022
+ * Class for adding a new bill to the system
  */
 
 package com.example.joanneumprojekt.After_Login;
@@ -47,7 +45,7 @@ public class New_Bill extends AppCompatActivity implements View.OnClickListener 
 
         drawerLayout = findViewById(R.id.drawer_layout);
         changetoolbarText = findViewById(R.id.tv_toolbarText);
-//        changetoolbarText.setText("ADD BILL");
+        //changetoolbarText.setText("ADD BILL");
 
         //Date import
         displayDeadline = findViewById(R.id.txt_deadline);
@@ -60,8 +58,6 @@ public class New_Bill extends AppCompatActivity implements View.OnClickListener 
         check20 = findViewById(R.id.check20);
         check10 = findViewById(R.id.check10);
         check13 = findViewById(R.id.check13);
-
-        //end
 
 
         displayDeadline.setOnClickListener(this);
@@ -183,7 +179,7 @@ public class New_Bill extends AppCompatActivity implements View.OnClickListener 
 
                         Categorize.saveInBackground(e -> {
                             if (e == null) {
-                                FancyToast.makeText(New_Bill.this, " Work has been uploaded", FancyToast.LENGTH_LONG, FancyToast.SUCCESS, true).show();
+                                FancyToast.makeText(New_Bill.this, "Bill has been uploaded", FancyToast.LENGTH_LONG, FancyToast.SUCCESS, true).show();
                                 Intent intent = new Intent(New_Bill.this, Main.class);
                                 startActivity(intent);
 
@@ -204,8 +200,6 @@ public class New_Bill extends AppCompatActivity implements View.OnClickListener 
         } else {
             FancyToast.makeText(New_Bill.this, "The title has not been set / is malformed", FancyToast.LENGTH_LONG, FancyToast.ERROR, true).show();
         }
-
-
     }
 
     public void clickMenu(View view) {
@@ -228,12 +222,12 @@ public class New_Bill extends AppCompatActivity implements View.OnClickListener 
     }
 
     public void getBillsPng(View view) {
-        //Recreate the getpictures
+        //Redirect activity to Show_Pictures
         Main.redirectActivity(this, Show_Pictures.class);
     }
 
     public void deleteUser(View view) {
-        //Redirect activity to deleteUser
+        //Redirect activity to delete_bill
         Main.redirectActivity(this, show_delete_bill.class);
     }
 

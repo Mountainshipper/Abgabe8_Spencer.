@@ -1,7 +1,5 @@
 /**
- * Autor: Samuel Spencer
- * This is the code for deleting user and projects
- * 06.06.2022
+ * Class for deleting bills
  */
 
 package com.example.joanneumprojekt.Delete_Bill;

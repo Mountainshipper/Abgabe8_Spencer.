@@ -1,6 +1,5 @@
 /**
- * Autor: Samuel Spencer
- * This is the login inteface
+ * Class for User guidance screen
  */
 
 

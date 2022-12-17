@@ -1,3 +1,7 @@
+/**
+ * Class for removing bills from the app - including the reference in the database
+ */
+
 package com.example.joanneumprojekt.After_Login;
 
 import androidx.appcompat.app.AppCompatActivity;

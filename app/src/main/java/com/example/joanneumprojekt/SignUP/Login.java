@@ -1,7 +1,5 @@
 /**
- * Autor: Samuel Spencer
- * This is admin login
- * 06.06.2022
+ * Class for logging in an user
  */
 
 package com.example.joanneumprojekt.SignUP;
@@ -109,7 +107,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
                                     startActivity(INTERFACE_STUDENT);
 
                                 }else{
-                                    FancyToast.makeText(Login.this, "This is the login for 'Administrator', please use the correct login. Thank you", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
+                                    FancyToast.makeText(Login.this, "Please use the correct login. Thank you", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
 
                                 }
                             } else {
@@ -131,13 +129,6 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
             case R.id.btnAdmin_toInterface:
                 Intent intentInterface = new Intent(Login.this, Login_Interface.class);
                 startActivity(intentInterface);
-
-
-
-
-
-
-
 
         }
     }

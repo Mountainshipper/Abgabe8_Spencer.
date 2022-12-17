@@ -1,7 +1,5 @@
 /**
- * Autor: Samuel Spencer
- * Datenbank
- * 06.06.2022
+ * Initialize database
  */
 
 package com.example.joanneumprojekt.SignUP;

@@ -1,8 +1,9 @@
-package com.example.joanneumprojekt.After_Login;
-
-/*
-
+/**
+ * Main Class for showing the private and business bills
+ * Date: 18.12.2022
  */
+
+package com.example.joanneumprojekt.After_Login;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
@@ -136,11 +137,9 @@ public class Main extends AppCompatActivity implements View.OnClickListener {
         openDrawer(drawerLayout);
     }
 
-    // von der Seite soll der navigator kommen
     public static void openDrawer(DrawerLayout drawerLayout) {
         drawerLayout.openDrawer(GravityCompat.START);
     }
-
 
     //What should happen when you click on the logo in the drawer
     public void clickLogo(View view) {
@@ -154,21 +153,19 @@ public class Main extends AppCompatActivity implements View.OnClickListener {
         }
     }
 
-    // wenn ich home bin, und dann im navigator auf home erneut klicke - passiert halt ein refresh
     public void clickHome(View view) {
-        //Recreate the Rob_MainActivity
+        //Recreate Main
         recreate();
     }
 
     public void clickApplications(View view) {
-        //Redirect current activity to Applications activity
-        // --> wenn ich auf add bill click, soll er zu add bill kommen
+        //Redirect current activity to New_Bill activity
         redirectActivity(this, New_Bill.class);
     }
 
 
     public void getBillsPng(View view) {
-        //Recreate the getpictures
+        //Redirect to activity GetPictures
         redirectActivity(this, GetPictures.class);
     }
 
@@ -178,7 +175,7 @@ public class Main extends AppCompatActivity implements View.OnClickListener {
     }
 
     public void deleteUser(View view) {
-        //close app
+        //Redirect to activity show_delete_bill
         redirectActivity(this, show_delete_bill.class);
     }
 
