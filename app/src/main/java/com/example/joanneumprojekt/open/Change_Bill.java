@@ -1,7 +1,5 @@
 /**
- * Autor: Samuel Spencer
- * This is the code where a admin can change the data of a existing user
- * 06.06.2022
+ * Class for changing the contents of a bill
  */
 
 package com.example.joanneumprojekt.open;
@@ -114,8 +112,6 @@ public class Change_Bill extends AppCompatActivity implements View.OnClickListen
         final ProgressDialog progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("UPDATING DATA ");
         progressDialog.show();
-
-        Current_Login current_user = (Current_Login) getIntent().getSerializableExtra("current_user");
 
         ParseQuery<ParseObject> query2 = ParseQuery.getQuery("All_Works");
         query2.whereEqualTo("Title", txt_Admin_Choose_Work.getText().toString());

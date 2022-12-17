@@ -1,3 +1,7 @@
+/**
+ * Class for getting pictures from database
+ */
+
 package com.example.joanneumprojekt.Pictures;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -107,8 +111,6 @@ public class GetPictures extends AppCompatActivity {
 
                     }
 
-
-
                 } else {
 
                     FancyToast.makeText(GetPictures.this, " Cannot find any Pictures!", Toast.LENGTH_SHORT, FancyToast.INFO, true).show();
@@ -121,12 +123,8 @@ public class GetPictures extends AppCompatActivity {
 
     }
 
-
-
-
     public void clickMenu(View view) {
         Main.openDrawer(drawerLayout);
-
     }
 
     public void clickLogo(View view) {
@@ -139,12 +137,12 @@ public class GetPictures extends AppCompatActivity {
     }
 
     public void clickApplications(View view) {
-        //Recreate the ApplicationsActivity
+        //Redirect activity to New_Bill
         Main.redirectActivity(this, New_Bill.class);
     }
 
     public void getBillsPng(View view) {
-        //Recreate the getpictures
+        //Recreate the GetPictures
         recreate();
     }
 
@@ -164,6 +162,5 @@ public class GetPictures extends AppCompatActivity {
         super.onPause();
         Main.closeDrawer(drawerLayout);
     }
-
 
 }
