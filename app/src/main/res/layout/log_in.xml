@@ -7,6 +7,7 @@
     android:background="@color/black"
     tools:context=".SignUP.Login">
 
+
     <Button
         android:id="@+id/btnAdminSignUp"
         android:layout_width="wrap_content"
