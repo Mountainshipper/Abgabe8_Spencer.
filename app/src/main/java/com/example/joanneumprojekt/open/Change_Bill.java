@@ -23,7 +23,7 @@ import com.parse.ParseQuery;
 import com.shashank.sony.fancytoastlib.FancyToast;
 import java.util.List;
 
-public class Change_DATA_1_User extends AppCompatActivity implements View.OnClickListener {
+public class Change_Bill extends AppCompatActivity implements View.OnClickListener {
     private Button btn_GET_ALL_Work, btn_Upload_Work_ALL;
     private TextView txt_Get_ALL_WORK, txt_Admin_Choose_Work, txt_Admin_Choose_USER, txt_Admin_Choose_Title, txt_Admin_Choose_Function;
     String txt_All = "";
@@ -33,7 +33,7 @@ public class Change_DATA_1_User extends AppCompatActivity implements View.OnClic
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_change_data1_user);
+        setContentView(R.layout.change_bills);
 
         btn_GET_ALL_Work = findViewById(R.id.btn_GET_ALL_Work);
         btn_Upload_Work_ALL = findViewById(R.id.btn_Upload_Work_ALL);
@@ -101,7 +101,7 @@ public class Change_DATA_1_User extends AppCompatActivity implements View.OnClic
 
     public void setUser() {
         if (txt_Admin_Choose_Work.getText().toString().isEmpty()) {
-            FancyToast.makeText(Change_DATA_1_User.this, "Please select a 'WORK'", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
+            FancyToast.makeText(Change_Bill.this, "Please select a 'WORK'", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
 
         } else {
 
@@ -149,12 +149,12 @@ public class Change_DATA_1_User extends AppCompatActivity implements View.OnClic
 
 
                     object.saveInBackground();
-                    FancyToast.makeText(Change_DATA_1_User.this, "All Good", FancyToast.LENGTH_SHORT, FancyToast.SUCCESS, true).show();
+                    FancyToast.makeText(Change_Bill.this, "All Good", FancyToast.LENGTH_SHORT, FancyToast.SUCCESS, true).show();
 
 //
 
                 } else {
-                    FancyToast.makeText(Change_DATA_1_User.this, "Professor could not be found. ERROR", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
+                    FancyToast.makeText(Change_Bill.this, "Professor could not be found. ERROR", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
                     progressDialog.dismiss();
                 }
 
