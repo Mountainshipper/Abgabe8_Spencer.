@@ -228,6 +228,11 @@ public class New_Bill extends AppCompatActivity implements View.OnClickListener 
         recreate();
     }
 
+    public void getBillsPng(View view) {
+        //Recreate the getpictures
+        Main.redirectActivity(this, GetPictures.class);
+    }
+
     public void deleteUser(View view) {
         //Redirect activity to deleteUser
         Main.redirectActivity(this, show_delete_bill.class);

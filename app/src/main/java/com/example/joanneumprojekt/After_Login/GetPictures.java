@@ -1,13 +1,16 @@
 package com.example.joanneumprojekt.After_Login;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Gravity;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -29,14 +32,17 @@ import java.util.List;
 public class GetPictures extends AppCompatActivity {
     private LinearLayout linearLayout;
     private File file;
-
+    private TextView changetoolbarText;
+    DrawerLayout drawerLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_get_pictures);
 
         linearLayout = findViewById(R.id.linearLayout);
-
+        drawerLayout = findViewById(R.id.drawer_layout);
+        // changetoolbarText = findViewById(R.id.tv_toolbarText);
+        // changetoolbarText.setText("GET BILLS");
 
 
 
@@ -112,4 +118,50 @@ public class GetPictures extends AppCompatActivity {
         });
 
     }
+
+
+
+
+    public void clickMenu(View view) {
+        Main.openDrawer(drawerLayout);
+
+    }
+
+    public void clickLogo(View view) {
+        Main.closeDrawer(drawerLayout);
+    }
+
+    public void clickHome(View view) {
+        //Redirect activity to MainActivity (Home)
+        Main.redirectActivity(this, Main.class);
+    }
+
+    public void clickApplications(View view) {
+        //Recreate the ApplicationsActivity
+        Main.redirectActivity(this, New_Bill.class);
+    }
+
+    public void getBillsPng(View view) {
+        //Recreate the getpictures
+        recreate();
+    }
+
+    public void deleteUser(View view) {
+        //Redirect activity to deleteUser
+        Main.redirectActivity(this, show_delete_bill.class);
+    }
+
+
+    public void clickLogout(View view) {
+        //Close app
+        Main.logout(this);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Main.closeDrawer(drawerLayout);
+    }
+
+
 }

@@ -14,6 +14,7 @@
     <string name="home">Home</string>
     <string name="addnewbill">Add new bill</string>
     <string name="removebill">Remove bill</string>
+    <string name="getallbillspng">Get bills (.png)</string>
     <string name="calculate">Calculate</string>
     <string name="logout">Logout</string>
     <string name="clickMenu">activity_rob_toolbar</string>

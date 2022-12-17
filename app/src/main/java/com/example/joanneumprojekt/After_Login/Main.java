@@ -165,6 +165,10 @@ public class Main extends AppCompatActivity implements View.OnClickListener {
         redirectActivity(this, New_Bill.class);
     }
 
+    public void getBillsPng(View view) {
+        //Recreate the getpictures
+        redirectActivity(this, GetPictures.class);
+    }
 
     public void clickLogout(View view) {
         //close app
