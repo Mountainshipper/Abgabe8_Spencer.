@@ -37,9 +37,6 @@ import java.util.List;
 
 public class Show_Pictures extends AppCompatActivity {
 
-    DrawerLayout drawerLayout;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
