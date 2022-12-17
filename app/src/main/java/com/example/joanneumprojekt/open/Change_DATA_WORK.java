@@ -13,7 +13,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import com.example.joanneumprojekt.Current_Login;
+
 import com.example.joanneumprojekt.R;
 import com.parse.FindCallback;
 import com.parse.GetCallback;

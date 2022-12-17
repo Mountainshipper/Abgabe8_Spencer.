@@ -4,7 +4,7 @@
  * 06.06.2022
  */
 
-package com.example.joanneumprojekt;
+package com.example.joanneumprojekt.open;
 import java.io.Serializable;
 
 public class Current_Login implements Serializable {

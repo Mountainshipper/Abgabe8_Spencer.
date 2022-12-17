@@ -1,14 +1,16 @@
-package com.example.joanneumprojekt;
+package com.example.joanneumprojekt.After_Login;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class rob_toolbar extends AppCompatActivity {
+import com.example.joanneumprojekt.R;
+
+public class abrechnung extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_rob_toolbar);
+        setContentView(R.layout.activity_abrechnung);
     }
 }

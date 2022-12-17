@@ -4,7 +4,7 @@
  * 06.06.2022
  */
 
-package com.example.joanneumprojekt.Admin;
+package com.example.joanneumprojekt.SignUP;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -16,9 +16,9 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+
+import com.example.joanneumprojekt.After_Login.Main;
 import com.example.joanneumprojekt.R;
-import com.example.joanneumprojekt.SignUP.Login_Interface;
-import com.example.joanneumprojekt.SignUP.SignUp;
 import com.parse.GetCallback;
 import com.parse.ParseException;
 import com.parse.ParseObject;
@@ -30,7 +30,7 @@ import com.shashank.sony.fancytoastlib.FancyToast;
 
 
 
-public class AdministratorLogin extends AppCompatActivity implements View.OnClickListener {
+public class Login extends AppCompatActivity implements View.OnClickListener {
 
     private EditText edtLoginEmail, edtLoginPassword;
     private Button btnLoginActivity, btnSignUpLoginActivity, btnReturnInterface;
@@ -84,7 +84,7 @@ public class AdministratorLogin extends AppCompatActivity implements View.OnClic
                 if (edtLoginEmail.getText().toString().equals("") ||
                         edtLoginPassword.getText().toString().equals("")){
 
-                    FancyToast.makeText(AdministratorLogin.this,"EMAIL and PASSWORD is required!",
+                    FancyToast.makeText(Login.this,"EMAIL and PASSWORD is required!",
                             FancyToast.LENGTH_SHORT,FancyToast.INFO,true).show();
                 } else {
 
@@ -104,16 +104,16 @@ public class AdministratorLogin extends AppCompatActivity implements View.OnClic
                                 if (user.getString("ID").equals("Admin")) {
 
                                     progressDialog.dismiss();
-                                    FancyToast.makeText(AdministratorLogin.this, user.getString("Username") + " is logged in successfully!", FancyToast.LENGTH_SHORT, FancyToast.SUCCESS, true).show();
-                                    Intent INTERFACE_STUDENT = new Intent(AdministratorLogin.this, Main.class);
+                                    FancyToast.makeText(Login.this, user.getString("Username") + " is logged in successfully!", FancyToast.LENGTH_SHORT, FancyToast.SUCCESS, true).show();
+                                    Intent INTERFACE_STUDENT = new Intent(Login.this, Main.class);
                                     startActivity(INTERFACE_STUDENT);
 
                                 }else{
-                                    FancyToast.makeText(AdministratorLogin.this, "This is the login for 'Administrator', please use the correct login. Thank you", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
+                                    FancyToast.makeText(Login.this, "This is the login for 'Administrator', please use the correct login. Thank you", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
 
                                 }
                             } else {
-                                FancyToast.makeText(AdministratorLogin.this, "Password wrong", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
+                                FancyToast.makeText(Login.this, "Password wrong", FancyToast.LENGTH_SHORT, FancyToast.ERROR, true).show();
 
                             }
                             progressDialog.dismiss();
@@ -124,12 +124,12 @@ public class AdministratorLogin extends AppCompatActivity implements View.OnClic
                 break;
 
             case R.id.btnAdminSignUp:
-                Intent intent = new Intent(AdministratorLogin.this, SignUp.class);
+                Intent intent = new Intent(Login.this, SignUp.class);
                 startActivity(intent);
                 break;
 
             case R.id.btnAdmin_toInterface:
-                Intent intentInterface = new Intent(AdministratorLogin.this, Login_Interface.class);
+                Intent intentInterface = new Intent(Login.this, Login_Interface.class);
                 startActivity(intentInterface);
 
 

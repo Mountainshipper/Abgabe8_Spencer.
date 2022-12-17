@@ -4,16 +4,15 @@
  * 06.06.2022
  */
 
-package com.example.joanneumprojekt.Admin;
+package com.example.joanneumprojekt.After_Login;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import com.example.joanneumprojekt.Current_Login;
+
 import com.example.joanneumprojekt.R;
 import com.parse.DeleteCallback;
 import com.parse.FindCallback;

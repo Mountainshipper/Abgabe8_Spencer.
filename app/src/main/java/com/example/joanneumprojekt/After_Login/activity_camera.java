@@ -1,4 +1,4 @@
-package com.example.joanneumprojekt.Admin;
+package com.example.joanneumprojekt.After_Login;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -33,6 +33,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.joanneumprojekt.Display_Interface.show_add_bill;
 import com.example.joanneumprojekt.R;
 
 import java.io.File;

@@ -1,4 +1,4 @@
-package com.example.joanneumprojekt.Admin;
+package com.example.joanneumprojekt.Display_Interface;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;

@@ -8,7 +8,7 @@
     <uses-permission android:name="android.hardware.camera2.full" />
 
     <application
-        android:name=".App"
+        android:name=".SignUP.App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -23,43 +23,43 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".Admin.GetPictures"
+            android:name=".After_Login.GetPictures"
             android:exported="false" />
         <activity
-            android:name=".Admin.show_add_bill"
+            android:name=".Display_Interface.show_add_bill"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".Admin.activity_showdata"
+            android:name=".Display_Interface.activity_showdata"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".Admin.activity_camera"
+            android:name=".After_Login.activity_camera"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".rob_toolbar"
+            android:name=".Display_Interface.Toolbar"
             android:exported="false" />
         <activity
-            android:name=".Admin.New_Bill"
+            android:name=".After_Login.New_Bill"
             android:exported="false" />
         <activity
-            android:name=".rob_nav_drawer"
+            android:name=".Display_Interface.Navigation_Drawer"
             android:exported="false" />
         <activity
-            android:name=".Admin.Main"
+            android:name=".After_Login.Main"
             android:exported="false" />
         <activity
-            android:name=".Admin.activity_admin_delete_user"
+            android:name=".After_Login.activity_admin_delete_user"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -78,7 +78,7 @@
             android:name=".SignUP.Login_Interface"
             android:exported="false" />
         <activity
-            android:name=".Admin.AdministratorLogin"
+            android:name=".SignUP.Login"
             android:exported="false" />
         <activity
             android:name=".SignUP.SignUp"
