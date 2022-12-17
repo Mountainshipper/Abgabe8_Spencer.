@@ -210,6 +210,12 @@ public class New_Bill extends AppCompatActivity implements View.OnClickListener{
         recreate();
     }
 
+    public void deleteUser(View view){
+        //close app
+        Main.redirectActivity(this, show_delete_bill.class);
+    }
+
+
     public void clickLogout (View view){
         //Close app
         Main.logout(this);
