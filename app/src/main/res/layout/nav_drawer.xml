@@ -119,7 +119,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center_vertical"
-        android:onClick="clickLogout"
+        android:onClick="change_data"
         android:background="@color/white">
 
         <TextView
@@ -127,8 +127,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:padding="15dp"
-            android:textColor="@color/black"
-            android:text="@string/calculate" />
+            android:text="@string/calculate"
+            android:textColor="@color/black" />
 
         <ImageView
             android:layout_width="wrap_content"
