@@ -56,6 +56,7 @@ public class New_Bill extends AppCompatActivity implements View.OnClickListener 
         title = findViewById(R.id.Bill_Title);
         price = findViewById(R.id.txt_Titel);
         setUpload = findViewById(R.id.btn_setWork);
+        openCamera = findViewById(R.id.btn_camera);
         check20 = findViewById(R.id.check20);
         check10 = findViewById(R.id.check10);
         check13 = findViewById(R.id.check13);
@@ -67,6 +68,7 @@ public class New_Bill extends AppCompatActivity implements View.OnClickListener 
         Private.setOnClickListener(this);
         Business.setOnClickListener(this);
         setUpload.setOnClickListener(this);
+        openCamera.setOnClickListener(this);
         check20.setOnClickListener(this);
         check10.setOnClickListener(this);
         check13.setOnClickListener(this);
