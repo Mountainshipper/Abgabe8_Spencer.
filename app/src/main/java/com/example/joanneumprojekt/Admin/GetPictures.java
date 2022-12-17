@@ -24,10 +24,12 @@ import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.shashank.sony.fancytoastlib.FancyToast;
 
+import java.io.File;
 import java.util.List;
 
 public class GetPictures extends AppCompatActivity {
     private LinearLayout linearLayout;
+    private File file;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,23 +40,28 @@ public class GetPictures extends AppCompatActivity {
 
 
         final ProgressDialog dialog = new ProgressDialog(this);
-        dialog.setMessage("Loading...");
-        dialog.show();
 
 
 
-        ParseQuery<ParseObject> parseQuery = ParseQuery.getQuery("Photo");
+
+        ParseQuery<ParseObject> parseQuery = new ParseQuery<ParseObject>("Photo");
+        parseQuery.whereEqualTo("Name", "1");
+
+
         parseQuery.findInBackground(new FindCallback<ParseObject>() {
             @Override
             public void done(List<ParseObject> objects, ParseException e) {
                 if (objects.size() > 0 && e == null) {
+                    dialog.setMessage("Loading...");
+                    dialog.show();
 
                     for (ParseObject post : objects) {
 
                         final TextView postDescription = new TextView(GetPictures.this);
                         postDescription.setText(post.get("image_des") + "");
-                        ParseFile postPicture = (ParseFile) post.get("picture");
-                        postPicture.getDataInBackground(new GetDataCallback() {
+                        File test = parseQuery.get
+                         ParseFile file2 = post.getParseFile("picture");
+                        file2.getDataInBackground(new GetDataCallback() {
                             @Override
                             public void done(byte[] data, ParseException e) {
 

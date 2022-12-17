@@ -124,7 +124,7 @@ public class AdministratorLogin extends AppCompatActivity implements View.OnClic
                 break;
 
             case R.id.btnAdminSignUp:
-                Intent intent = new Intent(AdministratorLogin.this, GetPictures.class);
+                Intent intent = new Intent(AdministratorLogin.this, SignUp.class);
                 startActivity(intent);
                 break;
 

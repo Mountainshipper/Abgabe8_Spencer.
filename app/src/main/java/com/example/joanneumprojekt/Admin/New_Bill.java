@@ -41,7 +41,6 @@ public class New_Bill extends AppCompatActivity implements View.OnClickListener{
     private Button setUpload, openCamera;
     Date date2;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -80,9 +79,11 @@ public class New_Bill extends AppCompatActivity implements View.OnClickListener{
 
             case R.id.btn_setWork:
                 setWork();
+                break;
 
             case R.id.btn_camera:
                 cameraOpen();
+                break;
 
         }
     }
