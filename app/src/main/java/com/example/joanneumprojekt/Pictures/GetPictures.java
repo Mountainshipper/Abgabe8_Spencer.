@@ -1,10 +1,9 @@
-package com.example.joanneumprojekt.After_Login;
+package com.example.joanneumprojekt.Pictures;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.app.ProgressDialog;
-import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
@@ -17,6 +16,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.joanneumprojekt.After_Login.Main;
+import com.example.joanneumprojekt.After_Login.New_Bill;
+import com.example.joanneumprojekt.After_Login.show_delete_bill;
 import com.example.joanneumprojekt.R;
 import com.parse.FindCallback;
 import com.parse.GetDataCallback;
@@ -31,8 +33,6 @@ import java.util.List;
 
 public class GetPictures extends AppCompatActivity {
     private LinearLayout linearLayout;
-    private File file;
-    private TextView changetoolbarText;
     DrawerLayout drawerLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,8 +41,6 @@ public class GetPictures extends AppCompatActivity {
 
         linearLayout = findViewById(R.id.linearLayout);
         drawerLayout = findViewById(R.id.drawer_layout);
-        // changetoolbarText = findViewById(R.id.tv_toolbarText);
-        // changetoolbarText.setText("GET BILLS");
 
 
 
@@ -101,12 +99,7 @@ public class GetPictures extends AppCompatActivity {
 
                             }
                         });
-
-
                     }
-
-
-
                 } else {
 
                     FancyToast.makeText(GetPictures.this, " Cannot find any Pictures!", Toast.LENGTH_SHORT, FancyToast.INFO, true).show();

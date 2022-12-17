@@ -13,7 +13,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.joanneumprojekt.After_Login.GetPictures;
+import com.example.joanneumprojekt.Pictures.GetPictures;
 import com.example.joanneumprojekt.R;
 import com.parse.ParseUser;
 

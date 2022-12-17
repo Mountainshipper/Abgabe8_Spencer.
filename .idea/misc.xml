@@ -21,6 +21,7 @@
         <entry key="..\:/Studios Programme/Uebung 2/app/src/main/res/layout/activity_assign_project_to_student.xml" value="0.22" />
         <entry key="..\:/Studios Programme/Uebung 2/app/src/main/res/layout/activity_assistent_interface.xml" value="0.33" />
         <entry key="..\:/Studios Programme/Uebung 2/app/src/main/res/layout/activity_bachelor.xml" value="0.25" />
+        <entry key="..\:/Studios Programme/Uebung 2/app/src/main/res/layout/activity_camera.xml" value="0.14166666666666666" />
         <entry key="..\:/Studios Programme/Uebung 2/app/src/main/res/layout/activity_change_data1_user.xml" value="0.18" />
         <entry key="..\:/Studios Programme/Uebung 2/app/src/main/res/layout/activity_change_data_work.xml" value="0.2" />
         <entry key="..\:/Studios Programme/Uebung 2/app/src/main/res/layout/activity_get_pictures.xml" value="0.20307017543859648" />
@@ -49,6 +50,7 @@
         <entry key="..\:/Studios Programme/Uebung 2/app/src/main/res/layout/activity_show_data.xml" value="0.20307017543859648" />
         <entry key="..\:/Studios Programme/Uebung 2/app/src/main/res/layout/activity_show_delete_bill.xml" value="0.20394736842105263" />
         <entry key="..\:/Studios Programme/Uebung 2/app/src/main/res/layout/activity_show_main_data.xml" value="0.20307017543859648" />
+        <entry key="..\:/Studios Programme/Uebung 2/app/src/main/res/layout/activity_show_pictures.xml" value="0.14166666666666666" />
         <entry key="..\:/Studios Programme/Uebung 2/app/src/main/res/layout/activity_showdata.xml" value="0.1412280701754386" />
         <entry key="..\:/Studios Programme/Uebung 2/app/src/main/res/layout/activity_sign_up.xml" value="0.2" />
         <entry key="..\:/Studios Programme/Uebung 2/app/src/main/res/layout/activity_start.xml" value="0.264" />
@@ -77,6 +79,7 @@
         <entry key="..\:/Studios Programme/Uebung 2/app/src/main/res/layout/nav_drawer.xml" value="0.2" />
         <entry key="..\:/Studios Programme/Uebung 2/app/src/main/res/layout/nav_header_assistent_interface.xml" value="0.33" />
         <entry key="..\:/Studios Programme/Uebung 2/app/src/main/res/layout/show_add_bill.xml" value="0.20350877192982456" />
+        <entry key="..\:/Studios Programme/Uebung 2/app/src/main/res/layout/show_pictures.xml" value="0.20394736842105263" />
         <entry key="..\:/Studios Programme/Uebung 2/app/src/main/res/layout/showdata.xml" value="0.181140350877193" />
         <entry key="..\:/Studios Programme/Uebung 2/app/src/main/res/layout/sign_up.xml" value="0.20394736842105263" />
         <entry key="..\:/Studios Programme/Uebung 2/app/src/main/res/layout/start.xml" value="0.20307017543859648" />

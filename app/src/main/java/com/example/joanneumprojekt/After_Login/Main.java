@@ -17,6 +17,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.joanneumprojekt.Pictures.GetPictures;
+import com.example.joanneumprojekt.Pictures.Show_Pictures;
 import com.example.joanneumprojekt.R;
 import com.parse.FindCallback;
 import com.parse.ParseException;
@@ -164,6 +166,7 @@ public class Main extends AppCompatActivity implements View.OnClickListener {
         // --> wenn ich auf add bill click, soll er zu add bill kommen
         redirectActivity(this, New_Bill.class);
     }
+
 
     public void getBillsPng(View view) {
         //Recreate the getpictures

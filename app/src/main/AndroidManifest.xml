@@ -26,7 +26,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".After_Login.GetPictures"
+            android:name=".Pictures.GetPictures"
             android:exported="false" />
         <activity
             android:name=".Display_Interface.show_add_bill"

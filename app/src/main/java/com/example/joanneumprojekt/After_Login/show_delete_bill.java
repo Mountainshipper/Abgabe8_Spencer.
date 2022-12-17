@@ -13,7 +13,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.example.joanneumprojekt.Delete_Bill.activity_admin_delete_user;
+import com.example.joanneumprojekt.Pictures.GetPictures;
 import com.example.joanneumprojekt.R;
 import com.parse.DeleteCallback;
 import com.parse.FindCallback;

@@ -18,13 +18,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.DatePicker;
 import android.widget.TextView;
 
+import com.example.joanneumprojekt.Pictures.GetPictures;
+import com.example.joanneumprojekt.Pictures.Show_Pictures;
 import com.example.joanneumprojekt.R;
-import com.parse.ParseException;
 import com.parse.ParseObject;
-import com.parse.SaveCallback;
 import com.shashank.sony.fancytoastlib.FancyToast;
 
 import java.text.SimpleDateFormat;
@@ -230,7 +229,7 @@ public class New_Bill extends AppCompatActivity implements View.OnClickListener 
 
     public void getBillsPng(View view) {
         //Recreate the getpictures
-        Main.redirectActivity(this, GetPictures.class);
+        Main.redirectActivity(this, Show_Pictures.class);
     }
 
     public void deleteUser(View view) {
