@@ -242,7 +242,7 @@ public class show_delete_bill extends AppCompatActivity implements View.OnClickL
     // wenn ich home bin, und dann im navigator auf home erneut klicke - passiert halt ein refresh
     public void clickHome(View view){
         //Recreate the Rob_MainActivity
-        recreate();
+        redirectActivity(this, Main.class);
     }
 
     public void clickApplications(View view){
