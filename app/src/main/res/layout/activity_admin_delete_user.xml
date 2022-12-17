@@ -8,82 +8,66 @@
 
     tools:context=".Delete_Bill.activity_admin_delete_user">
 
-
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_marginLeft="10dp">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <LinearLayout
+        <HorizontalScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="97dp">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="120dp">
+
+                <Button
+                    android:id="@+id/Private_Button"
+                    android:layout_width="150dp"
+                    android:layout_height="70dp"
+                    android:layout_marginLeft="35dp"
+                    android:layout_marginTop="20dp"
+                    android:backgroundTint="@color/white"
+                    android:textColorHint="@color/black"
+                    android:textColor="@color/black"
+                    android:text="Private Bills" />
+
+                <Button
+                    android:id="@+id/Business_Button"
+                    android:layout_width="150dp"
+                    android:layout_height="70dp"
+                    android:backgroundTint="@color/white"
+                    android:textColorHint="@color/black"
+                    android:textColor="@color/black"
+                    android:layout_marginLeft="35dp"
+                    android:layout_marginTop="20dp"
+                    android:text="Business Bill" />
+
+            </LinearLayout>
+        </HorizontalScrollView>
+
+
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_height="353dp"
+            android:layout_marginLeft="10dp">
 
-            <TextView
-                android:id="@+id/txt_Display_Work"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="" />
-        </LinearLayout>
-    </ScrollView>
+                android:orientation="vertical">
 
-    <HorizontalScrollView
-        android:layout_marginLeft="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="80dp">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/txt_Display_Work"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="" />
+            </LinearLayout>
+        </ScrollView>
 
 
-            <Button
-                android:id="@+id/Private_Button"
-                android:layout_width="158dp"
-                android:layout_height="70dp"
-                android:layout_marginLeft="25dp"
-                android:layout_marginTop="5dp"
-                android:background="#400000"
-                android:text="Get Private Bills"
-                android:backgroundTint="@color/white"
-                android:textColorHint="@color/black"
-                android:textColor="#ffffff" />
-
-            <Button
-                android:id="@+id/Business_Button"
-                android:layout_width="158dp"
-                android:layout_height="70dp"
-                android:layout_marginLeft="25dp"
-                android:layout_marginTop="5dp"
-                android:background="#400000"
-                android:text="Get Buisness Bills"
-                android:backgroundTint="@color/white"
-                android:textColorHint="@color/black"
-                android:textColor="#ffffff" />
-
-        </LinearLayout>
-    </HorizontalScrollView>
-
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_marginLeft="10dp">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/txt_Display_User"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="" />
-        </LinearLayout>
-    </ScrollView>
-
-    <HorizontalScrollView
+        <HorizontalScrollView
         android:layout_marginLeft="10dp"
         android:layout_width="match_parent"
         android:layout_height="120dp">
@@ -120,41 +104,38 @@
 
 
 
-    <HorizontalScrollView
-        android:layout_marginLeft="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="100dp">
+        <HorizontalScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="97dp">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
 
-            <Button
-                android:id="@+id/Delete_Private"
-                android:layout_width="158dp"
-                android:layout_height="70dp"
-                android:layout_marginLeft="17dp"
-                android:layout_marginTop="5dp"
-                android:background="#400000"
-                android:text="Delete Private Bill"
-                android:backgroundTint="@color/white"
-                android:textColorHint="@color/black"
-                android:textColor="#ffffff" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="120dp">
 
-            <Button
-                android:id="@+id/Delete_Business"
-                android:layout_width="158dp"
-                android:layout_height="70dp"
-                android:layout_marginLeft="27dp"
-                android:layout_marginTop="5dp"
-                android:background="#400000"
-                android:text="Delete Business Bill"
-                android:backgroundTint="@color/white"
-                android:textColorHint="@color/black"
-                android:textColor="#ffffff" />
+                <Button
+                    android:id="@+id/Delete_Private"
+                    android:layout_width="150dp"
+                    android:layout_height="70dp"
+                    android:layout_marginLeft="35dp"
+                    android:layout_marginTop="20dp"
+                    android:backgroundTint="@color/white"
+                    android:textColorHint="@color/black"
+                    android:textColor="@color/black"
+                    android:text="Private Bills" />
 
-        </LinearLayout>
-    </HorizontalScrollView>
+                <Button
+                    android:id="@+id/Delete_Business"
+                    android:layout_width="150dp"
+                    android:layout_height="70dp"
+                    android:backgroundTint="@color/white"
+                    android:textColorHint="@color/black"
+                    android:textColor="@color/black"
+                    android:layout_marginLeft="35dp"
+                    android:layout_marginTop="20dp"
+                    android:text="Business Bill" />
 
+            </LinearLayout>
+        </HorizontalScrollView>
+    </LinearLayout>
 </LinearLayout>

@@ -35,7 +35,7 @@ public class activity_admin_delete_user extends AppCompatActivity implements Vie
 
     DrawerLayout drawerLayout;
     private Button Private_Button, Business_Button, Delete_Business, deletePrivate;
-    private TextView txt_Display_Work, txt_Display_User, txt_Write_Work, txt_Write_User;
+    private TextView txt_Display_Work, txt_Write_Work, txt_Write_User;
     String txt_Private, txtBusiness;
     String Project = "";
     String email = "";
@@ -52,7 +52,6 @@ public class activity_admin_delete_user extends AppCompatActivity implements Vie
         Business_Button = findViewById(R.id.Business_Button);
         Delete_Business = findViewById(R.id.Delete_Business);
         txt_Display_Work = findViewById(R.id.txt_Display_Work);
-        txt_Display_User = findViewById(R.id.txt_Display_User);
         txt_Write_Work = findViewById(R.id.txt_Write_Work);
         txt_Write_User = findViewById(R.id.txt_Write_User);
 
@@ -70,6 +69,8 @@ public class activity_admin_delete_user extends AppCompatActivity implements Vie
 
         switch (view.getId()) {
             case R.id.Private_Button:
+                FancyToast.makeText(activity_admin_delete_user.this, "completed", FancyToast.LENGTH_SHORT, FancyToast.SUCCESS, true).show();
+
                 txt_Private = "";
                 txt_Display_Work.setText("");
 
@@ -103,7 +104,7 @@ public class activity_admin_delete_user extends AppCompatActivity implements Vie
 
             case R.id.Business_Button:
                 txtBusiness = "";
-                txt_Display_User.setText("");
+                txt_Display_Work.setText("");
 
                 ParseQuery<ParseObject> queryAllProfessor = ParseQuery.getQuery("Business");
                 queryAllProfessor.findInBackground(new FindCallback<ParseObject>() {
@@ -118,13 +119,13 @@ public class activity_admin_delete_user extends AppCompatActivity implements Vie
                                     if (count_Assistent == 0) {
                                         txtBusiness = txtBusiness + "--------------\n" + "Title: "+  parseObject.get("Title") + "\n" + "Price: "+  parseObject.get("Price") +
                                                 "\n Date: "+  parseObject.get("createdAt")+ "\n \n";
-                                        txt_Display_User.setText(txtBusiness);
+                                        txt_Display_Work.setText(txtBusiness);
                                         ++count_Assistent;
 
                                     } else {
                                         txtBusiness = txtBusiness + "Title: "+  parseObject.get("Title") + "\n" + "Price: "+  parseObject.get("Price") +
                                                 "\n Date: "+  parseObject.get("createdAt")+ "\n \n";
-                                        txt_Display_User.setText(txtBusiness);
+                                        txt_Display_Work.setText(txtBusiness);
                                     }
 
                                 }
@@ -222,48 +223,48 @@ public class activity_admin_delete_user extends AppCompatActivity implements Vie
         }
     }
 
-
-    // Horror fix redundant data
-    String bachelor;
-    String master;
-
-    public void redundant_User() {
-        ParseQuery<ParseObject> update = ParseQuery.getQuery("New_User");
-        update.whereEqualTo("Username", txt_Write_User.getText().toString());
-        update.getFirstInBackground(new GetCallback<ParseObject>() {
-            public void done(ParseObject parseObject, ParseException e) {
-                if (e == null) {
-                    email = parseObject.getString("email");
-                    Project = parseObject.getString("Project_txt");
-                    bachelor = parseObject.getString("Bachelor_txt");
-                    master = parseObject.getString("Master_txt");
-
-                } else {
-                    FancyToast.makeText(activity_admin_delete_user.this, "Wrong1", FancyToast.LENGTH_SHORT, FancyToast.SUCCESS, true).show();
-                }
-            }
-        });
-
-
-        //FOR REDUNDANT DATA
-        ParseQuery<ParseObject> work = ParseQuery.getQuery("All_Works");
-        work.findInBackground(new FindCallback<ParseObject>() {
-            @Override
-            public void done(List<ParseObject> objects, ParseException e) {
-
-                if (e == null) {
-                    for (ParseObject object : objects) {
-
-
-                        if (object.get("Title").equals(Project) || object.get("Title").equals(bachelor) || object.get("Title").equals(master)) {
-                            object.put("User", "open");
-                        }
-                        object.saveInBackground();
-                    }
-                }
-            }
-        });
-    }
+//
+//    // Horror fix redundant data
+//    String bachelor;
+//    String master;
+//
+//    public void redundant_User() {
+//        ParseQuery<ParseObject> update = ParseQuery.getQuery("New_User");
+//        update.whereEqualTo("Username", txt_Write_User.getText().toString());
+//        update.getFirstInBackground(new GetCallback<ParseObject>() {
+//            public void done(ParseObject parseObject, ParseException e) {
+//                if (e == null) {
+//                    email = parseObject.getString("email");
+//                    Project = parseObject.getString("Project_txt");
+//                    bachelor = parseObject.getString("Bachelor_txt");
+//                    master = parseObject.getString("Master_txt");
+//
+//                } else {
+//                    FancyToast.makeText(activity_admin_delete_user.this, "Wrong1", FancyToast.LENGTH_SHORT, FancyToast.SUCCESS, true).show();
+//                }
+//            }
+//        });
+//
+//
+//        //FOR REDUNDANT DATA
+//        ParseQuery<ParseObject> work = ParseQuery.getQuery("All_Works");
+//        work.findInBackground(new FindCallback<ParseObject>() {
+//            @Override
+//            public void done(List<ParseObject> objects, ParseException e) {
+//
+//                if (e == null) {
+//                    for (ParseObject object : objects) {
+//
+//
+//                        if (object.get("Title").equals(Project) || object.get("Title").equals(bachelor) || object.get("Title").equals(master)) {
+//                            object.put("User", "open");
+//                        }
+//                        object.saveInBackground();
+//                    }
+//                }
+//            }
+//        });
+//    }
 
 
 
