@@ -54,7 +54,7 @@ public class Login_Interface extends AppCompatActivity implements View.OnClickLi
                 break;
 
             case R.id.SignUp:
-                Intent SignUp = new Intent(Login_Interface.this, Show_Pictures.class);
+                Intent SignUp = new Intent(Login_Interface.this, com.example.joanneumprojekt.SignUP.SignUp.class);
                 startActivity(SignUp);
                 break;
         }
