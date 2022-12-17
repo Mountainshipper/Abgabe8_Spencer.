@@ -36,7 +36,7 @@
         android:id="@+id/lineabrechnung"
         android:layout_width="250dp"
         android:layout_height="2dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="40dp"
         app:layout_constraintHorizontal_bias="0.484"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

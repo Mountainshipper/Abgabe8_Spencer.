@@ -6,28 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".Display_Interface.show_add_bill">
 
-
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:text="Tax rate"
-        app:layout_constraintBottom_toTopOf="@+id/spinner2"
-        app:layout_constraintEnd_toEndOf="@+id/spinner2"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="@+id/spinner2" />
-
-    <Spinner
-        android:id="@+id/spinner2"
-        android:layout_width="239dp"
-        android:layout_height="48dp"
-        android:layout_marginBottom="272dp"
-        android:contentDescription="@string/tax_deprication"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
     <CheckBox
         android:id="@+id/Private"
         android:layout_width="100dp"
@@ -95,6 +73,52 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/txt_Titel"
         app:layout_constraintTop_toBottomOf="@+id/txt_Titel" />
+
+    <TextView
+        android:id="@+id/steuersatz"
+        android:layout_width="239dp"
+        android:layout_height="30dp"
+        android:text="Steuersatz: "
+        android:gravity="center"
+        android:textSize="7pt"
+        android:layout_marginTop="50dp"
+        app:layout_constraintTop_toBottomOf="@+id/Private"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.484"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <CheckBox
+        android:id="@+id/check20"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:text="20%"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toStartOf="@+id/Business"
+        app:layout_constraintHorizontal_bias="0.398"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/steuersatz" />
+
+    <CheckBox
+        android:id="@+id/check10"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:text="10%"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toStartOf="@+id/Business"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toEndOf="@+id/check20"
+        app:layout_constraintTop_toBottomOf="@+id/steuersatz"/>
+
+    <CheckBox
+        android:id="@+id/check13"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:text="13%"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toStartOf="@+id/Business"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toEndOf="@+id/check10"
+        app:layout_constraintTop_toBottomOf="@+id/steuersatz"/>
 
     <Button
         android:id="@+id/btn_camera"
