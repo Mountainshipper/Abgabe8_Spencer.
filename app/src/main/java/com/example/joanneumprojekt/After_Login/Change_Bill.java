@@ -1,7 +1,5 @@
 /**
- * Autor: Samuel Spencer
- * This is the code where a admin can change the data of a existing user
- * 06.06.2022
+ * Class for changing the contents of a bill
  */
 
 package com.example.joanneumprojekt.After_Login;
@@ -15,7 +13,6 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.joanneumprojekt.R;
-import com.example.joanneumprojekt.open.Current_Login;
 import com.parse.FindCallback;
 import com.parse.GetCallback;
 import com.parse.ParseException;
