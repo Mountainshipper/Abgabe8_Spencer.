@@ -45,7 +45,7 @@ public class Main extends AppCompatActivity implements View.OnClickListener{
 
         drawerLayout = findViewById(R.id.drawer_layout);
         changetoolbarText = findViewById(R.id.tv_toolbarText);
-        changetoolbarText.setText("Bills");
+        changetoolbarText.setText("BILLS");
 
         Private_Button.setOnClickListener(this);
         Business_Button.setOnClickListener(this);

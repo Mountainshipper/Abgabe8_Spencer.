@@ -26,6 +26,7 @@ import java.util.List;
 
 public class show_delete_bill extends AppCompatActivity implements View.OnClickListener{
     DrawerLayout drawerLayout;
+    private TextView changetoolbarText;
     private Button Private_Button, Business_Button, Delete_Business, deletePrivate;
     private TextView txt_Display_Work, txt_Write_Work, txt_Write_User;
     String txt_Private, txtBusiness;
@@ -37,6 +38,8 @@ public class show_delete_bill extends AppCompatActivity implements View.OnClickL
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_delete_bill);
         drawerLayout = findViewById(R.id.drawer_layout);
+        changetoolbarText = findViewById(R.id.tv_toolbarText);
+        changetoolbarText.setText("REMOVE BILL");
 
 
         deletePrivate = findViewById(R.id.Delete_Private);
