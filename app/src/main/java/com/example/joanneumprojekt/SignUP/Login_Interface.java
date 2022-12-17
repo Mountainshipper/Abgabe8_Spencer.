@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.joanneumprojekt.Pictures.GetPictures;
+import com.example.joanneumprojekt.Pictures.Show_Pictures;
 import com.example.joanneumprojekt.R;
 import com.parse.ParseUser;
 
@@ -54,7 +55,7 @@ public class Login_Interface extends AppCompatActivity implements View.OnClickLi
                 break;
 
             case R.id.SignUp:
-                Intent SignUp = new Intent(Login_Interface.this, GetPictures.class);
+                Intent SignUp = new Intent(Login_Interface.this, Show_Pictures.class);
                 startActivity(SignUp);
                 break;
         }

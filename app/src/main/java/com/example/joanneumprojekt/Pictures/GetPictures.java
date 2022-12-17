@@ -32,11 +32,138 @@ import java.io.File;
 import java.util.List;
 
 public class GetPictures extends AppCompatActivity {
-
+    private LinearLayout linearLayout;
+    private File file;
+    private TextView changetoolbarText;
+    DrawerLayout drawerLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_get_pictures);
+        setContentView(R.layout.show_pictures);
+
+        linearLayout = findViewById(R.id.SetLayoutForPictures);
+        drawerLayout = findViewById(R.id.drawer_layout);
+        // changetoolbarText = findViewById(R.id.tv_toolbarText);
+        // changetoolbarText.setText("GET BILLS");
+
+
+
+        final ProgressDialog dialog = new ProgressDialog(this);
+
+
+
+
+        ParseQuery<ParseObject> parseQuery = new ParseQuery<ParseObject>("Photo");
+        parseQuery.whereEqualTo("Name", "1");
+
+
+        parseQuery.findInBackground(new FindCallback<ParseObject>() {
+            @Override
+            public void done(List<ParseObject> objects, ParseException e) {
+                if (objects.size() > 0 && e == null) {
+                    dialog.setMessage("Loading...");
+                    dialog.show();
+
+                    for (ParseObject post : objects) {
+
+                        final TextView postDescription = new TextView(GetPictures.this);
+                        postDescription.setText(post.get("image_des") + "");
+
+
+                        ParseFile file2 = post.getParseFile("picture");
+                        file2.getDataInBackground(new GetDataCallback() {
+                            @Override
+                            public void done(byte[] data, ParseException e) {
+
+                                if (data != null && e == null) {
+
+                                    Bitmap bitmap = BitmapFactory.decodeByteArray(data, 0, data.length);
+                                    ImageView postImageView = new ImageView(GetPictures.this);
+                                    LinearLayout.LayoutParams imageView_params =
+                                            new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+                                                    ViewGroup.LayoutParams.WRAP_CONTENT);
+                                    imageView_params.setMargins(5, 5, 5, 5);
+                                    postImageView.setLayoutParams(imageView_params);
+                                    postImageView.setScaleType(ImageView.ScaleType.FIT_CENTER);
+                                    postImageView.setImageBitmap(bitmap);
+
+                                    LinearLayout.LayoutParams des_params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                                    des_params.setMargins(5, 5, 5, 15);
+                                    postDescription.setLayoutParams(des_params);
+                                    postDescription.setGravity(Gravity.CENTER);
+                                    postDescription.setTextColor(Color.WHITE);
+                                    postDescription.setTextSize(30f);
+                                    postDescription.setText("\n\n");
+
+
+                                    linearLayout.addView(postImageView);
+                                    linearLayout.addView(postDescription);
+
+                                }
+
+                            }
+                        });
+
+
+                    }
+
+
+
+                } else {
+
+                    FancyToast.makeText(GetPictures.this, " Cannot find any Pictures!", Toast.LENGTH_SHORT, FancyToast.INFO, true).show();
+                    finish();
+                }
+
+                dialog.dismiss();
+            }
+        });
 
     }
+
+
+
+
+    public void clickMenu(View view) {
+        Main.openDrawer(drawerLayout);
+
+    }
+
+    public void clickLogo(View view) {
+        Main.closeDrawer(drawerLayout);
+    }
+
+    public void clickHome(View view) {
+        //Redirect activity to MainActivity (Home)
+        Main.redirectActivity(this, Main.class);
+    }
+
+    public void clickApplications(View view) {
+        //Recreate the ApplicationsActivity
+        Main.redirectActivity(this, New_Bill.class);
+    }
+
+    public void getBillsPng(View view) {
+        //Recreate the getpictures
+        recreate();
+    }
+
+    public void deleteUser(View view) {
+        //Redirect activity to deleteUser
+        Main.redirectActivity(this, show_delete_bill.class);
+    }
+
+
+    public void clickLogout(View view) {
+        //Close app
+        Main.logout(this);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Main.closeDrawer(drawerLayout);
+    }
+
+
 }

@@ -18,7 +18,6 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.joanneumprojekt.Pictures.GetPictures;
-import com.example.joanneumprojekt.Pictures.Show_Pictures;
 import com.example.joanneumprojekt.R;
 import com.parse.FindCallback;
 import com.parse.ParseException;
@@ -170,7 +169,7 @@ public class Main extends AppCompatActivity implements View.OnClickListener {
 
     public void getBillsPng(View view) {
         //Recreate the getpictures
-        redirectActivity(this, Show_Pictures.class);
+        redirectActivity(this, GetPictures.class);
     }
 
     public void clickLogout(View view) {

@@ -15,7 +15,7 @@ import com.example.joanneumprojekt.R;
 
 public class activity_admin_delete_user extends AppCompatActivity{
 
-    DrawerLayout drawerLayout;
+
 
 
     @Override
