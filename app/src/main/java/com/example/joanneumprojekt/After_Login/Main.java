@@ -170,7 +170,7 @@ public class Main extends AppCompatActivity implements View.OnClickListener {
 
     public void getBillsPng(View view) {
         //Recreate the getpictures
-        redirectActivity(this, GetPictures.class);
+        redirectActivity(this, Show_Pictures.class);
     }
 
     public void clickLogout(View view) {
