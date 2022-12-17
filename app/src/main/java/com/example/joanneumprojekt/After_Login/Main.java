@@ -175,7 +175,7 @@ public class Main extends AppCompatActivity implements View.OnClickListener {
     }
 
     public void change_data(View view){
-
+        redirectActivity(this, Change_Bill.class);
     }
 
     public void deleteUser(View view) {
