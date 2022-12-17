@@ -4,7 +4,7 @@
 
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.hardware.camera2.full" />
 
     <application
@@ -15,6 +15,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.JoanneumProjekt">
+        <activity
+            android:name=".Admin.GetPictures"
+            android:exported="false" />
         <activity
             android:name=".Admin.show_add_bill"
             android:exported="false">
@@ -71,8 +74,6 @@
         <activity
             android:name=".open.Change_DATA_1_User"
             android:exported="false" />
-
-
         <activity
             android:name=".SignUP.Login_Interface"
             android:exported="false" />
