@@ -31,9 +31,8 @@
                     android:layout_marginTop="20dp"
                     android:backgroundTint="@color/white"
                     android:textColorHint="@color/black"
-                    android:background="#400000"
-                    android:text="Private Bills"
-                    android:textColor="#ffffff" />
+                    android:textColor="@color/black"
+                    android:text="Private Bills" />
 
                 <Button
                     android:id="@+id/Main_b_Business"
@@ -41,14 +40,18 @@
                     android:layout_height="70dp"
                     android:backgroundTint="@color/white"
                     android:textColorHint="@color/black"
+                    android:textColor="@color/black"
                     android:layout_marginLeft="35dp"
                     android:layout_marginTop="20dp"
-                    android:background="#400000"
-                    android:text="Buisness Bill"
-                    android:textColor="#ffffff" />
+                    android:text="Business Bill" />
 
             </LinearLayout>
         </HorizontalScrollView>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/text_color"/>
 
         <ScrollView
             android:layout_width="match_parent"
