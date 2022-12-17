@@ -359,9 +359,10 @@ public class activity_camera extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if(requestCode == 4000 && resultCode == RESULT_OK && data != null) {
+        if (requestCode == 4000 && resultCode == RESULT_OK && data != null) {
 
             try {
+                String path = file.getAbsolutePath();
                 Uri capturedImage = data.getData();
                 Bitmap bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), capturedImage);
                 ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
@@ -372,20 +373,29 @@ public class activity_camera extends AppCompatActivity {
                 ParseObject parseObject = new ParseObject("Photo");
                 parseObject.put("picture", parseFile);
                 parseObject.put("username", ParseUser.getCurrentUser().getUsername());
+                final ProgressDialog dialog = new ProgressDialog(this);
+                dialog.setMessage("Loading...");
+                dialog.show();
                 parseObject.saveInBackground(new SaveCallback() {
                     @Override
                     public void done(ParseException e) {
                         if (e == null) {
-                            FancyToast.makeText(activity_camera.this, "Picture uploaded!", Toast.LENGTH_SHORT, FancyToast.INFO, true);
+                            FancyToast.makeText(activity_camera.this, "Pictured Uploaded!", Toast.LENGTH_SHORT, FancyToast.INFO, true).show();
                         } else {
-                            FancyToast.makeText(activity_camera.this, "Unknown error", Toast.LENGTH_SHORT, FancyToast.INFO, true);
+                            FancyToast.makeText(activity_camera.this, "Unknown error: " + e.getMessage(), Toast.LENGTH_SHORT, FancyToast.ERROR, true).show();
+
                         }
+                        dialog.dismiss();
                     }
                 });
 
+
             } catch (Exception e) {
+
                 e.printStackTrace();
             }
+
         }
+        Main.redirectActivity(this, show_add_bill.class);
     }
 }
