@@ -35,6 +35,8 @@ public class GetPictures extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_get_pictures);
 
+        linearLayout = findViewById(R.id.linearLayout);
+
 
 
 
@@ -81,9 +83,10 @@ public class GetPictures extends AppCompatActivity {
                                     des_params.setMargins(5, 5, 5, 15);
                                     postDescription.setLayoutParams(des_params);
                                     postDescription.setGravity(Gravity.CENTER);
-                                    postDescription.setBackgroundColor(Color.RED);
                                     postDescription.setTextColor(Color.WHITE);
                                     postDescription.setTextSize(30f);
+                                    postDescription.setText("\n\n");
+
 
                                     linearLayout.addView(postImageView);
                                     linearLayout.addView(postDescription);

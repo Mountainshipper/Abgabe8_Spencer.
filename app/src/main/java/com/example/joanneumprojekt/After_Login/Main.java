@@ -72,18 +72,18 @@ public class Main extends AppCompatActivity implements View.OnClickListener {
                                 for (ParseObject parseObject : objects) {
 
                                     if (count_Work == 0) {
-                                        txt_Private = txt_Private + "--------------\n" + "Title: " + parseObject.get("Title") + "\n" + "Price: " + parseObject.get("Price") +
-                                                "\nDate: " + parseObject.get("Date") + "\nDeprecation: " + parseObject.get("Abrechnung") + "\n \n";
+                                        txt_Private = txt_Private + "--------------\n" + "Title: " + parseObject.get("Title") + "\n" + "Price: " + parseObject.get("Price") + "€"+
+                                                "\nDate: " + parseObject.get("Date") + "\nTaxes: " + parseObject.get("Abrechnung") + "€"+ "\n \n";
                                         sum = sum + (double) parseObject.get("Abrechnung");
 
                                     } else {
-                                        txt_Private = txt_Private + "Title: " + parseObject.get("Title") + "\n" + "Price: " + parseObject.get("Price") +
-                                                "\nDate: " + parseObject.get("Date") + "\nDeprecation: " + parseObject.get("Abrechnung") + "\n \n";
+                                        txt_Private = txt_Private + "Title: " + parseObject.get("Title") + "\n" + "Price: " + parseObject.get("Price") + "€"+
+                                                "\nDate: " + parseObject.get("Date") + "\nTaxes: " + parseObject.get("Abrechnung") + "€"+ "\n \n";
                                         sum = sum + (double) parseObject.get("Abrechnung");
                                     }
                                 }
                             }
-                            String total = "Total sum deprecation: " + sum;
+                            String total = "Total sum of taxes: " + sum +"€\n";
                             txt_Display_Work.setText(total + "\n" + txt_Private);
                         }
                     }
@@ -107,20 +107,20 @@ public class Main extends AppCompatActivity implements View.OnClickListener {
 
 
                                     if (count_Assistent == 0) {
-                                        txtBusiness = txtBusiness + "--------------\n" + "Title: " + parseObject.get("Title") + "\n" + "Price: " + parseObject.get("Price") +
-                                                "\nDate: " + parseObject.get("Date") + "\nDeprecation: " + parseObject.get("Abrechnung") + "\n \n";
+                                        txtBusiness = txtBusiness + "--------------\n" + "Title: " + parseObject.get("Title") + "\n" + "Price: " + parseObject.get("Price") + "€"+
+                                                "\nDate: " + parseObject.get("Date") + "\nTaxes: " + parseObject.get("Abrechnung") + "€"+ "\n \n";
                                         ++count_Assistent;
                                         sum = sum + (double) parseObject.get("Abrechnung");
 
                                     } else {
-                                        txtBusiness = txtBusiness + "Title: " + parseObject.get("Title") + "\n" + "Price: " + parseObject.get("Price") +
-                                                "\nDate: " + parseObject.get("Date") + "\nDeprecation: " + parseObject.get("Abrechnung") + "\n \n";
+                                        txtBusiness = txtBusiness + "Title: " + parseObject.get("Title") + "\n" + "Price: " + parseObject.get("Price") + "€"+
+                                                "\nDate: " + parseObject.get("Date") + "\nTaxes: " + parseObject.get("Abrechnung") + "€"+ "\n \n";
                                         sum = sum + (double) parseObject.get("Abrechnung");
                                     }
 
                                 }
-                                String total = "Total sum deprecation: " + sum;
-                                txt_Display_Work.setText(total + "\n" + txt_Private);
+                                String total = "Total sum of taxes: " + sum +"€\n";
+                                txt_Display_Work.setText(total + "\n\n" + txt_Private);
                             }
                         }
                     }
