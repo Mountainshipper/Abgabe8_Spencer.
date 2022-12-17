@@ -61,7 +61,6 @@ public class show_delete_bill extends AppCompatActivity implements View.OnClickL
 
         switch (view.getId()) {
             case R.id.Private_Button:
-                FancyToast.makeText(show_delete_bill.this, "completed", FancyToast.LENGTH_SHORT, FancyToast.SUCCESS, true).show();
 
                 txt_Private = "";
                 txt_Display_Work.setText("");
@@ -214,53 +213,6 @@ public class show_delete_bill extends AppCompatActivity implements View.OnClickL
                 }break;
         }
     }
-
-//
-//    // Horror fix redundant data
-//    String bachelor;
-//    String master;
-//
-//    public void redundant_User() {
-//        ParseQuery<ParseObject> update = ParseQuery.getQuery("New_User");
-//        update.whereEqualTo("Username", txt_Write_User.getText().toString());
-//        update.getFirstInBackground(new GetCallback<ParseObject>() {
-//            public void done(ParseObject parseObject, ParseException e) {
-//                if (e == null) {
-//                    email = parseObject.getString("email");
-//                    Project = parseObject.getString("Project_txt");
-//                    bachelor = parseObject.getString("Bachelor_txt");
-//                    master = parseObject.getString("Master_txt");
-//
-//                } else {
-//                    FancyToast.makeText(activity_admin_delete_user.this, "Wrong1", FancyToast.LENGTH_SHORT, FancyToast.SUCCESS, true).show();
-//                }
-//            }
-//        });
-//
-//
-//        //FOR REDUNDANT DATA
-//        ParseQuery<ParseObject> work = ParseQuery.getQuery("All_Works");
-//        work.findInBackground(new FindCallback<ParseObject>() {
-//            @Override
-//            public void done(List<ParseObject> objects, ParseException e) {
-//
-//                if (e == null) {
-//                    for (ParseObject object : objects) {
-//
-//
-//                        if (object.get("Title").equals(Project) || object.get("Title").equals(bachelor) || object.get("Title").equals(master)) {
-//                            object.put("User", "open");
-//                        }
-//                        object.saveInBackground();
-//                    }
-//                }
-//            }
-//        });
-//    }
-
-
-
-
 
 
     public void clickMenu(View view){
