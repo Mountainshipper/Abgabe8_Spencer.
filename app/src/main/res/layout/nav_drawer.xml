@@ -10,6 +10,7 @@
         android:id="@+id/imageView7"
         android:layout_width="match_parent"
         android:layout_height="68dp"
+        android:onClick="clickLogo"
         app:srcCompat="@drawable/billing" />
 
     <TextView
@@ -19,7 +20,9 @@
         android:textSize="12sp"
         android:textStyle="bold"
         android:textAlignment="center"
+        android:onClick="clickLogo"
         android:textColor="@color/white"
+
         android:layout_marginBottom="16dp"/>
 
     <View

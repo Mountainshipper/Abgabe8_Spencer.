@@ -81,12 +81,12 @@ public class show_delete_bill extends AppCompatActivity implements View.OnClickL
 
                                     if (count_Work == 0) {
                                         txt_Private = txt_Private + "--------------\n" + "Title: "+  parseObject.get("Title") + "\n" + "Price: "+  parseObject.get("Price") +
-                                                "\n Date: "+  parseObject.get("createdAt")+ "\n \n";
+                                                "\nDate: "+  parseObject.get("Date")+ "\n \n";
                                         txt_Display_Work.setText(txt_Private);
                                         ++count_Work;
                                     } else {
                                         txt_Private = txt_Private + "Title: "+  parseObject.get("Title") + "\n" + "Price: "+  parseObject.get("Price") +
-                                                "\n Date: "+  parseObject.get("createdAt")+ "\n \n";
+                                                "\nDate: "+  parseObject.get("Date")+ "\n \n";
                                         txt_Display_Work.setText(txt_Private);
                                     }
                                 }
@@ -112,13 +112,13 @@ public class show_delete_bill extends AppCompatActivity implements View.OnClickL
 
                                     if (count_Assistent == 0) {
                                         txtBusiness = txtBusiness + "--------------\n" + "Title: "+  parseObject.get("Title") + "\n" + "Price: "+  parseObject.get("Price") +
-                                                "\n Date: "+  parseObject.get("createdAt")+ "\n \n";
+                                                "\nDate: "+  parseObject.get("Date")+ "\n \n";
                                         txt_Display_Work.setText(txtBusiness);
                                         ++count_Assistent;
 
                                     } else {
                                         txtBusiness = txtBusiness + "Title: "+  parseObject.get("Title") + "\n" + "Price: "+  parseObject.get("Price") +
-                                                "\n Date: "+  parseObject.get("createdAt")+ "\n \n";
+                                                "\nDate: "+  parseObject.get("Date")+ "\n \n";
                                         txt_Display_Work.setText(txtBusiness);
                                     }
 

@@ -9,6 +9,7 @@ package com.example.joanneumprojekt.After_Login;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.graphics.Color;
@@ -73,6 +74,7 @@ public class New_Bill extends AppCompatActivity implements View.OnClickListener 
     }
 
 
+    @SuppressLint("NonConstantResourceId")
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
@@ -93,6 +95,7 @@ public class New_Bill extends AppCompatActivity implements View.OnClickListener 
     }
 
 
+    @SuppressLint("SimpleDateFormat")
     public void deadline() {
         Calendar newCalender = Calendar.getInstance();
         int year = newCalender.get(Calendar.YEAR);
@@ -108,18 +111,15 @@ public class New_Bill extends AppCompatActivity implements View.OnClickListener 
         newDialog.show();
 
 
-        dateListener = new DatePickerDialog.OnDateSetListener() {
-            @Override
-            public void onDateSet(DatePicker datenew, int year, int month, int day) {
-                month = month + 1;
+        dateListener = (datenew, year1, month1, day1) -> {
+            month1 = month1 + 1;
 
-                String date = month + "/" + day + "/" + year;
-                displayDeadline.setText(date);
-                try {
-                    date2 = new SimpleDateFormat("dd/MM/yyyy").parse(date);
-                } catch (java.text.ParseException e) {
+            String date = month1 + "/" + day1 + "/" + year1;
+            displayDeadline.setText(date);
+            try {
+                date2 = new SimpleDateFormat("dd/MM/yyyy").parse(date);
+            } catch (java.text.ParseException ignored) {
 
-                }
             }
         };
     }
@@ -145,7 +145,7 @@ public class New_Bill extends AppCompatActivity implements View.OnClickListener 
         }
 
 
-        String percent = "";
+        int percent = 0;
         int checkPercent = 0;
         if (Business.isChecked()) {
             checkPercent = checkPercent + 1;
@@ -156,11 +156,11 @@ public class New_Bill extends AppCompatActivity implements View.OnClickListener 
 
         if (checkPercent == 1) {
             if (check10.isChecked())
-                role = "10";
+                percent = 10;
             else if (check13.isChecked()) {
-                role = "13";
+                percent = 13;
             } else if (check20.isChecked()) {
-                role = "20";
+                percent = 20;
             }
         }
 
@@ -173,20 +173,18 @@ public class New_Bill extends AppCompatActivity implements View.OnClickListener 
                         Categorize.put("Date", displayDeadline.getText().toString());
                         Categorize.put("Title", title.getText().toString());
                         Categorize.put("Price", price.getText().toString());
-                        Categorize.put("Abrechnung", role);
+                        int calculation = Integer.parseInt(price.getText().toString()) * percent;
+                        Categorize.put("Abrechnung", calculation);
 
 
-                        Categorize.saveInBackground(new SaveCallback() {
-                            @Override
-                            public void done(ParseException e) {
-                                if (e == null) {
-                                    FancyToast.makeText(New_Bill.this, " Work has been uploaded", FancyToast.LENGTH_LONG, FancyToast.SUCCESS, true).show();
-                                    Intent intent = new Intent(New_Bill.this, Main.class);
-                                    startActivity(intent);
+                        Categorize.saveInBackground(e -> {
+                            if (e == null) {
+                                FancyToast.makeText(New_Bill.this, " Work has been uploaded", FancyToast.LENGTH_LONG, FancyToast.SUCCESS, true).show();
+                                Intent intent = new Intent(New_Bill.this, Main.class);
+                                startActivity(intent);
 
-                                } else {
-                                    FancyToast.makeText(New_Bill.this, "Something went wrong", FancyToast.LENGTH_LONG, FancyToast.ERROR, true).show();
-                                }
+                            } else {
+                                FancyToast.makeText(New_Bill.this, "Something went wrong", FancyToast.LENGTH_LONG, FancyToast.ERROR, true).show();
                             }
                         });
 
