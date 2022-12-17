@@ -160,8 +160,7 @@ public class activity_camera extends AppCompatActivity {
 
             int rotation = getWindowManager().getDefaultDisplay().getRotation();
             captureBuilder.set(CaptureRequest.JPEG_ORIENTATION, ORIENTATIONS.get(rotation));
-            file = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
-//            file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM)+"/"+UUID.randomUUID().toString()+".jpg");
+            file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM)+"/"+UUID.randomUUID().toString()+".jpg");
 
             ImageReader.OnImageAvailableListener readerListener = new ImageReader.OnImageAvailableListener() {
                 @Override
@@ -351,11 +350,13 @@ public class activity_camera extends AppCompatActivity {
     }
 
     private void externalStorage() {
-        Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-        startActivityForResult(intent, 4000);
+        /*Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        startActivityForResult(intent, 4000);*/
+        Intent addBill = new Intent(activity_camera.this, show_add_bill.class);
+        startActivity(addBill);
     }
 
-    @Override
+    /* @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
@@ -388,5 +389,5 @@ public class activity_camera extends AppCompatActivity {
 
             Main.redirectActivity(this, show_add_bill.class);
         }
-    }
+    }*/
 }
