@@ -3,6 +3,7 @@ package com.example.joanneumprojekt.After_Login;
 /*
 
  */
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -24,7 +25,7 @@ import com.parse.ParseQuery;
 
 import java.util.List;
 
-public class Main extends AppCompatActivity implements View.OnClickListener{
+public class Main extends AppCompatActivity implements View.OnClickListener {
     private TextView changetoolbarText;
     DrawerLayout drawerLayout;
     private static final String Tag = "MainActivity";
@@ -38,7 +39,6 @@ public class Main extends AppCompatActivity implements View.OnClickListener{
         setContentView(R.layout.start);
 
 
-
         Private_Button = findViewById(R.id.Main_b_private);
         Business_Button = findViewById(R.id.Main_b_Business);
         txt_Display_Work = findViewById(R.id.Display_Info);
@@ -50,7 +50,6 @@ public class Main extends AppCompatActivity implements View.OnClickListener{
         Private_Button.setOnClickListener(this);
         Business_Button.setOnClickListener(this);
     }
-
 
 
     @Override
@@ -67,23 +66,25 @@ public class Main extends AppCompatActivity implements View.OnClickListener{
                     public void done(List<ParseObject> objects, ParseException e) {
                         int count_Work = 0;
 
+                        double sum = 0;
                         if (e == null) {
                             if (objects.size() > 0) {
                                 for (ParseObject parseObject : objects) {
 
-
                                     if (count_Work == 0) {
                                         txt_Private = txt_Private + "--------------\n" + "Title: " + parseObject.get("Title") + "\n" + "Price: " + parseObject.get("Price") +
-                                                "\nDate: " + parseObject.get("Date") + "\n \n";
-                                        txt_Display_Work.setText(txt_Private);
-                                        ++count_Work;
+                                                "\nDate: " + parseObject.get("Date") + "\nDeprecation: " + parseObject.get("Abrechnung") + "\n \n";
+                                        sum = sum + (double) parseObject.get("Abrechnung");
+
                                     } else {
                                         txt_Private = txt_Private + "Title: " + parseObject.get("Title") + "\n" + "Price: " + parseObject.get("Price") +
-                                                "\nDate: " + parseObject.get("Date") + "\n \n";
-                                        txt_Display_Work.setText(txt_Private);
+                                                "\nDate: " + parseObject.get("Date") + "\nDeprecation: " + parseObject.get("Abrechnung") + "\n \n";
+                                        sum = sum + (double) parseObject.get("Abrechnung");
                                     }
                                 }
                             }
+                            String total = "Total sum deprecation: " + sum;
+                            txt_Display_Work.setText(total + "\n" + txt_Private);
                         }
                     }
                 });
@@ -93,11 +94,13 @@ public class Main extends AppCompatActivity implements View.OnClickListener{
                 txtBusiness = "";
                 txt_Display_Work.setText("");
 
+
                 ParseQuery<ParseObject> queryAllProfessor = ParseQuery.getQuery("Business");
                 queryAllProfessor.findInBackground(new FindCallback<ParseObject>() {
                     @Override
                     public void done(List<ParseObject> objects, ParseException e) {
                         int count_Assistent = 0;
+                        double sum = 0;
                         if (e == null) {
                             if (objects.size() > 0) {
                                 for (ParseObject parseObject : objects) {
@@ -106,16 +109,18 @@ public class Main extends AppCompatActivity implements View.OnClickListener{
                                     if (count_Assistent == 0) {
                                         txtBusiness = txtBusiness + "--------------\n" + "Title: " + parseObject.get("Title") + "\n" + "Price: " + parseObject.get("Price") +
                                                 "\nDate: " + parseObject.get("Date") + "\nDeprecation: " + parseObject.get("Abrechnung") + "\n \n";
-                                        txt_Display_Work.setText(txtBusiness);
                                         ++count_Assistent;
+                                        sum = sum + (double) parseObject.get("Abrechnung");
 
                                     } else {
                                         txtBusiness = txtBusiness + "Title: " + parseObject.get("Title") + "\n" + "Price: " + parseObject.get("Price") +
-                                                "\nDate: " + parseObject.get("Date") + "\n \n";
-                                        txt_Display_Work.setText(txtBusiness);
+                                                "\nDate: " + parseObject.get("Date") + "\nDeprecation: " + parseObject.get("Abrechnung") + "\n \n";
+                                        sum = sum + (double) parseObject.get("Abrechnung");
                                     }
 
                                 }
+                                String total = "Total sum deprecation: " + sum;
+                                txt_Display_Work.setText(total + "\n" + txt_Private);
                             }
                         }
                     }
@@ -126,9 +131,10 @@ public class Main extends AppCompatActivity implements View.OnClickListener{
         }
     }
 
-    public void clickMenu(View view){
+    public void clickMenu(View view) {
         openDrawer(drawerLayout);
     }
+
     // von der Seite soll der navigator kommen
     public static void openDrawer(DrawerLayout drawerLayout) {
         drawerLayout.openDrawer(GravityCompat.START);
@@ -136,36 +142,36 @@ public class Main extends AppCompatActivity implements View.OnClickListener{
 
 
     //What should happen when you click on the logo in the drawer
-    public void clickLogo(View view){
+    public void clickLogo(View view) {
         closeDrawer(drawerLayout);
     }
 
     public static void closeDrawer(DrawerLayout drawerLayout) {
         //When drawer is open, then close it
-        if(drawerLayout.isDrawerOpen(GravityCompat.START)){
+        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
             drawerLayout.closeDrawer(GravityCompat.START);
         }
     }
 
     // wenn ich home bin, und dann im navigator auf home erneut klicke - passiert halt ein refresh
-    public void clickHome(View view){
+    public void clickHome(View view) {
         //Recreate the Rob_MainActivity
         recreate();
     }
 
-    public void clickApplications(View view){
+    public void clickApplications(View view) {
         //Redirect current activity to Applications activity
         // --> wenn ich auf add bill click, soll er zu add bill kommen
         redirectActivity(this, New_Bill.class);
     }
 
 
-    public void clickLogout(View view){
+    public void clickLogout(View view) {
         //close app
         logout(this);
     }
 
-    public void deleteUser(View view){
+    public void deleteUser(View view) {
         //close app
         redirectActivity(this, show_delete_bill.class);
     }
