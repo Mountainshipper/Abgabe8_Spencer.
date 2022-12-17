@@ -350,8 +350,6 @@ public class activity_camera extends AppCompatActivity {
     private void externalStorage() {
         Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
         startActivityForResult(intent, 4000);
-        /*Intent addBill = new Intent(activity_camera.this, show_add_bill.class);
-        startActivity(addBill);*/
     }
 
     @Override
