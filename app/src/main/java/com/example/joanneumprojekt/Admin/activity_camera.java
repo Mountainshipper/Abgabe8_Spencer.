@@ -160,8 +160,8 @@ public class activity_camera extends AppCompatActivity {
 
             int rotation = getWindowManager().getDefaultDisplay().getRotation();
             captureBuilder.set(CaptureRequest.JPEG_ORIENTATION, ORIENTATIONS.get(rotation));
-
-            file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM)+"/"+UUID.randomUUID().toString()+".jpg");
+            file = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
+//            file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM)+"/"+UUID.randomUUID().toString()+".jpg");
 
             ImageReader.OnImageAvailableListener readerListener = new ImageReader.OnImageAvailableListener() {
                 @Override
@@ -371,7 +371,6 @@ public class activity_camera extends AppCompatActivity {
                 ParseFile parseFile = new ParseFile("img.png", bytes);
                 ParseObject parseObject = new ParseObject("Photo");
                 parseObject.put("picture", parseFile);
-                parseObject.put("username", ParseUser.getCurrentUser().getUsername());
                 final ProgressDialog dialog = new ProgressDialog(this);
                 dialog.setMessage("Loading");
                 dialog.show();

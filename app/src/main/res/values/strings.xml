@@ -9,6 +9,7 @@
     <string name="app_name">billings</string>
 
     <string name="navigatorText">ADD BILL</string>
+    <string name="AllBillsPng">Get BILL</string>
 
     <string name="home">Home</string>
     <string name="addnewbill">Add new Bill</string>
