@@ -142,7 +142,7 @@ public class New_Bill extends AppCompatActivity implements View.OnClickListener{
 
             ParseObject Categorize = new ParseObject(role);
             if (title.getText().toString().length() > 3) {
-                if (price.getText().toString().length() > 3) {
+                if (price.getText().toString().length() > 1) {
                 if (displayDeadline.getText().toString().length() > 5) {
                     if (count == 1) {
                         if (Business.isChecked()) {
