@@ -16,6 +16,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.JoanneumProjekt">
         <activity
+            android:name=".abrechnung"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".Admin.GetPictures"
             android:exported="false" />
         <activity
@@ -51,13 +58,6 @@
         <activity
             android:name=".Admin.Main"
             android:exported="false" />
-        <activity
-            android:name=".testAndi"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
         <activity
             android:name=".Admin.activity_admin_delete_user"
             android:exported="false">

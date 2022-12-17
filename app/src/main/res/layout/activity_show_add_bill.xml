@@ -28,18 +28,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <ImageView
-        android:id="@+id/imageView11"
-        android:layout_width="147dp"
-        android:layout_height="214dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.98"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.086"
-        app:srcCompat="@drawable/flower" />
-
     <CheckBox
         android:id="@+id/Private"
         android:layout_width="100dp"
@@ -68,22 +56,22 @@
         android:id="@+id/txt_Titel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
+        android:ems="15"
         android:hint="Price including taxes"
         android:inputType="textPersonName"
         android:minHeight="48dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.087"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.176" />
+        app:layout_constraintVertical_bias="0.178" />
 
     <EditText
         android:id="@+id/Bill_Title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
+        android:ems="15"
         android:hint="Title"
         android:inputType="textPersonName"
         android:minHeight="48dp"
@@ -99,7 +87,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
-        android:ems="10"
+        android:ems="15"
         android:hint="Deadline"
         android:inputType="textPersonName"
         android:minHeight="48dp"
