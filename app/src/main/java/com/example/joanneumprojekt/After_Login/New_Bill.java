@@ -147,22 +147,25 @@ public class New_Bill extends AppCompatActivity implements View.OnClickListener 
         }
 
 
-        int percent = 0;
+        double percent = 0;
         int checkPercent = 0;
-        if (Business.isChecked()) {
+        if (check10.isChecked()) {
             checkPercent = checkPercent + 1;
         }
-        if (Private.isChecked()) {
+        if (check13.isChecked()) {
+            checkPercent = checkPercent + 1;
+        }
+        if (check20.isChecked()) {
             checkPercent = checkPercent + 1;
         }
 
         if (checkPercent == 1) {
             if (check10.isChecked())
-                percent = 10;
+                percent = 0.10;
             else if (check13.isChecked()) {
-                percent = 13;
+                percent = 0.13;
             } else if (check20.isChecked()) {
-                percent = 20;
+                percent = 0.20;
             }
         }
 
@@ -175,7 +178,7 @@ public class New_Bill extends AppCompatActivity implements View.OnClickListener 
                         Categorize.put("Date", displayDeadline.getText().toString());
                         Categorize.put("Title", title.getText().toString());
                         Categorize.put("Price", price.getText().toString());
-                        int calculation = Integer.parseInt(price.getText().toString()) * percent;
+                        double calculation = Integer.parseInt(price.getText().toString()) * percent;
                         Categorize.put("Abrechnung", calculation);
 
 

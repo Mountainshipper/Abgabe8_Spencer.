@@ -105,7 +105,7 @@ public class Main extends AppCompatActivity implements View.OnClickListener{
 
                                     if (count_Assistent == 0) {
                                         txtBusiness = txtBusiness + "--------------\n" + "Title: " + parseObject.get("Title") + "\n" + "Price: " + parseObject.get("Price") +
-                                                "\nDate: " + parseObject.get("Date") + "\n \n miau";
+                                                "\nDate: " + parseObject.get("Date") + "\nDeprecation: " + parseObject.get("Abrechnung") + "\n \n";
                                         txt_Display_Work.setText(txtBusiness);
                                         ++count_Assistent;
 
