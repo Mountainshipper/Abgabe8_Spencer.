@@ -11,6 +11,6 @@ public class Toolbar extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_rob_toolbar);
+        setContentView(R.layout.toolbar2);
     }
 }

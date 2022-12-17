@@ -44,7 +44,7 @@ public class New_Bill extends AppCompatActivity implements View.OnClickListener{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_rob_addbill);
+        setContentView(R.layout.add_Bill);
 
         drawerLayout = findViewById(R.id.drawer_layout);
         changetoolbarText = findViewById(R.id.tv_toolbarText);

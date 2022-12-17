@@ -11,6 +11,6 @@ public class Navigation_Drawer extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_rob_nav_drawer);
+        setContentView(R.layout.nav_drawer);
     }
 }
