@@ -171,7 +171,7 @@ public class Main extends AppCompatActivity implements View.OnClickListener {
 
     public void clickLogout(View view) {
         //close app
-        logout(this);
+        redirectActivity(this, .class);
     }
 
     public void deleteUser(View view) {

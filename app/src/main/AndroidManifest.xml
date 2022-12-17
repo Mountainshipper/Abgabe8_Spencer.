@@ -69,7 +69,10 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".open.Change_Bill"
+            android:name=".open.Change_DATA_WORK"
+            android:exported="false" />
+        <activity
+            android:name=".After_Login.Change_Bill"
             android:exported="false" />
         <activity
             android:name=".SignUP.Login_Interface"
