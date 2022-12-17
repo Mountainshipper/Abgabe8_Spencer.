@@ -34,7 +34,7 @@ public class New_Bill extends AppCompatActivity implements View.OnClickListener{
     DrawerLayout drawerLayout;
     //Date
     private static final String Tag = "MainActivity";
-    private TextView displayDeadline, title, txt_Titel;
+    private TextView displayDeadline, title, price;
     private DatePickerDialog.OnDateSetListener dateListener, Listenerdate;
     //Date end; Checkbox star
     private CheckBox Private, Business;
@@ -55,9 +55,8 @@ public class New_Bill extends AppCompatActivity implements View.OnClickListener{
         Private = findViewById(R.id.Private);
         Business = findViewById(R.id.Business);
         title = findViewById(R.id.Bill_Title);
-        txt_Titel = findViewById(R.id.txt_Titel);
+        price = findViewById(R.id.txt_Titel);
         setUpload = findViewById(R.id.btn_setWork);
-        openCamera = findViewById(R.id.btn_camera);
         //end
 
 
@@ -65,7 +64,6 @@ public class New_Bill extends AppCompatActivity implements View.OnClickListener{
         Private.setOnClickListener(this);
         Business.setOnClickListener(this);
         setUpload.setOnClickListener(this);
-        openCamera.setOnClickListener(this);
     }
 
 
@@ -87,6 +85,8 @@ public class New_Bill extends AppCompatActivity implements View.OnClickListener{
 
         }
     }
+
+
 
     public void deadline() {
         Calendar newCalender = Calendar.getInstance();
@@ -141,70 +141,84 @@ public class New_Bill extends AppCompatActivity implements View.OnClickListener{
 
 
             ParseObject Categorize = new ParseObject(role);
+            if (title.getText().toString().length() > 3) {
+                if (price.getText().toString().length() > 3) {
+                if (displayDeadline.getText().toString().length() > 5) {
+                    if (count == 1) {
+                        if (Business.isChecked()) {
+                            Categorize.put("Date", displayDeadline.getText().toString());
+                            Categorize.put("Title", title.getText().toString());
+                            Categorize.put("Price", price.getText().toString());
 
-            if (count == 1) {
-                if (Business.isChecked()) {
-                    Categorize.put("Date", displayDeadline.getText().toString());
-                    Categorize.put("Title", title.getText().toString());
-                    Categorize.put("Price", txt_Titel.getText().toString());
+                        } else if (Private.isChecked()) {
+                            Categorize.put("Date", displayDeadline.getText().toString());
+                            Categorize.put("Title", title.getText().toString());
+                            Categorize.put("Price", price.getText().toString());
 
-                } else if (Private.isChecked()) {
-                    Categorize.put("Date", displayDeadline.getText().toString());
-                    Categorize.put("Title", title.getText().toString());
-                    Categorize.put("Price", txt_Titel.getText().toString());
-
-                }
-
-
-                Categorize.saveInBackground(new SaveCallback() {
-                    @Override
-                    public void done(ParseException e) {
-                        if (e == null) {
-                            FancyToast.makeText(New_Bill.this, " Work has been uploaded", FancyToast.LENGTH_LONG, FancyToast.SUCCESS, true).show();
-
-
-                        } else {
-                            FancyToast.makeText(New_Bill.this, "Something went wrong", FancyToast.LENGTH_LONG, FancyToast.ERROR, true).show();
                         }
-                    }
-                });
 
+
+                        Categorize.saveInBackground(new SaveCallback() {
+                            @Override
+                            public void done(ParseException e) {
+                                if (e == null) {
+                                    FancyToast.makeText(New_Bill.this, " Work has been uploaded", FancyToast.LENGTH_LONG, FancyToast.SUCCESS, true).show();
+                                    Intent intent = new Intent(New_Bill.this, Main.class);
+                                    startActivity(intent);
+
+                                } else {
+                                    FancyToast.makeText(New_Bill.this, "Something went wrong", FancyToast.LENGTH_LONG, FancyToast.ERROR, true).show();
+                                }
+                            }
+                        });
+
+                    } else {
+                        FancyToast.makeText(New_Bill.this, " Please check only one box", FancyToast.LENGTH_LONG, FancyToast.ERROR, true).show();
+                    }
+                } else {
+                    FancyToast.makeText(New_Bill.this, "Please select a date.", FancyToast.LENGTH_LONG, FancyToast.ERROR, true).show();
+                }
+                } else {
+                    FancyToast.makeText(New_Bill.this, "The price has not been set / is malformed", FancyToast.LENGTH_LONG, FancyToast.ERROR, true).show();
+                }
             } else {
-                FancyToast.makeText(New_Bill
-                        .this, " Please check only one box", FancyToast.LENGTH_LONG, FancyToast.ERROR, true).show();
+                FancyToast.makeText(New_Bill.this, "The title has not been set / is malformed", FancyToast.LENGTH_LONG, FancyToast.ERROR, true).show();
             }
+
         }
     }
 
-    public void clickMenu(View view){
+    public void clickMenu (View view){
         Main.openDrawer(drawerLayout);
 
     }
 
-    public void clickLogo(View view){
+    public void clickLogo (View view){
         Main.closeDrawer(drawerLayout);
     }
 
-    public void clickHome(View view){
+    public void clickHome (View view){
         //Redirect activity to MainActivity (Home)
         Main.redirectActivity(this, Main.class);
     }
 
-    public void clickApplications(View view){
+    public void clickApplications (View view){
         //Recreate the ApplicationsActivity
         recreate();
     }
 
-    public void clickLogout(View view){
+    public void clickLogout (View view){
         //Close app
         Main.logout(this);
     }
 
     @Override
-    protected void onPause() {
+    protected void onPause () {
         super.onPause();
         Main.closeDrawer(drawerLayout);
     }
+
+
 
     private void cameraOpen() {
         Intent camera = new Intent(New_Bill.this, activity_camera.class);
