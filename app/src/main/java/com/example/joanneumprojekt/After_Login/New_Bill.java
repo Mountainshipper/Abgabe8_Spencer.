@@ -211,7 +211,7 @@ public class New_Bill extends AppCompatActivity implements View.OnClickListener{
     }
 
     public void deleteUser(View view){
-        //close app
+        //Redirect activity to deleteUser
         Main.redirectActivity(this, show_delete_bill.class);
     }
 
