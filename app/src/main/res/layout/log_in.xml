@@ -65,7 +65,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="56dp"
-        android:text="Interface Login"
+        android:text="User Guidence"
         android:backgroundTint="@color/white"
         android:textColorHint="@color/black"
         app:layout_constraintEnd_toEndOf="@+id/btnAdminSignUp"

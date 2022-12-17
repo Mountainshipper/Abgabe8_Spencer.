@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SignUP.Login_Interface">
+    tools:context=".SignUP.Login_Interface"
+    android:background="@color/background">
 
     <Button
         android:id="@+id/Login"
@@ -23,23 +24,50 @@
         android:id="@+id/SignUp"
         android:layout_width="202dp"
         android:layout_height="56dp"
-        android:layout_marginTop="40dp"
-        android:text="Sign Up"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="140dp"
         android:backgroundTint="@color/white"
+        android:text="Sign Up"
         android:textColorHint="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
     <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="317dp"
-        android:layout_height="461dp"
-        android:layout_marginTop="16dp"
+        android:id="@+id/imageView3"
+        android:layout_width="376dp"
+        android:layout_height="258dp"
+        android:layout_marginTop="144dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.47"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/login_interface" />
+        app:srcCompat="@drawable/heart" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="352dp"
+        android:layout_height="124dp"
+        android:layout_marginTop="32dp"
+        android:text="The developers wish you a "
+        android:textAlignment="center"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.487"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="174dp"
+        android:layout_height="83dp"
+        android:layout_marginTop="416dp"
+        android:text="Day"
+        android:textAlignment="center"
+        android:textSize="48sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.537"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
