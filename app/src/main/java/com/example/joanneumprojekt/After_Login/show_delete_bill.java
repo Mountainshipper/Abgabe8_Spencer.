@@ -251,6 +251,11 @@ public class show_delete_bill extends AppCompatActivity implements View.OnClickL
         redirectActivity(this, New_Bill.class);
     }
 
+    public void getBillsPng(View view) {
+        //Recreate the getpictures
+        Main.redirectActivity(this, GetPictures.class);
+    }
+
 
     public void clickLogout(View view){
         //close app
