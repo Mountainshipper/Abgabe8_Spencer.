@@ -74,12 +74,12 @@ public class Main extends AppCompatActivity implements View.OnClickListener{
 
                                     if (count_Work == 0) {
                                         txt_Private = txt_Private + "--------------\n" + "Title: " + parseObject.get("Title") + "\n" + "Price: " + parseObject.get("Price") +
-                                                "\nDate: " + parseObject.get("Date") + "\n \n";
+                                                "\nDate: " + parseObject.get("Date")  + "\nDeprecation: " + parseObject.get("Abrechnung") + "\n \n";
                                         txt_Display_Work.setText(txt_Private);
                                         ++count_Work;
                                     } else {
                                         txt_Private = txt_Private + "Title: " + parseObject.get("Title") + "\n" + "Price: " + parseObject.get("Price") +
-                                                "\nDate: " + parseObject.get("Date") + "\n \n";
+                                                "\nDate: " + parseObject.get("Date") + "\nDeprecation: " + parseObject.get("Abrechnung") + "\n \n";
                                         txt_Display_Work.setText(txt_Private);
                                     }
                                 }
@@ -111,7 +111,7 @@ public class Main extends AppCompatActivity implements View.OnClickListener{
 
                                     } else {
                                         txtBusiness = txtBusiness + "Title: " + parseObject.get("Title") + "\n" + "Price: " + parseObject.get("Price") +
-                                                "\nDate: " + parseObject.get("Date") + "\n \n";
+                                                "\nDate: " + parseObject.get("Date")  + "\nDeprecation: " + parseObject.get("Abrechnung") + "\n \n";
                                         txt_Display_Work.setText(txtBusiness);
                                     }
 
