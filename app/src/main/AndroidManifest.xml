@@ -16,18 +16,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.JoanneumProjekt">
         <activity
-            android:name=".After_Login.show_change_bill"
-            android:exported="false" />
-        <activity
             android:name=".After_Login.show_delete_bill"
             android:exported="false" />
-        <activity
-            android:name=".abrechnung"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
         <activity
             android:name=".Pictures.GetPictures"
             android:exported="false" />
@@ -71,12 +61,6 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-        <activity
-            android:name=".open.Change_DATA_WORK"
-            android:exported="false" />
-        <activity
-            android:name=".After_Login.Change_Bill"
-            android:exported="false" />
         <activity
             android:name=".SignUP.Login_Interface"
             android:exported="false" />
