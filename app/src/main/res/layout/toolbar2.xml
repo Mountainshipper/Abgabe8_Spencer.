@@ -11,14 +11,12 @@
 
 
     <ImageView
-        android:id="@+id/imageView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:contentDescription="@string/clickMenu"
-        android:minWidth="48dp"
-        android:minHeight="48dp"
+        android:minWidth="28dp"
+        android:minHeight="28dp"
         android:onClick="clickMenu"
-        app:srcCompat="@drawable/buttton" />
+        android:src="@drawable/ic_menu" />
 
     <TextView
         android:id="@+id/tv_toolbarText"
@@ -33,9 +31,9 @@
 
 
     <ImageView
-        android:layout_width="75dp"
-        android:layout_height="30dp"
-        android:src="@drawable/billing"/>
+        android:layout_width="89dp"
+        android:layout_height="40dp"
+        android:src="@drawable/billing" />
 
 
 

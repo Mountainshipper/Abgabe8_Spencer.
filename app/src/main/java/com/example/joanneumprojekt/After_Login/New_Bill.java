@@ -223,7 +223,7 @@ public class New_Bill extends AppCompatActivity implements View.OnClickListener 
 
     public void getBillsPng(View view) {
         //Redirect activity to Show_Pictures
-        Main.redirectActivity(this, Show_Pictures.class);
+        Main.redirectActivity(this, GetPictures.class);
     }
 
     public void deleteUser(View view) {
