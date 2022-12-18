@@ -46,7 +46,7 @@
             android:name=".Display_Interface.Toolbar"
             android:exported="false" />
         <activity
-            android:name=".After_Login.New_Bill"
+            android:name=".Display_Interface.New_Bill"
             android:exported="false" />
         <activity
             android:name=".Display_Interface.Navigation_Drawer"

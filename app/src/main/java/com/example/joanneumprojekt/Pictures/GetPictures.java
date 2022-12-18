@@ -21,7 +21,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.joanneumprojekt.After_Login.Main;
-import com.example.joanneumprojekt.After_Login.New_Bill;
+import com.example.joanneumprojekt.Display_Interface.New_Bill;
 import com.example.joanneumprojekt.After_Login.show_delete_bill;
 import com.example.joanneumprojekt.R;
 import com.parse.FindCallback;

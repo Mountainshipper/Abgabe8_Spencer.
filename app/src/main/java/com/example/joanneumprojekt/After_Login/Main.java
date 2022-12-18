@@ -18,6 +18,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.joanneumprojekt.Display_Interface.New_Bill;
 import com.example.joanneumprojekt.Pictures.GetPictures;
 import com.example.joanneumprojekt.R;
 import com.parse.FindCallback;
@@ -76,12 +77,19 @@ public class Main extends AppCompatActivity implements View.OnClickListener {
                                     if (count_Work == 0) {
                                         txt_Private = txt_Private + "--------------\n" + "Title: " + parseObject.get("Title") + "\n" + "Price: " + parseObject.get("Price") + "€"+
                                                 "\nDate: " + parseObject.get("Date") + "\nTaxes: " + parseObject.get("Abrechnung") + "€"+ "\n \n";
-                                        sum = sum + (double) parseObject.get("Abrechnung");
+                                        if (parseObject.get("Abrechnung").toString().contains(".")) {
+                                            sum = sum + (double) parseObject.get("Abrechnung");
+                                        }else
+                                            sum = sum + Double.valueOf(parseObject.get("Abrechnung") + ".0");
+
 
                                     } else {
                                         txt_Private = txt_Private + "Title: " + parseObject.get("Title") + "\n" + "Price: " + parseObject.get("Price") + "€"+
                                                 "\nDate: " + parseObject.get("Date") + "\nTaxes: " + parseObject.get("Abrechnung") + "€"+ "\n \n";
-                                        sum = sum + (double) parseObject.get("Abrechnung");
+                                        if (parseObject.get("Abrechnung").toString().contains(".")) {
+                                            sum = sum + (double) parseObject.get("Abrechnung");
+                                        }else
+                                        sum = sum + Double.valueOf(parseObject.get("Abrechnung") + ".0");
                                     }
                                 }
                             }
@@ -112,12 +120,18 @@ public class Main extends AppCompatActivity implements View.OnClickListener {
                                         txtBusiness = txtBusiness + "--------------\n" + "Title: " + parseObject.get("Title") + "\n" + "Price: " + parseObject.get("Price") + "€"+
                                                 "\nDate: " + parseObject.get("Date") + "\nTaxes: " + parseObject.get("Abrechnung") + "€"+ "\n \n";
                                         ++count_Assistent;
-                                        sum = sum + (double) parseObject.get("Abrechnung");
+                                        if (parseObject.get("Abrechnung").toString().contains(".")) {
+                                            sum = sum + (double) parseObject.get("Abrechnung");
+                                        }else
+                                            sum = sum + Double.valueOf(parseObject.get("Abrechnung") + ".0");
 
                                     } else {
                                         txtBusiness = txtBusiness + "Title: " + parseObject.get("Title") + "\n" + "Price: " + parseObject.get("Price") + "€"+
                                                 "\nDate: " + parseObject.get("Date") + "\nTaxes: " + parseObject.get("Abrechnung") + "€"+ "\n \n";
-                                        sum = sum + (double) parseObject.get("Abrechnung");
+                                        if (parseObject.get("Abrechnung").toString().contains(".")) {
+                                            sum = sum + (double) parseObject.get("Abrechnung");
+                                        }else
+                                            sum = sum + Double.valueOf(parseObject.get("Abrechnung") + ".0");
                                     }
 
                                 }

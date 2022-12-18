@@ -2,7 +2,7 @@
  * Class for adding a new bill to the system
  */
 
-package com.example.joanneumprojekt.After_Login;
+package com.example.joanneumprojekt.Display_Interface;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -18,8 +18,10 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.TextView;
 
+import com.example.joanneumprojekt.After_Login.Main;
+import com.example.joanneumprojekt.After_Login.activity_camera;
+import com.example.joanneumprojekt.After_Login.show_delete_bill;
 import com.example.joanneumprojekt.Pictures.GetPictures;
-import com.example.joanneumprojekt.Pictures.Show_Pictures;
 import com.example.joanneumprojekt.R;
 import com.parse.ParseObject;
 import com.shashank.sony.fancytoastlib.FancyToast;
@@ -33,7 +35,7 @@ public class New_Bill extends AppCompatActivity implements View.OnClickListener 
     DrawerLayout drawerLayout;
     private static final String Tag = "MainActivity";
     private TextView displayDeadline, title, price;
-    private DatePickerDialog.OnDateSetListener dateListener, Listenerdate;
+    private DatePickerDialog.OnDateSetListener dateListener;
     private CheckBox Private, Business, check20, check10, check13;
     private Button setUpload, openCamera;
     Date date2;
@@ -164,10 +166,16 @@ public class New_Bill extends AppCompatActivity implements View.OnClickListener 
             }
         }
 
+        boolean check = false;
+        try {
+            Integer.valueOf(price.getText().toString().length());
+            check = true;
+        } catch (Exception e) {
+        }
 
         ParseObject Categorize = new ParseObject(role);
         if (title.getText().toString().length() > 3) {
-            if (price.getText().toString().length() > 1) {
+            if (price.getText().toString().length() > 1 && check) {
                 if (displayDeadline.getText().toString().length() > 5) {
                     if (count == 1 && checkPercent == 1) {
                         Categorize.put("Date", displayDeadline.getText().toString());
