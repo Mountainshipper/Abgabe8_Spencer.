@@ -370,6 +370,7 @@ public class activity_camera extends AppCompatActivity {
                 ParseFile parseFile = new ParseFile("img.png", bytes);
                 ParseObject parseObject = new ParseObject("Photo");
                 parseObject.put("picture", parseFile);
+                parseObject.put("Name", "1");
                 parseObject.saveInBackground(new SaveCallback() {
                     @Override
                     public void done(ParseException e) {

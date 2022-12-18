@@ -48,7 +48,7 @@ public class GetPictures extends AppCompatActivity {
         linearLayout = findViewById(R.id.SetLayoutForPictures);
         drawerLayout = findViewById(R.id.drawer_layout);
         changetoolbarText = findViewById(R.id.tv_toolbarText);
-        changetoolbarText.setText("GET BILLS");
+        changetoolbarText.setText("Show All Pictures");
 
 
 
